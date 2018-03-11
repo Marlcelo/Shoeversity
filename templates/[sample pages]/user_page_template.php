@@ -11,8 +11,12 @@
     ?>
 </head>
 <body>
-    
+	<!-- Include header -->
+	<?php include "../templates/users/user_header.php"; ?>
+	
+    <div class="content-wrapper ">
+	</div>
 
-<!-- Include Javascript files -->
+	<!-- Include Javascript files -->
 </body>
 </html>

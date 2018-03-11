@@ -1,0 +1,11 @@
+body, html {
+	margin: 0 auto;
+	background-color: #F9F9F9;
+	/*background-color: #FFFFFF;*/
+	max-width: 100%;
+	min-height: 100%;
+}
+
+.content-wrapper {
+	margin-top: 100px;	/* 50px is the default height of Bootstrap's navbar class */
+}
