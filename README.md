@@ -1,2 +1,2 @@
 # Shoeversity
-SECURDE MP JAVA WEB
+SECURDE MP PHP WEB
