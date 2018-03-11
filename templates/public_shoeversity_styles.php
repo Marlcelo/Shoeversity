@@ -1,7 +1,7 @@
 <!-- SITE-WIDE STYLES AND FONTS -->
 
 <!-- Favicon -->
-<link rel="shortcut icon" type="image/x-icon" href="../images/logos/shoeversity-logo.jpg">
+<link rel="shortcut icon" type="image/x-icon" href="../images/logos/shoeversity-favicon.png">
 
 <!-- Header Nav Bar styles -->
 <link rel="stylesheet" type="text/css" href="../css/header.css">
