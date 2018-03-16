@@ -1,3 +1,6 @@
+<?php
+	$highlight = $_SESSION['active_page'];
+?>
 <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -16,9 +19,9 @@
 						</div>
 					</form>
 				</li>
-				<li class=""><a href="#">Dashboard</a></li>
-				<li class=""><a href="#">My Account</a></li>
-				<li class="">Logout</a></li>
+				<li <?php if($highlight == 'dashboard') echo "class='active'"; ?>><a href="#">Dashboard</a></li>
+				<li <?php if($highlight == 'account') echo "class='active'"; ?>><a href="#">My Account</a></li>
+				<li <?php if($highlight == 'logout') echo "class='active'"; ?>>Logout</a></li>
 			</ul>
 		</div>
         </nav>
