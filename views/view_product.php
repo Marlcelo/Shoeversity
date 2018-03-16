@@ -56,7 +56,7 @@
                             </h5>
                             
                             <div class="action">
-                                <button class="add-to-cart btn btn-default" type="submit">add to cart</button>
+                                <button class="add-to-cart btn btn-primary" type="submit">add to cart</button>
                                 <button class="like btn btn-default" type="button"><span class="fa fa-star"></span> Rate</button>
                             </div>
                         </form>
