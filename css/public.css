@@ -1,17 +1,3 @@
-#shoversity-carousel {
-	width: 50%;
-	margin-bottom: 50px;
-}
-
-.panel-login {
-	margin-top: 30px;
-	padding: 20px;
-}
-
-.panel-register {
-	margin-top: 30px;
-	padding: 30px;
-}
 
 @import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700&subset=latin-ext,vietnamese');   
 body{
@@ -78,4 +64,19 @@ button {    margin-top: 6px;
 	margin: 0 auto;
          margin-top: 50px;
          width:400px;
+}
+
+#shoversity-carousel {
+	width: 50%;
+	margin-bottom: 50px;
+}
+
+.panel-login {
+	margin-top: 30px;
+	padding: 20px;
+}
+
+.panel-register {
+	margin-top: 30px;
+	padding: 30px;
 }
