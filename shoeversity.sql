@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 16, 2018 at 04:25 PM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.1.14
+-- Host: 127.0.0.1
+-- Generation Time: Mar 16, 2018 at 05:13 PM
+-- Server version: 10.1.28-MariaDB
+-- PHP Version: 7.1.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -26,6 +26,38 @@ CREATE DATABASE `shoeversity`;
 USE `shoeversity`;
 
 DELIMITER $$
+--
+-- Procedures
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_NEWUSER` (`uname` VARCHAR(35), `pass` VARCHAR(100), `emailAdd` VARCHAR(50), `uGender` CHAR(1), `fname` VARCHAR(35), `mname` VARCHAR(35), `lname` VARCHAR(35))  BEGIN
+  declare str_return varchar(10); 
+    
+    IF EXISTS(SELECT * FROM users WHERE uname LIKE u_username AND emailAdd LIKE u_email) THEN
+    set str_return = "FAIL";
+  ELSE 
+    INSERT INTO users VALUES(NULL,uname,FN_GET_HASHEDPASSWORD(pass),emailAdd,uGender,fname,mname,lname,NOW());
+        set str_return = "SUCCESS";
+  END IF;
+    
+    SELECT str_return as col;
+    
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_AUTHUSER`(strUsername varchar(35), strPassword varchar(100))
+BEGIN
+  DECLARE strreturn varchar(50);
+    
+  IF EXISTS (SELECT * FROM site_users WHERE username = strUsername AND password = strPassword LIMIT 1) THEN
+    SET strreturn = 'SUCCESS';
+        
+    ELSE
+    SET strreturn = 'FAILED';
+        
+    END IF;
+    
+    SELECT strreturn;
+END$$
+
 --
 -- Functions
 --
@@ -274,7 +306,7 @@ CREATE TABLE `site_users` (
 --
 
 INSERT INTO `site_users` (`id`, `type`, `username`, `password`) VALUES
-(1, 'User', 'marl', 'ricanor'),
+(1, 'User', 'marl', '37C6F1B0A01C157186B5A878F639EBF1'),
 (2, 'User', 'linds', 'linds'),
 (3, 'User', 'linds', 'erla'),
 (4, 'Brand', 'NikePhilippines', 'swoosh'),
@@ -312,7 +344,10 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`uid`, `u_username`, `u_password`, `u_email`, `u_gender`, `first_name`, `middle_name`, `last_name`, `time_stamp`) VALUES
 (1, 'marl', 'ricanor', 'marlchristian@yahoo.com.ph', 'm', 'Cristino', 'Damien', 'Nodado', '2018-02-26 14:06:57'),
 (2, 'linds', 'erla', 'lindsey_erlandsen@dlsu.edu.ph', 'f', 'Lindsey', 'Panghulan', 'Erlandsen', '2018-02-26 14:40:52'),
-(3, 'linds', 'linds', 'lindsey_erlandsen@dlsu.edu.ph', 'f', 'Lindsey', 'Panghulan', 'Erlandsen', '2018-02-27 14:41:14');
+(3, 'linds', 'linds', 'lindsey_erlandsen@dlsu.edu.ph', 'f', 'Lindsey', 'Panghulan', 'Erlandsen', '2018-02-27 14:41:14'),
+(6, 'loserdan', '6CB59BCB03E7A1EDBE7573BC367307E8', 'dan@yahoo.com', 'm', 'Daniel Philip', 'Fernandes', 'Lachica', '2018-03-16 15:57:05'),
+(9, 'maemae', '00580EFDF9D27A169D296A4B5DE7A735', 'chelsey@gmail.com', 'f', 'Chelsey ', 'Anne', 'Medina', '2018-03-16 16:00:17'),
+(10, 'cris', '7BB0BB352FFB2F5245F25149889A0C76', 'chelsey@gmail.com', 'm', 'Cristino', 'Panghulan', 'Nodado', '2018-03-16 16:12:55');
 
 --
 -- Indexes for dumped tables
@@ -461,7 +496,7 @@ ALTER TABLE `site_users`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
