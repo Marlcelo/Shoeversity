@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 28, 2018 at 02:10 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+-- Host: localhost
+-- Generation Time: Mar 16, 2018 at 03:51 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.1.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -24,6 +24,25 @@ SET time_zone = "+00:00";
 DROP DATABASE IF EXISTS `shoeversity`;
 CREATE DATABASE `shoeversity`;
 USE `shoeversity`;
+
+DELIMITER $$
+--
+-- Functions
+--
+CREATE DEFINER=`root`@`localhost` FUNCTION `FN_GET_HASHEDPASSWORD` (`strRawPassword` VARCHAR(255)) RETURNS VARCHAR(255) CHARSET latin1 READS SQL DATA
+    DETERMINISTIC
+BEGIN
+  
+  DECLARE strHashedPass varchar(255);
+    
+    set strHashedPass = md5(strPassword);
+    set strHashedPass = UPPER(strHashedPass);
+
+  RETURN strHashedPass;
+    
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -345,7 +364,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `brands`
