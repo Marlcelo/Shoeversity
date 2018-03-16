@@ -28,7 +28,7 @@
                         <img src=""/>
 					</div>
 					<div class="details col-md-6">
-                                            <h3 class="product-title">SHOES</h3>
+            <h3 class="product-title">SHOES</h3>
 						<div class="rating">
 							<div class="stars">
 								<span class="fa fa-star checked"></span>

@@ -70,10 +70,94 @@
     <div class="container-fluid content-wrapper">
     </div>
 
-    <div class="container">
+    <div class="container" style="margin-top: 650px;">
         <!-- BEGIN PRODUCTS GRID -->
-        <div class="col-md-12">
-        </div>
+            <div class="col-md-12">
+                <div class="col-sm-4">
+                    <span class="thumbnail">
+                        <img src="" alt="...">
+                        <h4></h4>
+                        <div class="ratings">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                        </div>
+                                <p><label class="lead">SHOE NAME</label></p>
+                                <p>A very nice shoe.</p>
+                                <p><b>COLOR:</b></p>
+                                <p><b>SIZE:</b></p>
+                        <hr class="line">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <p class="price">Php. 3,500</p>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <a href=""><button class="btn-md btn-info pull-right" >BUY ITEM</button></a>
+                           </div>
+                            
+                        </div>
+                    </span>
+                </div>
+
+                <div class="col-sm-4">
+                    <span class="thumbnail">
+                        <img src="" alt="...">
+                        <h4></h4>
+                        <div class="ratings">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                        </div>
+                                <p><label class="lead">SHOE NAME</label></p>
+                                <p>A very nice shoe.</p>
+                                <p><b>COLOR:</b></p>
+                                <p><b>SIZE:</b></p>
+                        <hr class="line">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <p class="price">Php. 3,500</p>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <a href=""><button class="btn-md btn-info pull-right" >BUY ITEM</button></a>
+                           </div>
+                            
+                        </div>
+                    </span>
+                </div>
+
+                <div class="col-sm-4">
+                    <span class="thumbnail">
+                        <img src="" alt="...">
+                        <h4></h4>
+                        <div class="ratings">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                        </div>
+                                <p><label class="lead">SHOE NAME</label></p>
+                                <p>A very nice shoe.</p>
+                                <p><b>COLOR:</b></p>
+                                <p><b>SIZE:</b></p>
+                        <hr class="line">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <p class="price">Php. 3,500</p>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <a href=""><button class="btn-md btn-info pull-right" >BUY ITEM</button></a>
+                           </div>
+                            
+                        </div>
+                    </span>
+                </div>
+            </div>
+            
         <!-- .END PRODUCTS GRID -->
     </div>
      <!-- .END MAIN CONTENT -->
