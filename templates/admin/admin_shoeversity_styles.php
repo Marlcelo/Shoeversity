@@ -13,6 +13,7 @@
 <!-- Fonts -->
 <!-- <link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet">   -->
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> 
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"> 
 
 <!-- Footer -->
 <link rel="stylesheet" type="text/css" href="../../css/footer.css">
