@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 28, 2018 at 02:10 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 7.1.11
+-- Host: localhost
+-- Generation Time: Mar 16, 2018 at 04:25 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.1.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -24,6 +24,25 @@ SET time_zone = "+00:00";
 DROP DATABASE IF EXISTS `shoeversity`;
 CREATE DATABASE `shoeversity`;
 USE `shoeversity`;
+
+DELIMITER $$
+--
+-- Functions
+--
+CREATE DEFINER=`root`@`localhost` FUNCTION `FN_GET_HASHEDPASSWORD` (`strRawPassword` VARCHAR(255)) RETURNS VARCHAR(255) CHARSET latin1 READS SQL DATA
+    DETERMINISTIC
+BEGIN
+  
+  DECLARE strHashedPass varchar(255);
+    
+    set strHashedPass = md5(strRawPassword);
+    set strHashedPass = UPPER(strHashedPass);
+
+  RETURN strHashedPass;
+    
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -240,6 +259,37 @@ CREATE TABLE `shoe_ratings` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `site_users`
+--
+
+CREATE TABLE `site_users` (
+  `id` int(11) NOT NULL,
+  `type` enum('Admin','Brand','User','') NOT NULL,
+  `username` varchar(35) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `site_users`
+--
+
+INSERT INTO `site_users` (`id`, `type`, `username`, `password`) VALUES
+(1, 'User', 'marl', 'ricanor'),
+(2, 'User', 'linds', 'linds'),
+(3, 'User', 'linds', 'erla'),
+(4, 'Brand', 'NikePhilippines', 'swoosh'),
+(5, 'Brand', 'AdidasPH', 'stripes'),
+(6, 'Brand', 'AdidasPH1', 'something'),
+(7, 'Brand', 'YeezySupply', 'beluga'),
+(8, 'Brand', 'ReebokPH', 'reebok'),
+(9, 'Admin', 'marl', 'marl'),
+(10, 'Admin', 'linds', 'linds'),
+(11, 'Admin', 'chels', 'che'),
+(12, 'Admin', 'daniel', 'lachica');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -332,6 +382,12 @@ ALTER TABLE `shoe_ratings`
   ADD KEY `user_id` (`rated_by`);
 
 --
+-- Indexes for table `site_users`
+--
+ALTER TABLE `site_users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -345,7 +401,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `brands`
@@ -394,6 +450,12 @@ ALTER TABLE `shoes`
 --
 ALTER TABLE `shoe_ratings`
   MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `site_users`
+--
+ALTER TABLE `site_users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
