@@ -43,6 +43,21 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_NEWUSER` (`uname` VARCHAR(35
     
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_AUTHUSER`(strUsername varchar(35), strPassword varchar(100))
+BEGIN
+  DECLARE strreturn varchar(50);
+    
+  IF EXISTS (SELECT * FROM site_users WHERE username = strUsername AND password = strPassword LIMIT 1) THEN
+    SET strreturn = 'SUCCESS';
+        
+    ELSE
+    SET strreturn = 'FAILED';
+        
+    END IF;
+    
+    SELECT strreturn;
+END$$
+
 --
 -- Functions
 --
@@ -276,6 +291,37 @@ CREATE TABLE `shoe_ratings` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `site_users`
+--
+
+CREATE TABLE `site_users` (
+  `id` int(11) NOT NULL,
+  `type` enum('Admin','Brand','User','') NOT NULL,
+  `username` varchar(35) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `site_users`
+--
+
+INSERT INTO `site_users` (`id`, `type`, `username`, `password`) VALUES
+(1, 'User', 'marl', '37C6F1B0A01C157186B5A878F639EBF1'),
+(2, 'User', 'linds', 'linds'),
+(3, 'User', 'linds', 'erla'),
+(4, 'Brand', 'NikePhilippines', 'swoosh'),
+(5, 'Brand', 'AdidasPH', 'stripes'),
+(6, 'Brand', 'AdidasPH1', 'something'),
+(7, 'Brand', 'YeezySupply', 'beluga'),
+(8, 'Brand', 'ReebokPH', 'reebok'),
+(9, 'Admin', 'marl', 'marl'),
+(10, 'Admin', 'linds', 'linds'),
+(11, 'Admin', 'chels', 'che'),
+(12, 'Admin', 'daniel', 'lachica');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -371,6 +417,12 @@ ALTER TABLE `shoe_ratings`
   ADD KEY `user_id` (`rated_by`);
 
 --
+-- Indexes for table `site_users`
+--
+ALTER TABLE `site_users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -433,6 +485,12 @@ ALTER TABLE `shoes`
 --
 ALTER TABLE `shoe_ratings`
   MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `site_users`
+--
+ALTER TABLE `site_users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
