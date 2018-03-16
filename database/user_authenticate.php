@@ -12,7 +12,7 @@ $password = $_POST['password'];
 $sql = "CALL SP_GET_AUTHUSER('$username', 
 							  FN_GET_HASHEDPASSWORD('$password'));";	/* Check hashed password */
 
-$result = mysqli_query($conn, $sql) or die(mysql_error($conn));
+$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
 /* Stores a String indicating if the user exists in the database or not */
 $message = mysqli_fetch_assoc($result);
