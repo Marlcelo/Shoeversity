@@ -24,7 +24,7 @@ if($message['strreturn'] == 'SUCCESS') {
 }
 else if($message['strreturn'] == 'FAILED') {
 	// Redirect back to the login page and display the error modal
-	header("Location: ../views/admin/login.php?auth=failed");
+	header("Location: ../views/login.php?auth=error");
 	exit();
 }
 
