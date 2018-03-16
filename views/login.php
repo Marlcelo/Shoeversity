@@ -13,6 +13,7 @@
         $_SESSION['active_page'] = "login";
 
         if(isset($_GET['auth'])) {
+            // Wrong username or password
             if($_GET['auth'] == "error") {
                 include "modals/failed_login.php";
 
@@ -22,6 +23,20 @@
                             window.location = 'login.php';
                         })
                     </script>";
+            }
+
+            // Unverified Brand login attempt
+            if($_GET['auth'] == "unverified") {
+                include "modals/error.php";
+
+                echo "<script> 
+                        $('#error_modal').modal('show');
+                        $('#error_modal').on('hidden.bs.modal', function () {    //reload login form
+                            window.location = 'login.php';
+                        })
+                    </script>";
+
+                $_SESSION['error_msg'] = "";    // reset
             }
         }
     ?>
