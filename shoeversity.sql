@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 16, 2018 at 03:51 PM
+-- Generation Time: Mar 16, 2018 at 04:25 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.1.14
 
@@ -35,7 +35,7 @@ BEGIN
   
   DECLARE strHashedPass varchar(255);
     
-    set strHashedPass = md5(strPassword);
+    set strHashedPass = md5(strRawPassword);
     set strHashedPass = UPPER(strHashedPass);
 
   RETURN strHashedPass;
@@ -259,6 +259,37 @@ CREATE TABLE `shoe_ratings` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `site_users`
+--
+
+CREATE TABLE `site_users` (
+  `id` int(11) NOT NULL,
+  `type` enum('Admin','Brand','User','') NOT NULL,
+  `username` varchar(35) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `site_users`
+--
+
+INSERT INTO `site_users` (`id`, `type`, `username`, `password`) VALUES
+(1, 'User', 'marl', 'ricanor'),
+(2, 'User', 'linds', 'linds'),
+(3, 'User', 'linds', 'erla'),
+(4, 'Brand', 'NikePhilippines', 'swoosh'),
+(5, 'Brand', 'AdidasPH', 'stripes'),
+(6, 'Brand', 'AdidasPH1', 'something'),
+(7, 'Brand', 'YeezySupply', 'beluga'),
+(8, 'Brand', 'ReebokPH', 'reebok'),
+(9, 'Admin', 'marl', 'marl'),
+(10, 'Admin', 'linds', 'linds'),
+(11, 'Admin', 'chels', 'che'),
+(12, 'Admin', 'daniel', 'lachica');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -351,6 +382,12 @@ ALTER TABLE `shoe_ratings`
   ADD KEY `user_id` (`rated_by`);
 
 --
+-- Indexes for table `site_users`
+--
+ALTER TABLE `site_users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -413,6 +450,12 @@ ALTER TABLE `shoes`
 --
 ALTER TABLE `shoe_ratings`
   MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `site_users`
+--
+ALTER TABLE `site_users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
