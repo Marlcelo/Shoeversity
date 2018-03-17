@@ -18,15 +18,14 @@
     <?php require "../templates/public_header.php"; ?>
     <!-- .END HEADER -->
 
-  
-
     <!-- BEGIN MAIN CONTENT -->
-    <div id="myCarousel" class="carousel slide" data-ride="carousel" style="position: absolute; top: 0; margin-bottom: 100px; width: 100%; height: 100vh">
+    <!-- Begin Carousel -->
+    <div id="shoeversityCarousel" class="carousel slide" data-ride="carousel" style="position: absolute; top: 0; margin-bottom: 100px; width: 100%; height: 100vh">
             <!-- Indicators -->
             <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#shoeversityCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#shoeversityCarousel" data-slide-to="1"></li>
+                <li data-target="#shoeversityCarousel" data-slide-to="2"></li>
             </ol>
 
             <!-- Wrapper for slides -->

@@ -20,14 +20,14 @@
     <!-- .END HEADER -->
 
     <!-- BEGIN MAIN CONTENT -->
-    <div class="container content-wrapper">
+    <div class="container content-wrapper" style="margin-top: 50px">
         <div class="col-md-12">
             <div class="col-md-2">  
             </div>
 
             <div class="col-md-8">
                 <!-- Login Form Container -->
-                <div class="panel panel-default panel-register">
+                <div class="panel panel-default panel-register" style="padding-top: 10px">
 
                     <div class="text-center" style="margin-bottom: 10px solid black"> 
                         <img src="../images/logos/shoeversity-logo.jpg" height="200px" class="img-circle" alt="Shoeversity">
@@ -37,7 +37,7 @@
                     <hr>
 
                     <!-- Register Form -->
-                    <div class="content">
+                    <div style="padding: 7px;">
                 
                         <ul class="nav nav-tabs nav-justified" data-tabs="tabs">
                             <li class="active"> <a data-toggle="tab" href="#user_reg">Customer</a> </li>

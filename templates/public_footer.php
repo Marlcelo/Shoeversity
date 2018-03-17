@@ -25,7 +25,7 @@
 	</div>
 </footer>         -->
 
-<footer class="footer" id="footer">
+<footer class="footer" id="footer" style="padding-bottom: 0px;">
     <div class="container">
         <div class="row">
             <div class="col-md-4">
@@ -54,7 +54,7 @@
                 <ul>
                     <li> 
                      <form action="" class="navbar-form" role="search" style="width: 100%">
-                        <div class="input-group">
+                        <div class="input-group" style="margin-left: -15px">
                            <input type="text" class="form-control" placeholder="Search" name="search-product">
                            <div class="input-group-btn">
                               <button class="btn btn-primary" type="submit" style="margin-top: 0px">
@@ -75,7 +75,7 @@
 <!--/.container-->
 <!--/.footer-->
 
-<div class="footer-bottom">
+<div class="footer-bottom"  style="margin-top: 30px;">
     <div class="container">
         <p class="pull-left"> Copyright © 2018, Lachica, Medina, Ricanor. All rights reserved.</p>
         <div class="pull-right">

@@ -47,14 +47,14 @@
     <!-- .END HEADER -->
 
     <!-- BEGIN MAIN CONTENT -->
-    <div class="container content-wrapper">
+    <div class="container content-wrapper" style="margin-top: 50px">
         <div class="col-md-12">
             <div class="col-md-3">  
             </div>
 
             <div class="col-md-6">
-                <!-- Login Form Container -->
-                <div class="panel panel-default panel-login">
+                <!-- Login Form Container --> 
+                <div class="panel panel-default panel-login" style="padding-top: 10px">
 
                     <div class="text-center" style="margin-bottom: 10px solid black"> 
                         <img src="../images/logos/shoeversity-logo.jpg" height="200px" class="img-circle" alt="Shoeversity">
