@@ -127,13 +127,6 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_AUTHUSER` (`strUsername` VAR
     SELECT strreturn;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_BRAND` (`strUsername` VARCHAR(35))  BEGIN
-  SELECT uid, b_username, brand_name, b_email, b_verified
-    FROM brands 
-    WHERE b_username = strUsername 
-    LIMIT 1;
-END$$
-
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_USER` (`strUsername` VARCHAR(35))  BEGIN
   SELECT uid, u_username, u_email, u_gender, first_name, middle_name, last_name
     FROM users 
