@@ -158,6 +158,10 @@
             </div>
 	</div>
 
+    <!-- BEGIN FOOTER -->
+    <?php require "../../templates/admin/admin_footer.php"; ?>
+    <!-- .END FOOTER -->
+
 	<!-- Include Javascript files -->
 </body>
 </html>
