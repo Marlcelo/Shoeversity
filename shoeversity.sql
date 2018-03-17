@@ -214,6 +214,18 @@ INSERT INTO `brands` (`uid`, `brand_name`, `b_username`, `b_password`, `b_email`
 (4, 'Yeezy', 'YeezySupply', 'beluga', 'yeezy@yahoo.com', 0, '2018-02-27 12:03:48'),
 (5, 'ReebokAsia', 'ReebokPH', 'reebok', 'reebok@gmail.com', 0, '2018-02-27 12:11:03');
 
+--
+-- Indexes for table `brands`
+--
+ALTER TABLE `brands`
+  ADD PRIMARY KEY (`uid`);
+
+--
+-- AUTO_INCREMENT for table `brands`
+--
+ALTER TABLE `brands`
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+COMMIT;
 -- --------------------------------------------------------
 
 --

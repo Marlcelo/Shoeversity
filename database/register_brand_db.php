@@ -73,6 +73,8 @@
 			$row = mysqli_fetch_assoc($result);
 			var_dump($row);
 			$uid = $row['uid'];
+			$username = $row['b_username'];
+			$pass = $row['b_password'];
 
 //**********************************************************
 //		ADD BRAND CONTACTS 	
@@ -202,6 +204,28 @@
 
 			mysqli_close($conn);
 		}
+
+//*****************************************************
+//		ADD TO SITE_USERS
+//*****************************************************
+
+		require 'config.php';
+
+			$query = "CALL SP_ADD_SITE_USER('Brand','".$username."','".$pass."');";
+
+			echo "$query";
+
+			$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
+
+			$row = mysqli_fetch_assoc($result);
+			var_dump($row);
+
+			if($row['col'] == "SUCCESS")
+				echo "Stored SITE USER AS BRAND <BR>";
+			else
+				echo "ERROR <br>";
+
+			mysqli_close($conn);
 
 			// header("Location: ../index.php"); //PLEASE CHANGE THIS TO USER LANDING PAGE
 		}
