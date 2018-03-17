@@ -30,6 +30,20 @@ DELIMITER $$
 -- Procedures
 --
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_BRAND_CONTACT`(bId int(11), contactNum varchar(20))
+BEGIN
+  declare str_return varchar(15);
+    
+    IF EXISTS(SELECT * FROM brand_contact_number WHERE bId LIKE brand_id AND contact LIKE contactNum) THEN
+    set str_return = 'FAIL';
+  ELSE 
+    INSERT INTO brand_contact_number(brand_id,contact) VALUES(bId,contactNum);
+        SET str_return = 'SUCCESS';
+  END IF;
+    
+  SELECT str_return col;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_BRAND_INFO` (`bName` VARCHAR(35), `bUser` VARCHAR(35), `bPass` VARCHAR(100), `bEmail` VARCHAR(50))  BEGIN
   declare str_return varchar(10);
     
