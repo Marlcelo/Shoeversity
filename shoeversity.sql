@@ -146,7 +146,7 @@ CREATE TABLE `brands` (
 --
 
 INSERT INTO `brands` (`uid`, `brand_name`, `b_username`, `b_password`, `b_email`, `b_verified`, `time_stamp`) VALUES
-(1, 'Nike', 'NikePhilippines', 'swoosh', 'nike@check.com', 0, '2018-02-26 13:52:54'),
+(1, 'Nike', 'NikePhilippines', 'swoosh', 'nike@check.com', 1, '2018-02-26 13:52:54'),
 (2, 'Adidas', 'AdidasPH', 'stripes', 'adidas@gmail.com', 0, '2018-02-26 13:55:45'),
 (3, 'Adidas1', 'AdidasPH1', 'something', 'adidas@gmail.com', 0, '2018-02-26 13:56:37'),
 (4, 'Yeezy', 'YeezySupply', 'beluga', 'yeezy@yahoo.com', 0, '2018-02-27 12:03:48'),
