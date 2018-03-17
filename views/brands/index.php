@@ -6,13 +6,13 @@
 
     <?php
         // Include Bootstrap and main styles 
-        include "../templates/brands/brand_bs_styles.php";
-        include "../templates/brands/brand_shoeversity_styles.php";
+        include "../../templates/brands/brand_bs_styles.php";
+        include "../../templates/brands/brand_shoeversity_styles.php";
     ?>
 </head>
 <body>
 	<!-- Include header -->
-	<?php include "../templates/brands/brand_header.php"; ?>
+	<?php include "../../templates/brands/brand_header.php"; ?>
 	
     <div class="content-wrapper ">
         BRAND PAGE
