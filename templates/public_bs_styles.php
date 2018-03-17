@@ -4,7 +4,7 @@
 
 <!-- Include Bootstrap (local) and CSS files -->
 <link rel="stylesheet" href="../bootstrap-3.3.7/css/bootstrap.min.css">
-<link href="../css/full-slider.css" rel="stylesheet">
+<!-- <link href="../css/full-slider.css" rel="stylesheet"> -->
 <link href="../css/view_product.css" rel="stylesheet">
 
 

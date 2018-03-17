@@ -57,7 +57,9 @@
                         <div class="input-group">
                            <input type="text" class="form-control" placeholder="Search" name="search-product">
                            <div class="input-group-btn">
-                              <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                              <button class="btn btn-primary" type="submit" style="margin-top: 0px">
+                                <i class="glyphicon glyphicon-search"></i>
+                              </button>
                           </div>
                       </div>
                   </form>
