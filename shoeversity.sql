@@ -43,6 +43,41 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_NEWUSER` (`uname` VARCHAR(35
     
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ADMIN` (`strUsername` VARCHAR(35))  BEGIN
+  SELECT uid, username, email, gender, first_name, middle_name, last_name
+    FROM admins 
+    WHERE username = strUsername 
+    LIMIT 1;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_AUTHUSER` (`strUsername` VARCHAR(35), `strPassword` VARCHAR(100))  BEGIN
+  DECLARE strreturn varchar(50);
+    
+  IF EXISTS (SELECT * FROM site_users WHERE username = strUsername AND password = strPassword LIMIT 1) THEN
+    SET strreturn = 'SUCCESS';
+        
+    ELSE
+    SET strreturn = 'FAILED';
+        
+    END IF;
+    
+    SELECT strreturn;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_BRAND` (`strUsername` VARCHAR(35))  BEGIN
+  SELECT uid, b_username, brand_name, b_email, b_verified
+    FROM brands 
+    WHERE b_username = strUsername 
+    LIMIT 1;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_USER` (`strUsername` VARCHAR(35))  BEGIN
+  SELECT uid, u_username, u_email, u_gender, first_name, middle_name, last_name
+    FROM users 
+    WHERE u_username = strUsername 
+    LIMIT 1;
+END$$
+
 --
 -- Functions
 --
@@ -276,6 +311,37 @@ CREATE TABLE `shoe_ratings` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `site_users`
+--
+
+CREATE TABLE `site_users` (
+  `id` int(11) NOT NULL,
+  `type` enum('Admin','Brand','User','') NOT NULL,
+  `username` varchar(35) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `site_users`
+--
+
+INSERT INTO `site_users` (`id`, `type`, `username`, `password`) VALUES
+(1, 'User', 'marl', '37C6F1B0A01C157186B5A878F639EBF1'),
+(2, 'User', 'linds', 'linds'),
+(3, 'User', 'linds', 'erla'),
+(4, 'Brand', 'NikePhilippines', 'D95A2765AA6B7202E5B6B57C10850C5A'),
+(5, 'Brand', 'AdidasPH', '238A0A964769B4DAD6E41653F3EE033B'),
+(6, 'Brand', 'AdidasPH1', 'something'),
+(7, 'Brand', 'YeezySupply', 'beluga'),
+(8, 'Brand', 'ReebokPH', 'reebok'),
+(9, 'Admin', 'marl', 'marl'),
+(10, 'Admin', 'linds', 'linds'),
+(11, 'Admin', 'chels', 'che'),
+(12, 'Admin', 'daniel', '79C640CD65AC125A6D7F709E11179863');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -371,6 +437,12 @@ ALTER TABLE `shoe_ratings`
   ADD KEY `user_id` (`rated_by`);
 
 --
+-- Indexes for table `site_users`
+--
+ALTER TABLE `site_users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -433,6 +505,12 @@ ALTER TABLE `shoes`
 --
 ALTER TABLE `shoe_ratings`
   MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `site_users`
+--
+ALTER TABLE `site_users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
