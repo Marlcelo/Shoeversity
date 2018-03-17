@@ -12,8 +12,6 @@
         // Set active page
         $_SESSION['active_page'] = "products";
     ?>
-
-
 </head>
 <body>
     <!-- BEGIN HEADER -->

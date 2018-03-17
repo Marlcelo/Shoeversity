@@ -12,6 +12,7 @@
         // Set active page
         $_SESSION['active_page'] = "register";
     ?>
+    <script type="text/javascript" src="../js/jquery-fxns.js"></script>
 </head>
 <body>
     <!-- BEGIN HEADER -->

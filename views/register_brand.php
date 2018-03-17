@@ -1,4 +1,4 @@
-<form class="form-horizontal" name="login" action="RegisterBrandServlet">
+<form class="form-horizontal" name="login" action="../database/register_brand_db.php" method="POST">
 	<div class="input-group">
 		<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 		<input type="text" class="form-control" name="brandname" placeholder="Brand Name" required>
@@ -62,7 +62,7 @@
 
 	<div class="form-group">
 		<div class="col-sm-12 controls">
-			<input type="submit" value="Register" name="register" class="btn btn-primary pull-right btn-block" style="padding: 7px; width: 100%"/>
+			<input type="submit" value="Register" name="registerBrand" class="btn btn-primary pull-right btn-block" style="padding: 7px; width: 100%"/>
 		</div>
 	</div>
 </form>
