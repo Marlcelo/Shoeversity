@@ -105,6 +105,18 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_NEWUSER` (`uname` VARCHAR(35
     
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_SITE_USER` (`uType` VARCHAR(10), `uName` VARCHAR(35), `upass` VARCHAR(100))  BEGIN
+  declare str_return varchar(15);
+    
+    IF EXISTS(SELECT * FROM site_users WHERE uType LIKE type AND uName LIKE username AND upass LIKE password) THEN
+    set str_return = 'FAIL';
+  ELSE 
+    INSERT INTO site_users(type,username,password) VALUES(uType,uName,upass);
+        SET str_return = 'SUCCESS';
+  END IF;
+    
+  SELECT str_return col;
+END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ADMIN` (`strUsername` VARCHAR(35))  BEGIN
   SELECT uid, username, email, gender, first_name, middle_name, last_name
