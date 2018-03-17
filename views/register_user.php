@@ -72,7 +72,7 @@
 	<!-- Submit Button -->	
 	<div class="form-group"> 
 		<div class="col-sm-12 controls">
-		    <button type="submit" class="btn btn-primary" name="registerBrand" style="padding: 7px; width: 100%">
+		    <button type="submit" class="btn btn-primary" name="registerUser" style="padding: 7px; width: 100%">
 		        <img src="../images/icons/login.png" alt="" style="width: 24px;">
 		        <strong>Register</strong>
 		    </button>
