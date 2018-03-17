@@ -43,8 +43,15 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_NEWUSER` (`uname` VARCHAR(35
     
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_AUTHUSER`(strUsername varchar(35), strPassword varchar(100))
-BEGIN
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ADMIN` (`strUsername` VARCHAR(35))  BEGIN
+  SELECT uid, username, email, gender, first_name, middle_name, last_name
+    FROM admins 
+    WHERE username = strUsername 
+    LIMIT 1;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_AUTHUSER` (`strUsername` VARCHAR(35), `strPassword` VARCHAR(100))  BEGIN
   DECLARE strreturn varchar(50);
     
   IF EXISTS (SELECT * FROM site_users WHERE username = strUsername AND password = strPassword LIMIT 1) THEN
@@ -56,6 +63,20 @@ BEGIN
     END IF;
     
     SELECT strreturn;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_BRAND` (`strUsername` VARCHAR(35))  BEGIN
+  SELECT uid, b_username, brand_name, b_email, b_verified
+    FROM brands 
+    WHERE b_username = strUsername 
+    LIMIT 1;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_USER` (`strUsername` VARCHAR(35))  BEGIN
+  SELECT uid, u_username, u_email, u_gender, first_name, middle_name, last_name
+    FROM users 
+    WHERE u_username = strUsername 
+    LIMIT 1;
 END$$
 
 --
@@ -309,15 +330,15 @@ INSERT INTO `site_users` (`id`, `type`, `username`, `password`) VALUES
 (1, 'User', 'marl', '37C6F1B0A01C157186B5A878F639EBF1'),
 (2, 'User', 'linds', 'linds'),
 (3, 'User', 'linds', 'erla'),
-(4, 'Brand', 'NikePhilippines', 'swoosh'),
-(5, 'Brand', 'AdidasPH', 'stripes'),
+(4, 'Brand', 'NikePhilippines', 'D95A2765AA6B7202E5B6B57C10850C5A'),
+(5, 'Brand', 'AdidasPH', '238A0A964769B4DAD6E41653F3EE033B'),
 (6, 'Brand', 'AdidasPH1', 'something'),
 (7, 'Brand', 'YeezySupply', 'beluga'),
 (8, 'Brand', 'ReebokPH', 'reebok'),
 (9, 'Admin', 'marl', 'marl'),
 (10, 'Admin', 'linds', 'linds'),
 (11, 'Admin', 'chels', 'che'),
-(12, 'Admin', 'daniel', 'lachica');
+(12, 'Admin', 'daniel', '79C640CD65AC125A6D7F709E11179863');
 
 -- --------------------------------------------------------
 
