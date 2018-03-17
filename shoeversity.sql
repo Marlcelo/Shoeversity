@@ -208,12 +208,6 @@ INSERT INTO `brands` (`uid`, `brand_name`, `b_username`, `b_password`, `b_email`
 (5, 'ReebokAsia', 'ReebokPH', 'reebok', 'reebok@gmail.com', 0, '2018-02-27 12:11:03');
 
 --
--- Indexes for table `brands`
---
-ALTER TABLE `brands`
-  ADD PRIMARY KEY (`uid`);
-
---
 -- AUTO_INCREMENT for table `brands`
 --
 ALTER TABLE `brands`
