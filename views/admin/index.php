@@ -6,13 +6,13 @@
 
     <?php
         // Include Bootstrap and main styles 
-        include "../templates/admin/admin_bs_styles.php";
-        include "../templates/admin/admin_shoeversity_styles.php";
+        include "../../templates/admin/admin_bs_styles.php";
+        include "../../templates/admin/admin_shoeversity_styles.php";
     ?>
 </head>
 <body>
 	<!-- Include header -->
-	<?php include "../templates/admin/admin_header.php"; ?>
+	<?php include "../../templates/admin/admin_header.php"; ?>
 	
     <!-- BEGIN MAIN CONTENT -->
     <!-- Begin Carousel -->
