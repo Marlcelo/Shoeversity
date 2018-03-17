@@ -65,4 +65,9 @@
 			<input type="submit" value="Register" name="registerBrand" class="btn btn-primary pull-right btn-block" style="padding: 7px; width: 100%"/>
 		</div>
 	</div>
+	<!-- Submit Button -->	
+    <!-- <button type="submit" class="btn btn-primary" style="padding: 7px; width: 100%">
+        <img src="../images/icons/login.png" alt="">
+        <strong>Register</strong>
+    </button> -->
 </form>

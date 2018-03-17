@@ -88,7 +88,7 @@
 
                             <!-- Submit Button -->
                             <button type="submit" class="btn btn-primary" style="padding: 7px; width: 100%">
-                                <img src="../../images/icons/login.png" alt="">
+                                <img src="../images/icons/login.png" alt="">
                                 <strong>Login</strong>
                             </button>
                         </form>
