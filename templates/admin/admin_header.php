@@ -5,7 +5,7 @@
 <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
 	<div class="container-fluid">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="index.php"> <img class="img-circle" src="../images/logos/shoeversity-logo.jpg" width="20px"> </a>
+			<a class="navbar-brand" href="index.php"> <img class="img-circle" src="../../images/logos/shoeversity-logo.jpg" width="20px"> </a>
 			<a class="navbar-brand" href="index.php">Shoeversity</a> 
 		</div>
 		
