@@ -29,6 +29,52 @@ DELIMITER $$
 --
 -- Procedures
 --
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_BRAND_INFO` (`bName` VARCHAR(35), `bUser` VARCHAR(35), `bPass` VARCHAR(100), `bEmail` VARCHAR(50))  BEGIN
+  declare str_return varchar(10);
+    
+    IF EXISTS(SELECT * FROM brands WHERE bName LIKE brand_name AND bEmail LIKE b_email) THEN
+    SET str_return = "FAIL";
+  ELSE 
+    INSERT INTO brands VALUES(NULL,bName,bUser,FN_GET_HASHEDPASSWORD(bPass),bEmail,0,NOW());
+        SET str_return = "SUCCESS";
+  END IF;
+    
+    SELECT str_return result;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_BRAND_LINK` (`bId` INT(11), `bLinkType` VARCHAR(15), `blink` VARCHAR(100))  BEGIN
+  declare str_return varchar(15);
+    
+    IF EXISTS(SELECT * FROM brand_link WHERE bId LIKE brand_id AND link_type LIKE bLinkType AND blink = link) THEN
+    set str_return = 'FAIL';
+  ELSE 
+    INSERT INTO brand_link(brand_id,link_type,link) VALUES(bId,bLinkType,blink);
+        SET str_return = 'SUCCESS';
+  END IF;
+    
+  SELECT str_return col;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_BRAND_LOCATION` (`bId` INT(11), `bLocation` VARCHAR(100))  BEGIN
+  declare str_return varchar(15);
+    
+    IF EXISTS(SELECT * FROM brand_location WHERE bId LIKE brand_id AND location LIKE bLocation) THEN
+    set str_return = 'FAIL';
+  ELSE 
+    INSERT INTO brand_location(brand_id,location) VALUES(bId,bLocation);
+        SET str_return = 'SUCCESS';
+  END IF;
+    
+  SELECT str_return col;
+END$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_BRAND` (`bName` VARCHAR(35), `bEmail` VARCHAR(50), `bUsername` VARCHAR(35))  BEGIN
+  SELECT *
+    FROM brands
+    WHERE brand_name LIKE bName AND b_email LIKE bEmail AND b_username LIKE bUsername;
+    
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_NEWUSER` (`uname` VARCHAR(35), `pass` VARCHAR(100), `emailAdd` VARCHAR(50), `uGender` CHAR(1), `fname` VARCHAR(35), `mname` VARCHAR(35), `lname` VARCHAR(35))  BEGIN
   declare str_return varchar(10); 
     
