@@ -82,10 +82,12 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_BRAND_LOCATION` (`bId` INT(1
     
   SELECT str_return col;
 END$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_BRAND` (`bName` VARCHAR(35), `bEmail` VARCHAR(50), `bUsername` VARCHAR(35))  BEGIN
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_BRAND`(bName varchar(35),bEmail varchar(50),bUsername varchar(35))
+BEGIN
   SELECT *
-    FROM brands
-    WHERE brand_name LIKE bName AND b_email LIKE bEmail AND b_username LIKE bUsername;
+  FROM brands
+  WHERE brand_name LIKE bName AND b_email LIKE bEmail AND b_username LIKE bUsername;
     
 END$$
 
