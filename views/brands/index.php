@@ -15,8 +15,9 @@
 	<?php include "../../templates/brands/brand_header.php"; ?>
 	
     <!-- BEGIN MAIN CONTENT -->
+
     <!-- Begin Carousel -->
-    <div id="shoeversityCarousel" class="carousel slide" data-ride="carousel" style="position: absolute; top: 0; margin-bottom: 100px; width: 100%; height: 100vh">
+    <div id="shoeversityCarousel" class="carousel slide" data-ride="carousel" style="position: absolute; top: 0; margin-bottom: 100px; width: 100%; height: 100vh;">
             <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#shoeversityCarousel" data-slide-to="0" class="active"></li>
@@ -68,7 +69,19 @@
         </div>        
     </div>
 
-    <div class="container" style="margin-top: 100vh;">
+
+    <div class="container" style="margin-top: 90vh;">
+        <div class="row">
+            <!-- Centered Pills -->
+            <ul class="nav nav-pills nav-justified">
+                <li><a href="add_prodct.jsp">Add a product</a></li>
+                <li><a href="edit_product.jsp">Edit a product</a></li>
+                <li><a href="delete_product.jsp">Delete a product</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container" style="margin-top: 10vh;">
             <!-- BEGIN PRODUCTS GRID -->
             <div class="col-md-12">
 
