@@ -43,6 +43,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_NEWUSER` (`uname` VARCHAR(35
     
 END$$
 
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ADMIN` (`strUsername` VARCHAR(35))  BEGIN
   SELECT uid, username, email, gender, first_name, middle_name, last_name
     FROM admins 

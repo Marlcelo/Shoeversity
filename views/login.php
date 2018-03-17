@@ -11,6 +11,34 @@
         session_start();
         // Set active page
         $_SESSION['active_page'] = "login";
+
+        if(isset($_GET['auth'])) {
+            // Wrong username or password
+            if($_GET['auth'] == "error") {
+                include "modals/failed_login.php";
+
+                echo "<script> 
+                        $('#failed_login_modal').modal('show');
+                        $('#failed_login_modal').on('hidden.bs.modal', function () {    //reload login form
+                            window.location = 'login.php';
+                        })
+                    </script>";
+            }
+
+            // Unverified Brand login attempt
+            if($_GET['auth'] == "unverified") {
+                include "modals/error.php";
+
+                echo "<script> 
+                        $('#error_modal').modal('show');
+                        $('#error_modal').on('hidden.bs.modal', function () {    //reload login form
+                            window.location = 'login.php';
+                        })
+                    </script>";
+
+                $_SESSION['error_msg'] = "";    // reset
+            }
+        }
     ?>
 </head>
 <body>
@@ -37,7 +65,7 @@
 
                     <!-- Login Form -->
                     <div class="panel-body">
-                        <form action='../../database/user_authenticate.php' method='post'>
+                        <form action='../database/user_authenticate.php' method='post'>
                             <!-- Username -->
                             <div class="input-group" style="margin-bottom: 16px">
                                 <!-- <span class="input-group-addon"><img src="../../images/icons/ic_person_black_24dp.png" style="height: 20px"></span> -->
