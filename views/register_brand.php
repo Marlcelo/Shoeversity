@@ -1,4 +1,4 @@
-<form class="form-horizontal" name="login" action="../database/register_brand_db.php" method="POST">
+<form class="form-horizontal" name="login" action="../database/brand_register.php" method="POST">
 	<div class="input-group">
 		<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 		<input type="text" class="form-control" name="brandname" placeholder="Brand Name" required>
