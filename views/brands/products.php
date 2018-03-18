@@ -6,69 +6,35 @@
 
     <?php
         // Include Bootstrap and main styles 
-        include "../../templates/admin/admin_bs_styles.php";
-        include "../../templates/admin/admin_shoeversity_styles.php";
+        include "../../templates/brands/brand_bs_styles.php";
+        include "../../templates/brands/brand_shoeversity_styles.php";
+
+        session_start();
+        // Set active page
+        $_SESSION['page_type'] = "Brand";
+        $_SESSION['active_page'] = "products";
+
+        // Check if user is authorized to access page
+        include '../../database/check_access.php';
     ?>
 </head>
 <body>
-	<!-- Include header -->
-	<?php include "../../templates/admin/admin_header.php"; ?>
-	
+    <!-- Include header -->
+    <?php include "../../templates/brands/brand_header.php"; ?>
+    
     <!-- BEGIN MAIN CONTENT -->
-    <!-- Begin Carousel -->
-    <div id="shoeversityCarousel" class="carousel slide" data-ride="carousel" style="position: absolute; top: 0; margin-bottom: 100px; width: 100%; height: 100vh">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#shoeversityCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#shoeversityCarousel" data-slide-to="1"></li>
-                <li data-target="#shoeversityCarousel" data-slide-to="2"></li>
-            </ol>
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner">
-                <div class="item active">
-                    <div class="fill">
-                        <img src="https://www.metaslider.com/wp-content/uploads/2014/11/mountains1.jpg" style="height: 100vh;">
-                    </div>
-                    <div class="carousel-caption">
-                        <h1>WELCOME TO SHOEVERSITY</h1>
-                        <h3>Your one stop for all shoe needs.</h3>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="fill">
-                        <img src="http://www.food4fuel.com/wp-content/uploads/2014/02/rebound-slider-2-bg.jpg" style="height: 100vh;">
-                    </div>
-                    <div class="carousel-caption">
-                        <p><h3><em>Outfits aren't complete without them sneakas!</em></h3></p>
-                    </div>
-                </div>
-
-                <div class="item">
-                    <div class="fill">
-                        <img src="https://www.procloud.com.au/wp-content/uploads/2016/08/slider-dark-bg.jpg" style="height: 100vh;">
-                    </div>
-                    <div class="carousel-caption">
-                        <h3>Explore what we have to offer.</h3>
-                        <p>We want to let you discover various brands' products and create your OOTD.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Left and right controls -->
-            <a class="left carousel-control" href="#shoeversityCarousel" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#shoeversityCarousel" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>        
+    <div class="container" style="margin-top: 0vh;">
+        <div class="row">
+            <!-- Centered Pills -->
+            <ul class="nav nav-pills nav-justified">
+                <li><a href="add_prodct.jsp">Add a product</a></li>
+                <li><a href="edit_product.jsp">Edit a product</a></li>
+                <li><a href="delete_product.jsp">Delete a product</a></li>
+            </ul>
+        </div>
     </div>
 
-    <div class="container" style="margin-top: 100vh;">
+    <div class="container" style="margin-top: 10vh;">
             <!-- BEGIN PRODUCTS GRID -->
             <div class="col-md-12">
 
@@ -93,7 +59,7 @@
                                 <p class="price">Php. 3,500</p>
                             </div>
                             <div class="col-md-6 col-sm-6">
-                                <a href=""><button class="btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
+                                <a href=""><button class="btn-md btn-info pull-right" >BUY PRODUCT</button></a>
                            </div>
                             
                         </div>
@@ -121,7 +87,7 @@
                                 <p class="price">Php. 3,500</p>
                             </div>
                             <div class="col-md-6 col-sm-6">
-                                <a href=""><button class="btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
+                                <a href=""><button class="btn-md btn-info pull-right" >BUY PRODUCT</button></a>
                            </div>
                             
                         </div>
@@ -149,19 +115,19 @@
                                 <p class="price">Php. 3,500</p>
                             </div>
                             <div class="col-md-6 col-sm-6">
-                                <a href=""><button class="btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
+                                <a href=""><button class="btn-md btn-info pull-right" >BUY PRODUCT</button></a>
                            </div>
                             
                         </div>
                     </span>
                 </div>
             </div>
-	</div>
+    </div>
 
     <!-- BEGIN FOOTER -->
-    <?php require "../../templates/admin/admin_footer.php"; ?>
+    <?php require "../../templates/brands/brand_footer.php"; ?>
     <!-- .END FOOTER -->
 
-	<!-- Include Javascript files -->
+    <!-- Include Javascript files -->
 </body>
 </html>

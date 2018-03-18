@@ -11,6 +11,8 @@ $row = mysqli_fetch_assoc($result);
 $userType = $row['type'];
 mysqli_close($conn);
 
+// User login credentials are correct, user has access to respective pages.
+$_SESSION['access_granted'] = $userType; // ['Admin', 'Brand', 'User']
 
 // Redirect user based on type
 require 'config.php';
@@ -33,7 +35,7 @@ if($userType == "Admin") {
 
 	mysqli_close($conn);
 
-	header("Location: ../views/admin/index.php");
+	header("Location: ../views/admin/dashboard.php");
 	exit();
 }
 else if($userType == "Brand") {
@@ -59,7 +61,7 @@ else if($userType == "Brand") {
 	mysqli_close($conn);
 
 	if($auth_user['b_verified'] == 1) {
-		header("Location: ../views/brands/index.php");
+		header("Location: ../views/brands/products.php");
 		exit();
 	}
 	else {
@@ -85,7 +87,7 @@ else if($userType == "User") {
 
 	mysqli_close($conn);
 
-	header("Location: ../views/users/index.php");
+	header("Location: ../views/users/products.php");
 	exit();
 }
 

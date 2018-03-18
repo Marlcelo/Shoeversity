@@ -10,6 +10,7 @@
 
         session_start();
         // Set active page
+        $_SESSION['page_type'] = "Public";
         $_SESSION['active_page'] = "";
     ?>
 </head>
