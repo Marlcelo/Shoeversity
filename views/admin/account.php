@@ -11,7 +11,7 @@
 
         session_start();
         // Set active page
-        $_SESSION['active_page'] = "";
+        $_SESSION['active_page'] = "account";
     ?>
 </head>
 <body>
@@ -19,6 +19,7 @@
 	<?php include "../../templates/admin/admin_header.php"; ?>
 	
     <div class="content-wrapper ">
+        ADMIN ACCOUNT
 	</div>
 
 	<!-- Include Javascript files -->

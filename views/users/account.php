@@ -6,19 +6,20 @@
 
     <?php
         // Include Bootstrap and main styles 
-        include "../../templates/admin/admin_bs_styles.php";
-        include "../../templates/admin/admin_shoeversity_styles.php";
+        include "../../templates/users/user_bs_styles.php";
+        include "../../templates/users/user_shoeversity_styles.php";
 
         session_start();
         // Set active page
-        $_SESSION['active_page'] = "";
+        $_SESSION['active_page'] = "account";
     ?>
 </head>
 <body>
 	<!-- Include header -->
-	<?php include "../../templates/admin/admin_header.php"; ?>
+	<?php include "../../templates/users/user_header.php"; ?>
 	
     <div class="content-wrapper ">
+        ACCOUNT
 	</div>
 
 	<!-- Include Javascript files -->

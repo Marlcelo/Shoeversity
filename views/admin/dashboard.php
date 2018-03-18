@@ -8,12 +8,16 @@
         // Include Bootstrap and main styles 
         include "../../templates/admin/admin_bs_styles.php";
         include "../../templates/admin/admin_shoeversity_styles.php";
+
+        session_start();
+        // Set active page
+        $_SESSION['active_page'] = "dashboard";
     ?>
 </head>
 <body>
-	<!-- Include header -->
-	<?php include "../../templates/admin/admin_header.php"; ?>
-	
+    <!-- Include header -->
+    <?php include "../../templates/admin/admin_header.php"; ?>
+    
     <!-- BEGIN MAIN CONTENT -->
     <!-- Begin Carousel -->
     <div id="shoeversityCarousel" class="carousel slide" data-ride="carousel" style="position: absolute; top: 0; margin-bottom: 100px; width: 100%; height: 100vh">
@@ -31,7 +35,7 @@
                         <img src="https://www.metaslider.com/wp-content/uploads/2014/11/mountains1.jpg" style="height: 100vh;">
                     </div>
                     <div class="carousel-caption">
-                        <h1>WELCOME TO SHOEVERSITY</h1>
+                        <h1>ADMIN DASHBOARD</h1>
                         <h3>Your one stop for all shoe needs.</h3>
                     </div>
                 </div>
@@ -156,12 +160,12 @@
                     </span>
                 </div>
             </div>
-	</div>
+    </div>
 
     <!-- BEGIN FOOTER -->
     <?php require "../../templates/admin/admin_footer.php"; ?>
     <!-- .END FOOTER -->
 
-	<!-- Include Javascript files -->
+    <!-- Include Javascript files -->
 </body>
 </html>
