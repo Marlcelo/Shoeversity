@@ -85,7 +85,7 @@
         </div>        
     </div>
 
-    <div class="container" style="margin-top: 10vh;">
+    <div class="container" style="margin-top: 100vh;">
         <!-- BEGIN PRODUCTS GRID -->
             <div class="col-md-12">
                 <div class="col-sm-4">
