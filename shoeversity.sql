@@ -363,6 +363,7 @@ INSERT INTO `shoes` (`uid`, `posted_by`, `name`, `description`, `type`, `categor
 (2, 2, 'Adidas Yeezy Boost 350 V2', 'The second generation of the original Yeezy Boost 350, the V2 version of Kanye West.', 'mens', 'Casual', '12', '15000', 'red', 'images/php-uploads/shoes/mens/adidas-yeezy_blue_tints.png', '2018-03-18 15:19:00'),
 (3, 1, 'Nike Air Presto', 'OFF WHITE X NIKE COLLAB ', 'mens', 'Running/Casual', '10', '19000', 'yellow', 'images/php-uploads/shoes/mens/nike-airpresto_offwhite.png', '2018-03-18 15:19:00');
 
+
 -- --------------------------------------------------------
 
 --
@@ -406,7 +407,8 @@ INSERT INTO `site_users` (`id`, `type`, `username`, `password`) VALUES
 (9, 'Admin', 'marl', 'marl'),
 (10, 'Admin', 'linds', 'linds'),
 (11, 'Admin', 'chels', 'che'),
-(12, 'Admin', 'daniel', '79C640CD65AC125A6D7F709E11179863');
+(12, 'Admin', 'daniel', '79C640CD65AC125A6D7F709E11179863'),
+(13, 'User', 'dflachica77', '098F6BCD4621D373CADE4E832627B4F6');
 
 -- --------------------------------------------------------
 
@@ -436,7 +438,8 @@ INSERT INTO `users` (`uid`, `u_username`, `u_password`, `u_email`, `u_gender`, `
 (3, 'linds', 'linds', 'lindsey_erlandsen@dlsu.edu.ph', 'f', 'Lindsey', 'Panghulan', 'Erlandsen', '2018-02-27 14:41:14'),
 (6, 'loserdan', '6CB59BCB03E7A1EDBE7573BC367307E8', 'dan@yahoo.com', 'm', 'Daniel Philip', 'Fernandes', 'Lachica', '2018-03-16 15:57:05'),
 (9, 'maemae', '00580EFDF9D27A169D296A4B5DE7A735', 'chelsey@gmail.com', 'f', 'Chelsey ', 'Anne', 'Medina', '2018-03-16 16:00:17'),
-(10, 'cris', '7BB0BB352FFB2F5245F25149889A0C76', 'chelsey@gmail.com', 'm', 'Cristino', 'Panghulan', 'Nodado', '2018-03-16 16:12:55');
+(10, 'cris', '7BB0BB352FFB2F5245F25149889A0C76', 'chelsey@gmail.com', 'm', 'Cristino', 'Panghulan', 'Nodado', '2018-03-16 16:12:55'),
+(11, 'dflachica77', '098F6BCD4621D373CADE4E832627B4F6', 'daniel_lachica@dlsu.edu.ph', 'm', 'Daniel', 'Philippe', 'Lachica', '2018-03-18 10:57:51');
 
 --
 -- Indexes for dumped tables
@@ -579,13 +582,13 @@ ALTER TABLE `shoe_ratings`
 -- AUTO_INCREMENT for table `site_users`
 --
 ALTER TABLE `site_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
