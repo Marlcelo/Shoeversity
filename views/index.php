@@ -25,6 +25,42 @@
             exit();
         }
     ?>
+
+    <style type="text/css">
+        .promote-products {
+            position: fixed;
+            bottom: 50px;
+            right: 0px;
+            background-color: rgba(0,0,0, 0.67);
+            color: #FFFFFF;
+            z-index: 999;            
+            padding-top: 40px;
+            padding-bottom: 40px;
+            padding-left: 50px;
+            padding-right: 80px;
+        }
+
+        .promote-products img {
+            height: 30px;
+            widows: 30px;
+            margin-top: 16px;
+        }
+
+        .arrow-left {
+          width: 0; 
+          height: 0; 
+          border-top: 82.5px solid transparent;
+          border-bottom: 82.5px solid transparent; 
+          position: fixed;
+        bottom: 50px;
+        right: 337px;
+          z-index: 1000;            
+          border-right:82.5px solid rgba(0,0,0, 0.67); 
+        }
+    </style>
+
+    <script src="../js/animate-scroll.js"></script>
+
 </head>
 <body>
     <!-- BEGIN HEADER -->
@@ -32,6 +68,18 @@
     <!-- .END HEADER -->
 
     <!-- BEGIN MAIN CONTENT -->
+    <div class="promote-products" id="promote-products-link">
+        <h4>Check out our products!</h4>
+
+        <a href="#products-list">
+            <center>
+                <img src="../images/misc/down-arrow.png" alt="down">
+            </center>
+        </a>
+    </div>
+    <div class="arrow-left"></div>
+    
+
     <!-- Begin Carousel -->
     <div id="shoeversityCarousel" class="carousel slide" data-ride="carousel" style="position: absolute; top: 0; margin-bottom: 100px; width: 100%; height: 100vh">
             <!-- Indicators -->
@@ -85,7 +133,7 @@
         </div>        
     </div>
 
-    <div class="container" style="margin-top: 100vh;">
+    <div class="container" style="margin-top: 100vh; padding-top: 100px" id="products-list">
         <!-- BEGIN PRODUCTS GRID -->
         <div class="col-md-12">
 
@@ -96,7 +144,7 @@
                 <div class="col-sm-4">
                     <span class="thumbnail">
                         <img src="<?php echo "../".$shoe[5]; ?>" alt="...">
-                        <h4></h4>
+                        <!-- <h4></h4> -->
                         <div class="ratings">
                             <span class="glyphicon glyphicon-star"></span>
                             <span class="glyphicon glyphicon-star"></span>
@@ -104,14 +152,16 @@
                             <span class="glyphicon glyphicon-star"></span>
                             <span class="glyphicon glyphicon-star-empty"></span>
                         </div>
-                                <p><label class="lead"><?php echo $shoe[0]; ?></label></p>
+                                <label class="lead"><h2 style="margin-bottom: 0"><?php echo $shoe[0]; ?></h2></label>
                                 <p><?php echo $shoe[1]; ?></p>
-                                <p><b>COLOR: <?php echo $shoe[2]; ?></b></p>
-                                <p><b>SIZE: <?php echo $shoe[3]; ?></b></p>
+                                <p><b>COLOR:</b> 
+                                    <div style="height: 15px; width: 15px; background: <?php echo $shoe[2]; ?>"></div>
+                                </p>
+                                <p><b>SIZE:</b> <?php echo $shoe[3]; ?></p>
                         <hr class="line">
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
-                                <p class="price"><?php echo $shoe[4]; ?></p>
+                                <p class="price"> &#8369; <?php echo $shoe[4]; ?></p>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <a href=""><button class="btn-md btn-info pull-right" >BUY ITEM</button></a>
