@@ -16,8 +16,9 @@
             <!-- Modal Body -->
             <div class="modal-body">
                 You do not have permission to access this page.
+                <br><i>(or: The page you requested was not found! (??))</i>
                 <br>
-                If you have an account, <a href="../admin/login.php" class="link">Login here</a>.
+                If you have an account, <a href="../login.php" class="link">Login here</a>.
             </div>
             
             <!-- Modal Footer -->

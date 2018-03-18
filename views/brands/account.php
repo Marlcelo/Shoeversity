@@ -12,7 +12,10 @@
         session_start();
         // Set active page
         $_SESSION['page_type'] = "Brand";
-        $_SESSION['active_page'] = "";
+        $_SESSION['active_page'] = "account";
+
+        // Check if user is authorized to access page
+        include '../../database/check_access.php';
     ?>
 </head>
 <body>
@@ -20,6 +23,7 @@
 	<?php include "../../templates/brands/brand_header.php"; ?>
 	
     <div class="content-wrapper ">
+        BRAND ACCOUNT
 	</div>
 
 	<!-- Include Javascript files -->
