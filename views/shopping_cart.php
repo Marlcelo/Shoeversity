@@ -61,6 +61,7 @@
                             </td>
                         </tr>
                         <!-- End of Product in cart-->
+                        <!-- Product in cart-->
                         <tr>
                             <td class="col-sm-8 col-md-6">
                                 <div class="media">
@@ -85,6 +86,7 @@
                                 </button>
                             </td>
                         </tr>
+                        <!-- End of Product in cart-->
                         <tr>
                             <td>   </td>
                             <td>   </td>

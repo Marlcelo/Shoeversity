@@ -24,6 +24,7 @@
 			<li <?php if($highlight == 'products') echo "class='active'"; ?>><a href="#">Products</a></li>
 			<li <?php if($highlight == 'account') echo "class='active'"; ?>><a href="#">My Account</a></li>
 			<li <?php if($highlight == 'logout') echo "class='active'"; ?>><a href="#">Logout</a></li>
+			<li>hi</li>
 		</ul>
 	</div>
 </nav>
