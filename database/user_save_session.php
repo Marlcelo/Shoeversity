@@ -11,6 +11,8 @@ $row = mysqli_fetch_assoc($result);
 $userType = $row['type'];
 mysqli_close($conn);
 
+// User login credentials are correct, user has access to respective pages.
+$_SESSION['access_granted'] = $userType; // ['Admin', 'Brand', 'User']
 
 // Redirect user based on type
 require 'config.php';

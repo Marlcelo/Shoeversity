@@ -11,6 +11,7 @@
 
         session_start();
         // Set active page
+        $_SESSION['page_type'] = "Brand";
         $_SESSION['active_page'] = "";
     ?>
 </head>

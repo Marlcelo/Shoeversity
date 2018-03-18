@@ -15,7 +15,8 @@
             
             <!-- Modal Body -->
             <div class="modal-body">
-                You do not have the proper access rights to view this page.
+                You do not have the proper access rights to view this page. 
+                <br><i>(or: The page you requested was not found! (??))</i>
             </div>
             
             <!-- Modal Footer -->

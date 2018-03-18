@@ -11,7 +11,11 @@
 
         session_start();
         // Set active page
+        $_SESSION['page_type'] = "Admin";
         $_SESSION['active_page'] = "dashboard";
+
+        // Check if user is authorized to access page
+        include '../../database/check_access.php';
     ?>
 </head>
 <body>
