@@ -87,38 +87,15 @@
 
     <div class="container" style="margin-top: 100vh;">
         <!-- BEGIN PRODUCTS GRID -->
-            <div class="col-md-12">
-                <div class="col-sm-4">
-                    <span class="thumbnail">
-                        <img src="" alt="...">
-                        <h4></h4>
-                        <div class="ratings">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                        </div>
-                                <p><label class="lead">SHOE NAME</label></p>
-                                <p>A very nice shoe.</p>
-                                <p><b>COLOR:</b></p>
-                                <p><b>SIZE:</b></p>
-                        <hr class="line">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <p class="price">Php. 3,500</p>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <a href=""><button class="btn-md btn-info pull-right" >BUY ITEM</button></a>
-                           </div>
-                            
-                        </div>
-                    </span>
-                </div>
+        <div class="col-md-12">
+
+            <?php include "../database/shoes_list_get.php"; ?>
+
+            <?php foreach($_SESSION['shoes_list'] as $shoe) { ?>
 
                 <div class="col-sm-4">
                     <span class="thumbnail">
-                        <img src="" alt="...">
+                        <img src="<?php echo "../".$shoe[5]; ?>" alt="...">
                         <h4></h4>
                         <div class="ratings">
                             <span class="glyphicon glyphicon-star"></span>
@@ -127,14 +104,14 @@
                             <span class="glyphicon glyphicon-star"></span>
                             <span class="glyphicon glyphicon-star-empty"></span>
                         </div>
-                                <p><label class="lead">SHOE NAME</label></p>
-                                <p>A very nice shoe.</p>
-                                <p><b>COLOR:</b></p>
-                                <p><b>SIZE:</b></p>
+                                <p><label class="lead"><?php echo $shoe[0]; ?></label></p>
+                                <p><?php echo $shoe[1]; ?></p>
+                                <p><b>COLOR: <?php echo $shoe[2]; ?></b></p>
+                                <p><b>SIZE: <?php echo $shoe[3]; ?></b></p>
                         <hr class="line">
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
-                                <p class="price">Php. 3,500</p>
+                                <p class="price"><?php echo $shoe[4]; ?></p>
                             </div>
                             <div class="col-md-6 col-sm-6">
                                 <a href=""><button class="btn-md btn-info pull-right" >BUY ITEM</button></a>
@@ -143,92 +120,10 @@
                         </div>
                     </span>
                 </div>
-
-                <div class="col-sm-4">
-                    <span class="thumbnail">
-                        <img src="" alt="...">
-                        <h4></h4>
-                        <div class="ratings">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                        </div>
-                                <p><label class="lead">SHOE NAME</label></p>
-                                <p>A very nice shoe.</p>
-                                <p><b>COLOR:</b></p>
-                                <p><b>SIZE:</b></p>
-                        <hr class="line">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <p class="price">Php. 3,500</p>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <a href=""><button class="btn-md btn-info pull-right" >BUY ITEM</button></a>
-                           </div>
-                            
-                        </div>
-                    </span>
-                </div>
-
-                <div class="col-sm-4">
-                    <span class="thumbnail">
-                        <img src="" alt="...">
-                        <h4></h4>
-                        <div class="ratings">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                        </div>
-                                <p><label class="lead">SHOE NAME</label></p>
-                                <p>A very nice shoe.</p>
-                                <p><b>COLOR:</b></p>
-                                <p><b>SIZE:</b></p>
-                        <hr class="line">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <p class="price">Php. 3,500</p>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <a href=""><button class="btn-md btn-info pull-right" >BUY ITEM</button></a>
-                           </div>
-                            
-                        </div>
-                    </span>
-                </div>
-
-                <div class="col-sm-4">
-                    <span class="thumbnail">
-                        <img src="" alt="...">
-                        <h4></h4>
-                        <div class="ratings">
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                        </div>
-                                <p><label class="lead">SHOE NAME</label></p>
-                                <p>A very nice shoe.</p>
-                                <p><b>COLOR:</b></p>
-                                <p><b>SIZE:</b></p>
-                        <hr class="line">
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <p class="price">Php. 3,500</p>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <a href=""><button class="btn-md btn-info pull-right" >BUY ITEM</button></a>
-                           </div>
-                            
-                        </div>
-                    </span>
-                </div>
-            </div>
+    
+            <?php } ?>
             
+        </div>
         <!-- .END PRODUCTS GRID -->
     </div>
      <!-- .END MAIN CONTENT -->

@@ -345,6 +345,7 @@ CREATE TABLE `shoes` (
   `posted_by` int(11) NOT NULL,
   `name` varchar(35) NOT NULL,
   `description` varchar(100) DEFAULT NULL,
+  `type` enum('mens','womens') NOT NULL,
   `category` varchar(35) NOT NULL,
   `size` decimal(10,0) NOT NULL,
   `price` decimal(10,0) NOT NULL,
@@ -357,10 +358,10 @@ CREATE TABLE `shoes` (
 -- Dumping data for table `shoes`
 --
 
-INSERT INTO `shoes` (`uid`, `posted_by`, `name`, `description`, `category`, `size`, `price`, `color`, `photo_url`, `time_stamp`) VALUES
-(1, 2, 'Adidas Yeezy Boost 350 V2', 'The second generation of the Yeezy Collection.', 'Casual', '13', '12000', 'blue', 'IMAGES/MENS/adidas-yeezy-mens.jpg', '2018-02-27 17:18:19'),
-(2, 2, 'Adidas Yeezy Boost 350 V2', 'The second generation of the original Yeezy Boost 350, the V2 version of Kanye West.', 'Casual', '12', '15000', 'red', 'IMAGES/MENS/adidas-yeezy_blue_tints-mes.jpg', '2018-02-27 17:44:29'),
-(3, 1, 'Nike Air Presto', 'OFF WHITE X NIKE COLLAB ', 'Running/Casual', '10', '19000', 'yellow', 'IMAGES/MENS/nike-airpresto_offwhite-mens.jpg', '2018-02-27 17:21:53');
+INSERT INTO `shoes` (`uid`, `posted_by`, `name`, `description`, `type`, `category`, `size`, `price`, `color`, `photo_url`, `time_stamp`) VALUES
+(1, 2, 'Adidas Yeezy Boost 350 V2', 'The second generation of the Yeezy Collection.', 'mens', 'Casual', '13', '12000', 'blue', 'images/php-uploads/shoes/mens/adidas-yeezy.png', '2018-03-18 15:19:00'),
+(2, 2, 'Adidas Yeezy Boost 350 V2', 'The second generation of the original Yeezy Boost 350, the V2 version of Kanye West.', 'mens', 'Casual', '12', '15000', 'red', 'images/php-uploads/shoes/mens/adidas-yeezy_blue_tints.png', '2018-03-18 15:19:00'),
+(3, 1, 'Nike Air Presto', 'OFF WHITE X NIKE COLLAB ', 'mens', 'Running/Casual', '10', '19000', 'yellow', 'images/php-uploads/shoes/mens/nike-airpresto_offwhite.png', '2018-03-18 15:19:00');
 
 -- --------------------------------------------------------
 
