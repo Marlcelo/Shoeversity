@@ -49,7 +49,7 @@
                     <h2>Recent Purchases</h2><hr>
                     
                 </div>              
-            </div>
+        </div>
 	</div>
 
 	<!-- Include Javascript files -->
