@@ -23,7 +23,6 @@
 	<?php include "../../templates/brands/brand_header.php"; ?>
 	
     <div class="content-wrapper ">
-            <div class="content-wrapper ">
         <div class="container text-center">
                 <div class="col-md-4">
                     <img class="img-circle" src="../IMAGES/USERS/dp.jpg" width="160px" alt="profilepic">
@@ -57,7 +56,6 @@
         
                 </div>              
         </div>
-    </div>
 	</div>
 
 	<!-- Include Javascript files -->
