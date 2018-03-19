@@ -1,4 +1,4 @@
-<form class="form-horizontal" name="login" action="RegisterBrandServlet">
+<form class="form-horizontal" name="login" action="../database/brand_register.php" method="POST">
 	<div class="input-group">
 		<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 		<input type="text" class="form-control" name="brandname" placeholder="Brand Name" required>
@@ -60,9 +60,13 @@
 		<input type="url" class="form-control" name="instagram" placeholder="Instagram (Optional)">
 	</div><br>
 
-	<div class="form-group">
+	<!-- Submit Button -->	
+	<div class="form-group"> 
 		<div class="col-sm-12 controls">
-			<input type="submit" value="Register" name="register" class="btn btn-primary pull-right btn-block" style="padding: 7px; width: 100%"/>
+		    <button type="submit" class="btn btn-primary" name="registerBrand" style="padding: 7px; width: 100%">
+		        <img src="../images/icons/login.png" alt="" style="width: 24px;">
+		        <strong>Register</strong>
+		    </button>
 		</div>
 	</div>
 </form>

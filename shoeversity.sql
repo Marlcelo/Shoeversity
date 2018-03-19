@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2018 at 02:10 PM
+-- Generation Time: Mar 16, 2018 at 05:13 PM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -24,6 +24,145 @@ SET time_zone = "+00:00";
 DROP DATABASE IF EXISTS `shoeversity`;
 CREATE DATABASE `shoeversity`;
 USE `shoeversity`;
+
+DELIMITER $$
+--
+-- Procedures
+--
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_BRAND_CONTACT`(bId int(11), contactNum varchar(20))
+BEGIN
+  declare str_return varchar(15);
+    
+    IF EXISTS(SELECT * FROM brand_contact_number WHERE bId LIKE brand_id AND contact LIKE contactNum) THEN
+    set str_return = 'FAIL';
+  ELSE 
+    INSERT INTO brand_contact_number(brand_id,contact) VALUES(bId,contactNum);
+        SET str_return = 'SUCCESS';
+  END IF;
+    
+  SELECT str_return col;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_BRAND_INFO` (`bName` VARCHAR(35), `bUser` VARCHAR(35), `bPass` VARCHAR(100), `bEmail` VARCHAR(50))  BEGIN
+  declare str_return varchar(10);
+    
+    IF EXISTS(SELECT * FROM brands WHERE bName LIKE brand_name AND bEmail LIKE b_email) THEN
+    SET str_return = "FAIL";
+  ELSE 
+    INSERT INTO brands VALUES(NULL,bName,bUser,FN_GET_HASHEDPASSWORD(bPass),bEmail,0,NOW());
+        SET str_return = "SUCCESS";
+  END IF;
+    
+    SELECT str_return result;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_BRAND_LINK` (`bId` INT(11), `bLinkType` VARCHAR(15), `blink` VARCHAR(100))  BEGIN
+  declare str_return varchar(15);
+    
+    IF EXISTS(SELECT * FROM brand_link WHERE bId LIKE brand_id AND link_type LIKE bLinkType AND blink = link) THEN
+    set str_return = 'FAIL';
+  ELSE 
+    INSERT INTO brand_link(brand_id,link_type,link) VALUES(bId,bLinkType,blink);
+        SET str_return = 'SUCCESS';
+  END IF;
+    
+  SELECT str_return col;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_BRAND_LOCATION` (`bId` INT(11), `bLocation` VARCHAR(100))  BEGIN
+  declare str_return varchar(15);
+    
+    IF EXISTS(SELECT * FROM brand_location WHERE bId LIKE brand_id AND location LIKE bLocation) THEN
+    set str_return = 'FAIL';
+  ELSE 
+    INSERT INTO brand_location(brand_id,location) VALUES(bId,bLocation);
+        SET str_return = 'SUCCESS';
+  END IF;
+    
+  SELECT str_return col;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_BRAND`(bName varchar(35),bEmail varchar(50),bUsername varchar(35))
+BEGIN
+  SELECT *
+  FROM brands
+  WHERE brand_name LIKE bName AND b_email LIKE bEmail AND b_username LIKE bUsername;
+    
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_NEWUSER` (`uname` VARCHAR(35), `pass` VARCHAR(100), `emailAdd` VARCHAR(50), `uGender` CHAR(1), `fname` VARCHAR(35), `mname` VARCHAR(35), `lname` VARCHAR(35))  BEGIN
+  declare str_return varchar(10); 
+    
+    IF EXISTS(SELECT * FROM users WHERE uname LIKE u_username AND emailAdd LIKE u_email) THEN
+    set str_return = "FAIL";
+  ELSE 
+    INSERT INTO users VALUES(NULL,uname,FN_GET_HASHEDPASSWORD(pass),emailAdd,uGender,fname,mname,lname,NOW());
+        set str_return = "SUCCESS";
+  END IF;
+    
+    SELECT str_return as col;
+    
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_SITE_USER` (`uType` VARCHAR(10), `uName` VARCHAR(35), `upass` VARCHAR(100))  BEGIN
+  declare str_return varchar(15);
+    
+    IF EXISTS(SELECT * FROM site_users WHERE uType LIKE type AND uName LIKE username AND upass LIKE password) THEN
+    set str_return = 'FAIL';
+  ELSE 
+    INSERT INTO site_users(type,username,password) VALUES(uType,uName,upass);
+        SET str_return = 'SUCCESS';
+  END IF;
+    
+  SELECT str_return col;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ADMIN` (`strUsername` VARCHAR(35))  BEGIN
+  SELECT uid, username, email, gender, first_name, middle_name, last_name
+    FROM admins 
+    WHERE username = strUsername 
+    LIMIT 1;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_AUTHUSER` (`strUsername` VARCHAR(35), `strPassword` VARCHAR(100))  BEGIN
+  DECLARE strreturn varchar(50);
+    
+  IF EXISTS (SELECT * FROM site_users WHERE username = strUsername AND password = strPassword LIMIT 1) THEN
+    SET strreturn = 'SUCCESS';
+        
+    ELSE
+    SET strreturn = 'FAILED';
+        
+    END IF;
+    
+    SELECT strreturn;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_USER` (`strUsername` VARCHAR(35))  BEGIN
+  SELECT uid, u_username, u_email, u_gender, first_name, middle_name, last_name
+    FROM users 
+    WHERE u_username = strUsername 
+    LIMIT 1;
+END$$
+
+--
+-- Functions
+--
+CREATE DEFINER=`root`@`localhost` FUNCTION `FN_GET_HASHEDPASSWORD` (`strRawPassword` VARCHAR(255)) RETURNS VARCHAR(255) CHARSET latin1 READS SQL DATA
+    DETERMINISTIC
+BEGIN
+  
+  DECLARE strHashedPass varchar(255);
+    
+    set strHashedPass = md5(strRawPassword);
+    set strHashedPass = UPPER(strHashedPass);
+
+  RETURN strHashedPass;
+    
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -74,7 +213,7 @@ CREATE TABLE `brands` (
 --
 
 INSERT INTO `brands` (`uid`, `brand_name`, `b_username`, `b_password`, `b_email`, `b_verified`, `time_stamp`) VALUES
-(1, 'Nike', 'NikePhilippines', 'swoosh', 'nike@check.com', 0, '2018-02-26 13:52:54'),
+(1, 'Nike', 'NikePhilippines', 'swoosh', 'nike@check.com', 1, '2018-02-26 13:52:54'),
 (2, 'Adidas', 'AdidasPH', 'stripes', 'adidas@gmail.com', 0, '2018-02-26 13:55:45'),
 (3, 'Adidas1', 'AdidasPH1', 'something', 'adidas@gmail.com', 0, '2018-02-26 13:56:37'),
 (4, 'Yeezy', 'YeezySupply', 'beluga', 'yeezy@yahoo.com', 0, '2018-02-27 12:03:48'),
@@ -206,6 +345,7 @@ CREATE TABLE `shoes` (
   `posted_by` int(11) NOT NULL,
   `name` varchar(35) NOT NULL,
   `description` varchar(100) DEFAULT NULL,
+  `type` enum('mens','womens') NOT NULL,
   `category` varchar(35) NOT NULL,
   `size` decimal(10,0) NOT NULL,
   `price` decimal(10,0) NOT NULL,
@@ -218,10 +358,11 @@ CREATE TABLE `shoes` (
 -- Dumping data for table `shoes`
 --
 
-INSERT INTO `shoes` (`uid`, `posted_by`, `name`, `description`, `category`, `size`, `price`, `color`, `photo_url`, `time_stamp`) VALUES
-(1, 2, 'Adidas Yeezy Boost 350 V2', 'The second generation of the Yeezy Collection.', 'Casual', '13', '12000', 'blue', 'IMAGES/MENS/adidas-yeezy-mens.jpg', '2018-02-27 17:18:19'),
-(2, 2, 'Adidas Yeezy Boost 350 V2', 'The second generation of the original Yeezy Boost 350, the V2 version of Kanye West.', 'Casual', '12', '15000', 'red', 'IMAGES/MENS/adidas-yeezy_blue_tints-mes.jpg', '2018-02-27 17:44:29'),
-(3, 1, 'Nike Air Presto', 'OFF WHITE X NIKE COLLAB ', 'Running/Casual', '10', '19000', 'yellow', 'IMAGES/MENS/nike-airpresto_offwhite-mens.jpg', '2018-02-27 17:21:53');
+INSERT INTO `shoes` (`uid`, `posted_by`, `name`, `description`, `type`, `category`, `size`, `price`, `color`, `photo_url`, `time_stamp`) VALUES
+(1, 2, 'Adidas Yeezy Boost 350 V2', 'The second generation of the Yeezy Collection.', 'mens', 'Casual', '13', '12000', 'blue', 'images/php-uploads/shoes/mens/adidas-yeezy.png', '2018-03-18 15:19:00'),
+(2, 2, 'Adidas Yeezy Boost 350 V2', 'The second generation of the original Yeezy Boost 350, the V2 version of Kanye West.', 'mens', 'Casual', '12', '15000', 'red', 'images/php-uploads/shoes/mens/adidas-yeezy_blue_tints.png', '2018-03-18 15:19:00'),
+(3, 1, 'Nike Air Presto', 'OFF WHITE X NIKE COLLAB ', 'mens', 'Running/Casual', '10', '19000', 'yellow', 'images/php-uploads/shoes/mens/nike-airpresto_offwhite.png', '2018-03-18 15:19:00');
+
 
 -- --------------------------------------------------------
 
@@ -236,6 +377,38 @@ CREATE TABLE `shoe_ratings` (
   `rated_by` int(11) NOT NULL,
   `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `site_users`
+--
+
+CREATE TABLE `site_users` (
+  `id` int(11) NOT NULL,
+  `type` enum('Admin','Brand','User','') NOT NULL,
+  `username` varchar(35) NOT NULL,
+  `password` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `site_users`
+--
+
+INSERT INTO `site_users` (`id`, `type`, `username`, `password`) VALUES
+(1, 'User', 'marl', '37C6F1B0A01C157186B5A878F639EBF1'),
+(2, 'User', 'linds', 'linds'),
+(3, 'User', 'linds', 'erla'),
+(4, 'Brand', 'NikePhilippines', 'D95A2765AA6B7202E5B6B57C10850C5A'),
+(5, 'Brand', 'AdidasPH', '238A0A964769B4DAD6E41653F3EE033B'),
+(6, 'Brand', 'AdidasPH1', 'something'),
+(7, 'Brand', 'YeezySupply', 'beluga'),
+(8, 'Brand', 'ReebokPH', 'reebok'),
+(9, 'Admin', 'marl', 'marl'),
+(10, 'Admin', 'linds', 'linds'),
+(11, 'Admin', 'chels', 'che'),
+(12, 'Admin', 'daniel', '79C640CD65AC125A6D7F709E11179863'),
+(13, 'User', 'dflachica77', '098F6BCD4621D373CADE4E832627B4F6');
 
 -- --------------------------------------------------------
 
@@ -262,7 +435,11 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`uid`, `u_username`, `u_password`, `u_email`, `u_gender`, `first_name`, `middle_name`, `last_name`, `time_stamp`) VALUES
 (1, 'marl', 'ricanor', 'marlchristian@yahoo.com.ph', 'm', 'Cristino', 'Damien', 'Nodado', '2018-02-26 14:06:57'),
 (2, 'linds', 'erla', 'lindsey_erlandsen@dlsu.edu.ph', 'f', 'Lindsey', 'Panghulan', 'Erlandsen', '2018-02-26 14:40:52'),
-(3, 'linds', 'linds', 'lindsey_erlandsen@dlsu.edu.ph', 'f', 'Lindsey', 'Panghulan', 'Erlandsen', '2018-02-27 14:41:14');
+(3, 'linds', 'linds', 'lindsey_erlandsen@dlsu.edu.ph', 'f', 'Lindsey', 'Panghulan', 'Erlandsen', '2018-02-27 14:41:14'),
+(6, 'loserdan', '6CB59BCB03E7A1EDBE7573BC367307E8', 'dan@yahoo.com', 'm', 'Daniel Philip', 'Fernandes', 'Lachica', '2018-03-16 15:57:05'),
+(9, 'maemae', '00580EFDF9D27A169D296A4B5DE7A735', 'chelsey@gmail.com', 'f', 'Chelsey ', 'Anne', 'Medina', '2018-03-16 16:00:17'),
+(10, 'cris', '7BB0BB352FFB2F5245F25149889A0C76', 'chelsey@gmail.com', 'm', 'Cristino', 'Panghulan', 'Nodado', '2018-03-16 16:12:55'),
+(11, 'dflachica77', '098F6BCD4621D373CADE4E832627B4F6', 'daniel_lachica@dlsu.edu.ph', 'm', 'Daniel', 'Philippe', 'Lachica', '2018-03-18 10:57:51');
 
 --
 -- Indexes for dumped tables
@@ -332,6 +509,12 @@ ALTER TABLE `shoe_ratings`
   ADD KEY `user_id` (`rated_by`);
 
 --
+-- Indexes for table `site_users`
+--
+ALTER TABLE `site_users`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -345,7 +528,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `brands`
@@ -396,10 +579,16 @@ ALTER TABLE `shoe_ratings`
   MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `site_users`
+--
+ALTER TABLE `site_users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

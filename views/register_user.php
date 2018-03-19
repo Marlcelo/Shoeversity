@@ -1,4 +1,4 @@
-<form class="form-horizontal" name="register_user" action="RegisterUserServlet" method="post">
+<form class="form-horizontal" name="register_user" action="../database/user_register.php" method="post">
 
 	<div class="row">
 		<div class="col-md-4">	
@@ -69,9 +69,13 @@
 
 	<br>
 
-	<div class="form-group">
+	<!-- Submit Button -->	
+	<div class="form-group"> 
 		<div class="col-sm-12 controls">
-			<input type="submit" value="Register" name="register" class="btn btn-primary pull-right btn-block" style="padding: 7px; width: 100%"/>
+		    <button type="submit" class="btn btn-primary" name="registerUser" style="padding: 7px; width: 100%">
+		        <img src="../images/icons/login.png" alt="" style="width: 24px;">
+		        <strong>Register</strong>
+		    </button>
 		</div>
 	</div>
 </form>

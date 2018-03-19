@@ -10,7 +10,48 @@
 
         session_start();
         // Set active page
+        $_SESSION['page_type'] = "Public";
         $_SESSION['active_page'] = "login";
+
+        // Check if a user is already logged in. If yes, redirect to their dashboard.
+        if(isset($_SESSION['a_username'])) {
+            header("Location: admin/dashboard.php");
+            exit();
+        } else if(isset($_SESSION['b_username'])) {
+            header("Location: brands/products.php");
+            exit();
+        } else if(isset($_SESSION['u_username'])) {
+            header("Location: users/products.php");
+            exit();
+        }
+
+        if(isset($_GET['auth'])) {
+            // Wrong username or password
+            if($_GET['auth'] == "error") {
+                include "modals/failed_login.php";
+
+                echo "<script> 
+                        $('#failed_login_modal').modal('show');
+                        $('#failed_login_modal').on('hidden.bs.modal', function () {    //reload login form
+                            window.location = 'login.php';
+                        })
+                    </script>";
+            }
+
+            // Unverified Brand login attempt
+            if($_GET['auth'] == "unverified") {
+                include "modals/error.php";
+
+                echo "<script> 
+                        $('#error_modal').modal('show');
+                        $('#error_modal').on('hidden.bs.modal', function () {    //reload login form
+                            window.location = 'login.php';
+                        })
+                    </script>";
+
+                $_SESSION['error_msg'] = "";    // reset
+            }
+        }
     ?>
 </head>
 <body>
@@ -19,14 +60,14 @@
     <!-- .END HEADER -->
 
     <!-- BEGIN MAIN CONTENT -->
-    <div class="container content-wrapper">
+    <div class="container content-wrapper" style="margin-top: 50px">
         <div class="col-md-12">
             <div class="col-md-3">  
             </div>
 
             <div class="col-md-6">
-                <!-- Login Form Container -->
-                <div class="panel panel-default panel-login">
+                <!-- Login Form Container --> 
+                <div class="panel panel-default panel-login" style="padding-top: 10px">
 
                     <div class="text-center" style="margin-bottom: 10px solid black"> 
                         <img src="../images/logos/shoeversity-logo.jpg" height="200px" class="img-circle" alt="Shoeversity">
@@ -37,7 +78,7 @@
 
                     <!-- Login Form -->
                     <div class="panel-body">
-                        <form action='../../database/user_authenticate.php' method='post'>
+                        <form action='../database/user_authenticate.php' method='post'>
                             <!-- Username -->
                             <div class="input-group" style="margin-bottom: 16px">
                                 <!-- <span class="input-group-addon"><img src="../../images/icons/ic_person_black_24dp.png" style="height: 20px"></span> -->
@@ -60,7 +101,7 @@
 
                             <!-- Submit Button -->
                             <button type="submit" class="btn btn-primary" style="padding: 7px; width: 100%">
-                                <img src="../../images/icons/login.png" alt="">
+                                <img src="../images/icons/login.png" alt="" style="width: 24px;">
                                 <strong>Login</strong>
                             </button>
                         </form>

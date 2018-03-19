@@ -10,8 +10,22 @@
 
         session_start();
         // Set active page
+        $_SESSION['page_type'] = "Public";
         $_SESSION['active_page'] = "register";
+
+        // Check if a user is already logged in. If yes, redirect to their dashboard.
+        if(isset($_SESSION['a_username'])) {
+            header("Location: admin/dashboard.php");
+            exit();
+        } else if(isset($_SESSION['b_username'])) {
+            header("Location: brands/products.php");
+            exit();
+        } else if(isset($_SESSION['u_username'])) {
+            header("Location: users/products.php");
+            exit();
+        }
     ?>
+    <script type="text/javascript" src="../js/jquery-fxns.js"></script>
 </head>
 <body>
     <!-- BEGIN HEADER -->
@@ -19,14 +33,14 @@
     <!-- .END HEADER -->
 
     <!-- BEGIN MAIN CONTENT -->
-    <div class="container content-wrapper">
+    <div class="container content-wrapper" style="margin-top: 50px">
         <div class="col-md-12">
             <div class="col-md-2">  
             </div>
 
             <div class="col-md-8">
                 <!-- Login Form Container -->
-                <div class="panel panel-default panel-register">
+                <div class="panel panel-default panel-register" style="padding-top: 10px">
 
                     <div class="text-center" style="margin-bottom: 10px solid black"> 
                         <img src="../images/logos/shoeversity-logo.jpg" height="200px" class="img-circle" alt="Shoeversity">
@@ -36,7 +50,7 @@
                     <hr>
 
                     <!-- Register Form -->
-                    <div class="content">
+                    <div style="padding: 7px;">
                 
                         <ul class="nav nav-tabs nav-justified" data-tabs="tabs">
                             <li class="active"> <a data-toggle="tab" href="#user_reg">Customer</a> </li>
