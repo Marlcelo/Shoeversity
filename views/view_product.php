@@ -82,5 +82,6 @@
     <!-- .END MAIN CONTENT -->
 
 	</body>
+    <script src="../js/smooth-scroll.js"></script>
 
 </html>

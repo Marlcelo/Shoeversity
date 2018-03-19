@@ -25,9 +25,6 @@
             exit();
         }
     ?>
-
-    <script src="../js/animate-scroll.js"></script>
-
 </head>
 <body>
     <!-- BEGIN HEADER -->
@@ -35,18 +32,18 @@
     <!-- .END HEADER -->
 
     <!-- BEGIN MAIN CONTENT -->
-    <div class="quicklink">
+    <div class="quicklink"><a href="#products-list">
         <div class="promote-products" id="promote-products-link">
             <h4>Check out our products!</h4>
-            <a href="#products-list">
+            <!-- <a href="#products-list"> -->
                 <center>
                     <img src="../images/misc/down-arrow.png" alt="down">
                 </center>
-            </a>
+            <!-- </a> -->
         </div>
 
         <div class="arrow-left" id="promote-products-left-arrow"></div>
-    </div>
+    </a></div>
 
 
     <!-- Begin Carousel -->
@@ -152,5 +149,8 @@
     <!-- .END FOOTER -->
     
     <!-- Include Javascript files -->
+    <script src="../js/animate-products-quicklink.js"></script>
+    <script src="../js/smooth-scroll.js"></script>
+
 </body>
 </html>
