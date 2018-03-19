@@ -43,8 +43,10 @@
                     <label for="gnder">Gender:</label>
                     <br>
                     
-                    <hr>
-                    <a href=""><button class="btn-md btn-info">Create an Admin Account</button></a>
+                    <hr><br><br>
+                    <a href=""><button class="btn-md btn-info">Create an Admin Account</button></a><br>
+                    <a href=""><button class="btn-md btn-info">Delete an Admin Account</button></a><br>
+                    <a href=""><button class="btn-md btn-info">Delete a User Account</button></a>
                 </div>
                 <div class="col-md-8">
                     <h2>List of Admins</h2><hr><br>
