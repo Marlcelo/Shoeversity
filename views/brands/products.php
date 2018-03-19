@@ -40,6 +40,14 @@
 
                 <div class="col-sm-4">
                     <span class="thumbnail">
+                        <div class="row" style="float:right;">
+                            <div class="col-md-8 col-sm-8">
+                                <a href=""><button class="btn-md btn-info pull-right" ><i class="glyphicon glyphicon-edit"></i></button></a>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <a href=""><button class="btn-md btn-info pull-right" ><i class="glyphicon glyphicon-remove"></i></button></a>
+                           </div> 
+                        </div><br>
                         <img src="" alt="...">
                         <h4></h4>
                         <div class="ratings">
@@ -59,7 +67,7 @@
                                 <p class="price">Php. 3,500</p>
                             </div>
                             <div class="col-md-6 col-sm-6">
-                                <a href=""><button class="btn-md btn-info pull-right" >BUY PRODUCT</button></a>
+                                <a href=""><button class="btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
                            </div>
                             
                         </div>
@@ -68,6 +76,14 @@
 
                 <div class="col-sm-4">
                     <span class="thumbnail">
+                        <div class="row" style="float:right;">
+                            <div class="col-md-8 col-sm-8">
+                                <a href=""><button class="btn-md btn-info pull-right" ><i class="glyphicon glyphicon-edit"></i></button></a>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <a href=""><button class="btn-md btn-info pull-right" ><i class="glyphicon glyphicon-remove"></i></button></a>
+                           </div> 
+                        </div><br>
                         <img src="" alt="...">
                         <h4></h4>
                         <div class="ratings">
@@ -87,15 +103,24 @@
                                 <p class="price">Php. 3,500</p>
                             </div>
                             <div class="col-md-6 col-sm-6">
-                                <a href=""><button class="btn-md btn-info pull-right" >BUY PRODUCT</button></a>
+                                <a href=""><button class="btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
                            </div>
                             
                         </div>
                     </span>
                 </div>
 
+
                 <div class="col-sm-4">
                     <span class="thumbnail">
+                        <div class="row" style="float:right;">
+                            <div class="col-md-8 col-sm-8">
+                                <a href=""><button class="btn-md btn-info pull-right" ><i class="glyphicon glyphicon-edit"></i></button></a>
+                            </div>
+                            <div class="col-md-4 col-sm-4">
+                                <a href=""><button class="btn-md btn-info pull-right" ><i class="glyphicon glyphicon-remove"></i></button></a>
+                           </div> 
+                        </div><br>
                         <img src="" alt="...">
                         <h4></h4>
                         <div class="ratings">
@@ -115,14 +140,14 @@
                                 <p class="price">Php. 3,500</p>
                             </div>
                             <div class="col-md-6 col-sm-6">
-                                <a href=""><button class="btn-md btn-info pull-right" >BUY PRODUCT</button></a>
+                                <a href=""><button class="btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
                            </div>
                             
                         </div>
                     </span>
                 </div>
             </div>
-    </div>
+    </div>            
 
     <!-- BEGIN FOOTER -->
     <?php require "../../templates/brands/brand_footer.php"; ?>
