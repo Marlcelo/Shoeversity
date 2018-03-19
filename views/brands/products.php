@@ -27,9 +27,7 @@
         <div class="row">
             <!-- Centered Pills -->
             <ul class="nav nav-pills nav-justified">
-                <li><a href="add_prodct.jsp">Add a product</a></li>
-                <li><a href="edit_product.jsp">Edit a product</a></li>
-                <li><a href="delete_product.jsp">Delete a product</a></li>
+                <li><a href="add_product.php">Add a product</a></li>
             </ul>
         </div>
     </div>
@@ -42,10 +40,10 @@
                     <span class="thumbnail">
                         <div class="row" style="float:right;">
                             <div class="col-md-8 col-sm-8">
-                                <a href=""><button class="btn-md btn-info pull-right" ><i class="glyphicon glyphicon-edit"></i></button></a>
+                                <a href="edit_product.php"><button class="btn-md btn-info pull-right" ><i class="glyphicon glyphicon-edit"></i></button></a>
                             </div>
                             <div class="col-md-4 col-sm-4">
-                                <a href=""><button class="btn-md btn-info pull-right" ><i class="glyphicon glyphicon-remove"></i></button></a>
+                                <a href="remove_product.php"><button class="btn-md btn-info pull-right" ><i class="glyphicon glyphicon-remove"></i></button></a>
                            </div> 
                         </div><br>
                         <img src="" alt="...">
