@@ -26,39 +26,6 @@
         }
     ?>
 
-    <style type="text/css">
-        .promote-products {
-            position: fixed;
-            bottom: 50px;
-            right: 0px;
-            background-color: rgba(0,0,0, 0.67);
-            color: #FFFFFF;
-            z-index: 999;            
-            padding-top: 40px;
-            padding-bottom: 40px;
-            padding-left: 50px;
-            padding-right: 80px;
-        }
-
-        .promote-products img {
-            height: 30px;
-            widows: 30px;
-            margin-top: 16px;
-        }
-
-        .arrow-left {
-          width: 0; 
-          height: 0; 
-          border-top: 82.5px solid transparent;
-          border-bottom: 82.5px solid transparent; 
-          position: fixed;
-        bottom: 50px;
-        right: 337px;
-          z-index: 1000;            
-          border-right:82.5px solid rgba(0,0,0, 0.67); 
-        }
-    </style>
-
     <script src="../js/animate-scroll.js"></script>
 
 </head>
@@ -68,17 +35,19 @@
     <!-- .END HEADER -->
 
     <!-- BEGIN MAIN CONTENT -->
-    <div class="promote-products" id="promote-products-link">
-        <h4>Check out our products!</h4>
+    <div class="quicklink">
+        <div class="promote-products" id="promote-products-link">
+            <h4>Check out our products!</h4>
+            <a href="#products-list">
+                <center>
+                    <img src="../images/misc/down-arrow.png" alt="down">
+                </center>
+            </a>
+        </div>
 
-        <a href="#products-list">
-            <center>
-                <img src="../images/misc/down-arrow.png" alt="down">
-            </center>
-        </a>
+        <div class="arrow-left" id="promote-products-left-arrow"></div>
     </div>
-    <div class="arrow-left"></div>
-    
+
 
     <!-- Begin Carousel -->
     <div id="shoeversityCarousel" class="carousel slide" data-ride="carousel" style="position: absolute; top: 0; margin-bottom: 100px; width: 100%; height: 100vh">
