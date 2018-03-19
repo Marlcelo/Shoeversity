@@ -91,6 +91,15 @@ BEGIN
     
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_BRANDV`(strUsername VARCHAR(35))
+BEGIN
+  SELECT uid, b_username, brand_name, b_email, b_verified
+  FROM brands 
+  WHERE b_username = strUsername 
+  LIMIT 1;
+  
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_NEWUSER` (`uname` VARCHAR(35), `pass` VARCHAR(100), `emailAdd` VARCHAR(50), `uGender` CHAR(1), `fname` VARCHAR(35), `mname` VARCHAR(35), `lname` VARCHAR(35))  BEGIN
   declare str_return varchar(10); 
     

@@ -39,7 +39,7 @@ if($userType == "Admin") {
 	exit();
 }
 else if($userType == "Brand") {
-	$sql = "CALL SP_GET_BRAND('$username');"; /* retrieve brand data */
+	$sql = "CALL SP_GET_BRANDV('$username');"; /* retrieve brand data */
 	$result = mysqli_query($conn, $sql);
 	$auth_user = mysqli_fetch_assoc($result);
 
