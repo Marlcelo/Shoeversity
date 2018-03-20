@@ -41,6 +41,14 @@
                             <img src=""/>
     					</div>
     					<div class="details col-md-6">
+                            <div class="row" >
+                                <div class="col-md-10 col-sm-10">
+                                <a href="edit_product.php"><button class="btn btn-md btn-info pull-right" style="height:45px; width: 70px;"><i class="glyphicon glyphicon-edit"></i></button></a>
+                                </div>
+                                <div class="col-md-2 col-sm-2">
+                                <a href="remove_product.php"><button class="btn btn-md btn-info pull-right" style="height:45px; width: 70px;"><i class="glyphicon glyphicon-remove"></i></button></a><br>
+                                </div>
+                            </div>
                             <h3 class="product-title">SHOES</h3>
     						<div class="rating">
     							<div class="stars">
