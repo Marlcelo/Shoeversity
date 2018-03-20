@@ -65,7 +65,7 @@
                                 <p class="price">Php. 3,500</p>
                             </div>
                             <div class="col-md-6 col-sm-6">
-                                <a href=""><button class="btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
+                                <a href="brand_view_product.php"><button class="btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
                            </div>
                             
                         </div>
@@ -101,7 +101,7 @@
                                 <p class="price">Php. 3,500</p>
                             </div>
                             <div class="col-md-6 col-sm-6">
-                                <a href=""><button class="btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
+                                <a href="brand_view_product.php"><button class="btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
                            </div>
                             
                         </div>
@@ -138,7 +138,7 @@
                                 <p class="price">Php. 3,500</p>
                             </div>
                             <div class="col-md-6 col-sm-6">
-                                <a href=""><button class="btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
+                                <a href="brand_view_product.php"><button class="btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
                            </div>
                             
                         </div>
