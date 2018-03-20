@@ -77,5 +77,5 @@
 	</div>
 	<!--/.Copyright-->
 
-</footer>
 <!--/.Footer-->
+</footer>
