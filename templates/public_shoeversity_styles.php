@@ -37,28 +37,28 @@
       border-bottom: 72.5px solid transparent; 
       position: fixed;
       bottom: 50px;
-      right: 338px;
+      right: 337px;
       z-index: 1000;            
       border-right:82.5px solid rgba(0,0,0, 0.67); 
     }
 
     .quicklink:hover .promote-products{
-        -o-transition:.5s;
-        -ms-transition:.5s;
-        -moz-transition:.5s;
-        -webkit-transition:.5s;
-        transition:.5s;
+        -o-transition:.99s;
+        -ms-transition:.99s;
+        -moz-transition:.99s;
+        -webkit-transition:.99s;
+        transition:.99s;
 
         -webkit-filter: invert(100%);
          filter: invert(100%);
     }
 
     .quicklink:hover .arrow-left{
-        -o-transition:.5s;
-        -ms-transition:.5s;
-        -moz-transition:.5s;
-        -webkit-transition:.5s;
-        transition:.5s;
+        -o-transition:.99s;
+        -ms-transition:.99s;
+        -moz-transition:.99s;
+        -webkit-transition:.99s;
+        transition:.99s;
 
         -webkit-filter: invert(100%);
          filter: invert(100%);
