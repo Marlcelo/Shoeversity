@@ -43,22 +43,22 @@
     }
 
     .quicklink:hover .promote-products{
-        -o-transition:.99s;
-        -ms-transition:.99s;
-        -moz-transition:.99s;
-        -webkit-transition:.99s;
-        transition:.99s;
+        -o-transition:.5s;
+        -ms-transition:.5s;
+        -moz-transition:.5s;
+        -webkit-transition:.5s;
+        transition:.5s;
 
         -webkit-filter: invert(100%);
          filter: invert(100%);
     }
 
     .quicklink:hover .arrow-left{
-        -o-transition:.99s;
-        -ms-transition:.99s;
-        -moz-transition:.99s;
-        -webkit-transition:.99s;
-        transition:.99s;
+        -o-transition:.5s;
+        -ms-transition:.5s;
+        -moz-transition:.5s;
+        -webkit-transition:.5s;
+        transition:.5s;
 
         -webkit-filter: invert(100%);
          filter: invert(100%);
