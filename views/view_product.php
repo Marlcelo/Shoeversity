@@ -13,14 +13,14 @@
         $_SESSION['active_page'] = "products";
 
         // Check if a user is already logged in. If yes, redirect to their dashboard.
-        if(isset($_SESSION['a_username'])) {
-            header("Location: admin/dashboard.php");
+         if(isset($_SESSION['a_username'])) {
+            //header("Location: admin/dashboard.php");
             exit();
         } else if(isset($_SESSION['b_username'])) {
-            header("Location: brands/products.php");
+           // header("Location: brands/products.php");
             exit();
         } else if(isset($_SESSION['u_username'])) {
-            header("Location: users/products.php");
+            //header("Location: users/products.php");
             exit();
         }
     ?>
