@@ -4,8 +4,8 @@
 
         <?php
             // Include Bootstrap and main styles 
-            include "../../templates/user_bs_styles.php";
-            include "../../templates/user_shoeversity_styles.php";
+            include "../../templates/users/user_bs_styles.php";
+            include "../../templates/users/user_shoeversity_styles.php";
 
             session_start();
             // Set active page
@@ -29,7 +29,7 @@
     </head>
     <body>
         <!-- BEGIN HEADER -->
-        <?php require "../../templates/user_header.php"; ?>
+        <?php require "../../templates/users/user_header.php"; ?>
         <!-- .END HEADER -->
 
         <!-- BEGIN MAIN CONTENT -->
