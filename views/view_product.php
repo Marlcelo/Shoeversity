@@ -13,7 +13,7 @@
         $_SESSION['active_page'] = "products";
 
         // Check if a user is already logged in. If yes, redirect to their dashboard.
-        if(isset($_SESSION['a_username'])) {
+         /*if(isset($_SESSION['a_username'])) {
             header("Location: admin/dashboard.php");
             exit();
         } else if(isset($_SESSION['b_username'])) {
@@ -22,7 +22,7 @@
         } else if(isset($_SESSION['u_username'])) {
             header("Location: users/products.php");
             exit();
-        }
+        }*/
     ?>
 
 
@@ -53,7 +53,7 @@
 							<span class="review-no">41 reviews</span>
 						</div>
 						<p class="product-description">Buy my pretty shoes!</p>
-						<h4 class="price">Price: <span>PHP 2,350</span></h4>
+						<h4><p class="price">Price: <span>3,500</span></p></h4>
 						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
 						<h5 class="sizes">Size:
                             <span class="size" data-toggle="tooltip" ></span>
@@ -80,7 +80,9 @@
 	</div>
 
     <!-- .END MAIN CONTENT -->
-
+	    <!-- BEGIN FOOTER -->
+	    <?php require "../templates/users/user_footer.php"; ?>
+	    <!-- .END FOOTER -->
 	</body>
     <script src="../js/smooth-scroll.js"></script>
 
