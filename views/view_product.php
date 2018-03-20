@@ -68,9 +68,9 @@
                             	<span class="color blue"></span>
                             </h5>
                             
-                            <div class="action">
-                                <button class="add-to-cart btn btn-primary" type="submit">add to cart</button>
-                                <button class="like btn btn-default" type="button"><span class="fa fa-star"></span> Rate</button>
+                            <div class="row">
+                                <button class="add-to-cart btn btn-primary disabled" type="button">add to cart</button>
+                                <button class="like btn btn-default disabled" type="button"><span class="fa fa-star"></span> Rate</button>
                             </div>
                         </form>
 					</div>
