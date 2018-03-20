@@ -75,11 +75,6 @@
                                 <h5 class="colors">Colors:
                                 	<span class="color blue"></span>
                                 </h5>
-                                
-                                <div class="row">
-                                    <button class="add-to-cart btn btn-primary" type="submit">add to cart</button>
-                                    <button class="like btn btn-default" type="button"> Rate</button>
-                                </div>
                             </form>
     					</div>
     				</div>
