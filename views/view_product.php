@@ -53,7 +53,7 @@
 							<span class="review-no">41 reviews</span>
 						</div>
 						<p class="product-description">Buy my pretty shoes!</p>
-						<h4 class="price">Price: <span>PHP 2,350</span></h4>
+						<h4><p class="price">Price: <span>3,500</span></p></h4>
 						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
 						<h5 class="sizes">Size:
                             <span class="size" data-toggle="tooltip" ></span>
