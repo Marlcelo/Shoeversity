@@ -80,7 +80,9 @@
 	</div>
 
     <!-- .END MAIN CONTENT -->
-
+	    <!-- BEGIN FOOTER -->
+	    <?php require "../templates/users/user_footer.php"; ?>
+	    <!-- .END FOOTER -->
 	</body>
     <script src="../js/smooth-scroll.js"></script>
 
