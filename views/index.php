@@ -130,7 +130,7 @@
                                     <p class="price"> &#8369; <?php echo $shoe[4]; ?></p>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
-                                    <a href=""><button class="btn-md btn-info pull-right" >BUY ITEM</button></a>
+                                    <a href="view_product.php"><button class="btn-md btn-info pull-right" >BUY ITEM</button></a>
                                </div>
                                 
                             </div>
