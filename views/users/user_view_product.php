@@ -69,8 +69,8 @@
                                 </h5>
                                 
                                 <div class="row">
-                                    <button class="add-to-cart btn btn-primary disabled" type="button">add to cart</button>
-                                    <button class="like btn btn-default disabled" type="button"> Rate</button>
+                                    <button class="add-to-cart btn btn-primary" type="submit">add to cart</button>
+                                    <button class="like btn btn-default" type="button"> Rate</button>
                                 </div>
                             </form>
     					</div>
