@@ -1,7 +1,7 @@
 <?php
 	$highlight = $_SESSION['active_page'];
 ?>
-<link rel="icon" type="image/png" href="../images/logos/shoeversity-favicon.png">
+<link rel="icon" type="image/png" href="../../images/logos/shoeversity-favicon.png">
 <!--Header-->
 <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
 	<div class="container-fluid">
