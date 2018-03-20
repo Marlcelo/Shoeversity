@@ -120,8 +120,9 @@
                             </div>
                                     <label class="lead"><h2 style="margin-bottom: 0"><?php echo $shoe[0]; ?></h2></label>
                                     <p><?php echo $shoe[1]; ?></p>
-                                    <p><b>COLOR:</b> 
-                                        <div style="height: 15px; width: 15px; background: <?php echo $shoe[2]; ?>"></div>
+                                    <p class="colors"><b>COLOR:</b> 
+                                        <!-- <div style="height: 15px; width: 15px; background: <?php echo $shoe[2]; ?>"></div> -->
+                                        <span class="color <?php echo $shoe[2]; ?>" style="border: 1px solid #aaa;"></span>
                                     </p>
                                     <p><b>SIZE:</b> <?php echo $shoe[3]; ?></p>
                             <hr class="line">
