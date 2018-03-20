@@ -115,7 +115,7 @@
     </div>
 
     <!-- BEGIN FOOTER -->
-    <?php require "../../templates/admin/admin_footer.php"; ?>
+    <?php require "../../templates/users/user_footer.php"; ?>
     <!-- .END FOOTER -->
 
     <!-- Include Javascript files -->
