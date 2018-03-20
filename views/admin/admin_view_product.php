@@ -4,8 +4,8 @@
 
         <?php
             // Include Bootstrap and main styles 
-            include "../../templates/brands/brand_bs_styles.php";
-            include "../../templates/brands/brand_shoeversity_styles.php";
+            include "../../templates/admin/admin_bs_styles.php";
+            include "../../templates/admin/admin_shoeversity_styles.php";
 
             session_start();
             // Set active page
@@ -29,7 +29,7 @@
     </head>
     <body>
         <!-- BEGIN HEADER -->
-        <?php require "../../templates/brands/brand_header.php"; ?>
+        <?php require "../../templates/admin/admin_header.php"; ?>
         <!-- .END HEADER -->
 
         <!-- BEGIN MAIN CONTENT -->
@@ -83,7 +83,7 @@
     	</div>
 
         <!-- BEGIN FOOTER -->
-        <?php require "../../templates/brands/brand_footer.php"; ?>
+        <?php require "../../templates/admin/admin_footer.php"; ?>
         <!-- .END FOOTER -->
 	</body>
     <script src="../../js/smooth-scroll.js"></script>
