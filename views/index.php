@@ -106,11 +106,12 @@
             <?php 
                 include "../database/shoes_list_get.php"; 
                 $colCounter = 1;
+                $i = 1;
             ?>
 
             <?php foreach($_SESSION['shoes_list'] as $shoe): ?>
 
-                <?php if($colCounter % 3 == 0) echo "<div class='row'>"; ?>
+                <?php if($colCounter % 3 == 0) echo "<div class='row' id='$i'>"; ?>
 
                 <div class="col-sm-4">
                     <span class="thumbnail">
@@ -136,7 +137,7 @@
                                 <p class="price"> &#8369; <?php echo $shoe[4]; ?></p>
                             </div>
                             <div class="col-md-6 col-sm-6">
-                                <a href="view_product.php"><button class="btn-md btn-info pull-right" >BUY ITEM</button></a>
+                                <a href="view_product.php"><button class="btn btn-info pull-right">VIEW ITEM</button></a>
                            </div>
                             
                         </div>
@@ -144,7 +145,10 @@
                 </div>
 
                 <?php 
-                    if($colCounter % 3 == 0) echo "</div>"; 
+                    if($colCounter % 3 == 0) {
+                        echo "</div>"; 
+                        $i++;
+                    } 
                     $colCounter++;
                 ?>
     
