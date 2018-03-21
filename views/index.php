@@ -123,6 +123,7 @@
                                 <span class="glyphicon glyphicon-star-empty"></span>
                             </div>
                                     <label class="lead"><h2 style="margin-bottom: 0"><?php echo $shoe[0]; ?></h2></label>
+                                    <p><b>Posted by: <?php echo $shoe[0]; ?></b></p>
                                     <p><?php echo $shoe[1]; ?></p>
                                     <p><b>COLOR:</b> 
                                         <div style="height: 15px; width: 15px; background: <?php echo $shoe[2]; ?>"></div>

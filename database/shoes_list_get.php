@@ -13,6 +13,7 @@ $sql = "SELECT * FROM shoes";
 $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
 while($row = mysqli_fetch_row($result)) {
+	$postedby = $row[1]; 
 	$name = $row[2];
 	$description = $row[3];
 	$color = $row[8];
@@ -21,7 +22,7 @@ while($row = mysqli_fetch_row($result)) {
 	$imgpath = $row[9];
 	// get other details
 	
-	$shoeDetails = array($name, $description, $color, $size, $price, $imgpath);
+	$shoeDetails = array($postedby, $name, $description, $color, $size, $price, $imgpath);
 	array_push($_SESSION['shoes_list'], $shoeDetails);
 }
 
