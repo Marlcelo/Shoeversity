@@ -219,6 +219,53 @@
                 <input type="submit" class="btn btn-default" name="next" style="width: 37px; height: 37px;" value="&raquo;">
             </form>
 
+<!--             <div class="row">
+                <?php include "../database/shoes_list_get.php"; ?>
+
+                <?php 
+                    $counter = 0;
+
+                    foreach($_SESSION['shoes_list'] as $shoe) { 
+
+                        $counter = $counter+1; ?>
+                    <div class="col-sm-4">
+                        <span class="thumbnail">
+                            <img src="<?php echo "../".$shoe[5]; ?>" alt="...">
+                            <!-- <h4></h4> -->
+                            <div class="ratings">
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </div>
+                                    <label class="lead"><h2 style="margin-bottom: 0"><?php echo $shoe[0]; ?></h2></label>
+                                    <p><?php echo $shoe[1]; ?></p>
+                                    <p><b>COLOR:</b> 
+                                        <div style="height: 15px; width: 15px; background: <?php echo $shoe[2]; ?>"></div>
+                                    </p>
+                                    <p><b>SIZE:</b> <?php echo $shoe[3]; ?></p>
+                            <hr class="line">
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <p class="price"> &#8369; <?php echo $shoe[4]; ?></p>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <a href="view_product.php"><button class="btn-md btn-info pull-right" >BUY ITEM</button></a>
+                               </div>
+                                
+                            </div>
+                        </span>
+                    </div> 
+
+                    <?php if($counter ==3){ ?>
+                        <div class="clearfix"></div>
+                    
+                    <?php }
+                           
+                 } ?>
+            </div>   -->
+
             <!-- <div class="row text-center" style="background: #eee">
                 <ul class="pagination pagination-lg">
                     <li><a href="#">&laquo;</a></li>
