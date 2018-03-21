@@ -133,16 +133,17 @@
                 $sql = "SELECT * FROM shoes LIMIT ".$page.",".$per_page;
                 $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
-                while($row = mysqli_fetch_row($result)) {
-                    $name = $row[2];
-                    $description = $row[3];
-                    $color = $row[8];
-                    $size = $row[6];
-                    $price = $row[7];
-                    $imgpath = $row[9];
+                while($row = mysqli_fetch_assoc($result)) {
+                    $shoeID = $row['uid'];
+                    $name = $row['name'];
+                    $description = $row['description'];
+                    $color = $row['color'];
+                    $size = $row['size'];
+                    $price = $row['price'];
+                    $imgpath = $row['photo_url'];
                     // get other details
                     
-                    $shoeDetails = array($name, $description, $color, $size, $price, $imgpath);
+                    $shoeDetails = array($shoeID, $name, $description, $color, $size, $price, $imgpath);
                     array_push($_SESSION['shoes_list'], $shoeDetails);
                 }
 
@@ -157,7 +158,7 @@
 
                 <div class="col-sm-4">
                     <span class="thumbnail">
-                        <img src="<?php echo "../".$shoe[5]; ?>" alt="...">
+                        <img src="<?php echo "../".$shoe[6]; ?>" alt="...">
                         <!-- <h4></h4> -->
                         <div class="ratings">
                             <span class="glyphicon glyphicon-star"></span>
@@ -166,20 +167,22 @@
                             <span class="glyphicon glyphicon-star"></span>
                             <span class="glyphicon glyphicon-star-empty"></span>
                         </div>
-                                <label class="lead"><h2 style="margin-bottom: 0"><?php echo $shoe[0]; ?></h2></label>
-                                <p><?php echo $shoe[1]; ?></p>
+                                <label class="lead"><h2 style="margin-bottom: 0"><?php echo $shoe[1]; ?></h2></label>
+                                <p><?php echo $shoe[2]; ?></p>
                                 <p class="colors"><b>COLOR:</b> 
-                                    <!-- <div style="height: 15px; width: 15px; background: <?php echo $shoe[2]; ?>"></div> -->
-                                    <span class="color <?php echo $shoe[2]; ?>" style="border: 1px solid #aaa;"></span>
+                                    <!-- <div style="height: 15px; width: 15px; background: <?php //echo $shoe[3]; ?>"></div> -->
+                                    <span class="color <?php echo $shoe[3]; ?>" style="border: 1px solid #aaa;"></span>
                                 </p>
-                                <p><b>SIZE:</b> <?php echo $shoe[3]; ?></p>
+                                <p><b>SIZE:</b> <?php echo $shoe[4]; ?></p>
                         <hr class="line">
                         <div class="row">
                             <div class="col-md-6 col-sm-6">
-                                <p class="price"> &#8369; <?php echo $shoe[4]; ?></p>
+                                <p class="price"> &#8369; <?php echo $shoe[5]; ?></p>
                             </div>
                             <div class="col-md-6 col-sm-6">
-                                <a href="view_product.php"><button class="btn btn-info pull-right">VIEW ITEM</button></a>
+                                <a href="view_product.php?pid=<?php echo $shoe[0];?>">
+                                    <button class="btn btn-info pull-right">VIEW ITEM</button>
+                                </a>
                            </div>
                             
                         </div>

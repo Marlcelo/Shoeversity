@@ -13,7 +13,7 @@
             $_SESSION['active_page'] = "products";
 
             // Check if a user is already logged in. If yes, redirect to their dashboard.
-             /*if(isset($_SESSION['a_username'])) {
+             if(isset($_SESSION['a_username'])) {
                 header("Location: admin/dashboard.php");
                 exit();
             } else if(isset($_SESSION['b_username'])) {
@@ -22,7 +22,20 @@
             } else if(isset($_SESSION['u_username'])) {
                 header("Location: users/products.php");
                 exit();
-            }*/
+            }
+
+            if(isset($_GET['pid'])) {
+                $shoe_id = $_GET['pid'];
+                $_SESSION['pid'] = $shoe_id;
+                include '../database/shoe_get.php';
+
+                $shoe = array();
+                $shoe = $_SESSION['selected_shoe_details'][0];
+            }
+            else {
+                echo "<h1>Oops! Something went wrong.</h1>";
+                echo "<script>window.stop()</script>";
+            }
         ?>
 
 
@@ -38,10 +51,10 @@
     			<div class="container-fliud">
     				<div class="wrapper row">
     					<div class="preview col-md-6">
-                            <img src=""/>
+                            <img src="<?php echo "../".$shoe[5]; ?>"/>
     					</div>
     					<div class="details col-md-6">
-                            <h3 class="product-title">SHOES</h3>
+                            <h3 class="product-title"><?php echo $shoe[0]; ?></h3>
     						<div class="rating">
     							<div class="stars">
     								<span class="fa fa-star checked"></span>
@@ -52,22 +65,23 @@
     							</div>
     							<span class="review-no">41 reviews</span>
     						</div>
-    						<p class="product-description">Buy my pretty shoes!</p>
-    						<h4><p class="price">Price: <span>3,500</span></p></h4>
-    						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+    						<p class="product-description"><?php echo $shoe[1]; ?></p>
+    						<h4><p class="price">Price: <span><?php echo $shoe[4]; ?></span></p></h4>
+    						<!-- <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p> -->
     						<h5 class="sizes">Size:
-                                <span class="size" data-toggle="tooltip" ></span>
+                                <span class="size" data-toggle="tooltip" ><?php echo $shoe[3]; ?></span>
     						</h5>
+                            <h5 class="colors">Colors:
+                                <span class="color <?php echo $shoe[2]; ?>"></span>
+                            </h5>
+        
+                            <br>
 
                             <form action="">
-                                <h5 class="qty">Qty:
+                                <!-- <h5 class="qty">Qty:
                                 	<span style="margin-left:5px;"><input style="width: 15%; display: inline; " type="number" class="form-control text-center" min="1" max="10" name="qty" value="1"></span>
-                                </h5>
-                    
-                                <h5 class="colors">Colors:
-                                	<span class="color blue"></span>
-                                </h5>
-                                
+                                </h5> -->
+                                                
                                 <div class="row">
                                     <button class="add-to-cart btn btn-primary disabled" type="button">add to cart</button>
                                     <button class="like btn btn-default disabled" type="button"> Rate</button>
