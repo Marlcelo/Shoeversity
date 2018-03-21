@@ -105,8 +105,12 @@
             <div class="row">
                 <?php include "../database/shoes_list_get.php"; ?>
 
-                <?php foreach($_SESSION['shoes_list'] as $shoe) { ?>
+                <?php 
+                    $counter = 0;
 
+                    foreach($_SESSION['shoes_list'] as $shoe) { 
+
+                        $counter = $counter+1; ?>
                     <div class="col-sm-4">
                         <span class="thumbnail">
                             <img src="<?php echo "../".$shoe[5]; ?>" alt="...">
@@ -135,9 +139,14 @@
                                 
                             </div>
                         </span>
-                    </div>
-        
-                <?php } ?>
+                    </div> 
+
+                    <?php if($counter ==3){ ?>
+                        <div class="clearfix"></div>
+                    
+                    <?php }
+                           
+                 } ?>
             </div>  
 
             <div class="row text-center" style="background: #eee">
