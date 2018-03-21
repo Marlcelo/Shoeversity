@@ -37,7 +37,7 @@
       border-bottom: 72.5px solid transparent; 
       position: fixed;
       bottom: 50px;
-      right: 337px;
+      right: 338px;
       z-index: 1000;            
       border-right:82.5px solid rgba(0,0,0, 0.67); 
     }
