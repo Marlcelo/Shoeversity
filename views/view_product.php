@@ -75,7 +75,7 @@
                                 <span class="color <?php echo $shoe[2]; ?>"></span>
                             </h5>
         
-                            <br>
+                            <br><hr class="line">
 
                             <form action="">
                                 <!-- <h5 class="qty">Qty:

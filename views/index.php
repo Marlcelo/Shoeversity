@@ -157,7 +157,7 @@
                 <?php if($colCounter % 3 == 0) echo "<div class='row'>"; ?>
 
                 <div class="col-sm-4">
-                    <span class="thumbnail">
+                    <span class="thumbnail" onclick="location.href = 'view_product.php?pid=<?php echo $shoe[0];?>';">
                         <img src="<?php echo "../".$shoe[6]; ?>" alt="...">
                         <!-- <h4></h4> -->
                         <div class="ratings">
