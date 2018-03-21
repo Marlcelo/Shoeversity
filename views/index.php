@@ -37,7 +37,7 @@
         if(isset($_POST['prev'])) {
             if($_SESSION['active_paginate'] > 1) {
                 $_POST['page'] = $_POST['page'] - 1;
-                header("Location: index.php#products-list");
+                header("Location: <index class="php" id="products-list"></index>");
                 exit();
             }
         }
