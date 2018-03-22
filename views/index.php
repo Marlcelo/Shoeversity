@@ -259,7 +259,7 @@
 
                                 </div>
                                 <div class="col-md-6 col-sm-6">
-                                    <a href="view_product.php"><button class="btn-md btn-info pull-right" >BUY ITEM</button></a>
+                                    <a href="view_product.php"><button class="btn btn-md btn-info pull-right" >BUY ITEM</button></a>
                                </div>
                                 
                             </div>

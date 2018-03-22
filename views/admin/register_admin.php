@@ -44,9 +44,9 @@
                     <br>
                     
                     <hr><br><br>
-                    <a href=""><button class="btn-md btn-info">Create an Admin Account</button></a><br>
-                    <a href=""><button class="btn-md btn-info">Delete an Admin Account</button></a><br>
-                    <a href=""><button class="btn-md btn-info">Delete a User Account</button></a>
+                    <a href=""><button class="btn btn-md btn-info">Create an Admin Account</button></a><br>
+                    <a href=""><button class="btn btn-md btn-info">Delete an Admin Account</button></a><br>
+                    <a href=""><button class="btn btn-md btn-info">Delete a User Account</button></a>
                 </div>
                 <div class="col-md-8">
                     <h1>Create an admin account</h1> 

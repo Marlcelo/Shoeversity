@@ -40,10 +40,10 @@
                     <span class="thumbnail">
                         <div class="row" style="float:right;">
                             <div class="col-md-8 col-sm-8">
-                                <a href="edit_product.php"><button class="btn-md btn-info pull-right" ><i class="glyphicon glyphicon-edit"></i></button></a>
+                                <a href="edit_product.php"><button class="btn btn-md btn-info pull-right" ><i class="glyphicon glyphicon-edit"></i></button></a>
                             </div>
                             <div class="col-md-4 col-sm-4">
-                                <a href="remove_product.php"><button class="btn-md btn-info pull-right" ><i class="glyphicon glyphicon-remove"></i></button></a>
+                                <a href="remove_product.php"><button class="btn btn-md btn-info pull-right" ><i class="glyphicon glyphicon-remove"></i></button></a>
                            </div> 
                         </div><br>
                         <img src="" alt="...">
@@ -65,7 +65,7 @@
                                 <p class="price">Php. 3,500</p>
                             </div>
                             <div class="col-md-6 col-sm-6">
-                                <a href="brand_view_product.php"><button class="btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
+                                <a href="brand_view_product.php"><button class="btn btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
                            </div>
                             
                         </div>
@@ -76,10 +76,10 @@
                     <span class="thumbnail">
                         <div class="row" style="float:right;">
                             <div class="col-md-8 col-sm-8">
-                                <a href=""><button class="btn-md btn-info pull-right" ><i class="glyphicon glyphicon-edit"></i></button></a>
+                                <a href=""><button class="btn btn-md btn-info pull-right" ><i class="glyphicon glyphicon-edit"></i></button></a>
                             </div>
                             <div class="col-md-4 col-sm-4">
-                                <a href=""><button class="btn-md btn-info pull-right" ><i class="glyphicon glyphicon-remove"></i></button></a>
+                                <a href=""><button class="btn btn-md btn-info pull-right" ><i class="glyphicon glyphicon-remove"></i></button></a>
                            </div> 
                         </div><br>
                         <img src="" alt="...">
@@ -101,7 +101,7 @@
                                 <p class="price">Php. 3,500</p>
                             </div>
                             <div class="col-md-6 col-sm-6">
-                                <a href="brand_view_product.php"><button class="btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
+                                <a href="brand_view_product.php"><button class="btn btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
                            </div>
                             
                         </div>
@@ -113,10 +113,10 @@
                     <span class="thumbnail">
                         <div class="row" style="float:right;">
                             <div class="col-md-8 col-sm-8">
-                                <a href=""><button class="btn-md btn-info pull-right" ><i class="glyphicon glyphicon-edit"></i></button></a>
+                                <a href=""><button class="btn btn-md btn-info pull-right" ><i class="glyphicon glyphicon-edit"></i></button></a>
                             </div>
                             <div class="col-md-4 col-sm-4">
-                                <a href=""><button class="btn-md btn-info pull-right" ><i class="glyphicon glyphicon-remove"></i></button></a>
+                                <a href=""><button class="btn btn-md btn-info pull-right" ><i class="glyphicon glyphicon-remove"></i></button></a>
                            </div> 
                         </div><br>
                         <img src="" alt="...">
@@ -138,7 +138,7 @@
                                 <p class="price">Php. 3,500</p>
                             </div>
                             <div class="col-md-6 col-sm-6">
-                                <a href="brand_view_product.php"><button class="btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
+                                <a href="brand_view_product.php"><button class="btn btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
                            </div>
                             
                         </div>
