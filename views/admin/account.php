@@ -44,7 +44,7 @@
                     <br>
                     
                     <hr><br><br>
-                    <a href=""><button class="btn-md btn-info">Create an Admin Account</button></a><br>
+                    <a href="register_admin.php"><button class="btn-md btn-info">Create an Admin Account</button></a><br>
                     <a href=""><button class="btn-md btn-info">Delete an Admin Account</button></a><br>
                     <a href=""><button class="btn-md btn-info">Delete a User Account</button></a>
                 </div>

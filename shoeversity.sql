@@ -29,6 +29,18 @@ DELIMITER $$
 --
 -- Procedures
 --
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_ADMIN` (`uname` VARCHAR(50), `pass` VARCHAR(100), `emailAdd` VARCHAR(50), `gender` CHAR(2), `firstn` VARCHAR(35), `middlen` VARCHAR(35), `lastn` VARCHAR(35))  BEGIN
+  declare str_return varchar(10);
+    
+    IF EXISTS(SELECT * FROM admins WHERE uname LIKE username AND emailAdd LIKE email) THEN
+    SET str_return = "FAIL";
+  ELSE 
+    INSERT INTO admins VALUES(NULL,uname,FN_GET_HASHEDPASSWORD(pass),emailAdd,gender,firstn,middlen,lastn,NOW());
+        SET str_return = "SUCCESS";
+  END IF;
+    
+    SELECT str_return result;
+END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_BRAND_CONTACT`(bId int(11), contactNum varchar(20))
 BEGIN
