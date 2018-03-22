@@ -235,7 +235,7 @@
                         <span class="thumbnail">
 
                             <img src="<?php echo "../".$shoe[6]; ?>" alt="...">
-                            <!-- <h4></h4> -->
+                            <h4></h4> -
 
                             <div class="ratings">
                                 <span class="glyphicon glyphicon-star"></span>
@@ -245,17 +245,17 @@
                                 <span class="glyphicon glyphicon-star-empty"></span>
                             </div>
 
-                                    <label class="lead"><h2 style="margin-bottom: 0"><?php echo $shoe[1]; ?></h2></label>
-                                    <p><b>Posted by: <?php echo $shoe[0]; ?></b></p>
-                                    <p><?php echo $shoe[2]; ?></p>
+                                    <label class="lead"><h2 style="margin-bottom: 0"><?php //echo $shoe[1]; ?></h2></label>
+                                    <p><b>Posted by: <?php// echo $shoe[0]; ?></b></p>
+                                    <p><?php //echo $shoe[2]; ?></p>
                                     <p><b>COLOR:</b> 
-                                        <div style="height: 15px; width: 15px; background: <?php echo $shoe[3]; ?>"></div>
+                                        <div style="height: 15px; width: 15px; background: <?php// echo $shoe[3]; ?>"></div>
                                     </p>
-                                    <p><b>SIZE:</b> <?php echo $shoe[4]; ?></p>
+                                    <p><b>SIZE:</b> <?php// echo $shoe[4]; ?></p>
                             <hr class="line">
                             <div class="row">
                                 <div class="col-md-6 col-sm-6">
-                                    <p class="price"> &#8369; <?php echo $shoe[5]; ?></p>
+                                    <p class="price"> &#8369; <?php// echo $shoe[5]; ?></p>
 
                                 </div>
                                 <div class="col-md-6 col-sm-6">
