@@ -129,6 +129,6 @@
     <!-- .END FOOTER -->
     
     <!-- Include Javascript files -->
-    <script src="../js/smooth-scroll.js"></script>
+    <!-- <script src="../js/smooth-scroll.js"></script> -->
 </body>
 </html>

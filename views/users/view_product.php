@@ -13,7 +13,7 @@
             $_SESSION['active_page'] = "products";
 
             // Check if a user is already logged in. If yes, redirect to their dashboard.
-             /*if(isset($_SESSION['a_username'])) {
+            if(isset($_SESSION['a_username'])) {
                 header("Location: admin/dashboard.php");
                 exit();
             } else if(isset($_SESSION['b_username'])) {
@@ -22,7 +22,7 @@
             } else if(isset($_SESSION['u_username'])) {
                 header("Location: users/products.php");
                 exit();
-            }*/
+            }
         ?>
 
 
@@ -83,6 +83,6 @@
         <?php require "../../templates/users/user_footer.php"; ?>
         <!-- .END FOOTER -->
 	</body>
-    <script src="../../js/smooth-scroll.js"></script>
+    <!-- <script src="../../js/smooth-scroll.js"></script> -->
 
 </html>

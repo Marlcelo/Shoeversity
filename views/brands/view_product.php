@@ -4,8 +4,8 @@
 
         <?php
             // Include Bootstrap and main styles 
-            include "../../templates/admin/admin_bs_styles.php";
-            include "../../templates/admin/admin_shoeversity_styles.php";
+            include "../../templates/brands/brand_bs_styles.php";
+            include "../../templates/brands/brand_shoeversity_styles.php";
 
             session_start();
             // Set active page
@@ -13,7 +13,7 @@
             $_SESSION['active_page'] = "products";
 
             // Check if a user is already logged in. If yes, redirect to their dashboard.
-             /*if(isset($_SESSION['a_username'])) {
+            if(isset($_SESSION['a_username'])) {
                 header("Location: admin/dashboard.php");
                 exit();
             } else if(isset($_SESSION['b_username'])) {
@@ -22,14 +22,14 @@
             } else if(isset($_SESSION['u_username'])) {
                 header("Location: users/products.php");
                 exit();
-            }*/
+            }
         ?>
 
 
     </head>
     <body>
         <!-- BEGIN HEADER -->
-        <?php require "../../templates/admin/admin_header.php"; ?>
+        <?php require "../../templates/brands/brand_header.php"; ?>
         <!-- .END HEADER -->
 
         <!-- BEGIN MAIN CONTENT -->
@@ -42,7 +42,10 @@
     					</div>
     					<div class="details col-md-6">
                             <div class="row" >
-                                <div class="col-md">
+                                <div class="col-md-10 col-sm-10">
+                                <a href="edit_product.php"><button class="btn btn-md btn-info pull-right" style="height:45px; width: 70px;"><i class="glyphicon glyphicon-edit"></i></button></a>
+                                </div>
+                                <div class="col-md-2 col-sm-2">
                                 <a href="remove_product.php"><button class="btn btn-md btn-info pull-right" style="height:45px; width: 70px;"><i class="glyphicon glyphicon-remove"></i></button></a><br>
                                 </div>
                             </div>
@@ -80,9 +83,9 @@
     	</div>
 
         <!-- BEGIN FOOTER -->
-        <?php require "../../templates/admin/admin_footer.php"; ?>
+        <?php require "../../templates/brands/brand_footer.php"; ?>
         <!-- .END FOOTER -->
 	</body>
-    <script src="../../js/smooth-scroll.js"></script>
+    <!-- <script src="../../js/smooth-scroll.js"></script> -->
 
 </html>
