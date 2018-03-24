@@ -19,6 +19,8 @@
 						<div class="input-group-btn">
 							<button class="btn btn-primary" type="submit" style="margin-top: 0px">
 								<i class="glyphicon glyphicon-search"></i></button>
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px; margin-left:10px; border-radius:2px;">
+								<i class="glyphicon glyphicon-bell"></i></button>
 						</div>
 					</div>
 				</form>
