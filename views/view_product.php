@@ -64,7 +64,10 @@
     								<span class="fa fa-star"></span>
     							</div>
     							<span class="review-no">41 reviews</span>
-    						</div>
+    						</div>    
+                            <h4>Posted by:
+                                <span> <?php echo $shoe[6]; ?> </span>
+                            </h4>
     						<p class="product-description"><?php echo $shoe[1]; ?></p>
     						<h4><p class="price">Price: <span><?php echo $shoe[4]; ?></span></p></h4>
     						<!-- <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p> -->
