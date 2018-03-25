@@ -16,7 +16,12 @@
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
+        require '../../database/get_admins.php';
+
     ?>
+
+    <link rel="stylesheet" type="text/css" href="../../css/dataTables.bootstrap.min.css">
+
     <script type="text/javascript">
       $(document).ready(function() {
         $('#admins').DataTable();
@@ -54,57 +59,53 @@
                     <a href=""><button class="btn btn-md btn-info">Delete a User Account</button></a>
                 </div>
                 <div class="col-md-8">
-                    <h1>Delete and Admin Account</h1> 
-                    <div class="content">
-                                <form class="form-horizontal" name="register_user" action="../../database/admin_register.php" method="POST">
-
-                                  <table id="example" class="table table-striped table-bordered" style="width:100%">
+                    <h1>Delete an Admin Account</h1>
+                                  <table id="admins" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
+                                            <th>Username</th>
                                             <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Email</th>
+                                            <th>Gender</th>
+                                            <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
+                                      <?php
+                                      foreach ($admins as $admin) {
+                                       echo "<tr>
+                                          <form action='../../database/admin_delete_admin.php?adId=".$admin['uid']."' method='POST'>
+                                            <td>".$admin['adName']."</td>
+                                            <td>".$admin['username']."</td>
+                                            <td>".$admin['email']."</td>
+                                            <td>".$admin['gender']."</td>
+                                            <td><input type='submit' class='btn btn-danger btn-md' name='delete' value='Delete'></td>
+                                          </form>  
+                                        </tr>";
+                                      }
+
+                                      // while ( <= 10) {
+                                      //   echo "string";
+                                      // }
+                                        ?>
                                     </tbody>
                                     <tfoot>
                                         <tr>
+                                            <th>Username</th>
                                             <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Email</th>
+                                            <th>Gender</th>
+                                            <th></th>
                                         </tr>
                                     </tfoot>
                                 </table>
-                                    
-
-                                    <div class="form-group">
-                                            <div class="col-sm-12 controls">
-                                                    <input type="submit" value="Register adminAdmin" name="registerAdmin" class="btn btn-primary pull-right btn-block"/>
-                                            </div>
-                                    </div>
-                                </form>
-                              
-                            </div>
-        
+                             
                 </div>              
         </div>
     </div>
-
+<script src="../../js/dataTables.bootstrap.min.js"></script>
+<script src="../../js/jquery-1.12.4.js"></script>
+<script src="../../js/jquery.dataTables.min.js"></script>
 	<!-- Include Javascript files -->
     <!-- <script src="../../js/smooth-scroll.js"></script> -->
 </body>
