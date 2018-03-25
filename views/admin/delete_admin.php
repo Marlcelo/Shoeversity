@@ -95,7 +95,7 @@
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Gender</th>
-                                            <th></th>
+                                            <th>Delete</th>
                                         </tr>
                                     </tfoot>
                                 </table>
