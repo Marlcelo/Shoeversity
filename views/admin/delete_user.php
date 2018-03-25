@@ -16,7 +16,7 @@
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
-        require '../../database/get_admins.php';
+        require '../../database/get_users.php';
 
     ?>
 
@@ -24,7 +24,7 @@
 
     <script type="text/javascript">
       $(document).ready(function() {
-        $('#admins').DataTable();
+        $('#users').DataTable();
       } );
     </script>
 </head>
@@ -59,8 +59,8 @@
                     <a href=""><button class="btn btn-md btn-info">Delete a User Account</button></a>
                 </div>
                 <div class="col-md-8">
-                    <h1>Delete an Admin Account</h1>
-                                  <table id="admins" class="table table-striped table-bordered" style="width:100%">
+                    <h1>Delete a User Account</h1>
+                                  <table id="users" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
                                         <tr>
                                             <th>Username</th>
@@ -72,13 +72,13 @@
                                     </thead>
                                     <tbody>
                                       <?php
-                                      foreach ($admins as $admin) {
+                                      foreach ($users as $user) {
                                        echo "<tr>
-                                          <form action='../../database/admin_delete_admin.php?adId=".$admin['uid']."' method='POST'>
-                                            <td>".$admin['username']."</td>
-                                            <td>".$admin['adName']."</td>
-                                            <td>".$admin['email']."</td>
-                                            <td>".$admin['gender']."</td>
+                                          <form action='../../database/admin_delete_user.php?uId=".$user['uid']."' method='POST'>
+                                            <td>".$user['u_username']."</td>
+                                            <td>".$user['uName']."</td>
+                                            <td>".$user['u_email']."</td>
+                                            <td>".$user['u_gender']."</td>
                                             <td><input type='submit' class='btn btn-danger btn-md' name='delete' value='Delete'></td>
                                           </form>  
                                         </tr>";
@@ -95,7 +95,7 @@
                                             <th>Name</th>
                                             <th>Email</th>
                                             <th>Gender</th>
-                                            <th></th>
+                                            <th>Delete</th>
                                         </tr>
                                     </tfoot>
                                 </table>
