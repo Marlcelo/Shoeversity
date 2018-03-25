@@ -29,6 +29,24 @@ DELIMITER $$
 --
 -- Procedures
 --
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_DELETE_ADMIN` (`adminId` INT(11))  BEGIN
+  declare str_return varchar(10);
+    
+    IF !EXISTS(SELECT * FROM admins WHERE uid LIKE adminId) THEN
+    SET str_return = "FAIL";
+  ELSE 
+    DELETE FROM admins WHERE uid = adminId;
+        SET str_return = "SUCCESS";
+  END IF;
+    
+    SELECT str_return result;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ALL_ADMINS` ()  BEGIN
+  SELECT CONCAT(first_name," ",middle_name," ",last_name) adName, username,email,gender
+    FROM admins;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_ADMIN` (`uname` VARCHAR(50), `pass` VARCHAR(100), `emailAdd` VARCHAR(50), `gender` CHAR(2), `firstn` VARCHAR(35), `middlen` VARCHAR(35), `lastn` VARCHAR(35))  BEGIN
   declare str_return varchar(10);
     
