@@ -16,6 +16,20 @@
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
+
+        // Check if request to add product was issued
+        if(isset($_GET['addProduct'])) {
+            if($_GET['addProduct'] == md5('true')) {
+                include '../modals/add_product.php';
+
+                echo "<script> 
+                        $('#add_product_modal').modal('show');
+                        $('#add_product_modal').on('hidden.bs.modal', function () { 
+                             window.location = 'products.php';
+                        })
+                      </script>";
+            }
+        }
     ?>
 </head>
 <body>
@@ -27,16 +41,17 @@
         <div class="row">
             <!-- Centered Pills -->
             <ul class="nav nav-pills nav-justified">
-                <li><a href="add_product.php">Add a product</a></li>
+                <li><a href="products.php?addProduct=<?php echo md5('true');?>">Add a product</a></li>
             </ul>
         </div>
     </div>
 
-    <div class="container" id="products-list" style="margin-top: 10vh;">
+    <div class="container" id="products-list" style="margin-top: 5vh;">
         <!-- BEGIN PRODUCTS GRID -->
-        <div class="col-md-12">
 
-            <div class="col-sm-4">
+
+        <div class="col-md-12">
+            <div class="col-md-4">
                 <span class="thumbnail">
                     <div class="row" style="float:right;">
                         <div class="col-md-8 col-sm-8">
