@@ -19,12 +19,37 @@
 
         // Check if request to add product was issued
         if(isset($_GET['addProduct'])) {
+            // Call popup modal
             if($_GET['addProduct'] == md5('true')) {
                 include '../modals/add_product.php';
 
                 echo "<script> 
                         $('#add_product_modal').modal('show');
                         $('#add_product_modal').on('hidden.bs.modal', function () { 
+                             window.location = 'products.php';
+                        })
+                      </script>";
+            }
+
+            // Product Added successfully
+            if($_GET['addProduct'] == md5('success')) {
+                include '../modals/success.php';
+
+                echo "<script> 
+                        $('#success_modal').modal('show');
+                        $('#success_modal').on('hidden.bs.modal', function () { 
+                             window.location = 'products.php';
+                        })
+                      </script>";
+            }
+            
+            // Error occured while adding product
+            if($_GET['addProduct'] == md5('failed')) {
+                include '../modals/error.php';
+
+                echo "<script> 
+                        $('#error_modal').modal('show');
+                        $('#error_modal').on('hidden.bs.modal', function () { 
                              window.location = 'products.php';
                         })
                       </script>";

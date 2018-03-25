@@ -112,6 +112,13 @@ BEGIN
   
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_BRAND_INFO`(brandID int)
+BEGIN
+  SELECT *
+  FROM brands
+  WHERE uid = brandID;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_NEWUSER` (`uname` VARCHAR(35), `pass` VARCHAR(100), `emailAdd` VARCHAR(50), `uGender` CHAR(1), `fname` VARCHAR(35), `mname` VARCHAR(35), `lname` VARCHAR(35))  BEGIN
   declare str_return varchar(10); 
     
@@ -124,6 +131,27 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_NEWUSER` (`uname` VARCHAR(35
     
     SELECT str_return as col;
     
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_SHOE`(brandID int, shoeName varchar(35), shoeDesc text, shoeType varchar(10), shoeCategory varchar(35), shoeSize int,
+                                                          shoePrice double, shoeColor varchar(35), shoeImage varchar(100))
+BEGIN
+  DECLARE str_return varchar(10); 
+  
+  IF EXISTS(SELECT * FROM shoes WHERE posted_by = brandID AND name = shoeName AND type = shoeType AND category = shoeCategory) THEN
+    SET str_return = 'FAILED';  
+    
+  ELSE
+    INSERT INTO shoes VALUES (
+      NULL, brandID, shoeName, shoeDesc, shoeType, 
+        shoeCategory, shoeSize, shoePrice, shoeColor, 
+        shoeImage, NOW()
+      );
+    SET str_return = 'SUCCESS';  
+  
+  END IF;
+  
+  SELECT str_return;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_SITE_USER` (`uType` VARCHAR(10), `uName` VARCHAR(35), `upass` VARCHAR(100))  BEGIN
@@ -365,7 +393,7 @@ CREATE TABLE `shoes` (
   `uid` int(11) NOT NULL,
   `posted_by` int(11) NOT NULL,
   `name` varchar(35) NOT NULL,
-  `description` varchar(100) DEFAULT NULL,
+  `description` text DEFAULT NULL,
   `type` enum('mens','womens') NOT NULL,
   `category` varchar(35) NOT NULL,
   `size` decimal(10,0) NOT NULL,
