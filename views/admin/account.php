@@ -60,7 +60,11 @@
                 </div>              
         </div>
     </div>
-
+	
+	<!-- BEGIN FOOTER -->
+    	<?php require "../../templates/admin/admin_footer.php"; ?>
+    	<!-- .END FOOTER -->
+	
 	<!-- Include Javascript files -->
     <!-- <script src="../../js/smooth-scroll.js"></script> -->
 </body>
