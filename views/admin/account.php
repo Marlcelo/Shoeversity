@@ -43,10 +43,10 @@
                     <label for="gnder">Gender:</label>
                     <br>
                     
-                    <hr><br><br>
-                    <a href="register_admin.php"><button class="btn btn-md btn-info">Create an Admin Account</button></a><br>
-                    <a href=""><button class="btn btn-md btn-info">Delete an Admin Account</button></a><br>
-                    <a href=""><button class="btn btn-md btn-info">Delete a User Account</button></a>
+                    <hr><br>
+                    <a href="register_admin.php"><button class="btn btn-md btn-info">Create an Admin Account</button></a><br><br>
+                    <a href="delete_admin.php"><button class="btn btn-md btn-info">Delete an Admin Account</button></a><br><br>
+                    <a href="delete_user.php"><button class="btn btn-md btn-info">Delete a User Account</button></a>
                 </div>
                 <div class="col-md-8">
                     <h2>List of Admins</h2><hr><br>
@@ -60,7 +60,11 @@
                 </div>              
         </div>
     </div>
-
+	
+	<!-- BEGIN FOOTER -->
+    	<?php require "../../templates/admin/admin_footer.php"; ?>
+    	<!-- .END FOOTER -->
+	
 	<!-- Include Javascript files -->
     <!-- <script src="../../js/smooth-scroll.js"></script> -->
 </body>

@@ -53,10 +53,10 @@
                     <label for="gnder">Gender:</label>
                     <br>
                     
-                    <hr><br><br>
-                    <a href=""><button class="btn btn-md btn-info">Create an Admin Account</button></a><br>
-                    <a href=""><button class="btn btn-md btn-info">Delete an Admin Account</button></a><br>
-                    <a href=""><button class="btn btn-md btn-info">Delete a User Account</button></a>
+                    <hr><br>
+                    <a href="register_admin.php"><button class="btn btn-md btn-info">Create an Admin Account</button></a><br><br>
+                    <a href="delete_admin.php"><button class="btn btn-md btn-info">Delete an Admin Account</button></a><br><br>
+                    <a href="delete_user.php"><button class="btn btn-md btn-info">Delete a User Account</button></a>
                 </div>
                 <div class="col-md-8">
                     <h1>Delete an Admin Account</h1>
@@ -103,6 +103,11 @@
                 </div>              
         </div>
     </div>
+	
+	 <!-- BEGIN FOOTER -->
+    <?php require "../../templates/admin/admin_footer.php"; ?>
+    <!-- .END FOOTER -->
+	
 <script src="../../js/dataTables.bootstrap.min.js"></script>
 <script src="../../js/jquery-1.12.4.js"></script>
 <script src="../../js/jquery.dataTables.min.js"></script>
