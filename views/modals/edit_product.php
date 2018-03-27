@@ -55,7 +55,7 @@
 	                                        Browse<input type="file" style="display: none" name="imgpath" id="imgpath">
 	                                    </span>
 	                                </label>
-	                                <input type="text" class="form-control" placeholder="Select an image" readonly>
+	                                <input type="text" class="form-control" placeholder="Select an image" onkeydown="return false;" style="background: #eee" required>
 	                            </div>
 							</div>
 						</div>
