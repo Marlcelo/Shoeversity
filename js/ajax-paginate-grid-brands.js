@@ -9,7 +9,7 @@ $(document).ready(function(){
 
     function load_data(page) {
         $.ajax({
-            url:"../database/shoe_grid_show.php",
+            url:"../database/shoe_grid_show_brands.php",
             method:"POST",
             data:{page:page, records:records_per_page},
             success:function(data){
@@ -35,7 +35,7 @@ $(document).ready(function(){
 
     function get_num_pages() {
         $.ajax({
-            url:"../database/shoe_num_rows.php",
+            url:"../database/shoe_num_rows_brands.php",
             method:"POST",
             data:{records:records_per_page},
             success:function(data){

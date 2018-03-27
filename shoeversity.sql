@@ -155,6 +155,22 @@ BEGIN
   WHERE uid = brandID;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_SHOE_FROM`(intBrandID int)
+BEGIN
+  SELECT * 
+  FROM shoes 
+  WHERE posted_by = intBrandID
+  ORDER BY uid;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_SHOE`(intShoeID int)
+BEGIN
+  SELECT * 
+  FROM shoes 
+  WHERE uid = intShoeID
+  LIMIT 1;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_NEWUSER` (`uname` VARCHAR(35), `pass` VARCHAR(100), `emailAdd` VARCHAR(50), `uGender` CHAR(1), `fname` VARCHAR(35), `mname` VARCHAR(35), `lname` VARCHAR(35))  BEGIN
   declare str_return varchar(10); 
     
@@ -229,6 +245,21 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_USER` (`strUsername` VARCHAR
     FROM users 
     WHERE u_username = strUsername 
     LIMIT 1;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_SET_SHOE`(shoeID int, shoeName varchar(35), shoeDesc text, shoeType varchar(10), shoeCategory varchar(35), shoeSize int,
+                                                          shoePrice double, shoeColor varchar(35), shoeImage varchar(100))
+BEGIN
+  UPDATE shoes
+  SET name = shoeName, 
+    description = shoeDesc,
+      type = shoeType,
+      category = shoeCategory,
+      size = shoeSize,
+      price = shoePrice,
+      color = shoeColor,
+      photo_url = shoeImage
+  WHERE uid = shoeID;
 END$$
 
 --
