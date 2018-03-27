@@ -444,12 +444,12 @@ CREATE TABLE `shoes` (
 --
 
 INSERT INTO `shoes` (`uid`, `posted_by`, `name`, `description`, `type`, `category`, `size`, `price`, `color`, `photo_url`, `time_stamp`) VALUES
-(1, 2, 'Adidas Yeezy Boost 350 V2', 'The second generation of the Yeezy Collection.', 'mens', 'Casual', '13', '12000', 'blue', 'images/php-uploads/shoes/mens/adidas-yeezy.png', '2018-03-18 15:19:00'),
-(2, 2, 'Adidas Yeezy Boost 350 V2', 'The second generation of the original Yeezy Boost 350, the V2 version of Kanye West.', 'mens', 'Casual', '12', '15000', 'red', 'images/php-uploads/shoes/mens/adidas-yeezy_blue_tints.png', '2018-03-18 15:19:00'),
-(3, 1, 'Nike Air Presto', 'OFF WHITE X NIKE COLLAB ', 'mens', 'Running/Casual', '10', '19000', 'yellow', 'images/php-uploads/shoes/mens/nike-airpresto_offwhite.png', '2018-03-18 15:19:00'),
-(4, 2, 'Adidas NMD', 'lorem ipsum...', 'womens', 'Running/Casual', '8', '16500', 'pink', 'images/php-uploads/shoes/womens/adidas-nmd.png', '2018-03-19 17:16:39'),
-(5, 1, 'Nike Cortez', 'lorem ipsum...', 'womens', 'Casual', '6', '12000', 'white', 'images/php-uploads/shoes/womens/nike-cortez.png', '2018-03-19 17:17:02'),
-(6, 1, 'Nike Roshe', 'lorem ipsum...', 'womens', 'Running/Casual', '9', '15000', 'black', 'images/php-uploads/shoes/womens/nike-roshe.png', '2018-03-19 17:17:18');
+(1, 2, 'Adidas Yeezy Boost 350 V2', 'The second generation of the Yeezy Collection.', 'mens', 'Casual', '13', '12000', 'blue', '../images/php-uploads/shoes/mens/adidas-yeezy.png', '2018-03-18 15:19:00'),
+(2, 2, 'Adidas Yeezy Boost 350 V2', 'The second generation of the original Yeezy Boost 350, the V2 version of Kanye West.', 'mens', 'Casual', '12', '15000', 'red', '../images/php-uploads/shoes/mens/adidas-yeezy_blue_tints.png', '2018-03-18 15:19:00'),
+(3, 1, 'Nike Air Presto', 'OFF WHITE X NIKE COLLAB ', 'mens', 'Running/Casual', '10', '19000', 'yellow', '../images/php-uploads/shoes/mens/nike-airpresto_offwhite.png', '2018-03-18 15:19:00'),
+(4, 2, 'Adidas NMD', 'lorem ipsum...', 'womens', 'Running/Casual', '8', '16500', 'pink', '../images/php-uploads/shoes/womens/adidas-nmd.png', '2018-03-19 17:16:39'),
+(5, 1, 'Nike Cortez', 'lorem ipsum...', 'womens', 'Casual', '6', '12000', 'white', '../images/php-uploads/shoes/womens/nike-cortez.png', '2018-03-19 17:17:02'),
+(6, 1, 'Nike Roshe', 'lorem ipsum...', 'womens', 'Running/Casual', '9', '15000', 'black', '../images/php-uploads/shoes/womens/nike-roshe.png', '2018-03-19 17:17:18');
 
 -- --------------------------------------------------------
 

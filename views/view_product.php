@@ -51,7 +51,7 @@
     			<div class="container-fliud">
     				<div class="wrapper row">
     					<div class="preview col-md-6">
-                            <img src="<?php echo "../".$shoe[5]; ?>"/>
+                            <img src="<?php echo $shoe[5]; ?>"/>
     					</div>
     					<div class="details col-md-6">
                             <h3 class="product-title"><?php echo $shoe[0]; ?></h3>

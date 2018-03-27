@@ -2,7 +2,7 @@ $(document).ready(function(){
     /* Declare Global variables */
     var current_page_id = 1;
     var num_pages = 1;
-    var records_per_page = 3;
+    var records_per_page = 6;
 
     get_num_pages(); // update num_pages
     load_data(current_page_id); // initialize
