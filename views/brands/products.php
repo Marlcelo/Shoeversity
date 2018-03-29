@@ -55,6 +55,21 @@
                       </script>";
             }
         }
+
+        // Check if edit product request was issued
+        if(isset($_GET['edit'])) {
+            //if($_GET['edit'] == md5('true')) {
+                $_SESSION['shoeID'] = $_GET['edit'];
+                include '../modals/edit_product.php';
+
+                echo "<script> 
+                        $('#edit_product_modal').modal('show');
+                        $('#edit_product_modal').on('hidden.bs.modal', function () { 
+                             window.location = 'products.php';
+                        })
+                      </script>";
+            //}
+        }
     ?>
 </head>
 <body>
@@ -74,19 +89,44 @@
     <div class="container" id="products-list" style="margin-top: 5vh;">
         <!-- BEGIN PRODUCTS GRID -->
 
-
+        <!-- I need to ajax this - dan  -->
+        
         <div class="col-md-12">
+           
+            <?php
+                if(!isset($_SESSION)) {
+                    session_start();
+                }
+                require '../../database/config.php';
+                $sql = "CALL SP_GET_SHOE_FROM(" . $_SESSION['b_id'] . ")";
+                $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+                while($row = mysqli_fetch_assoc($result)) {
+                    $shoeID    = $row['uid'];
+                    $shoeName  = $row['name'];
+                    $shoeDesc  = $row['description'];
+                    $shoeType  = $row['type'];
+                    $shoeCateg = $row['category'];
+                    $shoePrice = $row['price'];
+                    $shoeSize  = $row['size'];
+                    $shoeColor = $row['color'];
+                    $shoeImg   = "../".$row['photo_url'];
+            ?>
+
             <div class="col-md-4">
                 <span class="thumbnail">
                     <div class="row" style="float:right;">
+                        <!-- EDIT PRODUCT -->
                         <div class="col-md-8 col-sm-8">
-                            <a href="edit_product.php"><button class="btn btn-md btn-info pull-right" ><i class="glyphicon glyphicon-edit"></i></button></a>
+                            <a href="products.php?edit=<?php echo $shoeID; //echo md5('true')?>"><button class="btn btn-md btn-info pull-right" ><i class="glyphicon glyphicon-edit"></i></button></a>
                         </div>
+                        <!-- DELETE PRODUCT -->
                         <div class="col-md-4 col-sm-4">
                             <a href="remove_product.php"><button class="btn btn-md btn-info pull-right" ><i class="glyphicon glyphicon-remove"></i></button></a>
                        </div> 
                     </div><br>
-                    <img src="" alt="...">
+
+                    <img src="<?php echo $shoeImg; ?>" alt="...">
+
                     <h4></h4>
                     <div class="ratings">
                         <span class="glyphicon glyphicon-star"></span>
@@ -95,14 +135,14 @@
                         <span class="glyphicon glyphicon-star"></span>
                         <span class="glyphicon glyphicon-star-empty"></span>
                     </div>
-                            <p><label class="lead">SHOE NAME</label></p>
-                            <p>A very nice shoe.</p>
-                            <p><b>COLOR:</b></p>
-                            <p><b>SIZE:</b></p>
+                            <p><label class="lead"> <?php echo $shoeName; ?> </label></p>
+                            <p> <?php echo $shoeDesc; ?> </p>
+                            <p><b>COLOR:</b> <?php echo $shoeColor; ?> </p>
+                            <p><b>SIZE:</b> <?php echo $shoeSize; ?> </p>
                     <hr class="line">
                     <div class="row">
                         <div class="col-md-6 col-sm-6">
-                            <p class="price">Php. 3,500</p>
+                            <p class="price"> <?php echo $shoePrice; ?> </p>
                         </div>
                         <div class="col-md-6 col-sm-6">
                             <a href="brand_view_product.php"><button class="btn btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
@@ -111,6 +151,9 @@
                     </div>
                 </span>
             </div>
+            <?php
+                }
+            ?>
 
         </div>
     </div>            
@@ -120,6 +163,6 @@
     <!-- .END FOOTER -->
 
     <!-- Include Javascript files -->
-    <!-- <script src="../../js/smooth-scroll.js"></script> -->
+    <script src="../../js/ajax-paginate-grid-brands.js"></script>
 </body>
 </html>

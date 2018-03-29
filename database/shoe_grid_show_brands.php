@@ -1,5 +1,10 @@
 <?php
 
+if(!isset($_SESSION)) {
+	session_start();
+}
+$brandID = $_SESSION['b_id'];
+
 // $records_per_page = 6;
 $page = '';
 $output = '';
@@ -19,7 +24,7 @@ $start_from = ($page - 1) * $records_per_page;
 
 # Begin query processing 
 require 'config.php';
-$sql = "SELECT * FROM shoes ORDER BY uid ASC LIMIT $start_from, $records_per_page";
+$sql = "SELECT * FROM shoes WHERE posted_by = $brandID ORDER BY uid ASC LIMIT $start_from, $records_per_page";
 $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 mysqli_close($conn);
 

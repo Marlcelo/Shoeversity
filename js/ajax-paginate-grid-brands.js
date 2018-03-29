@@ -2,14 +2,14 @@ $(document).ready(function(){
     /* Declare Global variables */
     var current_page_id = 1;
     var num_pages = 1;
-    var records_per_page = 3;
+    var records_per_page = 6;
 
     get_num_pages(); // update num_pages
     load_data(current_page_id); // initialize
 
     function load_data(page) {
         $.ajax({
-            url:"../database/shoe_grid_show.php",
+            url:"../database/shoe_grid_show_brands.php",
             method:"POST",
             data:{page:page, records:records_per_page},
             success:function(data){
@@ -35,7 +35,7 @@ $(document).ready(function(){
 
     function get_num_pages() {
         $.ajax({
-            url:"../database/shoe_num_rows.php",
+            url:"../database/shoe_num_rows_brands.php",
             method:"POST",
             data:{records:records_per_page},
             success:function(data){
