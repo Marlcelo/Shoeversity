@@ -14,7 +14,7 @@ $redirect = $_SESSION['target_page'];
                        <span class="sr-only">Close</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    Warning
+                    Confirm Action
                 </h4>
             </div>
             
@@ -26,7 +26,7 @@ $redirect = $_SESSION['target_page'];
             <!-- Modal Footer -->
             <div class="modal-footer" style="border-top: none">
                 <div style="display: inline">
-                    <button type="button" class="btn btn-info" data-dismiss="modal">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
                         Cancel
                     </button>
                     <button type="button" class="btn btn-info" onclick="window.location='<?php echo $redirect;?>'">

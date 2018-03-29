@@ -60,6 +60,22 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_DELETE_ADMIN` (`adminId` INT(11)
     SELECT str_return result;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_DEL_SHOE`(shoeiD int)
+BEGIN
+  DECLARE strreturn varchar(10);
+    IF EXISTS(SELECT * FROM shoes WHERE uid = shoeID) THEN
+    DELETE FROM shoes
+        WHERE uid = shoeID;
+    SET strreturn = 'SUCCESS';
+        
+    ELSE
+    SET strreturn = 'FAILED';
+    
+    END IF;
+    
+    SELECT strreturn;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ALL_ADMINS` ()  BEGIN
   SELECT uid,CONCAT(first_name," ",middle_name," ",last_name) adName, username,email,gender
     FROM admins;
