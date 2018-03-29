@@ -11,14 +11,14 @@ if(isset($_POST['page']) && isset($_POST['records'])) {
 }
 else {
 	$page = 1; // default page load is 1
-	$records_per_page = 5; // default
+	$records_per_page = 9; // default
 }
 
 $start_from = ($page - 1) * $records_per_page;
 
 
 # Begin query processing 
-require 'config.php';
+require '../config.php';
 $sql = "SELECT * FROM shoes ORDER BY uid ASC LIMIT $start_from, $records_per_page";
 $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 mysqli_close($conn);
@@ -57,7 +57,7 @@ while($row = mysqli_fetch_assoc($result)) {
 	$output .= '</div>';
 
 	if($colCounter % 3 == 0) $output .= "</div>"; 
-	$colCounter++;
+		$colCounter++;
 }
 
 $output .= '<br/>';
@@ -65,7 +65,7 @@ $output .= '<br/>';
 /**************************************************************/
 
 # Query for total number of records
-require 'config.php';
+require '../config.php';
 $sql = "SELECT * FROM shoes";
 $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 mysqli_close($conn);
@@ -74,29 +74,31 @@ mysqli_close($conn);
 $total_records = mysqli_num_rows($result);
 $num_pages = ceil($total_records/$records_per_page);
 
-# Display the pagination UI
-$output .= "<div class='row text-center' style='display: block;'>";
-$output .="<ul class='pagination'>";
+# Display the pagination UI if num_pages > 1
+if($num_pages > 1) {
+	$output .= "<div class='row text-center' style='display: block; clear: both;'>";
+	$output .="<ul class='pagination'>";
 
-# Previous Button
-$output .= "<li><button class='btn btn-default' id='prev-page' style='margin-top: 0px; padding: 0px; min-width: 35px; font-size: 22px; height: 36px'>&laquo;</button></li>";
+	# Previous Button
+	$output .= "<li><button class='btn btn-default' id='prev-page' style='margin-top: 0px; padding: 0px; min-width: 35px; font-size: 22px; height: 36px'>&laquo;</button></li>";
 
-# Page Numbers
-for($i = 1; $i <= $num_pages; $i++) {
-	$output .= "
-		<span class='pagination-link btn btn-default' style='cursor: pointer; padding: 7px; min-width: 35px;'
-			id='";
-	$output .= $i;
-	$output .= "'>";
-	$output .= $i;
-	$output .= "</span>";
+	# Page Numbers
+	for($i = 1; $i <= $num_pages; $i++) {
+		$output .= "
+			<span class='pagination-link btn btn-default' style='cursor: pointer; padding: 7px; min-width: 35px;'
+				id='";
+		$output .= $i;
+		$output .= "'>";
+		$output .= $i;
+		$output .= "</span>";
+	}
+
+	# Next Button
+	$output .= "<li><button class='btn btn-default' id='next-page' style='margin-top: 0px; margin-left: 4px; padding: 0px; min-width: 35px; font-size: 22px; height: 36px'>&raquo;</button></li>";
+
+	$output .= "</ul>";
+	$output .= "</div>";
 }
-
-# Next Button
-$output .= "<li><button class='btn btn-default' id='next-page' style='margin-top: 0px; margin-left: 4px; padding: 0px; min-width: 35px; font-size: 22px; height: 36px'>&raquo;</button></li>";
-
-$output .= "</ul>";
-$output .= "</div>";
 
 
 # Return output to AJAX Callback function

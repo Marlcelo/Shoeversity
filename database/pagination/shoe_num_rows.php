@@ -6,7 +6,7 @@ else
 	$records_per_page = 9; //default
 
 # Query for total number of records
-require 'config.php';
+require '../config.php';
 
 $sql = "SELECT * FROM shoes";
 
