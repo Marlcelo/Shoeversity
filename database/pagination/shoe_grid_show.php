@@ -8,10 +8,12 @@ $output = '';
 if(isset($_POST['page']) && isset($_POST['records'])) {
 	$page = $_POST['page'];
 	$records_per_page = $_POST['records'];
+	// $sql = $_POST['sql'];
 }
 else {
 	$page = 1; // default page load is 1
 	$records_per_page = 9; // default
+	// $sql = "SELECT * FROM shoes";
 }
 
 $start_from = ($page - 1) * $records_per_page;
@@ -20,6 +22,7 @@ $start_from = ($page - 1) * $records_per_page;
 # Begin query processing 
 require '../config.php';
 $sql = "SELECT * FROM shoes ORDER BY uid ASC LIMIT $start_from, $records_per_page";
+// $sql .= " ORDER BY uid ASC LIMIT $start_from, $records_per_page";
 $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 mysqli_close($conn);
 

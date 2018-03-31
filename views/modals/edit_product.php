@@ -71,7 +71,6 @@
 									<div class="form-group">
 										<label for="type">Type</label>
 										<select class="form-control" id="type" name="type" required>
-											<option disabled>--</option>
 											<option <?php if($shoeType == 'mens') echo "selected='selected'"; ?> >Mens</option>
 											<option <?php if($shoeType == 'womens') echo "selected='selected'"; ?> >Womens</option>
 									    </select>
@@ -81,7 +80,6 @@
 									<div class="form-group">
 										<label for="category">Category</label>
 										<select class="form-control" id="category" name="category" required>
-											<option disabled>--</option>
 											<option <?php if($shoeCateg == 'Sneakers') echo "selected='selected'"; ?>>
 												Sneakers
 											</option>
@@ -106,18 +104,42 @@
 								<div class="col-md-4">
 									<div class="form-group">
 										<label for="size">Size</label>
-										<!-- <div class="input-group">
-											<span class="input-group-addon" id="addon-size">
-												<img src="../../images/icons/color.png" alt="img">
-											</span>	 -->
-											<input type="number" class="form-control" id="size" name="size" min="1" max="100" aria-describedby="addon-size" value="<?php echo $shoeSize;?>" required>
-										<!-- </div> -->
+										<input type="number" class="form-control" id="size" name="size" min="1" max="100" aria-describedby="addon-size" value="<?php echo $shoeSize;?>" required>
 									</div>
 								</div>
 								<div class="col-md-8">
 									<div class="form-group">
 										<label for="color">Color</label>
-										<input type="color" class="form-control" id="color" name="color" value="<?php echo $shoeColor;?>" required>
+										<!-- <input type="color" class="form-control" id="color" name="color" value="<?php //echo $shoeColor;?>" required> -->
+										<select class="form-control" id="color" name="color" required>
+											<option <?php if($shoeColor == 'black') echo "selected='selected'"; ?> value="black">
+												Black
+											</option>
+											<option <?php if($shoeColor == 'white') echo "selected='selected'"; ?> value="white">
+												White
+											</option>
+											<option <?php if($shoeColor == 'red') echo "selected='selected'"; ?> value="red">
+												Red
+											</option>
+											<option <?php if($shoeColor == 'orange') echo "selected='selected'"; ?> value="orange">
+												Orange
+											</option>
+											<option <?php if($shoeColor == 'yellow') echo "selected='selected'"; ?> value="yellow">
+												Yellow
+											</option>
+											<option <?php if($shoeColor == 'green') echo "selected='selected'"; ?> value="green">
+												Green
+											</option>
+											<option <?php if($shoeColor == 'blue') echo "selected='selected'"; ?> value="blue">
+												Blue
+											</option>
+											<option <?php if($shoeColor == 'indigo') echo "selected='selected'"; ?> value="indigo">
+												Indigo
+											</option>
+											<option <?php if($shoeColor == 'violet') echo "selected='selected'"; ?> value="">
+												Violet
+											</option>	
+									    </select>
 									</div>
 								</div>
 							</div>

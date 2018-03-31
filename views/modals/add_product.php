@@ -31,7 +31,7 @@
 
 						<div class="col-md-6">
 							<div class="row">
-								<div class="col-md-4">
+								<div class="col-md-6">
 									<div class="form-group">
 										<label for="type">Type</label>
 										<select class="form-control" id="type" name="type" required>
@@ -41,7 +41,7 @@
 									    </select>
 									</div>
 								</div>
-								<div class="col-md-8">
+								<div class="col-md-6">
 									<div class="form-group">
 										<label for="category">Category</label>
 										<select class="form-control" id="category" name="category" required>
@@ -57,7 +57,7 @@
 							</div>
 
 							<div class="row">
-								<div class="col-md-4">
+								<div class="col-md-6">
 									<div class="form-group">
 										<label for="size">Size</label>
 										<!-- <div class="input-group">
@@ -68,10 +68,22 @@
 										<!-- </div> -->
 									</div>
 								</div>
-								<div class="col-md-8">
+								<div class="col-md-6">
 									<div class="form-group">
 										<label for="color">Color</label>
-										<input type="color" class="form-control" id="color" name="color" required>
+										<!-- <input type="color" class="form-control" id="color" name="color" required> -->
+										<select class="form-control" id="color" name="color" required>
+											<option selected="selected" disabled>--</option>
+											<option value="black">Black</option>
+											<option value="white">White</option>
+											<option value="red">Red</option>
+											<option value="orange">Orange</option>
+											<option value="yellow">Yellow</option>
+											<option value="green">Green</option>
+											<option value="blue">Blue</option>
+											<option value="indigo">Indigo</option>
+											<option value="violet">Violet</option>	
+									    </select>
 									</div>
 								</div>
 							</div>
