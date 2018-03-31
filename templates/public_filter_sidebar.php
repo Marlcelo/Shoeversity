@@ -69,7 +69,7 @@
 		<!-- SIZE  -->
 		<div class="form-group">
 			<h5 style="color: #eee">Size</h5>
-			<input type="number" class="form-control" min="0" id="size" name="size" placeholder="Any"> 
+			<input type="number" class="form-control" min="0" id="size" name="size" placeholder="All Sizes"> 
 		</div>
 
 		<!-- COLOR -->
@@ -77,7 +77,7 @@
 			<h5 style="color: #eee">Color</h5>
 			<!-- <input type="color" class="form-control" id="color" name="color"> -->
 			<select class="form-control" id="color" name="color">
-				<option selected="selected" value="">Any Color</option>
+				<option selected="selected" value="">All Colors</option>
 				<option disabled>--</option>
 				<option value="black">Black</option>
 				<option value="white">White</option>

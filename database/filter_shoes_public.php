@@ -23,14 +23,14 @@ echo "color: " . $color . "<br>";
 /* VALIDATE INPUT */
 if(!empty($priceFrom) && $priceFrom != '') {
 	if(empty($priceTo) || $priceTo == '' || $priceTo < $priceFrom) {
-		$_SESSION['error_msg'] = "Invalid price range";
+		$_SESSION['error_msg'] = "Invalid price range in filter";
 		header("Location: ../views/index.php?error=" . md5('filter'));
 		exit();
 	}
 }
 else if(!empty($priceTo) && $priceTo != '') {
 	if(empty($priceFrom) || $priceFrom == '') {
-		$_SESSION['error_msg'] = "Invalid price range";
+		$_SESSION['error_msg'] = "Invalid price range in filter";
 		header("Location: ../views/index.php?error=" . md5('filter'));
 		exit();
 	}
