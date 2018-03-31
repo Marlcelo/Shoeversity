@@ -16,8 +16,7 @@
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
-
-        $brand_id = $_SESSION['b_id'];      
+         
         $brand_uname = $_SESSION['b_username'];
         $brand_name = $_SESSION['b_name'];    
         $brand_email = $_SESSION['b_email'];  

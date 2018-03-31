@@ -15,9 +15,7 @@
         $_SESSION['active_page'] = "account";
 
         // Check if user is authorized to access page
-        include '../../database/check_access.php';
-
-        $admin_id = $_SESSION['a_id'];           
+        include '../../database/check_access.php';          
         $admin_uname = $_SESSION['a_username'];     
         $admin_email = $_SESSION['a_email'];         
         $admin_gender = $_SESSION['a_gender'];       
