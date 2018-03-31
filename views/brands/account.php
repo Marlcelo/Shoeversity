@@ -16,6 +16,11 @@
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
+
+        $brand_id = $_SESSION['b_id'];      
+        $brand_uname = $_SESSION['b_username'];
+        $brand_name = $_SESSION['b_name'];    
+        $brand_email = $_SESSION['b_email'];  
     ?>
 </head>
 <body>
@@ -29,20 +34,20 @@
                     <br><br><br>
                     <label for="uname">Username: </label>
                     <br>
+                    <label class="lead"><?php echo $brand_uname;  ?></label>
+                    <br>
                     
                     <hr>
-                    <label for="name">Name:
-                    </label>
+                    <label for="name">Name:</label>
+                    <br>
+                    <label class="lead"><?php echo $brand_name;  ?></label>
                     <br>
                     
                     <hr>
                     <label for="email">Email:</label>
                     <br>
-                    
-                    <hr>
-                    <label for="gnder">Gender:</label>
-                    <br>
-                    
+                    <label class="lead"><?php echo $brand_email ?></label>
+                    <br>    
                     <hr>
                 </div>
                 <div class="col-md-8">
