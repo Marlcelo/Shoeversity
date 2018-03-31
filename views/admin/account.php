@@ -16,6 +16,15 @@
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
+
+        $admin_id = $_SESSION['a_id'];           
+        $admin_uname = $_SESSION['a_username'];     
+        $admin_email = $_SESSION['a_email'];         
+        $admin_gender = $_SESSION['a_gender'];       
+        $admin_fname = $_SESSION['a_firstname'];   
+        $admin_lname = $_SESSION['a_lastname'];     
+        $admin_mname = $_SESSION['a_middlename'];   
+
     ?>
 </head>
 <body>
@@ -29,18 +38,25 @@
                     <br><br><br>
                     <label for="uname">Username: </label>
                     <br>
+                    <label class="lead"><?php echo $admin_uname; ?> </label>    
+                    <br>
                     
                     <hr>
-                    <label for="name">Name:
-                    </label>
+                    <label for="name">Name: </label>
+                     <br>
+                    <label class="lead"><?php echo $admin_fname . " " . $admin_mname . " " . $admin_lname   ; ?> </label>
                     <br>
                     
                     <hr>
                     <label for="email">Email:</label>
+                     <br>
+                    <label class="lead"><?php echo $admin_email; ?> </label>
                     <br>
                     
                     <hr>
                     <label for="gnder">Gender:</label>
+                     <br>
+                    <label class="lead"><?php echo $admin_gender; ?> </label>
                     <br>
                     
                     <hr><br>
