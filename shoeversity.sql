@@ -164,6 +164,15 @@ BEGIN
   
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_BRAND_NAMES`()
+BEGIN
+
+  SELECT uid, brand_name 
+    FROM brands
+    ORDER BY uid;
+
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_BRAND_INFO`(brandID int)
 BEGIN
   SELECT *
