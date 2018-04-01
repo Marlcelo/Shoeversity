@@ -124,7 +124,8 @@
         <?php include '../templates/public_filter_sidebar.php'; ?>
     </div>
     <!-- .END FILTER SIDEBAR -->
-
+    
+    <!-- <?php if(isset($_SESSION['grid_applied_filters'])) echo $_SESSION['grid_applied_filters']; ?> -->
     <!-- BEGIN PRODUCTS GRID -->
     <div class="container" style="margin-top: 90px; padding-top: 0px" id="products-list">
     </div>
@@ -164,15 +165,16 @@ $(window).scroll(function() {
             var current_page_id = 1;
             var num_pages = 1;
             var records_per_page = 9;
+            var sql_query = <?php echo '"'.$_SESSION['grid_sql'].'"'; ?>;
 
-            get_num_pages(); // update num_pages
-            load_data(current_page_id); // initialize
+            get_num_pages(sql_query); // update num_pages
+            load_data(current_page_id, sql_query); // initialize
 
-            function load_data(page, sql) {
+            function load_data(page, query) {
                 $.ajax({
                     url:"../database/pagination/shoe_grid_show_public.php",
                     method:"POST",
-                    data:{page:page, records:records_per_page},
+                    data:{page:page, records:records_per_page, sql:query},
                     success:function(data){
                         $('#products-list').html(data);
 
@@ -194,11 +196,11 @@ $(window).scroll(function() {
                 })
             }
 
-            function get_num_pages() {
+            function get_num_pages(query) {
                 $.ajax({
                     url:"../database/pagination/shoe_num_rows_public.php",
                     method:"POST",
-                    data:{records:records_per_page},
+                    data:{records:records_per_page, sql:query},
                     success:function(data){
                         num_pages = data;
                     }
@@ -207,12 +209,12 @@ $(window).scroll(function() {
 
             function load_prev_page(pageID) {
                 setCurrentPageID(pageID - 1);
-                load_data(pageID - 1);
+                load_data(pageID - 1, sql_query);
             }
 
             function load_next_page(pageID) {
                 setCurrentPageID(pageID + 1);
-                load_data(pageID + 1);
+                load_data(pageID + 1, sql_query);
             }
 
             function setCurrentPageID(pageID) {

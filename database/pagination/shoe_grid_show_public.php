@@ -1,19 +1,23 @@
 <?php
 
+if(!isset($_SESSION)) {
+	session_start();
+}
+
 // $records_per_page = 6;
 $page = '';
 $output = '';
 
 # Get inupt from AJAX call
-if(isset($_POST['page']) && isset($_POST['records'])) {
+if(isset($_POST['page']) && isset($_POST['records']) && isset($_POST['sql'])) {
 	$page = $_POST['page'];
 	$records_per_page = $_POST['records'];
-	// $sql = $_POST['sql'];
+	$sql = $_POST['sql'];
 }
 else {
 	$page = 1; // default page load is 1
 	$records_per_page = 9; // default
-	// $sql = "SELECT * FROM shoes";
+	$sql = "SELECT * FROM shoes";
 }
 
 $start_from = ($page - 1) * $records_per_page;
@@ -21,13 +25,22 @@ $start_from = ($page - 1) * $records_per_page;
 
 # Begin query processing 
 require '../config.php';
-$sql = "SELECT * FROM shoes ORDER BY uid ASC LIMIT $start_from, $records_per_page";
-// $sql .= " ORDER BY uid ASC LIMIT $start_from, $records_per_page";
-$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+// $sql = "SELECT * FROM shoes ORDER BY uid ASC LIMIT $start_from, $records_per_page";
+$limit = " ORDER BY uid ASC LIMIT $start_from, $records_per_page";
+$result = mysqli_query($conn, $sql.$limit) or die(mysqli_error($conn));
 mysqli_close($conn);
 
 # Render table with rows from query
 $colCounter = 1;
+
+if(isset($_SESSION['grid_applied_filters'])) {
+	$output .= "<div class='col-md-12' style='margin-bottom:30px; padding: 20px 15px; border-bottom: 3px solid #0097A7; background:#eee'>"; 
+	$output .= 		$_SESSION['grid_applied_filters'];
+	$output .= 		"<span class='pull-right' style='font-size: 37px; cursor: pointer; position: absolute; right: 15px; top: 1px;'>";
+	$output .= 			"<a href='../views/index.php' style='color: #999'>&times;</a>";
+	$output .= 		"</span>";
+	$output .= "</div>";
+}
 
 while($row = mysqli_fetch_assoc($result)) {
 
@@ -69,7 +82,7 @@ $output .= '<br/>';
 
 # Query for total number of records
 require '../config.php';
-$sql = "SELECT * FROM shoes";
+// $sql = "SELECT * FROM shoes";
 $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 mysqli_close($conn);
 

@@ -3,7 +3,6 @@
 if(!isset($_SESSION)) {
 	session_start();
 }
-require 'config.php';
 
 $brand 		= $_POST['brand'];
 $priceFrom 	= $_POST['priceFrom'];
@@ -55,10 +54,22 @@ $filter = '';
 # APPEND FILTERING CONDITIONS IN WHERE CLAUSE
 if($ctr > 0) {
 	$filter .= ' WHERE ';
+	$filter_msg = "<strong>Showing filtered results for:</strong> &nbsp;";
 
 	// BRAND
 	if(!empty($brand) && $brand != '') {
 		$filter .= "posted_by = $brand";
+
+		// get brand name;
+		require 'config.php';
+		$query = "CALL SP_GET_BRAND_INFO($brand)";
+		$res = mysqli_query($conn, $query);
+		$row = mysqli_fetch_assoc($res);
+		$brand_name = $row['brand_name'];
+		mysqli_close($conn);
+
+		$filter_msg .= "<span class='label label-primary' style='font-size: 13px; padding: 4px 12px'>$brand_name</span>";
+		$filter_msg .= "&nbsp;";
 	}
 
 	// PRICE RANGE
@@ -68,6 +79,11 @@ if($ctr > 0) {
 		}	
 
 		$filter .= "price BETWEEN $priceFrom AND $priceTo";
+
+		$filter_msg .= "<span class='label label-primary' style='font-size: 13px; padding: 4px 12px'>";
+		$filter_msg .= "&#8369; $priceFrom &mdash; &#8369; $priceTo";
+		$filter_msg .= "</span>";
+		$filter_msg .= "&nbsp;";
 	}
 
 	// TYPE
@@ -78,6 +94,11 @@ if($ctr > 0) {
 		}	
 
 		$filter .= "type = '$type'";
+
+		$filter_msg .= "<span class='label label-primary' style='font-size: 13px; padding: 4px 12px'>";
+		$filter_msg .= ucfirst("$type");
+		$filter_msg .= "</span>";
+		$filter_msg .= "&nbsp;";
 	}
 
 	// CATEGORY
@@ -89,6 +110,11 @@ if($ctr > 0) {
 		}	
 
 		$filter .= "category = '$category'";
+
+		$filter_msg .= "<span class='label label-primary' style='font-size: 13px; padding: 4px 12px'>";
+		$filter_msg .= ucfirst("$category");
+		$filter_msg .= "</span>";
+		$filter_msg .= "&nbsp;";
 	}
 
 	// SIZE 
@@ -101,6 +127,11 @@ if($ctr > 0) {
 		}	
 
 		$filter .= "size = $size";
+
+		$filter_msg .= "<span class='label label-primary' style='font-size: 13px; padding: 4px 12px'>";
+		$filter_msg .= "Size $size";
+		$filter_msg .= "</span>";
+		$filter_msg .= "&nbsp;";
 	}
 
 	// COLOR
@@ -114,13 +145,23 @@ if($ctr > 0) {
 		}	
 
 		$filter .= "color = '$color'";
-	}
 
+		$filter_msg .= "<span class='label label-primary' style='font-size: 13px; padding: 4px 12px'>";
+		$filter_msg .= ucfirst("$color");
+		$filter_msg .= "</span>";
+		$filter_msg .= "&nbsp;";
+	}
 }
 
 
 # RETURN SQL STATEMENT
 $filtered_sql = $sql . $filter;
 $_SESSION['grid_sql'] = $filtered_sql;
+$_SESSION['grid_applied_filters'] = $filter_msg;
 
+# Redirect back to index.php to display filtered results
+header("Location: ../views/index.php#products");
+exit();
+
+// echo $filtered_sql;
 ?>
