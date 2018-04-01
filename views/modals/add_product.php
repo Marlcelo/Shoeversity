@@ -74,15 +74,36 @@
 										<!-- <input type="color" class="form-control" id="color" name="color" required> -->
 										<select class="form-control" id="color" name="color" required>
 											<option selected="selected" disabled>--</option>
-											<option value="black">Black</option>
-											<option value="white">White</option>
-											<option value="red">Red</option>
-											<option value="orange">Orange</option>
-											<option value="yellow">Yellow</option>
-											<option value="green">Green</option>
-											<option value="blue">Blue</option>
-											<option value="indigo">Indigo</option>
-											<option value="violet">Violet</option>	
+											<option value="black"  style="background-color: #000000; color: #fff">
+												Black
+											</option>
+											<option value="gray"   style="background-color: #9E9E9E; color: #000">
+												Gray
+											</option>
+											<option value="white"  style="background-color: #ffffff; color: #000">
+												White
+											</option>
+											<option value="red"    style="background-color: #E53935; color: #fff">
+												Red
+											</option>
+											<option value="orange" style="background-color: #FF9800; color: #fff">
+												Orange
+											</option>
+											<option value="yellow" style="background-color: #FFEB3B; color: #000">
+												Yellow
+											</option>
+											<option value="green"  style="background-color: #00C853; color: #000">
+												Green
+											</option>
+											<option value="blue"   style="background-color: #0288D1; color: #fff">
+												Blue
+											</option>
+											<option value="indigo" style="background-color: #3F51B5; color: #fff">
+												Indigo
+											</option>
+											<option value="violet" style="background-color: #9C27B0; color: #fff">
+												Violet
+											</option>
 									    </select>
 									</div>
 								</div>
