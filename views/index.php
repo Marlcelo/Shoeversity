@@ -129,7 +129,6 @@
     <div class="container" style="margin-top: 90px; padding-top: 0px" id="products-list">
     </div>
     <!-- .END PRODUCTS GRID -->
-
      <!-- .END MAIN CONTENT -->
 
     <!-- BEGIN FOOTER -->
@@ -171,7 +170,7 @@ $(window).scroll(function() {
 
             function load_data(page, sql) {
                 $.ajax({
-                    url:"../database/pagination/shoe_grid_show.php",
+                    url:"../database/pagination/shoe_grid_show_public.php",
                     method:"POST",
                     data:{page:page, records:records_per_page},
                     success:function(data){
@@ -197,7 +196,7 @@ $(window).scroll(function() {
 
             function get_num_pages() {
                 $.ajax({
-                    url:"../database/pagination/shoe_num_rows.php",
+                    url:"../database/pagination/shoe_num_rows_public.php",
                     method:"POST",
                     data:{records:records_per_page},
                     success:function(data){
