@@ -47,10 +47,12 @@
 
         <!-- BEGIN MAIN CONTENT -->
         <div class="container">
-    		<div class="card">
+    		
+            <div class="card">
     			<div class="container-fliud">
     				<div class="wrapper row">
     					<div class="preview col-md-6">
+                            <a href="index.php#products-list"><button class="btn btn-md btn-info pull-left" style="width:30%;">< Back</button></a>
                             <img src="<?php echo $shoe[5]; ?>"/>
     					</div>
     					<div class="details col-md-6">
