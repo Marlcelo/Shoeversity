@@ -13,6 +13,12 @@
         $_SESSION['page_type'] = "Public";
         $_SESSION['active_page'] = "products";
 
+        //IMPORTANT! : for displaying the query results in the grid
+        if(isset($_SESSION['grid_sql']))
+            $gridSQL = $_SESSION['grid_sql'];
+        else
+            $gridSQL = "SELECT * FROM shoes";
+
         // Check if a user is already logged in. If yes, redirect to their dashboard.
         if(isset($_SESSION['a_username'])) {
             header("Location: admin/dashboard.php");
@@ -142,31 +148,33 @@
 
     <script type="text/Javascript">
         /* Set the width of the side navigation to 250px */
-		function openNav() {
-		    document.getElementById("mySidenav").style.left = "0px";
-		}
+        function openNav() {
+            document.getElementById("mySidenav").style.left = "0px";
+        }
 
-		/* Set the width of the side navigation to 0 */
-		function closeNav() {
-		    document.getElementById("mySidenav").style.left = "-350px";
-		}
+        /* Set the width of the side navigation to 0 */
+        function closeNav() {
+            document.getElementById("mySidenav").style.left = "-350px";
+        }
 
-$(window).scroll(function() {
-    if ($(this).scrollTop() > 60) {
-        document.getElementById("btnToggle").style.position = "absolute";
-    }
-    else {
-        document.getElementById("btnToggle").style.position = "fixed";
-    }   
-});
+        // $(window).scroll(function() {
+        //     if ($(this).scrollTop() > 60) {
+        //         document.getElementById("btnToggle").style.position = "absolute";
+        //     }
+        //     else {
+        //         document.getElementById("btnToggle").style.position = "fixed";
+        //     }   
+        // });
 
         $(document).ready(function(){
             /* Declare Global variables */
             var current_page_id = 1;
             var num_pages = 1;
             var records_per_page = 9;
-            var sql_query = <?php echo '"'.$_SESSION['grid_sql'].'"'; ?>;
+            var sql_query = "<?php echo $gridSQL; ?>";
 
+            // alert(sql_query);
+            
             get_num_pages(sql_query); // update num_pages
             load_data(current_page_id, sql_query); // initialize
 

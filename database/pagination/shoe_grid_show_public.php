@@ -33,13 +33,20 @@ mysqli_close($conn);
 # Render table with rows from query
 $colCounter = 1;
 
-if($_SESSION['grid_sql'] != "SELECT * FROM shoes") {
-	$output .= "<div class='col-md-12' style='margin-bottom:30px; padding: 20px 15px; border-bottom: 3px solid #0097A7; background:#eee'>"; 
-	$output .= 		$_SESSION['grid_applied_filters'];
-	$output .= 		"<span class='pull-right' style='font-size: 37px; cursor: pointer; position: absolute; right: 15px; top: 1px;'>";
-	$output .= 			"<a href='../database/shoe_filter_clear.php' style='color: #999'>&times;</a>";
-	$output .= 		"</span>";
-	$output .= "</div>";
+if(isset($_SESSION['grid_sql']) && isset($_SESSION['grid_applied_filters'])) {
+	if($_SESSION['grid_sql'] != "SELECT * FROM shoes") {
+		$output .= "<div  style='margin-bottom:30px; padding: 20px 15px; border-bottom: 3px solid #0097A7; background:#eee'>"; 
+		$output .= 		$_SESSION['grid_applied_filters'];
+		// $output .= 		"<a href='../database/shoe_filter_clear.php' style='color: #999;'>";
+		
+		$output .= 		"<span class='pull-right' style='font-size: 37px; margin-top: 0px'>";
+		$output .= 		"<a href='../database/shoe_filter_clear.php' style='color: #999;'>";
+		$output .= 			"&times;";
+		$output .= 		"</a>";
+		$output .= 		"</span>";
+		
+		$output .= "</div>";
+	}
 }
 
 while($row = mysqli_fetch_assoc($result)) {
