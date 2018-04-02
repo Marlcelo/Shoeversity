@@ -1,18 +1,14 @@
 <?php 
 
-if(isset($_POST['records']) && isset($_POST['sql'])) {
+if(isset($_POST['records'])) 
 	$records_per_page = $_POST['records'];
-	$sql = $_POST['sql'];
-}
-else {
+else 
 	$records_per_page = 9; //default
-	$sql = "SELECT * FROM shoes";
-}
 
 # Query for total number of records
 require '../config.php';
 
-// $sql = "SELECT * FROM shoes";
+$sql = "SELECT * FROM shoes";
 
 $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 

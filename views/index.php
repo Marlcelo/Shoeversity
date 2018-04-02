@@ -24,21 +24,7 @@
             header("Location: users/products.php");
             exit();
         }
-
-        if(isset($_GET['error'])) {
-        	if($_GET['error'] == md5('filter')) {
-        		include 'modals/error.php';
-
-        		echo "<script> 
-                        $('#error_modal').modal('show');
-                        $('#error_modal').on('hidden.bs.modal', function () { 
-                            window.location = 'index.php';
-                        })
-                    </script>";
-        	}
-        }
     ?>
-    <link rel="stylesheet" type="text/css" href="../css/filter-sidebar.css">
 </head>
 <body>
     <!-- BEGIN HEADER -->
@@ -46,7 +32,7 @@
     <!-- .END HEADER -->
 
     <!-- BEGIN MAIN CONTENT -->
-    <div class="quicklink"><a href="#products">
+    <div class="quicklink"><a href="#products-list">
         <div class="promote-products" id="promote-products-link">
             <h4>Check out our products!</h4>
             <!-- <a href="#products-list"> -->
@@ -61,7 +47,7 @@
 
 
     <!-- Begin Carousel -->
-    <div id="shoeversityCarousel" class="carousel slide" data-ride="carousel" style="position: absolute; top: 0; margin-bottom: 100px; width: 100%; height: 100vh;">
+    <div id="shoeversityCarousel" class="carousel slide" data-ride="carousel" style="position: absolute; top: 0; margin-bottom: 100px; width: 100%; height: 100vh">
             <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#shoeversityCarousel" data-slide-to="0" class="active"></li>
@@ -112,24 +98,63 @@
             </a>
         </div>        
     </div>
-    <!-- end carousel -->
 
-    <div class="row" style="margin-top: 90vh;" id="products">
-        <div class="col-md-12">
-        </div>
-    </div>
+    <div class="container" style="margin-top: 100vh; padding-top: 100px" id="products-list">
+        <!-- BEGIN PRODUCTS GRID -->
+        <!-- <div class="col-md-12"> -->
 
-    <!-- BEGIN FILTER SIDEBAR -->
-    <div class="col-md-12" style="margin-top: 90px; margin-bottom: -100px; z-index: 1;">
-        <?php include '../templates/public_filter_sidebar.php'; ?>
-    </div>
-    <!-- .END FILTER SIDEBAR -->
+            <?php 
+                // include "../database/shoes_list_get.php";
+                // $colCounter = 1;
+            ?>
+
+            <?php //foreach($_SESSION['shoes_list'] as $shoe): ?>
+
+                <?php //if($colCounter % 3 == 0) echo "<div class='row'>"; ?>
+
+               <!--  <div class="col-sm-4">
+                    <span class="thumbnail" onclick="location.href = 'view_product.php?pid=<?php //echo $shoe[0];?>';">
+                        <img src="<?php //echo "../".$shoe[6]; ?>" alt="...">
+                        <div class="ratings">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star-empty"></span>
+                        </div>
+                                <label class="lead"><h2 style="margin-bottom: 0"><?php// echo $shoe[1]; ?></h2></label>
+                                <p><?php //echo $shoe[2]; ?></p>
+                                <p class="colors"><b>COLOR:</b> 
+                                    <span class="color <?php //echo $shoe[3]; ?>" style="border: 1px solid #aaa;"></span>
+                                </p>
+                                <p><b>SIZE:</b> <?php //echo $shoe[4]; ?></p>
+                        <hr class="line">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <p class="price"> &#8369; <?php// echo $shoe[5]; ?></p>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <a href="view_product.php?pid=<?php //echo $shoe[0];?>">
+                                    <button class="btn btn-info pull-right">VIEW ITEM</button>
+                                </a>
+                           </div>
+                            
+                        </div>
+                    </span>
+                </div> -->
+
+                <?php 
+                    // if ($colCounter % 3 == 0) {
+                    //     echo "</div>";
+                    // }
+                    //$colCounter++;
+                ?>
     
-    <!-- <?php if(isset($_SESSION['grid_applied_filters'])) echo $_SESSION['grid_applied_filters']; ?> -->
-    <!-- BEGIN PRODUCTS GRID -->
-    <div class="container" style="margin-top: 90px; padding-top: 0px" id="products-list">
+            <?php //endforeach; ?>
+
+        <!-- </div> -->
+        <!-- .END PRODUCTS GRID -->
     </div>
-    <!-- .END PRODUCTS GRID -->
      <!-- .END MAIN CONTENT -->
 
     <!-- BEGIN FOOTER -->
@@ -139,42 +164,22 @@
     <!-- Include Javascript files -->
     <script src="../js/animate-products-quicklink.js"></script>
     <script src="../js/smooth-scroll.js"></script>
-
+    <!-- <script src="../js/ajax-paginate-grid.js"></script> -->
     <script type="text/Javascript">
-        /* Set the width of the side navigation to 250px */
-		function openNav() {
-		    document.getElementById("mySidenav").style.left = "0px";
-		}
-
-		/* Set the width of the side navigation to 0 */
-		function closeNav() {
-		    document.getElementById("mySidenav").style.left = "-350px";
-		}
-
-$(window).scroll(function() {
-    if ($(this).scrollTop() > 60) {
-        document.getElementById("btnToggle").style.position = "absolute";
-    }
-    else {
-        document.getElementById("btnToggle").style.position = "fixed";
-    }   
-});
-
         $(document).ready(function(){
             /* Declare Global variables */
             var current_page_id = 1;
             var num_pages = 1;
             var records_per_page = 9;
-            var sql_query = <?php echo '"'.$_SESSION['grid_sql'].'"'; ?>;
 
-            get_num_pages(sql_query); // update num_pages
-            load_data(current_page_id, sql_query); // initialize
+            get_num_pages(); // update num_pages
+            load_data(current_page_id); // initialize
 
-            function load_data(page, query) {
+            function load_data(page) {
                 $.ajax({
-                    url:"../database/pagination/shoe_grid_show_public.php",
+                    url:"../database/pagination/shoe_grid_show.php",
                     method:"POST",
-                    data:{page:page, records:records_per_page, sql:query},
+                    data:{page:page, records:records_per_page},
                     success:function(data){
                         $('#products-list').html(data);
 
@@ -196,11 +201,11 @@ $(window).scroll(function() {
                 })
             }
 
-            function get_num_pages(query) {
+            function get_num_pages() {
                 $.ajax({
-                    url:"../database/pagination/shoe_num_rows_public.php",
+                    url:"../database/pagination/shoe_num_rows.php",
                     method:"POST",
-                    data:{records:records_per_page, sql:query},
+                    data:{records:records_per_page},
                     success:function(data){
                         num_pages = data;
                     }
@@ -209,12 +214,12 @@ $(window).scroll(function() {
 
             function load_prev_page(pageID) {
                 setCurrentPageID(pageID - 1);
-                load_data(pageID - 1, sql_query);
+                load_data(pageID - 1);
             }
 
             function load_next_page(pageID) {
                 setCurrentPageID(pageID + 1);
-                load_data(pageID + 1, sql_query);
+                load_data(pageID + 1);
             }
 
             function setCurrentPageID(pageID) {
