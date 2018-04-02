@@ -40,6 +40,7 @@
         }
     ?>
     <script type="text/javascript" src="../js/jquery-fxns.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/passwordchecker.css">
 </head>
 <body>
     <!-- BEGIN HEADER -->
@@ -105,5 +106,6 @@
     
     <!-- Include Javascript files -->
     <!-- <script src="../js/smooth-scroll.js"></script> -->
+    <script src="../js/passwordcheck.js"></script><!-- Include Your jQUery file here-->
 </body>
 </html>
