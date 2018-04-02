@@ -38,7 +38,7 @@
             <ul class="nav nav-pills nav-justified">
                 <li><a href="register_admin.php">Create an Admin Account</a></li>
                 <li><a href="delete_admin.php">Delete an Admin Account</a></li>
-                <li><a href="delete_user.php">Delete a User Account</a></li>
+                <li class="active"><a href="delete_user.php">Delete a User Account</a></li>
             </ul>
         </div>
     </div>
