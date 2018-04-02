@@ -29,8 +29,8 @@ if($userType == "Admin") {
 		$_SESSION['a_email'] 		= $auth_user['email'];	
 		$_SESSION['a_gender'] 		= $auth_user['gender'];
 		$_SESSION['a_firstname']	= $auth_user['first_name'];
-		$_SESSION['a_lastname'] 	= $auth_user['middle_name'];
-		$_SESSION['a_middlename'] 	= $auth_user['last_name'];
+		$_SESSION['a_lastname'] 	= $auth_user['last_name'];
+		$_SESSION['a_middlename'] 	= $auth_user['middle_name'];
 	}
 
 	mysqli_close($conn);
@@ -81,8 +81,8 @@ else if($userType == "User") {
 		$_SESSION['u_email'] 		= $auth_user['u_email'];	
 		$_SESSION['u_gender'] 		= $auth_user['u_gender'];
 		$_SESSION['u_firstname']	= $auth_user['first_name'];
-		$_SESSION['u_lastname'] 	= $auth_user['middle_name'];
-		$_SESSION['u_middlename'] 	= $auth_user['last_name'];
+		$_SESSION['u_lastname'] 	= $auth_user['last_name'];
+		$_SESSION['u_middlename'] 	= $auth_user['middle_name'];
 	}
 
 	mysqli_close($conn);

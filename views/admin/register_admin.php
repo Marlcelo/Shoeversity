@@ -10,6 +10,32 @@
         include "../../templates/admin/admin_shoeversity_styles.php";
 
         session_start();
+
+        if(isset($_GET['register'])) {
+            // Call popup modal
+            if($_GET['register'] == md5('failed')) {
+                include '../modals/error.php';
+
+                echo "<script> 
+                        $('#error_modal').modal('show');
+                        $('#error_modal').on('hidden.bs.modal', function () { 
+                            window.location = 'register_admin.php';
+                        })
+                    </script>";
+            }
+
+            if($_GET['register'] == md5('success')){
+                include '../modals/success.php';
+
+                echo "<script> 
+                        $('#success_modal').modal('show');
+                        $('#success_modal').on('hidden.bs.modal', function () { 
+                            window.location = 'register_admin.php';
+                        })
+                    </script>";
+            }
+        }
+
         // Set active page
         $_SESSION['page_type'] = "Admin";
         $_SESSION['active_page'] = "account";

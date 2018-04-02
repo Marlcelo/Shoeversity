@@ -47,6 +47,18 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ALL_USERS` ()  BEGIN
     FROM users;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CHECK_UNAME_DUPLICATE` (`testUname` VARCHAR(50))  BEGIN
+  declare str_return varchar(10);
+    
+    if exists(SELECT * FROM site_users WHERE username LIKE testUname) then
+    set str_return = "TRUE";
+  else 
+    set str_return = "FALSE";
+  end if;
+    
+    SELECT str_return as col;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_DELETE_ADMIN` (`adminId` INT(11))  BEGIN
   declare str_return varchar(10);
     
