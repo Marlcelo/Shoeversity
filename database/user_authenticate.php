@@ -1,12 +1,23 @@
 <?php
 
 require 'config.php';
-
+session_start();
 /* Note that checking for empty field input is done on the Client side (Login Form) */
 
-/* Store user input from login.php */
-$username = $_POST['username'];
-$password = $_POST['password'];
+
+
+
+if(isset($_SESSION['username']) && isset($_SESSION['password'])){// if a new user registers, will automatically log in
+	$username = $_SESSION['username'];
+	$password = $_SESSION['password'];
+	echo "Here at Session";
+
+	echo $username ." ". $password;
+}else{
+	/* Store user input from login.php */
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+}
 
 /* Issue query on database */
 $sql = "CALL SP_GET_AUTHUSER('$username', 
