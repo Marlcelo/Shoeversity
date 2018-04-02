@@ -29,13 +29,13 @@ DELIMITER $$
 --
 -- Procedures
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_DELETE_USER` (`uId` INT(11))  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_DELETE_USER` (`userId` INT(11))  BEGIN
   declare str_return varchar(10);
     
     IF !EXISTS(SELECT * FROM users WHERE uid LIKE uId) THEN
     SET str_return = "FAIL";
   ELSE 
-    DELETE FROM users WHERE uid = uId;
+    DELETE FROM users WHERE uid = userId;
         SET str_return = "SUCCESS";
   END IF;
     
