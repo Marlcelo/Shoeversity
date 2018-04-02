@@ -114,7 +114,7 @@
 
                                     <div class="form-group">
                                             <div class="col-sm-12 controls">
-                                                    <input type="submit" value="Register adminAdmin" name="registerAdmin" class="btn btn-primary pull-right btn-block"/>
+                                                    <input type="submit" value="Register Admin" name="registerAdmin" class="btn btn-primary pull-right btn-block"/>
                                             </div>
                                     </div>
                                 </form>
