@@ -34,31 +34,7 @@
 	
     <div class="content-wrapper ">
         <div class="container text-center">
-                <div class="col-md-4">
-                    <img class="img-circle" src="../IMAGES/USERS/dp.jpg" width="160px" alt="profilepic">
-                    <br><br><br>
-                    <label for="uname">Username: </label>
-                    <br>
-                    
-                    <hr>
-                    <label for="name">Name:
-                    </label>
-                    <br>
-                    
-                    <hr>
-                    <label for="email">Email:</label>
-                    <br>
-                    
-                    <hr>
-                    <label for="gnder">Gender:</label>
-                    <br>
-                    
-                    <hr><br>
-                    <a href="register_admin.php"><button class="btn btn-md btn-info">Create an Admin Account</button></a><br><br>
-                    <a href="delete_admin.php"><button class="btn btn-md btn-info">Delete an Admin Account</button></a><br><br>
-                    <a href="delete_user.php"><button class="btn btn-md btn-info">Delete a User Account</button></a>
-                </div>
-                <div class="col-md-8">
+                <div class="col-md">
                     <h1>Delete a User Account</h1>
                                   <table id="users" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
