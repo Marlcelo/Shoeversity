@@ -226,8 +226,12 @@
 				echo "ERROR <br>";
 
 			mysqli_close($conn);
+			session_start();
+			$_SESSION['success_msg'] = "Thank you for registering to Shoeversity, ".$uname.".<br> Please wait for your account to be verified before you can log in.";
 
-			// header("Location: ../index.php"); //PLEASE CHANGE THIS TO USER LANDING PAGE
+			$success_path = "../views/index.php?register=" . md5('success');
+			header("Location: $success_path");
+			//header("Location: ../views/index.php"); //Since brand isnt verifed yet, must be redirected BACK TO GUEST LANDING PAGE
 		}
 	}
 

@@ -49,9 +49,12 @@
 			else
 				echo "ERROR";
 
+			mysqli_close();
 
-
-			header("Location: ../index.php"); //PLEASE CHANGE THIS TO USER LANDING PAGE
+			session_start();
+			$_SESSION['username'] = $uname;
+			$_SESSION['password'] = $pass;
+			header("Location:user_authenticate.php");
 		}
 	}
 
