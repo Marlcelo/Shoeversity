@@ -43,6 +43,8 @@
         // Check if user is authorized to access page
         include '../../database/check_access.php';
     ?>
+    <link rel="stylesheet" type="text/css" href="../../css/passwordchecker.css">
+    <script src="../../js/passwordcheck.js"></script><!-- Include Your jQUery file here-->
 </head>
 <body>
 	<!-- Include header -->
@@ -78,15 +80,15 @@
                     <h1>Create an admin account</h1> 
                     <div class="content">
                                 
-                                <form class="form-horizontal" name="register_user" action="../../database/admin_register.php" method="POST">
+                                <form class="form-horizontal" name="register_user" id="register" action="../../database/admin_register.php" method="POST">
                                     <div class="input-group">
                                              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                                            <input type="text" class="form-control" name="uname" placeholder="Username" required>
                                     </div><br>
                                    <div class="input-group">
                                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                           <input type="password" class="form-control" name="pword" placeholder="Password" required>
-                                   </div><br>
+                                           <input type="password" class="form-control" name="pword" id="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>                    
+                                   </div><span id="result"></span><br>
                                    <div class="input-group">
                                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                            <input type="password" class="form-control" name="confirmpword" placeholder="Confirm Password" required>

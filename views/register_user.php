@@ -1,4 +1,4 @@
-<form class="form-horizontal" name="register_user" action="../database/user_register.php" method="post">
+<form class="form-horizontal" name="register_user" action="../database/user_register.php" id="register" method="post">
 
 	<div class="row">
 		<div class="col-md-4">	
@@ -41,8 +41,9 @@
 		<div class="col-md-6">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-				<input type="password" class="form-control" name="pword" placeholder="Password" required>
+				<input type="password" class="form-control" name="pword" id="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
 			</div>
+			<span id="result"></span>
 		</div>
 
 		<div class="col-md-6">

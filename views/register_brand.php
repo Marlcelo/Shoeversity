@@ -1,4 +1,4 @@
-<form class="form-horizontal" name="login" action="../database/brand_register.php" method="POST">
+<form class="form-horizontal" name="register_brand" id="register" action="../database/brand_register.php" method="POST">
 	<div class="input-group">
 		<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
 		<input type="text" class="form-control" name="brandname" placeholder="Brand Name" required>
@@ -9,14 +9,15 @@
 	</div><br>
 	<div class="input-group">
 		<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-		<input type="password" class="form-control" name="pword" placeholder="Password" required>
-	</div><br>
+		<input type="password" id="password" class="form-control" name="pword" id="password1" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+	</div><span id="result"></span><br>
 	<div class="input-group">
 		<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
 		<input type="password" class="form-control" name="confirmpword" placeholder="Confirm Password" required>
 	</div><br>
+
 	<div class="input-group">
-		<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></i></span>
+		<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
 		<input type="text" class="form-control" name="email" placeholder="Official Email Address" required>
 	</div><br>
 
