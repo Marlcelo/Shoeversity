@@ -9,6 +9,21 @@
         include "../templates/public_shoeversity_styles.php";
 
         session_start();
+
+         // Product Added successfully
+        if(isset($_GET['register'])){
+            if($_GET['register'] == md5('success')) {
+                include 'modals/success.php';
+
+                echo "<script> 
+                        $('#success_modal').modal('show');
+                        $('#success_modal').on('hidden.bs.modal', function () { 
+                             window.location = 'index.php';
+                        })
+                      </script>";
+            }
+        }
+
         // Set active page
         $_SESSION['page_type'] = "Public";
         $_SESSION['active_page'] = "products";
