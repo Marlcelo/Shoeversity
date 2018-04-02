@@ -13,6 +13,20 @@
         $_SESSION['page_type'] = "Public";
         $_SESSION['active_page'] = "register";
 
+        if(isset($_GET['register'])) {
+            // Call popup modal
+            if($_GET['register'] == md5('failed')) {
+                include 'modals/error.php';
+
+                echo "<script> 
+                        $('#error_modal').modal('show');
+                        $('#error_modal').on('hidden.bs.modal', function () { 
+                            window.location = 'register.php';
+                        })
+                    </script>";
+            }
+        }
+
         // Check if a user is already logged in. If yes, redirect to their dashboard.
         if(isset($_SESSION['a_username'])) {
             header("Location: admin/dashboard.php");
