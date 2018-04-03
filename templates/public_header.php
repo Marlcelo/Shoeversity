@@ -14,7 +14,7 @@
 		<ul class="nav navbar-nav pull-right">
 			<li>
 				<!-- TO-DO: Add search form action -->
-				<form action="" class="navbar-form" role="search">
+				<form action="../database/search_shoes_public.php" method="POST" class="navbar-form" role="search">
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Search" name="search-product">
 						<div class="input-group-btn">

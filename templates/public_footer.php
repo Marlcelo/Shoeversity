@@ -42,8 +42,8 @@
               <h3> Location </h3>
               <ul>
                   <li> 
-                    <form action="" class="navbar-form" role="search" style="width: 100%">
-                      <div class="input-group" style="margin-left: -15px">
+                    <form action="../database/search_shoes_public.php" method="POST" class="navbar-form" role="search" style="width: 100%">
+                      <div class="input-group">
                         <input type="text" class="form-control" placeholder="Search" name="search-product">
                             <div class="input-group-btn">
                                 <button class="btn btn-primary" type="submit" style="margin-top: 0px">
