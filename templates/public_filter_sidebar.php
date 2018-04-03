@@ -113,7 +113,7 @@
 		</div>
 
 		<!-- SUBMIT BUTTON -->
-		<button type="submit" class="btn btn-success pull-right" style="margin-top: 20px">
+		<button type="submit" class="btn btn-primary pull-right" style="margin-top: 20px">
 			Apply Filter
 		</button>
 		<span class="color black"></span> 

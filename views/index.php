@@ -131,7 +131,7 @@
     </div>
     <!-- .END FILTER SIDEBAR -->
     
-    
+
     <!-- BEGIN PRODUCTS GRID -->
     <div class="container" style="margin-top: 90px; padding-top: 0px" id="products-list">
     </div>
@@ -172,8 +172,6 @@
             var num_pages = 1;
             var records_per_page = 9;
             var sql_query = "<?php echo $gridSQL; ?>";
-
-            // alert(sql_query);
             
             get_num_pages(sql_query); // update num_pages
             load_data(current_page_id, sql_query); // initialize
