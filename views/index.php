@@ -131,7 +131,7 @@
     </div>
     <!-- .END FILTER SIDEBAR -->
     
-    <!-- <?php if(isset($_SESSION['grid_applied_filters'])) echo $_SESSION['grid_applied_filters']; ?> -->
+    
     <!-- BEGIN PRODUCTS GRID -->
     <div class="container" style="margin-top: 90px; padding-top: 0px" id="products-list">
     </div>
