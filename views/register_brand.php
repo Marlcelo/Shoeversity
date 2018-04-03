@@ -1,4 +1,4 @@
-<form class="form-horizontal" name="register_brand" id="register" action="../database/brand_register.php" method="POST">
+<form class="form-horizontal" name="register_brand" id="register1" action="../database/brand_register.php" method="POST">
 	<div class="row">
 		<div class="col-md-6">	
 			<div class="input-group">
@@ -18,8 +18,9 @@
 		<div class="col-md-6">	
 			<div class="input-group">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-				<input type="password" id="password" class="form-control" name="pword" id="password1" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
-			</div><span id="result"></span><br>
+				<input type="password" id="password1" class="form-control" name="pword" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+			</div>
+			<span id="result1"></span>
 		</div>
 		<div class="col-md-6">	
 			<div class="input-group">

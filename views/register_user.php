@@ -1,4 +1,4 @@
-<form class="form-horizontal" name="register_user" action="../database/user_register.php" id="register" method="post">
+<form class="form-horizontal" name="register_user" action="../database/user_register.php" id="register" method="POST">
 
 	<div class="row">
 		<div class="col-md-4">	
