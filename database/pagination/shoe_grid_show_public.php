@@ -22,6 +22,18 @@ else {
 
 $start_from = ($page - 1) * $records_per_page;
 
+/**************************************************************/
+
+# Query for total number of records
+require '../config.php';
+// $sql = "SELECT * FROM shoes";
+$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+mysqli_close($conn);
+
+$total_records = mysqli_num_rows($result);
+$num_pages = ceil($total_records/$records_per_page);
+
+/**************************************************************/
 
 # Begin query processing 
 require '../config.php';
@@ -30,24 +42,45 @@ $limit = " ORDER BY uid ASC LIMIT $start_from, $records_per_page";
 $result = mysqli_query($conn, $sql.$limit) or die(mysqli_error($conn));
 mysqli_close($conn);
 
-# Render table with rows from query
-$colCounter = 1;
-
-if(isset($_SESSION['grid_sql']) && isset($_SESSION['grid_applied_filters'])) {
-	if($_SESSION['grid_sql'] != "SELECT * FROM shoes") {
-		$output .= "<div  style='margin-bottom:30px; padding: 20px 15px; border-bottom: 3px solid #0097A7; background:#eee'>"; 
-		$output .= 		$_SESSION['grid_applied_filters'];
-		// $output .= 		"<a href='../database/shoe_filter_clear.php' style='color: #999;'>";
-		
-		$output .= 		"<span class='pull-right' style='font-size: 37px; margin-top: 0px'>";
-		$output .= 		"<a href='../database/shoe_filter_clear.php' style='color: #999;'>";
-		$output .= 			"&times;";
-		$output .= 		"</a>";
-		$output .= 		"</span>";
-		
-		$output .= "</div>";
+if($total_records > 0) {
+	if(isset($_SESSION['grid_sql']) && isset($_SESSION['grid_applied_filters'])) {
+		// search
+		if(isset($_SESSION['grid_search_results']) && $_SESSION['grid_applied_filters'] == '') {
+			$output .= "<div  style='margin-bottom:30px; padding: 20px 15px; border-bottom: 3px solid #0097A7; background:#eee'>"; 
+			$output .= 		$_SESSION['grid_search_results'];
+			$output .= 		"<span class='pull-right' style='font-size: 37px; margin-top: 0px'>";
+			$output .= 		"<a href='../database/shoe_grid_clear_public.php' style='color: #999;'>";
+			$output .= 			"&times;";
+			$output .= 		"</a>";
+			$output .= 		"</span>";
+			
+			$output .= "</div>";
+		}	
+		// filter 
+		else if($_SESSION['grid_sql'] != "SELECT * FROM shoes") {
+			$output .= "<div  style='margin-bottom:30px; padding: 20px 15px; border-bottom: 3px solid #0097A7; background:#eee'>"; 
+			$output .= 		$_SESSION['grid_applied_filters'];
+			// $output .= 		"<a href='../database/shoe_filter_clear.php' style='color: #999;'>";
+			
+			$output .= 		"<span class='pull-right' style='font-size: 37px; margin-top: 0px'>";
+			$output .= 		"<a href='../database/shoe_grid_clear_public.php' style='color: #999;'>";
+			$output .= 			"&times;";
+			$output .= 		"</a>";
+			$output .= 		"</span>";
+			
+			$output .= "</div>";
+		}
 	}
 }
+else { 	// no rows returned
+	$output .= '<div class="alert alert-info alert-dismissible fade in">';
+	$output .= 		'<a href="../database/shoe_grid_clear_public.php" style="font-size: 35px" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+	$output .= 		'<strong>No results found!</strong>';
+	$output .= '</div>';
+}
+
+# Render table with rows from query (if any)
+$colCounter = 1;
 
 while($row = mysqli_fetch_assoc($result)) {
 
@@ -86,16 +119,6 @@ while($row = mysqli_fetch_assoc($result)) {
 $output .= '<br/>';
 
 /**************************************************************/
-
-# Query for total number of records
-require '../config.php';
-// $sql = "SELECT * FROM shoes";
-$result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-mysqli_close($conn);
-
-
-$total_records = mysqli_num_rows($result);
-$num_pages = ceil($total_records/$records_per_page);
 
 # Display the pagination UI if num_pages > 1
 if($num_pages > 1) {
