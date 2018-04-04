@@ -13,19 +13,21 @@
 
 		<ul class="nav navbar-nav pull-right">
 			<li>
-				<form class="navbar-form" role="search">
+				<form action="../../database/search_shoes_users.php" method="POST" class="navbar-form" role="search">
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Search" name="search-product">
+						<input type="text" class="form-control" placeholder="Search" name="search-product" required>
 						<div class="input-group-btn">
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px; border-radius: 3px">
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px; border-radius: 5px">
 								<i class="glyphicon glyphicon-search"></i>
-							</button>
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px; margin-left:10px; border-radius:3px;">
-								<i class="glyphicon glyphicon-shopping-cart"></i>
-								&nbsp; <span class="badge">2</span> 
 							</button>
 						</div>
 					</div>
+
+					<!-- This button is not part of the form -->
+					<button class="btn btn-primary" type="submit" style="margin-top: 0px; margin-left:10px; border-radius:3px;" onclick="alert('Shopping Cart Action');">
+						<i class="glyphicon glyphicon-shopping-cart"></i>
+						&nbsp; <span class="badge">2</span> 
+					</button>
 				</form>
 			</li>
 			<li <?php if($highlight == 'products') echo "class='active'"; ?>><a href="products.php">Products</a></li>
