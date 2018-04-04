@@ -44,7 +44,7 @@
                   <li> 
                     <form action="../database/search_shoes_public.php" method="POST" class="navbar-form" role="search" style="width: 100%">
                       <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search" name="search-product">
+                        <input type="text" class="form-control" placeholder="Search" name="search-product" required>
                             <div class="input-group-btn">
                                 <button class="btn btn-primary" type="submit" style="margin-top: 0px">
                                 <i class="glyphicon glyphicon-search"></i>
