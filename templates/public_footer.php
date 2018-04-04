@@ -20,26 +20,20 @@
           <div class="col-md-4">
               <h3> Contact </h3>
               <ul>
-                  <li> <a href="#"> Lorem Ipsum </a> </li>
-                  <li> <a href="#"> Lorem Ipsum </a> </li>
-                  <li> <a href="#"> Lorem Ipsum </a> </li>
-                  <li> <a href="#"> Lorem Ipsum </a> </li>
+                  <li> <a href="#"> About Us </a> </li>
               </ul>
           </div>
           <div class="col-md-4">
               <h3> Important Links </h3>
               <ul>
-                  <li> <a href="#"> Admission </a> </li>
-                  <li> <a href="#"> Academic </a> </li>
-                  <li> <a href="#"> Career </a> </li>
-                  <li> <a href="#"> Administration </a> </li>
-                  <li> <a href="#"> Notice </a> </li>
-                  <li> <a href="#"> Tender </a> </li>
-                  <li> <a href="login.php"> Teacher Login </a> </li>
+                  <li> <a href="index.php"> Product </a> </li>
+                  <li> <a href="../views/index.php"> Login </a> </li>
+                  <li> <a href="#"> Register </a> </li>
+                  
               </ul>
           </div>
           <div class="col-md-4">
-              <h3> Location </h3>
+              <h3> Lost? </h3>
               <ul>
                   <li> 
                     <form action="../database/search_shoes_public.php" method="POST" class="navbar-form" role="search" style="width: 100%">
@@ -53,9 +47,6 @@
                         </div>
                     </form>
                 </li>
-                <li> <a href="../views/index.php"> Products </a> </li>
-                <li> <a href="../views/login.php"> Login </a> </li>
-                <li> <a href="../views/register.php"> Register </a> </li>
               </ul>
         </div>
       </div>
