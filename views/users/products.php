@@ -39,6 +39,7 @@
     ?>
 
     <link rel="stylesheet" type="text/css" href="../../css/filter-sidebar.css">
+    <link rel="stylesheet" type="text/css" href="../../css/shopping-cart-sidebar.css">
 </head>
 <body>
     <!-- Include header -->
@@ -63,6 +64,7 @@
     <!-- .END FOOTER -->
 
     <!-- Include Javascript files -->
+    <script src="../../js/shopping-cart.js"></script>
     <script type="text/Javascript">
         /* Set the width of the side navigation to 250px */
         function openNav() {

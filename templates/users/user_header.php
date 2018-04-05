@@ -24,7 +24,7 @@
 					</div>
 
 					<!-- This button is not part of the form -->
-					<button class="btn btn-primary" type="submit" style="margin-top: 0px; margin-left:10px; border-radius:3px;" onclick="alert('Shopping Cart Action');">
+					<button class="btn btn-primary" type="button" style="margin-top: 0px; margin-left:10px; border-radius:3px;" onclick="openCart();">
 						<i class="glyphicon glyphicon-shopping-cart"></i>
 						&nbsp; <span class="badge">2</span> 
 					</button>
@@ -37,3 +37,5 @@
 		</ul>
 	</div>
 </nav>
+
+<?php include 'user_shopping_cart_panel.php'; ?>
