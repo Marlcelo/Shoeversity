@@ -12,24 +12,21 @@
             $_SESSION['page_type'] = "Public";
             $_SESSION['active_page'] = "products";
             $product = $_GET['pid'];
+    
+            include '../../database/user_get_shoe.php';
 
-            require_once('../../database/config.php');
-            $query = "CALL SP_GET_SHOE('".$product."')";
+            // Check if a user is already logged in. If yes, redirect to their dashboard.
+            // if(isset($_SESSION['a_username'])) {
+            //     header("Location: admin/dashboard.php");
+            //     exit();
+            // } else if(isset($_SESSION['b_username'])) {
+            //     header("Location: brands/products.php");
+            //     exit();
+            // } else if(isset($_SESSION['u_username'])) {
+            //     header("Location: users/products.php");
+            //     exit();
+            // }
 
-            $result = mysqli_query($conn,$query) or die(mysqli_error($conn));
-
-            $row = mysqli_fetch_assoc($result);
-            var_dump($row);
-
-            $name = $row['name'];
-            $description = $row['description'];
-            $price = $row['price'];
-            $type = $row['type'];
-            $category = $row['category'];
-            $color = $row['color'];
-            $photo = $row['photo_url'];
-            $size  = $row['size'];
-            $posted = $row['brand_name'];
         ?>
 
 
