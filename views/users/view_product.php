@@ -13,23 +13,7 @@
             $_SESSION['active_page'] = "products";
             $product = $_GET['pid'];
 
-            require_once('../../database/config.php');
-            $query = "CALL SP_GET_SHOE('".$product."')";
-
-            $result = mysqli_query($conn,$query) or die(mysqli_error($conn));
-
-            $row = mysqli_fetch_assoc($result);
-            var_dump($row);
-
-            $name = $row['name'];
-            $description = $row['description'];
-            $price = $row['price'];
-            $type = $row['type'];
-            $category = $row['category'];
-            $color = $row['color'];
-            $photo = $row['photo_url'];
-            $size  = $row['size'];
-            $posted = $row['brand_name'];
+            include '../../database/user_get_shoe.php';
 
             // Check if a user is already logged in. If yes, redirect to their dashboard.
             // if(isset($_SESSION['a_username'])) {
