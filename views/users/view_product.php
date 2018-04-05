@@ -84,7 +84,7 @@
                                 <h5 class="colors">Colors:
                                 	<span class="color <?php echo $color; ?>"></span>
                                 </h5>
-                            <form action="../../database/user_add_to_cart.php">
+                            <form action="../../database/user_add_to_cart.php" method="POST">
                                 <div class="row">
                                     <button class="add-to-cart btn btn-primary" type="submit" name="add_to_cart">add to cart</button>
                                     <button class="like btn btn-default" type="button"> Rate</button>
