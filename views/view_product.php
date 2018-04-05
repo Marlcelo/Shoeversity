@@ -56,37 +56,57 @@
                             <img src="<?php echo $shoe[5]; ?>"/>
     					</div>
     					<div class="details col-md-6">
-                            <h3 class="product-title"><?php echo $shoe[0]; ?></h3>
+                            <h3 class="price"><?php echo $shoe[0]; ?></h3><br>
     						<div class="rating">
     							<div class="stars">
-    								<span class="fa fa-star checked"></span>
-    								<span class="fa fa-star checked"></span>
-    								<span class="fa fa-star checked"></span>
-    								<span class="fa fa-star"></span>
-    								<span class="fa fa-star"></span>
+    								<span class="fa fa-star-o" data-rating="1"></span>
+                                    <span class="fa fa-star-o" data-rating="2"></span>
+                                    <span class="fa fa-star-o" data-rating="3"></span>
+                                    <span class="fa fa-star-o" data-rating="4"></span>
+                                    <span class="fa fa-star-o" data-rating="5"></span>
     							</div>
     							<span class="review-no">41 reviews</span>
     						</div>    
-                            <h4>Posted by:
-                                <span> <?php echo $shoe[6]; ?> </span>
-                            </h4>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4>Posted by:
+                                        <span> <?php echo $shoe[6]; ?> </span>
+                                    </h4>
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>Price:
+                                        <span><?php echo $shoe[4]; ?> </span>
+                                    </h4>
+                                </div>
+                            </div>
     						<p class="product-description"><?php echo $shoe[1]; ?></p>
-    						<h4><p class="price">Price: <span><?php echo $shoe[4]; ?></span></p></h4>
-    						<!-- <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p> -->
-                            <h5 class="sizes">Type:
-                                <span class="type" data-toggle="tooltip" ><?php echo $shoe[7]; ?></span>
-                            </h5>
-                            <h5 class="sizes">Category:
-                                <span class="category" data-toggle="tooltip" >
-                                    <?php echo $shoe[8]; ?>
-                                </span>
-                            </h5>
-    						<h5 class="sizes">Size:
-                                <span class="size" data-toggle="tooltip" ><?php echo $shoe[3]; ?></span>
-    						</h5>
-                            <h5 class="colors">Colors:
-                                <span class="color <?php echo $shoe[2]; ?>"></span>
-                            </h5>
+    						<div class="row">
+                                <div class="col-md-6">
+                                <h5 class="sizes">Type:
+                                    <span class="type" data-toggle="tooltip" ><?php echo $shoe[7]; ?></span>
+                                </h5>
+        						<!-- <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p> -->
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="sizes">Size:
+                                        <span class="size" data-toggle="tooltip" ><?php echo $shoe[3]; ?></span>
+                                    </h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+            						<h5 class="sizes">Category:
+                                        <span class="category" data-toggle="tooltip" >
+                                            <?php echo $shoe[8]; ?>
+                                        </span>
+                                    </h5>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="colors">Colors:
+                                        <span class="color <?php echo $shoe[2]; ?>"></span>
+                                    </h5>
+                                </div>
+                            </div>
         
                             <br><hr class="line">
 
