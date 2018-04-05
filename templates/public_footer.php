@@ -20,24 +20,24 @@
           <div class="col-md-4">
               <h3> Contact </h3>
               <ul>
-                  <li> <a href="#"> About Us </a> </li>
+                  <li><a href="#">About us</a></li>
+                  <li>shoeversity_official@gmail.com</li>
               </ul>
           </div>
           <div class="col-md-4">
               <h3> Important Links </h3>
               <ul>
-                  <li> <a href="index.php"> Product </a> </li>
-                  <li> <a href="../views/index.php"> Login </a> </li>
-                  <li> <a href="#"> Register </a> </li>
-                  
+                  <li> <a href="../views/index.php"> Product </a> </li>
+                  <li> <a href="../views/login.php"> Login </a> </li>
+                  <li> <a href="../views/register.php"> Register </a> </li>
               </ul>
           </div>
           <div class="col-md-4">
               <h3> Lost? </h3>
               <ul>
                   <li> 
-                    <form action="../database/search_shoes_public.php" method="POST" class="navbar-form" role="search" style="width: 100%">
-                      <div class="input-group">
+                    <form action="" class="navbar-form" role="search" style="width: 100%">
+                      <div class="input-group" style="margin-left: -15px">
                         <input type="text" class="form-control" placeholder="Search" name="search-product">
                             <div class="input-group-btn">
                                 <button class="btn btn-primary" type="submit" style="margin-top: 0px">
@@ -48,7 +48,7 @@
                     </form>
                 </li>
               </ul>
-        </div>
+          </div>
       </div>
   </div>
 
