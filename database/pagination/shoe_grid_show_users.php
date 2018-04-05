@@ -1,4 +1,4 @@
-<?php
+'<?php
 
 if(!isset($_SESSION)) {
 	session_start();
@@ -71,8 +71,8 @@ if($total_records > 0) {
 	}
 }
 else { 	// no rows returned
-	$output .= '<div class="alert alert-info alert-dismissible fade in">';
-	$output .= 		'<a href="../../database/shoe_grid_clear_public.php" style="font-size: 35px" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+	$output .= '<div class="alert alert-info alert-dismissible fade in" style="margin-top: -20px">';
+	$output .= 		'<a href="../../database/shoe_grid_clear_public.php" style="font-size: 30px; margin-top: -5px; z-index: 3;" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
 	$output .= 		'<strong>No results found!</strong>';
 	$output .= '</div>';
 }
