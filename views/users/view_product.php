@@ -12,7 +12,7 @@
             $_SESSION['page_type'] = "Public";
             $_SESSION['active_page'] = "products";
             $product = $_GET['pid'];
-
+    
             include '../../database/user_get_shoe.php';
 
             // Check if a user is already logged in. If yes, redirect to their dashboard.
@@ -26,6 +26,7 @@
             //     header("Location: users/products.php");
             //     exit();
             // }
+
         ?>
 
 
