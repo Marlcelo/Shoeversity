@@ -200,11 +200,11 @@ BEGIN
   ORDER BY uid;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_SHOE`(intShoeID int)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_SHOE` (`intShoeID` INT)  
 BEGIN
   SELECT * 
-  FROM shoes 
-  WHERE uid = intShoeID
+  FROM shoes,brands 
+  WHERE shoes.uid = intShoeID AND posted_by = brands.uid
   LIMIT 1;
 END$$
 

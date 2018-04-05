@@ -73,6 +73,14 @@
     						<p class="product-description"><?php echo $shoe[1]; ?></p>
     						<h4><p class="price">Price: <span><?php echo $shoe[4]; ?></span></p></h4>
     						<!-- <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p> -->
+                            <h5 class="sizes">Type:
+                                <span class="type" data-toggle="tooltip" ><?php echo $shoe[7]; ?></span>
+                            </h5>
+                            <h5 class="sizes">Category:
+                                <span class="category" data-toggle="tooltip" >
+                                    <?php echo $shoe[8]; ?>
+                                </span>
+                            </h5>
     						<h5 class="sizes">Size:
                                 <span class="size" data-toggle="tooltip" ><?php echo $shoe[3]; ?></span>
     						</h5>
