@@ -18,7 +18,7 @@
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Search" name="search-product" required>
 						<div class="input-group-btn">
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px">
+							<button class="btn btn-primary" type="submit" style="height: 34px; margin-top: 0px; border-radius: 0px 5px 5px 0px">
 								<i class="glyphicon glyphicon-search"></i>
 							</button>
 						</div>

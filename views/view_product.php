@@ -36,6 +36,23 @@
                 echo "<h1>Oops! Something went wrong.</h1>";
                 echo "<script>window.stop()</script>";
             }
+
+            // Check for errors
+            if(isset($_GET['req'])) {
+                if($_GET['req'] = md5('login')) {
+                    $_SESSION['error_msg'] = "You must be logged in";
+                    include "modals/login_redirect.php";
+
+                    echo "<script> 
+                            $('#login_redirect_modal').modal('show');
+                            $('#login_redirect_modal').on('hidden.bs.modal', function () {
+                                window.history.back();
+                            })
+                        </script>";
+                }
+            }
+
+            $redirectError = md5('login');
         ?>
 
 
@@ -116,8 +133,8 @@
                                 </h5> -->
                                                 
                                 <div class="row">
-                                    <button class="add-to-cart btn btn-primary disabled" type="button">add to cart</button>
-                                    <button class="like btn btn-default disabled" type="button"> Rate</button>
+                                    <button class="add-to-cart btn btn-primary" onclick="location.href='<?php echo $_SERVER['REQUEST_URI']."&req=".$redirectError; ?>'" type="button">add to cart</button>
+                                    <button class="like btn btn-default" onclick="location.href='<?php echo $_SERVER['REQUEST_URI']."&req=".$redirectError; ?>'" type="button">Rate</button>
                                 </div>
                             </form>
     					</div>
