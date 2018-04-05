@@ -46,9 +46,9 @@ if($total_records > 0) {
 	if(isset($_SESSION['grid_sql']) && isset($_SESSION['grid_applied_filters'])) {
 		// search
 		if(isset($_SESSION['grid_search_results']) && $_SESSION['grid_applied_filters'] == '') {
-			$output .= "<div  style='margin-bottom:30px; padding: 20px 15px; border-bottom: 3px solid #0097A7; background:#eee'>"; 
+			$output .= "<div  style='margin-bottom:30px; padding: 20px 15px; border-bottom: 3px solid #0097A7; background:#eee; position: relative;'>"; 
 			$output .= 		$_SESSION['grid_search_results'];
-			$output .= 		"<span class='pull-right' style='font-size: 37px; margin-top: 0px'>";
+			$output .= 		"<span style='font-size: 37px; margin-top: -20px; position: absolute; right: 15px; z-index: 5;'>";
 			$output .= 		"<a href='../database/shoe_grid_clear_public.php' style='color: #999;'>";
 			$output .= 			"&times;";
 			$output .= 		"</a>";
@@ -58,11 +58,11 @@ if($total_records > 0) {
 		}	
 		// filter 
 		else if($_SESSION['grid_sql'] != "SELECT * FROM shoes") {
-			$output .= "<div  style='margin-bottom:30px; padding: 20px 15px; border-bottom: 3px solid #0097A7; background:#eee'>"; 
+			$output .= "<div  style='margin-bottom:30px; padding: 20px 15px; border-bottom: 3px solid #0097A7; background:#eee; position: relative;'>"; 
 			$output .= 		$_SESSION['grid_applied_filters'];
 			// $output .= 		"<a href='../database/shoe_filter_clear.php' style='color: #999;'>";
 			
-			$output .= 		"<span class='pull-right' style='font-size: 37px; margin-top: 0px'>";
+			$output .= 		"<span style='font-size: 37px; margin-top: -20px; position: absolute; right: 15px; z-index: 5;'>";
 			$output .= 		"<a href='../database/shoe_grid_clear_public.php' style='color: #999;'>";
 			$output .= 			"&times;";
 			$output .= 		"</a>";
