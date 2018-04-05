@@ -211,3 +211,9 @@ img {
     -webkit-transform: scale(1);
             transform: scale(1); } }
 
+.star-rating {
+  line-height:32px;
+  font-size:1.25em;
+}
+
+.star-rating .fa-star{color: blue;}
