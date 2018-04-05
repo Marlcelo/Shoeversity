@@ -30,18 +30,6 @@
             $photo = $row['photo_url'];
             $size  = $row['size'];
             $posted = $row['brand_name'];
-
-            // Check if a user is already logged in. If yes, redirect to their dashboard.
-            // if(isset($_SESSION['a_username'])) {
-            //     header("Location: admin/dashboard.php");
-            //     exit();
-            // } else if(isset($_SESSION['b_username'])) {
-            //     header("Location: brands/products.php");
-            //     exit();
-            // } else if(isset($_SESSION['u_username'])) {
-            //     header("Location: users/products.php");
-            //     exit();
-            // }
         ?>
 
 
