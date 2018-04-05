@@ -62,6 +62,10 @@
         </div>
 	</div>
 
+    <!-- BEGIN FOOTER -->
+        <?php require "../../templates/brands/brand_footer.php"; ?>
+    <!-- .END FOOTER -->
+    
 	<!-- Include Javascript files -->
     <!-- <script src="../../js/smooth-scroll.js"></script> -->
 </body>
