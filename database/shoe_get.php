@@ -23,7 +23,7 @@ $price = $row['price'];
 $imgpath = $row['photo_url'];
 $brandID = $row['posted_by'];
 $type = $row['type'];
-$cataegory = $row['category'];
+$category = $row['category'];
 
 mysqli_close($conn);
 
@@ -34,7 +34,7 @@ $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 $row = mysqli_fetch_assoc($result);
 $postedBy = $row['brand_name'];
 	
-$shoeDetails = array($name, $description, $color, $size, $price, $imgpath, $postedBy,$type,$cataegory);
+$shoeDetails = array($name, $description, $color, $size, $price, $imgpath, $postedBy,$type,$category);
 array_push($_SESSION['selected_shoe_details'], $shoeDetails);
 
 mysqli_close($conn);
