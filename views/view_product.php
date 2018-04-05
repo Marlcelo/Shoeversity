@@ -78,7 +78,7 @@
                             </h5>
                             <h5 class="sizes">Category:
                                 <span class="category" data-toggle="tooltip" >
-                                    <?php echo $shoe[7]; ?>
+                                    <?php echo $shoe[8]; ?>
                                 </span>
                             </h5>
     						<h5 class="sizes">Size:
