@@ -24,6 +24,8 @@
         $user_lname = $_SESSION['u_lastname'];
         $user_mname = $_SESSION['u_middlename'];
     ?>
+    
+    <link rel="stylesheet" type="text/css" href="../../css/shopping-cart-sidebar.css">
 </head>
 <body>
 	<!-- Include header -->
@@ -68,5 +70,6 @@
 
 	<!-- Include Javascript files -->
     <!-- <script src="../../js/smooth-scroll.js"></script> -->
+    <script src="../../js/shopping-cart.js"></script>
 </body>
 </html>

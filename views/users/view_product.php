@@ -31,8 +31,8 @@
             $size  = $row['size'];
             $posted = $row['brand_name'];
         ?>
-
-
+            
+        <link rel="stylesheet" type="text/css" href="../../css/shopping-cart-sidebar.css">
     </head>
     <body>
         <!-- BEGIN HEADER -->
@@ -104,5 +104,6 @@
         <!-- .END FOOTER -->
 	</body>
     <!-- <script src="../../js/smooth-scroll.js"></script> -->
+    <script src="../../js/shopping-cart.js"></script>
 
 </html>
