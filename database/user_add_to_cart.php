@@ -16,9 +16,13 @@
 
 
 		var_dump($_SESSION['cart']);
-		if($size == sizeof($_SESSION['cart']))
+		if($size == sizeof($_SESSION['cart'])) {
+			$_SESSION['success_msg'] = "This item has been added to your cart.";
 			header("Location: ../views/users/view_product.php?pid=".$_SESSION['pid']."&result=".md5("success")."");
-		else
+		}
+		else {
+			$_SESSION['error_msg']  = "Uh oh, something went wrong!";
 			header("Location: ../views/users/view_product.php?pid=".$_SESSION['pid']."&result=".md5("fail")."");
+		}
 	}
 ?>

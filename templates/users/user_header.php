@@ -1,5 +1,16 @@
 <?php
 	$highlight = $_SESSION['active_page'];
+
+	if(!isset($_SESSION)) {
+		session_start();
+	}
+
+	if(isset($_SESSION['cart'])) {
+		$cartSize = sizeof($_SESSION['cart']);
+	}
+	else {
+		$cartSize = 0;
+	}
 ?>
 <link rel="icon" type="image/png" href="../../images/logos/shoeversity-favicon.png">
 
@@ -24,9 +35,12 @@
 					</div>
 
 					<!-- This button is not part of the form -->
-					<button class="btn btn-primary" type="button" style="margin-top: 0px; margin-left:10px; border-radius:3px;" onclick="openCart();">
+					<button class="btn btn-primary" type="button" style="height: 35px; margin-top: 0px; margin-left:10px; border-radius:3px;" onclick="openCart();">
 						<i class="glyphicon glyphicon-shopping-cart"></i>
-						&nbsp; <span class="badge">2</span> 
+						&nbsp; 
+						<span class="badge">
+							<?php echo $cartSize; ?>	
+						</span> 
 					</button>
 				</form>
 			</li>
