@@ -15,6 +15,7 @@
 
 	$productURL = "../users/view_product.php?pid=";
 	$totalPrice = 0;
+	$itemNo = 0;	// for keeping track of individual items
 ?>
 
 <div id="shoppingCartPanel" class="sidenav-cart">
@@ -31,21 +32,28 @@
 		<?php else: ?>
 			<div class="pre-scrollable" style="max-height: 60vh; padding-right: 0px; margin-bottom: 10px">
 				<?php foreach($_SESSION['cart'] as $itemID): ?>
-					<div class="col-md-12" style="cursor:pointer; background: #eee; padding: 10px; margin: 10px 0px" 
-						onclick="window.location.href='<?php echo $productURL.$itemID; ?>'">
+					<div class="col-md-12" style="cursor:pointer; background: #eee; padding: 7px; margin: 10px 0px"							 	onclick="window.location.href='<?php echo $productURL.$itemID; ?>'">
 
 						<?php include "../../database/user_cart_item.php"; ?>
 
 						<div class="col-md-6">
 							<img src="<?php echo $shoeImg; ?>">
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-5">
 							<h4><?php echo $shoeName; ?></h4>
 							<h5 class="text-info"><span>&#8369; <?php echo $shoePrice; ?></span></h5>
 						</div>
+						<div style="margin-left: 3px; position: absolute; top: -4px; right: 10px;">
+							<span class="link" style="font-size: 35px" onclick="removeProduct(<?php echo $itemNo ?>)">
+								&times;
+							</span>
+						</div>
 					</div>
-
-					<?php $totalPrice += $shoePrice; ?>
+					
+					<?php 
+						$totalPrice += $shoePrice;
+						$itemNo++;
+					?>
 				<?php endforeach; ?>
 			</div>
 
