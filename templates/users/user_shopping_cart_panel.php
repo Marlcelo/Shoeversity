@@ -14,6 +14,7 @@
 	}
 
 	$productURL = "../users/view_product.php?pid=";
+	$totalPrice = 0;
 ?>
 
 <div id="shoppingCartPanel" class="sidenav-cart">
@@ -40,13 +41,16 @@
 						</div>
 						<div class="col-md-6">
 							<h4><?php echo $shoeName; ?></h4>
+							<h5 class="text-info"><span>&#8369; <?php echo $shoePrice; ?></span></h5>
 						</div>
 					</div>
+
+					<?php $totalPrice += $shoePrice; ?>
 				<?php endforeach; ?>
 			</div>
 
 			<h3 class="pull-right" style="margin-bottom: 20px; color: #eee;">
-				Grand Total: &nbsp; &#8369; <?php echo "10000" ?>
+				Grand Total: &nbsp; &#8369; <?php echo $totalPrice; ?>
 			</h3>
 
 			<button type="submit" class="btn btn-success pull-right" onclick="alert('check out')">

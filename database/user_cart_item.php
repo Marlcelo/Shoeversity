@@ -7,8 +7,9 @@ $sql = "CALL SP_GET_SHOE($shoeID)";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 
-$shoeName = $row['name'];
-$shoeImg  = "../".$row['photo_url'];
+$shoeName  = $row['name'];
+$shoeImg   = "../".$row['photo_url'];
+$shoePrice = $row['price'];
 
 #return to user_shopping_cart_panel.php
 ?>
