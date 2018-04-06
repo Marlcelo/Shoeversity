@@ -9,8 +9,13 @@ if(!isset($_SESSION)) {
 }
 
 // remove item from cart
-// if(isset($_SESSION['cart'])) {
+if(isset($_SESSION['cart'])) {
 	unset($_SESSION['cart'][$pid]);
-// }
+
+	// reindex array (start at 0)
+	$newCart = array();
+	$newCart = array_values($_SESSION['cart']);
+	$_SESSION['cart'] = $newCart;
+}
 
 ?>

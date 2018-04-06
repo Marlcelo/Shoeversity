@@ -43,10 +43,10 @@
 							<h4><?php echo $shoeName; ?></h4>
 							<h5 class="text-info"><span>&#8369; <?php echo $shoePrice; ?></span></h5>
 						</div>
-						<div style="margin-left: 3px; position: absolute; top: -4px; right: 10px;">
-							<span class="link" style="font-size: 35px" onclick="removeProduct(<?php echo $itemNo ?>)">
+						<div style="margin-left: 3px; position: absolute; top: -12px; right: 10px;">
+							<a class="link" style="font-size: 35px" onclick="removeProduct(<?php echo $itemNo ?>)">
 								&times;
-							</span>
+							</a>
 						</div>
 					</div>
 					
