@@ -15,17 +15,28 @@
     
             include '../../database/user_get_shoe.php';
 
-            // Check if a user is already logged in. If yes, redirect to their dashboard.
-            // if(isset($_SESSION['a_username'])) {
-            //     header("Location: admin/dashboard.php");
-            //     exit();
-            // } else if(isset($_SESSION['b_username'])) {
-            //     header("Location: brands/products.php");
-            //     exit();
-            // } else if(isset($_SESSION['u_username'])) {
-            //     header("Location: users/products.php");
-            //     exit();
-            // }
+            if(isset($_GET['result'])) {
+                if($_GET['result'] == md5('success')) {
+                    include "../modals/success.php";
+
+                    echo "<script> 
+                            $('#success_modal').modal('show');
+                            $('#success_modal').on('hidden.bs.modal', function () {
+                                window.history.back();
+                            })
+                        </script>";
+                }
+                else if($_GET['result'] == md5('fail')) {
+                    include "../modals/error.php";
+
+                    echo "<script> 
+                            $('#error_modal').modal('show');
+                            $('#error_modal').on('hidden.bs.modal', function () {
+                                window.history.back();
+                            })
+                        </script>";
+                }
+            }
 
         ?>
             
@@ -60,7 +71,7 @@
     							<span class="review-no">41 reviews</span>
     						</div>
     						<p class="product-description"><?php echo $description; ?></p>
-    						<h4><p class="price">Price: <span><?php echo $price; ?></span></p></h4>
+    						<h4><p class="price">Price: <span>&#8369; <?php echo $price; ?></span></p></h4>
     						<!-- <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p> -->
                             <h5 class="sizes">Type:
                                 <span class="type" data-toggle="tooltip" ><?php echo $type; ?></span>
