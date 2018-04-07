@@ -16,3 +16,10 @@ function removeProduct(pid) {
         }
     })
 }
+
+function openCartModal() {
+    $('#cart_modal').modal('show');
+    $('#cart_modal').on('hidden.bs.modal', function () {
+        window.location = 'products.php';
+    })
+}
