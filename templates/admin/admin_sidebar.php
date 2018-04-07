@@ -1,3 +1,8 @@
+<?php
+    $highlight = $_SESSION['admin_fxn'];
+?>
+
+
 <nav class=" navbar-inverse">
         <div class="sidenav">
             <ul class="nav nav-pills nav-stacked">

@@ -38,7 +38,7 @@
 
         // Set active page
         $_SESSION['page_type'] = "Admin";
-        $_SESSION['active_page'] = "account";
+        $_SESSION['active_page'] = "dashboard";
         $_SESSION['admin_fxn'] = "create_admin";
 
 
@@ -55,7 +55,7 @@
 	<!-- Include sidebar -->
     <?php include "../../templates/admin/admin_sidebar.php"; ?>
     
-        <div class="container text-center">
+        <div class="container text-center main">
                 <div class="col-md">
                     <h1>Create an admin account</h1> 
                     <div class="content">
