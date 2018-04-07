@@ -14,45 +14,11 @@
         $_SESSION['page_type'] = "Admin";
         $_SESSION['active_page'] = "dashboard";
 
-        $highlight = $_SESSION['active_admin_fxn'];
+        $highlight = $_SESSION['active_page'];
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
     ?>
-
-    <style>
-        body {
-            font-family: "Lato", sans-serif;
-        }
-
-        .sidenav {
-            height: 100%;
-            position: absolute;
-            width: 207px;
-            z-index: auto;
-            top: 0;
-            left: 0;
-            background-color: #1e1e1e;
-            overflow-x: hidden;
-            padding-top: 60px;
-            font-size: 20px;
-            color: #818181;
-        }
-
-        .sidenav h3{
-            padding-left: 10px;
-            padding-top: 15px;
-        }
-
-        .main {
-            margin-left: 207px; /* Same as the width of the sidenav */
-        }
-
-        @media screen and (max-height: 450px) {
-          .sidenav {padding-top: 15px;}
-          .sidenav a {font-size: 15px;}
-        }
-    </style>
 </head>
 <body>
     <!-- Include header -->
@@ -65,7 +31,7 @@
                     <li <?php if($highlight == 'approve_brand') echo "class=''"; ?>><a href="approve_brand.php"><i class="glyphicon glyphicon-ok"></i>  Approve a Brand</a></li>
                     <li <?php if($highlight == 'view_logs') echo "class='active'"; ?>><a href="view_audit_logs.php"><i class="glyphicon glyphicon-folder-open"></i>   View Audit Logs</a></li>
                 <h3>Users</h3>
-                    <li <?php if($highlight == 'create_admin') echo "class='active'"; ?>><a href="register_admin.php"><i class="glyphicon glyphicon-plus"></i>  Create an Admin</a></li>
+                    <li <?php if($highlight == 'create_admin') echo "class='active'"; ?>><a href=""><i class="glyphicon glyphicon-plus"></i>  Create an Admin</a></li>
                     <li <?php if($highlight == 'delete_admin') echo "class='active'"; ?>><a href="delete_admin.php"><i class="glyphicon glyphicon-minus"></i>  Delete an Admin</a></li>
                     <li <?php if($highlight == 'delete_user') echo "class='active'"; ?>><a href="delete_user.php"><i class="glyphicon glyphicon-minus"></i>  Delete a User</a></li>
             </ul>   
@@ -74,6 +40,7 @@
     <!-- BEGIN MAIN CONTENT -->
     
         <div class="container main" style="margin-top: 10vh;">
+                <?php if($highlight == 'dashboard'){?>
                 <!-- BEGIN PRODUCTS GRID -->
                 <div class="col-md-12">
 
@@ -161,6 +128,9 @@
                         </span>
                     </div>
                 </div>
+                <?php }elseif ($highlight == 'create_admin') {?>
+                    hey
+                <?php } ?>
         </div>
     </section>
     <!-- BEGIN FOOTER -->
