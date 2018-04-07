@@ -9,6 +9,8 @@
 <!-- Main Page background -->
 <link rel="stylesheet" type="text/css" href="../../css/main.css">
 <link rel="stylesheet" type="text/css" href="../../css/public.css">
+<link rel="stylesheet" type="text/css" href="../../css/sidebar.css">
+
 
 <!-- Fonts -->
 <!-- <link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet">   -->

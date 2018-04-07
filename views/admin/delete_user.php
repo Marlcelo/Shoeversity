@@ -12,7 +12,9 @@
         session_start();
         // Set active page
         $_SESSION['page_type'] = "Admin";
-        $_SESSION['active_page'] = "account";
+        $_SESSION['active_page'] = "dashboard";
+        $_SESSION['admin_fxn'] = "delete_user";
+
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
@@ -31,21 +33,12 @@
 <body>
 	<!-- Include header -->
 	<?php include "../../templates/admin/admin_header.php"; ?>
-	
-    <div class="container" style="margin-top: 0vh;">
-        <div class="row">
-            <!-- Centered Pills -->
-            <ul class="nav nav-pills nav-justified">
-                <li><a href="register_admin.php">Create an Admin Account</a></li>
-                <li><a href="delete_admin.php">Delete an Admin Account</a></li>
-                <li class="active"><a href="delete_user.php">Delete a User Account</a></li>
-            </ul>
-        </div>
-    </div>
+
+    <!-- Include sidebar -->
+    <?php include "../../templates/admin/admin_sidebar.php"; ?>
     
-    <div class="content-wrapper ">
-        <div class="container text-center">
-                <div class="col-md">
+        <div class="container text-center main">
+                <div class="col-md-12" style="padding-left: 10px; padding-right: 40px;">
                     <h1>Delete a User Account</h1>
                                   <table id="users" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
@@ -89,7 +82,7 @@
                              
                 </div>              
         </div>
-    </div>
+
 	
 	 <!-- BEGIN FOOTER -->
     <?php require "../../templates/admin/admin_footer.php"; ?>
