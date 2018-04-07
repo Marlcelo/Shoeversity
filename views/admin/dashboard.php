@@ -13,8 +13,9 @@
         // Set active page
         $_SESSION['page_type'] = "Admin";
         $_SESSION['active_page'] = "dashboard";
+        $_SESSION['admin_fxn'] = "dashboard";
 
-        $highlight = $_SESSION['active_page'];
+        $highlight = $_SESSION['admin_fxn'];
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
@@ -23,24 +24,13 @@
 <body>
     <!-- Include header -->
     <?php include "../../templates/admin/admin_header.php"; ?>
-    <nav class=" navbar-inverse">
-        <div class="sidenav">
-            <ul class="nav nav-pills nav-stacked">
-                <li <?php if($highlight == 'dashboard') echo "class='active'"; ?>><a href="dashboard.php"><i class="glyphicon glyphicon-home"></i>   Home</a></li>
-                <h3>Management</h3>
-                    <li <?php if($highlight == 'approve_brand') echo "class=''"; ?>><a href="approve_brand.php"><i class="glyphicon glyphicon-ok"></i>  Approve a Brand</a></li>
-                    <li <?php if($highlight == 'view_logs') echo "class='active'"; ?>><a href="view_audit_logs.php"><i class="glyphicon glyphicon-folder-open"></i>   View Audit Logs</a></li>
-                <h3>Users</h3>
-                    <li <?php if($highlight == 'create_admin') echo "class='active'"; ?>><a href=""><i class="glyphicon glyphicon-plus"></i>  Create an Admin</a></li>
-                    <li <?php if($highlight == 'delete_admin') echo "class='active'"; ?>><a href="delete_admin.php"><i class="glyphicon glyphicon-minus"></i>  Delete an Admin</a></li>
-                    <li <?php if($highlight == 'delete_user') echo "class='active'"; ?>><a href="delete_user.php"><i class="glyphicon glyphicon-minus"></i>  Delete a User</a></li>
-            </ul>   
-        </div>
-    </nav>
+
+    <!-- Include sidebar -->
+    <?php include "../../templates/admin/admin_sidebar.php"; ?>
+    
     <!-- BEGIN MAIN CONTENT -->
     
         <div class="container main" style="margin-top: 10vh;">
-                <?php if($highlight == 'dashboard'){?>
                 <!-- BEGIN PRODUCTS GRID -->
                 <div class="col-md-12">
 
@@ -128,9 +118,6 @@
                         </span>
                     </div>
                 </div>
-                <?php }elseif ($highlight == 'create_admin') {?>
-                    hey
-                <?php } ?>
         </div>
     </section>
     <!-- BEGIN FOOTER -->
