@@ -108,8 +108,7 @@ END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ALL_BRANDSUV` ()  BEGIN
   SELECT uid, brand_name,b_username,b_email
-    FROM brands
-    WHERE b_verified=0;
+    FROM brands;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_BRAND_CONTACT`(bId int(11), contactNum varchar(20))

@@ -19,12 +19,12 @@
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
-        require '../../database/get_brands.php';
+        require '../../database/get_unverified_brands.php';
     ?>
     
         <script type="text/javascript">
       $(document).ready(function() {
-        $('#users').DataTable();
+        $('#uvbrands').DataTable();
       } );
     </script>
 </head>
