@@ -37,7 +37,10 @@
                         </script>";
                 }
             }
-
+            
+            // include rating modal & success modal
+            include "../modals/product_rating.php";
+            include "../modals/success.php";
         ?>
             
         <link rel="stylesheet" type="text/css" href="../../css/shopping-cart-sidebar.css">
@@ -98,7 +101,7 @@
                             <form action="../../database/user_add_to_cart.php" method="POST">
                                 <div class="row">
                                     <button class="add-to-cart btn btn-primary" type="submit" name="add_to_cart">add to cart</button>
-                                    <button class="like btn btn-default" type="button"> Rate</button>
+                                    <button class="like btn btn-default" type="button" onclick="rateProduct();"> Rate</button>
                                 </div>
                             </form>
     					</div>
@@ -113,5 +116,6 @@
 	</body>
     <!-- <script src="../../js/smooth-scroll.js"></script> -->
     <script src="../../js/shopping-cart.js"></script>
+    <script src="../../js/rate-shoe.js"></script>
 
 </html>
