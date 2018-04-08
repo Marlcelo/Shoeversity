@@ -18,7 +18,7 @@
 	$itemNo = 0;	// for keeping track of individual items
 ?>
 
-<div id="shoppingCartPanel" class="sidenav-cart">
+<div id="shoppingCartPanel" class="sidenav-cart" style="z-index: 10">
 	<a href="javascript:void(0)" class="closebtn-cart" onclick="closeCart()">&times;</a>
 
 	<div class="col-md-12" style="margin-top: -20px">
