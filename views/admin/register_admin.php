@@ -56,7 +56,7 @@
     <?php include "../../templates/admin/admin_sidebar.php"; ?>
     
         <div class="container text-center main">
-                <div class="col-md">
+                <div class="col-md" style="min-height: 350px;">
                     <h1>Create an admin account</h1> 
                     <div class="content">
                                 

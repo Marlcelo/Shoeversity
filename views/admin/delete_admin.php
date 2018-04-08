@@ -35,52 +35,50 @@
 	
     <?php include "../../templates/admin/admin_sidebar.php"; ?>
 
-    <div class="content-wrapper ">
-        <div class="container text-center main">
-                <div class="col-md" style="margin-right: 40px;">
-                    <h1>Delete an Admin Account</h1>
-                      <table id="admins" class="table table-striped table-bordered" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Username</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Gender</th>
-                                <th>Delete</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                          <?php
-                          foreach ($admins as $admin) {
-                           echo "<tr>
-                              <form action='../../database/admin_delete_admin.php?adId=".$admin['uid']."' method='POST'>
-                                <td>".$admin['username']."</td>
-                                <td>".$admin['adName']."</td>
-                                <td>".$admin['email']."</td>
-                                <td>".$admin['gender']."</td>
-                                <td><input type='submit' class='btn btn-danger btn-md' name='delete' value='Delete'></td>
-                              </form>  
-                            </tr>";
-                          }
+    <div class="container text-center main">
+        <div class="col-md" style="margin-right: 40px; min-height: 350px;">
+            <h1>Delete an Admin Account</h1>
+              <table id="admins" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  foreach ($admins as $admin) {
+                   echo "<tr>
+                      <form action='../../database/admin_delete_admin.php?adId=".$admin['uid']."' method='POST'>
+                        <td>".$admin['username']."</td>
+                        <td>".$admin['adName']."</td>
+                        <td>".$admin['email']."</td>
+                        <td>".$admin['gender']."</td>
+                        <td><input type='submit' class='btn btn-danger btn-md' name='delete' value='Delete'></td>
+                      </form>  
+                    </tr>";
+                  }
 
-                          // while ( <= 10) {
-                          //   echo "string";
-                          // }
-                            ?>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Username</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Gender</th>
-                                <th>Delete</th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                             
-                </div>              
-        </div>
+                  // while ( <= 10) {
+                  //   echo "string";
+                  // }
+                    ?>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Username</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Delete</th>
+                    </tr>
+                </tfoot>
+            </table>
+                         
+        </div>              
     </div>
 	
 	 <!-- BEGIN FOOTER -->

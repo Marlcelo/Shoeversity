@@ -38,7 +38,7 @@
     <?php include "../../templates/admin/admin_sidebar.php"; ?>
     
         <div class="container text-center main">
-                <div class="col-md-12" style="padding-left: 10px; padding-right: 40px;">
+                <div class="col-md-12" style="padding-left: 10px; padding-right: 40px; min-height: 350px;">
                     <h1>Delete a User Account</h1>
                                   <table id="users" class="table table-striped table-bordered" style="width:100%">
                                     <thead>
