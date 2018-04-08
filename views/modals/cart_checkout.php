@@ -41,7 +41,7 @@
                                             <strong><?php echo $shoe[2]; ?></strong>
                                         </td>
                                         <td class="">
-                                            <button type="button" class="btn btn-danger btn-sm">
+                                            <button type="button" class="btn btn-danger btn-sm" onclick="removeProduct(<?php echo $shoe[3] ?>)">
                                                 <span class="glyphicon glyphicon-remove"></span> Remove
                                             </button>
                                         </td>
