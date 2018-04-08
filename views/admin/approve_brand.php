@@ -19,14 +19,9 @@
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
-        require '../../database/get_unverified_brands.php';
+        require '../../database/admin_approve_brand.php';
     ?>
-    
-        <script type="text/javascript">
-      $(document).ready(function() {
-        $('#uvbrands').DataTable();
-      } );
-    </script>
+
 </head>
 <body>
 	<!-- Include header -->

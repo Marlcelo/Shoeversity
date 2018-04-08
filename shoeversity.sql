@@ -106,9 +106,18 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_ADMIN` (`uname` VARCHAR(50),
     SELECT str_return result;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ALL_BRANDSUV` ()  BEGIN
-  SELECT uid, brand_name,b_username,b_email
-    FROM brands;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ALL_BRANDSUV` (`brandId` INT(11))  BEGIN
+  declare str_return varchar(10);
+  IF EXISTS(SELECT * FROM brands WHERE uid LIKE adminId AND b_verified = 0) THEN
+    SET b_verified = 1;
+    SET strreturn = 'APPROVED';
+
+    ELSE
+    SET strreturn = 'FAILED';
+
+    END IF;
+
+    SELECT str_return result;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_BRAND_CONTACT`(bId int(11), contactNum varchar(20))

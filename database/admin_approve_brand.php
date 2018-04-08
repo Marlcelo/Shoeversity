@@ -1,6 +1,6 @@
 <?php
 	require 'config.php';
-	$brandId = $_GET['uId'];
+	$brandId = $_GET['bId'];
 	echo $brandId;
 
 	$sql = "CALL SP_GET_ALL_BRANDSUV(".$brandId.");";
