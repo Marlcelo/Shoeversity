@@ -3,7 +3,7 @@
 	$brandId = $_GET['bId'];
 	echo $brandId;
 
-	$sql = "CALL SP_GET_ALL_BRANDSUV(".$brandId.");";
+	$sql = "CALL SP_APPROVE_BRAND(".$brandId.");";
 
 	$result = mysqli_query($conn,$sql) or die(mysqli_error($conn));
 
@@ -11,7 +11,7 @@
 
 	if($row['result'] == "SUCCESS"){
 		echo "<script>
-			window.alert('Brand# ".$brandId." has been deleted!');
+			window.alert('Brand# ".$brandId." has been approved!');
 		</script>";
 		header("Location: ../views/admin/approve_brand.php");
 	}else{
