@@ -38,7 +38,7 @@
     <?php include "../../templates/admin/admin_sidebar.php"; ?>
     
         <div class="container text-center main">
-            <div class="col-md" style="min-height: 400px;">
+            <div class="col-md" style="min-height: 350px;">
                 <div class="col-md" style="margin-right: 40px;">
                     <h1>Approve a Brand</h1>
                       <table id="brands" class="table table-striped table-bordered" style="width:100%">
