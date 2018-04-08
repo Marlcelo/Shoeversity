@@ -179,6 +179,22 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_BRAND_LOCATION` (`bId` INT(1
   SELECT str_return col;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_RATING`(intShoeID int, intUserID int, intRating int)
+BEGIN
+
+  IF EXISTS(SELECT * FROM shoe_ratings WHERE shoe_id = intShoeID AND rated_by = intUserID) THEN
+    UPDATE shoe_ratings
+        SET rating = intRating
+        WHERE shoe_id = intShoeID AND rated_by = intUserID;
+        
+  ELSE
+    INSERT INTO shoe_ratings
+        VALUES (NULL, intShoeID, intRating, intUserID, NOW());
+        
+    END IF;
+
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_BRAND`(bName varchar(35),bEmail varchar(50),bUsername varchar(35))
 BEGIN
   SELECT *
@@ -194,6 +210,13 @@ BEGIN
   WHERE b_username = strUsername 
   LIMIT 1;
   
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_RATING`(intShoeID int)
+BEGIN
+
+  SELECT AVG(rating) FROM shoe_ratings WHERE shoe_id = intShoeID;
+
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_BRAND_NAMES`()

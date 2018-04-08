@@ -15,7 +15,7 @@
 
             <form action="../../database/shoe_rate.php" method="post">
                 <div class="modal-body">
-                    <div class="ratings text-center" style="font-size: 25px">
+                    <div class="rating text-center" style="font-size: 25px">
                         <button type="button" style="background: none; border: none" name="1" 
                             onclick="showStars(1, this);">
                             <span id="1" class="glyphicon glyphicon-star-empty"></span>
@@ -50,7 +50,7 @@
                     </button>
                     &nbsp;
                     <button type="button" name="submit" class="btn btn-info" onclick="rateShoe()">
-                        <strong>Submit Rating</strong>
+                        <strong>Submit</strong>
                     </button>
                 </div>
             </form>
@@ -101,7 +101,9 @@
                 // $('#rating_modal').modal('toggle'); 
 
                 // open success modal
-                $('#success_modal').modal('show');
+                // $('#success_modal').modal('show');
+                alert(success_msg);
+                $('#rating_modal').modal('toggle'); 
             }
         })
     }
