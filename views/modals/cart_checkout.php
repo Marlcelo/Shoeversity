@@ -41,9 +41,12 @@
                                             <strong><?php echo $shoe[2]; ?></strong>
                                         </td>
                                         <td class="">
-                                            <button type="button" class="btn btn-danger btn-sm" onclick="removeProduct(<?php echo $shoe[3] ?>)">
+                                            <form method="GET" action="../../database/user_checkout_remove_product.php">
+                                                <button type="submit" class="btn btn-danger btn-sm" name="shoe" value="<?php echo $shoe[3] ?>">
                                                 <span class="glyphicon glyphicon-remove"></span> Remove
                                             </button>
+                                            </form>
+                                            
                                         </td>
                                     </tr>
                                     <!-- End of Product in cart-->
