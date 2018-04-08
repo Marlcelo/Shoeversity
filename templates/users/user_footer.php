@@ -37,10 +37,10 @@
 	            <ul>
 	                <li> 
 		                <form action="../../database/search_shoes_users.php" method="POST" class="navbar-form" role="search" style="width: 100%">
-			                <div class="input-group">
+			                <div class="input-group" style="z-index: 0; margin: 0 auto">
 			    	            <input type="text" class="form-control" placeholder="Search" name="search-product" required>
 		                        <div class="input-group-btn">
-		                            <button class="btn btn-primary" type="submit" style="margin-top: 0px">
+		                            <button class="btn btn-primary" type="submit" style="margin-top: 0px; height: 34px">
 		                            <i class="glyphicon glyphicon-search"></i>
 		                            </button>
 		                        </div>
