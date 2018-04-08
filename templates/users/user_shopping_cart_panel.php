@@ -16,6 +16,9 @@
 	$productURL = "../users/view_product.php?pid=";
 	$totalPrice = 0;
 	$itemNo = 0;	// for keeping track of individual items
+
+	# include shopping cart modal for check out
+	include '../modals/cart_checkout.php';
 ?>
 
 <div id="shoppingCartPanel" class="sidenav-cart" style="z-index: 10">
@@ -61,7 +64,7 @@
 				Grand Total: &nbsp; &#8369; <?php echo $totalPrice; ?>
 			</h3>
 
-			<button type="submit" class="btn btn-success pull-right" onclick="alert('check out')">
+			<button type="submit" class="btn btn-success pull-right" onclick="openCartModal();">
 				<strong>Check out</strong>
 			</button>
 		<?php endif; ?>
