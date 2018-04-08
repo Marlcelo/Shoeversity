@@ -106,6 +106,12 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_ADMIN` (`uname` VARCHAR(50),
     SELECT str_return result;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ALL_BRANDSUV` ()  BEGIN
+  SELECT uid, brand_name,b_username,b_email
+    FROM brands
+    WHERE b_verified=0;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_BRAND_CONTACT`(bId int(11), contactNum varchar(20))
 BEGIN
   declare str_return varchar(15);
