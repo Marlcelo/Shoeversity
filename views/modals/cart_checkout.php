@@ -1,5 +1,5 @@
 <?php
-
+    require '../../database/user_get_cart_items.php';
 ?>
 
 <div class="modal fade" id="cart_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -18,62 +18,64 @@
             </div>
 
             <div class="modal-body">
-                <div class="container">
-                    <div class="row">
+                
                         <!-- <div class="col-md-12"> -->
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
                                         <th>Product</th>
                                         <th class="text-center">Price</th>
-                                        <th class="text-center">Total</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                      <!-- Product in cart-->
+                                     <?php foreach ($items as $shoe) {
+                                         // commence display of shoe
+                                     ?>
                                     <tr>
                                         <td>
-                                            <img src="">
-                                            SHOE NAME
-                                        </td>
+                                            <img src="<?php echo "../".$shoe[0]; ?>" height = 80px width = 80px>
+                                            <?php echo $shoe[1]; ?>
+                                        </td> 
                                         <td class="text-center">
-                                            <strong>3,000</strong>
+                                            <strong><?php echo $shoe[2]; ?></strong>
                                         </td>
                                         <td class="">
-                                            <button type="button" class="btn btn-danger">
+                                            <button type="button" class="btn btn-danger btn-sm">
                                                 <span class="glyphicon glyphicon-remove"></span> Remove
                                             </button>
                                         </td>
                                     </tr>
                                     <!-- End of Product in cart-->
+                                    <?php } ?>
                                     <tr>
                                         <td>   </td>
                                         <td>   </td>
                                         <td>   </td>
                                         <td><h5>Subtotal</h5></td>
-                                        <td class="text-right"><h5><strong>3,000</strong></h5></td>
+                                        <td class="text-right"><h5><strong><?php echo $subtotal; ?></strong></h5></td>
                                     </tr>
+                                    
                                     <tr>
                                         <td>   </td>
                                         <td>   </td>
                                         <td>   </td>
                                         <td><h5>Estimated shipping</h5></td>
-                                        <td class="text-right"><h5><strong>120</strong></h5></td>
+                                        <td class="text-right"><h5><strong><?php echo $total - $subtotal; ?></strong></h5></td>
                                     </tr>    
                                     <tr>
                                         <td>   </td>
                                         <td>   </td> <!--Leave these blank-->
                                         <td>   </td>
                                         <td><h3>Total</h3></td>
-                                        <td class="text-right"><h3><strong>Php.3,120</strong></h3></td>
+                                        <td class="text-right"><h3><strong><?php echo $total; ?></strong></h3></td>
                                     </tr>                    
                                     
                                 </tbody>
                             </table>
                         <!-- </div> -->
                     </div>
-                </div>
-            </div>
+               
 
             <!-- Modal Footer -->
             <div class="modal-footer" style="border-top: none">
