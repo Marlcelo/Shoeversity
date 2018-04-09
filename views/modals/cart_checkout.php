@@ -87,9 +87,18 @@
                 </button>
                 &nbsp;
                 <!-- <a href=""> -->
-                <button type="submit" name="submit" class="btn btn-success">
+                <form class="form-horizontal" method="POST" action="#">
+                    <div class="col-md-6">  
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input type="password" id="password1" class="form-control" name="pword" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                        </div>
+                    </div>
+                    <button type="submit" name="submit" class="btn btn-success">
                     <strong>Check out</strong> <span class="glyphicon glyphicon-play"></span>
                 </button>
+                </form>
+                
                 <!-- </a> -->
             </div>
 
