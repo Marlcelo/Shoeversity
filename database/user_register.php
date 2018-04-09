@@ -48,9 +48,9 @@
 				else
 					echo "ERROR";	// For Checking purposes
 
-	//*******************************************************
-	// STORE TO SITE_USERS TABLE
-	//********************************************************
+		//********************************************************
+		// STORE TO SITE_USERS TABLE
+		//********************************************************
 				mysqli_close($conn);
 				require 'config.php';
 
@@ -76,6 +76,54 @@
 				header("Location:user_authenticate.php");
 				}
 
+		//********************************************************
+		// STORE TO SITE_USERS TABLE
+		//********************************************************
+				require '../libs/PHPMailer/PHPMailerAutoload.php';
+
+				$mail = new PHPMailer;
+
+				// $mail->SMTPDebug = 4;                              // Enable verbose debug output
+
+				$mail->isSMTP();                                      // Set mailer to use SMTP
+				$mail->Host = 'smtp.gmail.com';  					  // Specify main SMTP servers
+				$mail->SMTPAuth = true;                               // Enable SMTP authentication
+				$mail->Username = 'shoeversityofficial@gmail.com';    // SMTP username
+				$mail->Password = 'FlashByte';                        // SMTP password
+				$mail->SMTPSecure = 'tls';                            // Enable TLS encryption, ssl or tls
+				$mail->Port = 587;                                    // TCP port to connect to
+
+				$mail->setFrom('shoeversityofficial@gmail.com', 'Shoeversity Official');
+				$mail->addAddress($_POST['email']);               
+
+				$mail->Subject = 'Welcome to Shoeversity!';
+				$message = '
+						<div style="height:auto; width: auto; padding: 80px 110px; background: #eee; color: #121212 !important; text-align: center;">
+
+							<h1>Welcome to Shoeversity!</h1>
+
+							<h3>Thank you for registering with us.</h3>
+
+							<p>To get started, sign in to your account <a href="localhost/Shoeversity/views/login.php">here.</a></p>
+
+							<br><hr><br>
+
+							<div style="text-align: left !important; line-height: 3px">
+								<p style="color:#777">Regards,</p>
+								<i style="color:#777">Shoeversity Official</i>
+							</div>
+						</div>
+					';
+				// $message = "'".$_POST['email']."'";
+				$mail->Body    = $message;
+
+				if(!$mail->send()) {
+				    echo 'Message could not be sent.';
+				    echo 'Mailer Error: ' . $mail->ErrorInfo;
+				} else {
+				    echo 'Message has been sent';
+				}
+				// $mail->send();
 			
 		}
 	}
