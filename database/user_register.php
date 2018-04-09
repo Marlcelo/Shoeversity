@@ -134,6 +134,12 @@
 				}
 				// $mail->send();
 			
+		}else{ //if pass !=cpass
+			$error_msg .= "Your passwords do not match! Please try again.";
+			$_SESSION['error_msg'] = $error_msg;
+			$error_path = "../views/register.php?register=" . md5('failed');
+			header("Location: $error_path");
+			exit();
 		}
 	}
 
