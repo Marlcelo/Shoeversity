@@ -51,7 +51,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CHECK_UNAME_EMAIL_DUPLICATE` (IN
   declare str_return varchar(10);
     
     if exists(SELECT * FROM site_users su,admins a,brands b,users u WHERE su.username LIKE testUname OR testEmail LIKE u_email OR testEmail LIKE b_email OR testEmail LIKE email) then
-    set str_return = "SUCCESS";
+    set str_return = "TRUE";
   else
     set str_return = "FALSE";
   end if;

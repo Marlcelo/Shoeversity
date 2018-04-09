@@ -20,7 +20,7 @@
 			var_dump($row);
 			mysqli_close();
 
-			if($row['col'] == 'TRUE'){ //Same username as another account
+			if($row['col'] == 'TRUE'){ //Same username/email as another account
 				$error_msg .= "Sorry the username and/or email has already been taken!<br>Please try a different username and/or email.";
 				$_SESSION['error_msg'] = $error_msg;
 				$error_path = "../views/register.php?register=" . md5('failed');
