@@ -6,6 +6,7 @@
 		$cpass = $_POST['confirmpword'];
 
 		if($pass == $cpass){
+			echo "HERE!";
 			require 'config.php';
 			$uname = $_POST['uname'];
 			$email = $_POST['email'];
@@ -19,7 +20,7 @@
 			$row = mysqli_fetch_assoc($result);
 			var_dump($row);
 			mysqli_close($conn);
-			if($row['col'] == 'TRUE'){ //Same username as another account
+			if($row['col'] == 'TRUE'){ //Same username/email as another account
 				$error_msg .= "Sorry the username or/and email has already been taken!<br>Please try a different username or/and email.";
 				$_SESSION['error_msg'] = $error_msg;
 				$error_path = "../views/register.php?register=" . md5('failed');
