@@ -47,12 +47,12 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ALL_USERS` ()  BEGIN
     FROM users;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CHECK_UNAME_DUPLICATE` (`testUname` VARCHAR(50))  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CHECK_UNAME_EMAIL_DUPLICATE` (IN `testUname` VARCHAR(50), IN `testEmail` VARCHAR(50))  BEGIN
   declare str_return varchar(10);
     
-    if exists(SELECT * FROM site_users WHERE username LIKE testUname) then
-    set str_return = "TRUE";
-  else 
+    if exists(SELECT * FROM site_users su,admins a,brands b,users u WHERE su.username LIKE testUname OR testEmail LIKE u_email OR testEmail LIKE b_email OR testEmail LIKE email) then
+    set str_return = "SUCCESS";
+  else
     set str_return = "FALSE";
   end if;
     

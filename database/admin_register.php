@@ -8,9 +8,10 @@
 		if($pass == $cpass){
 			require 'config.php';
 			$uname = $_POST['uname'];
+			$email = $_POST['email'];
 
 			//Check if username matches another accounts
-			$query = "CALL SP_CHECK_UNAME_DUPLICATE('".$uname."');"; 
+			$query = "CALL SP_CHECK_UNAME_EMAIL_DUPLICATE('".$uname."','".$email."');"; 
 			echo $query;
 
 			$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
@@ -19,7 +20,7 @@
 			var_dump($row);
 			mysqli_close($conn);
 			if($row['col'] == 'TRUE'){ //Same username as another account
-				$error_msg .= "Sorry the username has already been taken!<br>Please try a different username.";
+				$error_msg .= "Sorry the username and/or email has already been taken!<br>Please try a different username and/or email.";
 				$_SESSION['error_msg'] = $error_msg;
 				$error_path = "../views/admin/register_admin.php?register=" . md5('failed');
 				header("Location: $error_path");
@@ -29,8 +30,6 @@
 				$fname = $_POST['fname'];
 				$mname = $_POST['mname'];
 				$lname = $_POST['lname'];
-
-				$email = $_POST['email'];
 
 				$gender = $_POST['gender'];
 

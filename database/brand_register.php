@@ -8,9 +8,10 @@
 			session_start();
 
 			$uname = $_POST['uname'];
+			$email = $_POST['email'];
 
 			//Check if username matches another accounts
-			$query = "CALL SP_CHECK_UNAME_DUPLICATE('".$uname."');"; 
+			$query = "CALL SP_CHECK_UNAME_EMAIL_DUPLICATE('".$uname."','".$email."');"; 
 			echo $query;
 
 			$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
@@ -20,14 +21,13 @@
 			mysqli_close();
 
 			if($row['col'] == 'TRUE'){ //Same username as another account
-				$error_msg .= "Sorry the username has already been taken!<br>Please try a different username.";
+				$error_msg .= "Sorry the username and/or email has already been taken!<br>Please try a different username and/or email.";
 				$_SESSION['error_msg'] = $error_msg;
 				$error_path = "../views/register.php?register=" . md5('failed');
 				header("Location: $error_path");
 				exit();
 			}else{
 				$brandname = $_POST['brandname'];
-				$email = $_POST['email'];
 
 				$numbers = array();
 				array_push($numbers, $_POST['number1']);
