@@ -7,7 +7,7 @@ if(!isset($_SESSION))
 
 $pid = $product;	 // This variable comes from view_product.php
 
-$sql = "CALL SP_GET_RATING($pid)";
+$sql = "CALL SP_GET_RATING($pid)";	// get average shoe rating
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0) {

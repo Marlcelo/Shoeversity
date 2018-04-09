@@ -219,6 +219,13 @@ BEGIN
 
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_RATING_FOR`(intShoeID int, intUserID int)
+BEGIN
+
+  SELECT rating FROM shoe_ratings WHERE shoe_id = intShoeID AND rated_by = intUserID;
+
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_BRAND_NAMES`()
 BEGIN
 

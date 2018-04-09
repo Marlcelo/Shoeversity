@@ -1,3 +1,9 @@
+<?php
+
+include "../../database/shoe_rating_get.php";
+
+?>
+
 <div class="modal fade" id="rating_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
@@ -16,30 +22,56 @@
             <form action="../../database/shoe_rate.php" method="post">
                 <div class="modal-body">
                     <div class="rating text-center" style="font-size: 25px">
-                        <button type="button" style="background: none; border: none" name="1" 
-                            onclick="showStars(1, this);">
-                            <span id="1" class="glyphicon glyphicon-star-empty"></span>
-                        </button>
+                        <?php if(isset($prevRating)): ?>
+                            
+                            <?php
+                            for($i = 1; $i <= 5; $i++) {
+                                if($i <= $prevRating) {
+                                    echo '
+                                        <button type="button" style="background: none; border: none" name="'.$i.'" 
+                                            onclick="showStars('.$i.', this);">
+                                            <span id="'.$i.'" class="glyphicon glyphicon-star"></span>
+                                        </button>
+                                    ';
+                                }
+                                else {
+                                    echo '
+                                        <button type="button" style="background: none; border: none" name="'.$i.'" 
+                                            onclick="showStars('.$i.', this);">
+                                            <span id="'.$i.'" class="glyphicon glyphicon-star-empty"></span>
+                                        </button>
+                                    ';
+                                }
+                            }
+                            ?>
 
-                        <button type="button" style="background: none; border: none" name="2" 
-                            onclick="showStars(2, this);">
-                            <span id="2" class="glyphicon glyphicon-star-empty"></span>
-                        </button>
+                        <?php else: ?>
+                            <button type="button" style="background: none; border: none" name="1" 
+                                onclick="showStars(1, this);">
+                                <span id="1" class="glyphicon glyphicon-star-empty"></span>
+                            </button>
 
-                        <button type="button" style="background: none; border: none" name="3" 
-                            onclick="showStars(3, this);">
-                            <span id="3" class="glyphicon glyphicon-star-empty"></span>
-                        </button>
+                            <button type="button" style="background: none; border: none" name="2" 
+                                onclick="showStars(2, this);">
+                                <span id="2" class="glyphicon glyphicon-star-empty"></span>
+                            </button>
 
-                        <button type="button" style="background: none; border: none" name="4" 
-                            onclick="showStars(4, this);">
-                            <span id="4" class="glyphicon glyphicon-star-empty"></span>
-                        </button>
+                            <button type="button" style="background: none; border: none" name="3" 
+                                onclick="showStars(3, this);">
+                                <span id="3" class="glyphicon glyphicon-star-empty"></span>
+                            </button>
 
-                        <button type="button" style="background: none; border: none" name="5" 
-                            onclick="showStars(5, this);">
-                            <span id="5" class="glyphicon glyphicon-star-empty"></span>
-                        </button>
+                            <button type="button" style="background: none; border: none" name="4" 
+                                onclick="showStars(4, this);">
+                                <span id="4" class="glyphicon glyphicon-star-empty"></span>
+                            </button>
+
+                            <button type="button" style="background: none; border: none" name="5" 
+                                onclick="showStars(5, this);">
+                                <span id="5" class="glyphicon glyphicon-star-empty"></span>
+                            </button>
+
+                        <?php endif; ?>
                     </div>
                 </div>
                    
