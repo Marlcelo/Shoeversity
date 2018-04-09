@@ -87,16 +87,18 @@
                 </button>
                 &nbsp;
                 <!-- <a href=""> -->
-                <form class="form-horizontal" method="POST" action="#">
-                    <div class="col-md-6">  
+                <form class="form-horizontal" method="POST" action="../../database/user_checkout.php">
+                    <div class="col-md-4">
+                        <p>Confirm password to finalize your purchase</p> 
                         <div class="input-group">
+
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                             <input type="password" id="password1" class="form-control" name="pword" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                         </div>
                     </div>
-                    <button type="submit" name="submit" class="btn btn-success">
-                    <strong>Check out</strong> <span class="glyphicon glyphicon-play"></span>
-                </button>
+                    <button type="submit" name="btn_checkout" class="btn btn-success" >
+                        <strong>Check out</strong> <span class="glyphicon glyphicon-play"></span>
+                    </button>
                 </form>
                 
                 <!-- </a> -->

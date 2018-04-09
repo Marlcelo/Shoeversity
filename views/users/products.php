@@ -36,6 +36,27 @@
                     </script>";
             }
         }
+        if(isset($_GET['result'])) {
+            if($_GET['result'] == md5('success')) {
+                include '../modals/success.php';
+
+                echo "<script> 
+                        $('#success_modal').modal('show');
+                        $('#success_modal').on('hidden.bs.modal', function () { 
+                            window.location = 'products.php';
+                        })
+                    </script>";
+            }else if($_GET['result'] == md5('failed')) {
+                include '../modals/error.php';
+
+                echo "<script> 
+                        $('#error_modal').modal('show');
+                        $('#error_modal').on('hidden.bs.modal', function () { 
+                            window.location = 'products.php';
+                        })
+                    </script>";
+            }
+        }
     ?>
 
     <link rel="stylesheet" type="text/css" href="../../css/filter-sidebar.css">
