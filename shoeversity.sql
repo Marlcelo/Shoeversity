@@ -29,6 +29,16 @@ DELIMITER $$
 --
 -- Procedures
 --
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_PURCHASE` (`purchaser` INT, `itemBought` INT)  BEGIN
+  declare str_return varchar(10);
+    
+  INSERT INTO purchases VALUES(NULL,purchaser,itemBought,NOW());
+    SET str_return = "SUCCESS";
+    
+    SELECT str_return as col;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_DELETE_USER` (`userId` INT(11))  BEGIN
   declare str_return varchar(10);
     
