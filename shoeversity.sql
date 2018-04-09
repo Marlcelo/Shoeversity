@@ -543,7 +543,6 @@ CREATE TABLE `purchases` (
   `uid` int(11) NOT NULL,
   `purchased_by` int(11) NOT NULL,
   `item` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
   `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
