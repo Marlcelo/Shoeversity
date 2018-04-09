@@ -40,7 +40,7 @@
             
             // include rating modal & success modal
             include "../modals/product_rating.php";
-            include "../modals/success.php";
+            // include "../modals/success.php";
         ?>
             
         <link rel="stylesheet" type="text/css" href="../../css/shopping-cart-sidebar.css">
