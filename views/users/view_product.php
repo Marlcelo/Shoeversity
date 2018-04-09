@@ -56,13 +56,22 @@
     			<div class="container-fliud">
     				<div class="wrapper row">
     					<div class="preview col-md-6">
+                            <a href="index.php#products-list"><button class="btn btn-md btn-info pull-left" style="width:30%;">< Back</button></a>
                             <img src="<?php echo "../".$photo; ?>"/>
     					</div>
-    					<div class="details col-md-6">
-                            <h3 class="product-title"><?php echo $name; ?></h3>
-                             <h4>Posted by:
-                                <span> <?php echo $posted; ?> </span>
-                            </h4>
+                        <div class="details col-md-6">
+                            <h3 class="price"><?php echo $name; ?></h3>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                 <h4>Posted by:
+                                    <span> <?php echo $posted; ?> </span>
+                                </h4>
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>Price: <span> <?php echo $price; ?></span></p></h4>
+                                </div>
+                            </div>
 <!--     						<div class="rating">
     							<div class="stars">
     								<span class="fa fa-star checked"></span>
@@ -78,7 +87,7 @@
                             <div class="row" style="margin-left: 0px">
                                 <?php include "../../database/shoe_ratings_get.php" ?>
 
-                                <h4 style="display: inline">Rating:</h4>
+                                <p><h4 style="display: inline">Rating:</h4>
                                 &nbsp;
                                 <?php if(isset($rating)): ?>
                                     <div class="rating" style="display: inline; margin-bottom: -70px">
@@ -94,34 +103,51 @@
                                     ?>
                                     </div>
                                 <?php else: ?>
-                                    <span class="text-info">This product has not been rated yet.</span>
+                                   <span class="text-info">This product has not been rated yet.</span></p> 
                                 <?php endif; ?>
                             </div>
 
-    						<h4><p class="price">Price: <span>&#8369; <?php echo $price; ?></span></p></h4>
+    						
     						<!-- <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p> -->
-                            <h5 class="sizes">Type:
-                                <span class="type" data-toggle="tooltip" ><?php echo $type; ?></span>
-                            </h5>
-                            <h5 class="sizes">Category:
-                                <span class="category" data-toggle="tooltip" >
-                                    <?php echo $category; ?>
-                                </span>
-                            </h5>
-    						<h5 class="sizes">Size:
-                                <span class="size" data-toggle="tooltip" >
-                                    <?php echo $size; ?>
-                                </span>
-    						</h5>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5 class="sizes">Type:
+                                        <span class="type" data-toggle="tooltip" ><?php echo $type; ?></span>
+                                    </h5>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="sizes">Size:
+                                        <span class="size" data-toggle="tooltip" >
+                                            <?php echo $size; ?>
+                                        </span>
+                                    </h5>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5 class="sizes">Category:
+                                        <span class="category" data-toggle="tooltip" >
+                                            <?php echo $category; ?>
+                                        </span>
+                                    </h5>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="colors">Colors:
+                                        <span class="color <?php echo $color; ?>"></span>
+                                    </h5>
+                                </div>
+                            </div>
+
+    						
 
                             
                                 <!-- <h5 class="qty">Qty:
                                 	<span style="margin-left:5px;"><input style="width: 15%; display: inline; " type="number" class="form-control text-center" min="1" max="10" name="qty" value="1"></span>
                                 </h5> -->
                     
-                                <h5 class="colors">Colors:
-                                	<span class="color <?php echo $color; ?>"></span>
-                                </h5>
+                                
                             <form action="../../database/user_add_to_cart.php" method="POST">
                                 <div class="row">
                                     <button class="add-to-cart btn btn-primary" type="submit" name="add_to_cart">add to cart</button>
