@@ -11,7 +11,7 @@
 			$email = $_POST['email'];
 
 			if (!(filter_var($email, FILTER_VALIDATE_EMAIL))) {
-			    echo "Email address '$email' is considered valid.\n";
+			    echo "Email address '$email' is considered invalid.\n";
 			    $error_msg .= "Email address '$email' is considered valid.\n";
 				$_SESSION['error_msg'] = $error_msg;
 				$error_path = "../views/register.php?register=" . md5('failed');
