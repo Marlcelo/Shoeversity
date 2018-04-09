@@ -12,6 +12,8 @@
             $_SESSION['page_type'] = "Public";
             $_SESSION['active_page'] = "products";
 
+            $product = $_GET['pid'];
+
             // Check if a user is already logged in. If yes, redirect to their dashboard.
              if(isset($_SESSION['a_username'])) {
                 header("Location: admin/dashboard.php");
@@ -74,7 +76,7 @@
     					</div>
     					<div class="details col-md-6">
                             <h3 class="price"><?php echo $shoe[0]; ?></h3><br>
-    						<div class="rating">
+    						<!-- <div class="rating">
     							<div class="stars">
     								<span class="fa fa-star-o" data-rating="1"></span>
                                     <span class="fa fa-star-o" data-rating="2"></span>
@@ -83,7 +85,7 @@
                                     <span class="fa fa-star-o" data-rating="5"></span>
     							</div>
     							<span class="review-no">41 reviews</span>
-    						</div>    
+    						</div>     -->
                             <div class="row">
                                 <div class="col-md-6">
                                     <h4>Posted by:
@@ -123,6 +125,29 @@
                                         <span class="color <?php echo $shoe[2]; ?>"></span>
                                     </h5>
                                 </div>
+                            </div>
+
+                            <div class="row" style="margin-left: 0px">
+                                <?php include "../database/shoe_ratings_get.php" ?>
+
+                                <h5 style="display: inline">RATING:</h5>
+                                &nbsp;
+                                <?php if(isset($rating)): ?>
+                                    <div class="rating" style="display: inline; margin-bottom: -70px">
+                                    <?php 
+                                        for($i = 1; $i <= 5; $i++) {
+                                            if($i <= $rating) {
+                                                echo '<span class="glyphicon glyphicon-star"></span>';
+                                            }
+                                            else {
+                                                echo '<span class="glyphicon glyphicon-star-empty"></span>';
+                                            }
+                                        }
+                                    ?>
+                                    </div>
+                                <?php else: ?>
+                                    <span class="text-info">This product has not been rated yet.</span>
+                                <?php endif; ?>
                             </div>
         
                             <br><hr class="line">

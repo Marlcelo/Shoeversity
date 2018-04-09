@@ -37,7 +37,10 @@
                         </script>";
                 }
             }
-
+            
+            // include rating modal & success modal
+            include "../modals/product_rating.php";
+            include "../modals/success.php";
         ?>
             
         <link rel="stylesheet" type="text/css" href="../../css/shopping-cart-sidebar.css">
@@ -57,7 +60,10 @@
     					</div>
     					<div class="details col-md-6">
                             <h3 class="product-title"><?php echo $name; ?></h3>
-    						<div class="rating">
+                             <h4>Posted by:
+                                <span> <?php echo $posted; ?> </span>
+                            </h4>
+<!--     						<div class="rating">
     							<div class="stars">
     								<span class="fa fa-star checked"></span>
     								<span class="fa fa-star checked"></span>
@@ -65,12 +71,33 @@
     								<span class="fa fa-star"></span>
     								<span class="fa fa-star"></span>
     							</div>
-                                <h4>Posted by:
-                                    <span> <?php echo $posted; ?> </span>
-                                </h4>
-    							<span class="review-no">41 reviews</span>
-    						</div>
+                
+    						</div> -->
     						<p class="product-description"><?php echo $description; ?></p>
+
+                            <div class="row" style="margin-left: 0px">
+                                <?php include "../../database/shoe_ratings_get.php" ?>
+
+                                <h4 style="display: inline">Rating:</h4>
+                                &nbsp;
+                                <?php if(isset($rating)): ?>
+                                    <div class="rating" style="display: inline; margin-bottom: -70px">
+                                    <?php 
+                                        for($i = 1; $i <= 5; $i++) {
+                                            if($i <= $rating) {
+                                                echo '<span class="glyphicon glyphicon-star"></span>';
+                                            }
+                                            else {
+                                                echo '<span class="glyphicon glyphicon-star-empty"></span>';
+                                            }
+                                        }
+                                    ?>
+                                    </div>
+                                <?php else: ?>
+                                    <span class="text-info">This product has not been rated yet.</span>
+                                <?php endif; ?>
+                            </div>
+
     						<h4><p class="price">Price: <span>&#8369; <?php echo $price; ?></span></p></h4>
     						<!-- <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p> -->
                             <h5 class="sizes">Type:
@@ -98,7 +125,7 @@
                             <form action="../../database/user_add_to_cart.php" method="POST">
                                 <div class="row">
                                     <button class="add-to-cart btn btn-primary" type="submit" name="add_to_cart">add to cart</button>
-                                    <button class="like btn btn-default" type="button"> Rate</button>
+                                    <button class="like btn btn-default" type="button" onclick="rateProduct();"> Rate</button>
                                 </div>
                             </form>
     					</div>
@@ -113,5 +140,6 @@
 	</body>
     <!-- <script src="../../js/smooth-scroll.js"></script> -->
     <script src="../../js/shopping-cart.js"></script>
+    <script src="../../js/rate-shoe.js"></script>
 
 </html>
