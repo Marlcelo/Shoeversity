@@ -98,8 +98,33 @@
                                     </h4>
                                 </div>
                             </div>
+
     						<p class="product-description"><?php echo $shoe[1]; ?></p>
-    						<div class="row">
+
+    						<div class="row" style="margin-left: 0px">
+                                <?php include "../database/shoe_ratings_get.php" ?>
+
+                                <p><h5 style="display: inline">RATING:</h5>
+                                &nbsp;
+                                <?php if(isset($rating)): ?>
+                                    <div class="rating" style="display: inline; margin-bottom: -70px">
+                                    <?php 
+                                        for($i = 1; $i <= 5; $i++) {
+                                            if($i <= $rating) {
+                                                echo '<span class="glyphicon glyphicon-star"></span>';
+                                            }
+                                            else {
+                                                echo '<span class="glyphicon glyphicon-star-empty"></span>';
+                                            }
+                                        }
+                                    ?>
+                                    </div>
+                                <?php else: ?>
+                                    <span class="text-info">This product has not been rated yet.</span></p>
+                                <?php endif; ?>
+                            </div>
+
+                            <div class="row">
                                 <div class="col-md-6">
                                 <h5 class="sizes">Type:
                                     <span class="type" data-toggle="tooltip" ><?php echo $shoe[7]; ?></span>
@@ -127,30 +152,8 @@
                                 </div>
                             </div>
 
-                            <div class="row" style="margin-left: 0px">
-                                <?php include "../database/shoe_ratings_get.php" ?>
-
-                                <h5 style="display: inline">RATING:</h5>
-                                &nbsp;
-                                <?php if(isset($rating)): ?>
-                                    <div class="rating" style="display: inline; margin-bottom: -70px">
-                                    <?php 
-                                        for($i = 1; $i <= 5; $i++) {
-                                            if($i <= $rating) {
-                                                echo '<span class="glyphicon glyphicon-star"></span>';
-                                            }
-                                            else {
-                                                echo '<span class="glyphicon glyphicon-star-empty"></span>';
-                                            }
-                                        }
-                                    ?>
-                                    </div>
-                                <?php else: ?>
-                                    <span class="text-info">This product has not been rated yet.</span>
-                                <?php endif; ?>
-                            </div>
         
-                            <br><hr class="line">
+                            <hr class="line">
 
                             <form action="">
                                 <!-- <h5 class="qty">Qty:
