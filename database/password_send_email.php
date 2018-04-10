@@ -20,6 +20,7 @@ $sql = "CALL SP_GET_USER_FROM_EMAIL('$email')";
 $result = mysqli_query($conn, $sql);
 if(mysqli_num_rows($result) > 0) {
 	$row = mysqli_fetch_assoc($result);
+	$username = $row['u_username'];
 	$fname = $row['first_name'];
 	$lname = $row['last_name'];
 	$user = $fname . " " . $lname;
@@ -65,7 +66,7 @@ $mail->AddEmbeddedImage('../images/logos/shoeversity-logo.jpg', 'logo_shoeversit
 $mail->Subject = 'Password Reset';
 $message = '
 		<div style="position: fixed; top: 0px; height: auto; width: auto; padding: 7px 15px; background: #10263e; color: #fff">
-			<h2>Password Reset</h2>
+			<h2>Reset Password for '.$username.'</h2>
 		</div>
 		<div style="height:auto; width: auto; padding: 80px 110px; background: #eee; color: #121212 !important; text-align: center;">
 
@@ -75,6 +76,8 @@ $message = '
 
 			<form action="localhost/Shoeversity/views/password_reset.php" method="post">
 				<input type="text" value="'.$passwordToken.'" name="passwordToken" style="display:none">
+				<input type="email" value="'.$email.'" name="email" style="display:none">
+				<input type="text" value="'.$username.'" name="username" style="display:none">
 
 				<button type="submit" style="background-color: #0288D1; padding: 15px 25px; color: #fff; border-radius: 5px; cursor: pointer">
 					<span style="font-size: 14px"><strong>Reset your password</strong></span>
@@ -95,7 +98,7 @@ $message = '
 $mail->Body = $message;
 
 if(!$mail->send()) {
-    $_SESSION['error_msg'] = "Uh oh! We couldn't send you an email for some reason.";
+    $_SESSION['error_msg'] = "Uh oh! We couldn't send you an email for some reason. Try checking your internet connection.";
 	$errLoc = "../views/login.php?error=" . md5("mailError");
     header("Location: $errLoc");
     exit();

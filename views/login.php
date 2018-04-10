@@ -80,11 +80,37 @@
 
                 $_SESSION['error_msg'] = "";    // reset
             }
+
+            if($_GET['error'] == md5("passwordResetError")) {
+                include "modals/error.php";
+
+                echo "<script> 
+                        $('#error_modal').modal('show');
+                        $('#error_modal').on('hidden.bs.modal', function () {    //reload login form
+                            window.location = 'login.php';
+                        })
+                    </script>";
+
+                $_SESSION['error_msg'] = "";    // reset
+            }
         }
 
         // Check if mail was successfully sent for password reset
         if(isset($_GET['success'])) {
             if($_GET['success'] == md5("mailSuccess")) {
+                include "modals/success.php";
+
+                echo "<script> 
+                        $('#success_modal').modal('show');
+                        $('#success_modal').on('hidden.bs.modal', function () {    //reload login form
+                            window.location = 'login.php';
+                        })
+                    </script>";
+
+                $_SESSION['success_msg'] = "";    // reset
+            }
+
+            if($_GET['success'] == md5("passwordReset")) {
                 include "modals/success.php";
 
                 echo "<script> 

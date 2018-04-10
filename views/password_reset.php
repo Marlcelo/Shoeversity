@@ -32,6 +32,8 @@
 		}
 		else {	// VALID PAGE REQUEST
 			$token = $_POST['passwordToken'];
+			$email = $_POST['email'];
+			$username = $_POST['username'];
 
 			if($token != $_SESSION['resetPasswordToken']) {
 				$_SESSION['error_msg'] = "The page you requested has expired.";
@@ -90,10 +92,12 @@
 
                     <!-- Reset Password Form -->
                     <div class="panel-body">
-                    	<p style="font-size: 15px">Enter your new password below</p>
+                    	<p style="font-size: 15px">Enter your new password below.</p>
                         <form action='../database/password_reset.php' method='post'>
                         	<!-- CSRF Token -->
-                        	<input type="text" value="<?php echo $token ?>" name="passwordToken" style="display:none">
+                        	<input type="text" value="<?php echo $token?>" name="passwordToken" style="display:none">
+                        	<input type="email" value="<?php echo $email ?>" name="email" style="display:none">
+                        	<input type="text" value="<?php echo $username?>" name="username" style="display:none">
 
                             <!-- Password -->
                             <div class="input-group" style="margin-bottom: 16px">
