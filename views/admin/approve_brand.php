@@ -86,6 +86,9 @@
 
     <?php require "../../templates/admin/admin_footer.php"; ?>
 	<!-- Include Javascript files -->
+    <script src="../../js/dataTables.bootstrap.min.js"></script>
+    <script src="../../js/jquery-1.12.4.js"></script>
+    <script src="../../js/jquery.dataTables.min.js"></script>
     <!-- <script src="../../js/smooth-scroll.js"></script> -->
 </body>
 </html>
