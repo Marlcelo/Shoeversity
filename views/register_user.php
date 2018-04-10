@@ -25,7 +25,7 @@
 		<div class="col-md-5">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></i></span>
-				<input type="text" class="form-control" name="email" placeholder="Email" required>
+				<input type="email" class="form-control" name="email" placeholder="Email" required>
 			</div>
 		</div>
 
