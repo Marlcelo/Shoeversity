@@ -14,25 +14,25 @@
         // Set active page
         $_SESSION['page_type'] = "Admin";
         $_SESSION['active_page'] = "dashboard";
-        $_SESSION['admin_fxn'] = "delete_user";
+        $_SESSION['admin_fxn'] = "view_logs";
 
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
-        require '../../database/get_users.php';
+        require '../../database/get_logs.php';
 
-         if(isset ($_GET['deleteuser'])){
-            $_SESSION['warning_msg'] = "Are you sure you want to delete this user?";
-            $_SESSION['target_page'] = "../../database/admin_delete_user.php?uId=" . $_GET['deleteuser'];
-            include '../modals/warning.php';
+        //  if(isset ($_GET['deleteuser'])){
+        //     $_SESSION['warning_msg'] = "Are you sure you want to delete this user?";
+        //     $_SESSION['target_page'] = "../../database/admin_delete_user.php?uId=" . $_GET['deleteuser'];
+        //     include '../modals/warning.php';
             
-            echo "<script> 
-            $('#warning_modal').modal('show');
-            $('#warning_modal').on('hidden.bs.modal', function () { 
-               window.location = 'delete_user.php';
-           })
-           </script>";
-        }
+        //     echo "<script> 
+        //     $('#warning_modal').modal('show');
+        //     $('#warning_modal').on('hidden.bs.modal', function () { 
+        //        window.location = 'delete_user.php';
+        //    })
+        //    </script>";
+        // }
     ?>
 
     <link rel="stylesheet" type="text/css" href="../../css/dataTables.bootstrap.min.css">
@@ -52,30 +52,26 @@
     
         <div class="container">
              <div class="col-md-12" style=" min-height: 350px;">
-                  <h1 class='text-center'>Delete a User Account</h1>
+                  <h1 class='text-center'>View System Audit Logs</h1>
                   <br>
                   <table id="users" class="table table-striped table-bordered table-hover" style="width:100%;">
                     <thead style="background: #eee">
                         <tr>
-                            <th>Username</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Gender</th>
+                            <th>Log ID</th>
+                            <th>Committed by</th>
                             <th>Action</th>
+                            <th>Timestamp</th>
                         </tr>
                     </thead>
                     <tbody>
                       <?php
-                      foreach ($users as $user) {
+                      foreach ($logs as $log) {
                        echo "<tr>
-                            <form method='GET'>
-                            <td>".$user['u_username']."</td>
-                            <td>".$user['uName']."</td>
-                            <td>".$user['u_email']."</td>
-                            <td>".$user['u_gender']."</td>
-                            <td class='text-center'><button type='submit' class='btn btn-danger btn-md' name='deleteuser' value='".$user['uid']."'>Delete</button></td>
-                          </form>  
-                        </tr>";
+                              <td>".$log['uid']."</td>
+                              <td>".$log['username']."</td>
+                              <td>".$log['log_action']."</td>
+                              <td>".$log['timestamp']."</td>
+                            </tr>";
                       }
 
                       // while ( <= 10) {

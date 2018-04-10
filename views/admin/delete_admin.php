@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Shoeversity</title>
+    <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
 
     <?php
         // Include Bootstrap and main styles 
@@ -47,17 +48,18 @@
 	
     <?php include "../../templates/admin/admin_sidebar.php"; ?>
 
-    <div class="container text-center main">
-        <div class="col-md" style="margin-right: 40px; min-height: 350px;">
-            <h1>Delete an Admin Account</h1>
-              <table id="admins" class="table table-striped table-bordered" style="width:100%">
-                <thead>
+    <div class="container">
+        <div class="col-md" style="min-height: 350px;">
+            <h1 class="text-center">Delete an Admin Account</h1>
+            <br>
+              <table id="admins" class="table table-striped table-bordered table-hover" style="width:100%;">
+                <thead style="background: #eee">
                     <tr>
                         <th>Username</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Gender</th>
-                        <th>Delete</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,7 +71,7 @@
                         <td>".$admin['adName']."</td>
                         <td>".$admin['email']."</td>
                         <td>".$admin['gender']."</td>
-                        <td><button type='submit' class='btn btn-danger btn-md' name='deleteadmin' value='".$admin['uid']."'>Delete</button></td>
+                        <td class='text-center'><button type='submit' class='btn btn-danger btn-md' name='deleteadmin' value='".$admin['uid']."'>Delete</button></td>
                       </form>  
                     </tr>";
                   }
@@ -79,7 +81,7 @@
                   // }
                     ?>
                 </tbody>
-                <tfoot>
+                <!-- <tfoot>
                     <tr>
                         <th>Username</th>
                         <th>Name</th>
@@ -87,7 +89,7 @@
                         <th>Gender</th>
                         <th>Delete</th>
                     </tr>
-                </tfoot>
+                </tfoot> -->
             </table>
                          
         </div>              
@@ -96,11 +98,14 @@
 	 <!-- BEGIN FOOTER -->
     <?php require "../../templates/admin/admin_footer.php"; ?>
     <!-- .END FOOTER -->
-	
-<script src="../../js/dataTables.bootstrap.min.js"></script>
-<script src="../../js/jquery-1.12.4.js"></script>
-<script src="../../js/jquery.dataTables.min.js"></script>
+
 	<!-- Include Javascript files -->
-    <!-- <script src="../../js/smooth-scroll.js"></script> -->
+    <!-- <script src="../../js/dataTables.bootstrap.min.js"></script>
+    <script src="../../js/jquery-1.12.4.js"></script>
+    <script src="../../js/jquery.dataTables.min.js"></script> -->
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 </body>
 </html>

@@ -30,7 +30,7 @@
     
     <!-- BEGIN MAIN CONTENT -->
     
-        <div class="container main" style="margin-top: 10vh;">
+        <div class="container" style="margin-top: 8vh;">
                 <!-- BEGIN PRODUCTS GRID -->
                 <div class="col-md-12">
 
