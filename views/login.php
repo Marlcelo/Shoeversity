@@ -53,6 +53,22 @@
             }
         }
 
+        // Check for errors
+        if(isset($_GET['error'])) {
+            if($_GET['error'] == md5("invalidEmail")) {
+                include "modals/error.php";
+
+                echo "<script> 
+                        $('#error_modal').modal('show');
+                        $('#error_modal').on('hidden.bs.modal', function () {    //reload login form
+                            window.location = 'login.php';
+                        })
+                    </script>";
+
+                $_SESSION['error_msg'] = "";    // reset
+            }
+        }
+
         // include forgot password modal popup
         include "modals/forgot_password.php";
     ?>

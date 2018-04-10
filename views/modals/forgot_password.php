@@ -20,7 +20,7 @@
             <form action="../database/password_send_email.php" method="post">
                 <div class="modal-body">
                     <p style="font-size: 14px">Enter the email address you use to sign in to Shoeversity and we'll send you a link to reset your password.<p>
-                    
+
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                         <input type="text" class="form-control" name="email" placeholder="Enter your email address" required>
@@ -29,7 +29,7 @@
                    
                 <!-- Modal Footer -->
                 <div class="modal-footer" style="border-top: none">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                    <button type="button" class="btn btn-default" style="background: #eee" data-dismiss="modal">
                         <strong>Cancel</strong>
                     </button>
                     &nbsp;

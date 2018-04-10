@@ -334,6 +334,14 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_USER` (`strUsername` VARCHAR
     LIMIT 1;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_USER_FROM_EMAIL`(strEmail VARCHAR(50))
+BEGIN
+  SELECT u_email, first_name, last_name
+    FROM users 
+    WHERE u_email = strEmail 
+    LIMIT 1;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_SET_SHOE`(shoeID int, shoeName varchar(35), shoeDesc text, shoeType varchar(10), shoeCategory varchar(35), shoeSize int,
                                                           shoePrice double, shoeColor varchar(35), shoeImage varchar(100))
 BEGIN
