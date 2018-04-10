@@ -1,5 +1,18 @@
 <?php
     require '../../database/user_get_cart_items.php';
+
+    if(isset ($_GET['removeShoe'])){
+        $_SESSION['warning_msg'] = "Are you sure you want to delete this product?";
+        $_SESSION['target_page'] = "../../database/user_checkout_remove_product.php?id=" . $_GET['removeShoe'];
+        include '../modals/warning.php';
+
+        echo "<script> 
+        $('#warning_modal').modal('show');
+        $('#warning_modal').on('hidden.bs.modal', function () { 
+           window.location = 'products.php';
+       })
+       </script>";
+                  }
 ?>
 
 <div class="modal fade" id="cart_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -41,8 +54,9 @@
                                             <strong><?php echo $shoe[2]; ?></strong>
                                         </td>
                                         <td class="">
-                                            <form method="GET" action="../../database/user_checkout_remove_product.php">
-                                                <button type="submit" class="btn btn-danger btn-sm" name="shoe" value="<?php echo $shoe[3] ?>">
+                                            <form method="GET">
+                                                <!-- action="../../database/user_checkout_remove_product.php" -->
+                                                <button type="submit" class="btn btn-danger btn-sm" name="removeShoe" value="<?php echo $shoe[3] ?>">
                                                 <span class="glyphicon glyphicon-remove"></span> Remove
                                             </button>
                                             </form>
