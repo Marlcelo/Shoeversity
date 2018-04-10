@@ -16,6 +16,7 @@ $row = mysqli_fetch_assoc($result);
 
 
 $name = $row['name'];
+$posted_by = $row['posted_by'];
 $description = $row['description'];
 $color = $row['color'];
 $size = $row['size'];
