@@ -67,6 +67,80 @@
                 $_SESSION['error_msg'] = "";    // reset
             }
         }
+
+        // Check for errors
+        if(isset($_GET['error'])) {
+            if($_GET['error'] == md5("invalidEmail")) {
+                include "modals/error.php";
+
+                echo "<script> 
+                        $('#error_modal').modal('show');
+                        $('#error_modal').on('hidden.bs.modal', function () {    //reload login form
+                            window.location = 'login.php';
+                        })
+                    </script>";
+
+                $_SESSION['error_msg'] = "";    // reset
+            }
+
+            if($_GET['error'] == md5("mailError")) {
+                include "modals/error.php";
+
+                echo "<script> 
+                        $('#error_modal').modal('show');
+                        $('#error_modal').on('hidden.bs.modal', function () {    //reload login form
+                            window.location = 'login.php';
+                        })
+                    </script>";
+
+                $_SESSION['error_msg'] = "";    // reset
+            }
+
+            if($_GET['error'] == md5("passwordResetError")) {
+                include "modals/error.php";
+
+                echo "<script> 
+                        $('#error_modal').modal('show');
+                        $('#error_modal').on('hidden.bs.modal', function () {    //reload login form
+                            window.location = 'login.php';
+                        })
+                    </script>";
+
+                $_SESSION['error_msg'] = "";    // reset
+            }
+        }
+
+        // Check if mail was successfully sent for password reset
+        if(isset($_GET['success'])) {
+            if($_GET['success'] == md5("mailSuccess")) {
+                include "modals/success.php";
+
+                echo "<script> 
+                        $('#success_modal').modal('show');
+                        $('#success_modal').on('hidden.bs.modal', function () {    //reload login form
+                            window.location = 'login.php';
+                        })
+                    </script>";
+
+                $_SESSION['success_msg'] = "";    // reset
+            }
+
+            if($_GET['success'] == md5("passwordReset")) {
+                include "modals/success.php";
+
+                echo "<script> 
+                        $('#success_modal').modal('show');
+                        $('#success_modal').on('hidden.bs.modal', function () {    //reload login form
+                            window.location = 'login.php';
+                        })
+                    </script>";
+
+                $_SESSION['success_msg'] = "";    // reset
+            }
+        }
+
+        // include forgot password modal popup
+        include "modals/forgot_password.php";
     ?>
 </head>
 <body>
@@ -117,7 +191,7 @@
 
                             <div class="input-group pull-right" style="margin-bottom: 24px">
                                 <div class="">
-                                    <a href="" class="link">Forgot your password?</a>
+                                    <a class="link" onclick="showEmailPopup()" style="cursor: pointer;">Forgot your password?</a>
                                 </div>
                             </div>
 
@@ -151,6 +225,6 @@
     <!-- .END FOOTER -->
     
     <!-- Include Javascript files -->
-    <!-- <script src="../js/smooth-scroll.js"></script> -->
+    <script src="../js/forgot-password.js"></script>
 </body>
 </html>

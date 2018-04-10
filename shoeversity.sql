@@ -344,6 +344,37 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_USER` (`strUsername` VARCHAR
     LIMIT 1;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_USER_FROM_EMAIL`(strEmail VARCHAR(50))
+BEGIN
+  DECLARE strType VARCHAR(10);
+    
+  IF EXISTS(SELECT u_email FROM users WHERE u_email = strEmail) THEN
+    SET strType = 'USER';
+        
+    SELECT strType, u_username, u_email, first_name, last_name
+    FROM users 
+    WHERE u_email = strEmail 
+    LIMIT 1;
+        
+  ELSEIF EXISTS(SELECT b_email FROM brands WHERE b_email =  strEmail) THEN
+    SET strType = 'BRAND';
+        
+    SELECT strType, b_username, b_email, brand_name
+    FROM brands 
+    WHERE b_email = strEmail 
+    LIMIT 1;
+    
+  ELSEIF EXISTS(SELECT email FROM admins WHERE email =  strEmail) THEN
+    SET strType = 'ADMIN';
+        
+    SELECT strType, username, email, first_name, last_name
+    FROM admins 
+    WHERE email = strEmail 
+    LIMIT 1;
+        
+  END IF;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_SET_SHOE`(shoeID int, shoeName varchar(35), shoeDesc text, shoeType varchar(10), shoeCategory varchar(35), shoeSize int,
                                                           shoePrice double, shoeColor varchar(35), shoeImage varchar(100))
 BEGIN
@@ -357,6 +388,29 @@ BEGIN
       color = shoeColor,
       photo_url = shoeImage
   WHERE uid = shoeID;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_SET_PASSWORD`(strEmail VARCHAR(50), strUsername VARCHAR(35), strPass VARCHAR(100))
+BEGIN
+  IF EXISTS(SELECT u_email FROM users WHERE u_email = strEmail) THEN
+    UPDATE users
+    SET u_password = FN_GET_HASHEDPASSWORD(strPass)
+    WHERE u_email = strEmail;
+        
+  ELSEIF EXISTS(SELECT b_email FROM brands WHERE b_email =  strEmail) THEN
+    UPDATE brands
+    SET b_password = FN_GET_HASHEDPASSWORD(strPass)
+    WHERE b_email = strEmail;
+    
+    ELSEIF EXISTS(SELECT email FROM admins WHERE email =  strEmail) THEN
+    UPDATE admins
+    SET password = FN_GET_HASHEDPASSWORD(strPass)
+    WHERE email = strEmail;
+    END IF;
+    
+    UPDATE site_users
+  SET password = FN_GET_HASHEDPASSWORD(strPass) 
+  WHERE username = strUsername;  
 END$$
 
 --
