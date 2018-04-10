@@ -18,7 +18,7 @@
 		<div class="col-md-4">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-				<input type="text" class="form-control" name="uname" placeholder="Username" required>
+				<input type="text" class="form-control" name="uname" placeholder="Username"  pattern="[A-Za-z0-9].{8,30}" title="Must be atleast 8 to 30 characters" required>
 			</div>
 		</div>
 
