@@ -53,14 +53,8 @@ while($row = mysqli_fetch_assoc($result)) {
                     </a>
                 </div>';
 	$output .= '</div><br>';
-	$output .= '<img src="'.$row['photo_url'].'" alt="..." width="100%">';
-	// $output .= '<div class="ratings">
-	//                 <span class="glyphicon glyphicon-star"></span>
-	//                 <span class="glyphicon glyphicon-star"></span>
-	//                 <span class="glyphicon glyphicon-star"></span>
-	//                 <span class="glyphicon glyphicon-star"></span>
-	//                 <span class="glyphicon glyphicon-star-empty"></span>
-	//             </div>';
+	$output .= '<img src="'."../".$row['photo_url'].'" width="100%">';
+	
 	$output .= '<label class="lead">
 					<h2 style="margin-bottom: 0; cursor: pointer">'. $row['name'] .'</h2>
 				</label>';

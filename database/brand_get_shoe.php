@@ -8,6 +8,7 @@ $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
 $row = mysqli_fetch_assoc($result);
 
+$id = $row['uid'];
 $name  = $row['name'];
 $description  = $row['description'];
 $type  = $row['type'];
