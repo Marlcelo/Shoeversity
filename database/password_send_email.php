@@ -14,16 +14,29 @@ if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     exit();
 }
 
-// Validate if email address exists in database and is linked to a user
+// Validate if email address exists in database and is linked to a user, brand, or admin
 require 'config.php';
+
+// CHECK USERS
 $sql = "CALL SP_GET_USER_FROM_EMAIL('$email')";
 $result = mysqli_query($conn, $sql);
 if(mysqli_num_rows($result) > 0) {
 	$row = mysqli_fetch_assoc($result);
-	$username = $row['u_username'];
-	$fname = $row['first_name'];
-	$lname = $row['last_name'];
-	$user = $fname . " " . $lname;
+
+	$userType = $row['strType'];
+
+	if($userType == 'USER') {
+		$username = $row['u_username'];
+		$user = $row['first_name'] . " " . $row['last_name'];
+	}
+	else if($userType == 'BRAND') {
+		$username = $row['b_username'];
+		$user = $row['brand_name'];
+	}
+	else if($userType == 'ADMIN') {
+		$username = $row['username'];
+		$user = $row['first_name'] . " " . $row['last_name'];
+	}
 }
 else {
 	$_SESSION['error_msg'] = "Uh oh! We can't seem to find your email address in our records. <a href='register.php' class='link'>Register here</a>.";
