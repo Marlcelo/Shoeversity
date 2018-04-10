@@ -145,7 +145,7 @@
                     $shoePrice = $row['price'];
                     $shoeSize  = $row['size'];
                     $shoeColor = $row['color'];
-                    $shoeImg   = "../".$row['photo_url'];
+                    $shoeImg   = $row['photo_url'];
             ?>
 
             <div class="col-md-4">
@@ -161,7 +161,7 @@
                         </div> 
                     </div><br>
 
-                    <img src="<?php echo $shoeImg; ?>" alt="...">
+                    <img src="<?php echo $shoeImg; ?>"/>
 
                     <h4></h4>
                     <div class="ratings">
