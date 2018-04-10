@@ -9,23 +9,42 @@
 
             session_start();
             // Set active page
-            $_SESSION['page_type'] = "Public";
+            $_SESSION['page_type'] = "Brand";
             $_SESSION['active_page'] = "products";
 
-            // Check if a user is already logged in. If yes, redirect to their dashboard.
-            if(isset($_SESSION['a_username'])) {
-                header("Location: admin/dashboard.php");
-                exit();
-            } else if(isset($_SESSION['b_username'])) {
-                header("Location: brands/products.php");
-                exit();
-            } else if(isset($_SESSION['u_username'])) {
-                header("Location: users/products.php");
-                exit();
+            $product = $_GET['pid'];
+
+            // Check if user is authorized to access page
+            include '../../database/check_access.php';
+
+            include '../../database/brand_get_shoe.php';
+
+            if(isset($_GET['result'])) {
+                if($_GET['result'] == md5('success')) {
+                    include "../modals/success.php";
+
+                    echo "<script> 
+                            $('#success_modal').modal('show');
+                            $('#success_modal').on('hidden.bs.modal', function () {
+                                window.history.back();
+                            })
+                        </script>";
+                }
+                else if($_GET['result'] == md5('fail')) {
+                    include "../modals/error.php";
+
+                    echo "<script> 
+                            $('#error_modal').modal('show');
+                            $('#error_modal').on('hidden.bs.modal', function () {
+                                window.history.back();
+                            })
+                        </script>";
+                }
             }
+
+            include "../modals/product_rating.php";
+            
         ?>
-
-
     </head>
     <body>
         <!-- BEGIN HEADER -->
@@ -38,7 +57,8 @@
     			<div class="container-fliud">
     				<div class="wrapper row">
     					<div class="preview col-md-6">
-                            <img src=""/>
+                            <a href="products.php#products-list"><button class="btn btn-md btn-info pull-left" style="width:30%;">< Back</button></a>
+                            <img src="<?php echo "../".$photo; ?>"/>
     					</div>
     					<div class="details col-md-6">
                             <div class="row" >
@@ -49,33 +69,75 @@
                                 <a href="remove_product.php"><button class="btn btn-md btn-info pull-right" style="height:45px; width: 70px;"><i class="glyphicon glyphicon-remove"></i></button></a><br>
                                 </div>
                             </div>
-                            <h3 class="product-title">SHOES</h3>
-    						<div class="rating">
-    							<div class="stars">
-    								<span class="fa fa-star checked"></span>
-    								<span class="fa fa-star checked"></span>
-    								<span class="fa fa-star checked"></span>
-    								<span class="fa fa-star"></span>
-    								<span class="fa fa-star"></span>
-    							</div>
-    							<span class="review-no">41 reviews</span>
-    						</div>
-    						<p class="product-description">Buy my pretty shoes!</p>
-    						<h4><p class="price">Price: <span>3,500</span></p></h4>
-    						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
-    						<h5 class="sizes">Size:
-                                <span class="size" data-toggle="tooltip" ></span>
-    						</h5>
+                            <br>
+                            <h3 class="price"><?php echo $name; ?></h3>
 
-                            <form action="">
-                                <h5 class="qty">Qty:
-                                	<span style="margin-left:5px;"><input style="width: 15%; display: inline; " type="number" class="form-control text-center" min="1" max="10" name="qty" value="1"></span>
-                                </h5>
-                    
-                                <h5 class="colors">Colors:
-                                	<span class="color blue"></span>
-                                </h5>
-                            </form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h4>Posted by:
+                                        <span><?php echo $posted ?> </span>
+                                    </h4>
+                                </div>
+                                <div class="col-md-6">
+                                    <h4>Price: <span> <?php echo $price; ?></span></p></h4>
+                                </div>
+                            </div>
+
+                            <p class="product-description"><?php echo $description; ?></p>
+
+                            <div class="row" style="margin-left: 0px">
+                                <?php include "../../database/shoe_ratings_get.php" ?>
+
+                                <p><h4 style="display: inline">Rating:</h4>
+                                &nbsp;
+                                <?php if(isset($rating)): ?>
+                                    <div class="rating" style="display: inline; margin-bottom: -70px">
+                                    <?php 
+                                        for($i = 1; $i <= 5; $i++) {
+                                            if($i <= $rating) {
+                                                echo '<span class="glyphicon glyphicon-star"></span>';
+                                            }
+                                            else {
+                                                echo '<span class="glyphicon glyphicon-star-empty"></span>';
+                                            }
+                                        }
+                                    ?>
+                                    </div>
+                                <?php else: ?>
+                                   <span class="text-info">This product has not been rated yet.</span></p> 
+                                <?php endif; ?>
+                            </div>
+
+    						<div class="row">
+                                <div class="col-md-6">
+                                    <h5 class="sizes">Type:
+                                        <span class="type" data-toggle="tooltip" ><?php echo $type; ?></span>
+                                    </h5>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="sizes">Size:
+                                        <span class="size" data-toggle="tooltip" >
+                                            <?php echo $size; ?>
+                                        </span>
+                                    </h5>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5 class="sizes">Category:
+                                        <span class="category" data-toggle="tooltip" >
+                                            <?php echo $category; ?>
+                                        </span>
+                                    </h5>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="colors">Colors:
+                                        <span class="color <?php echo $color; ?>"></span>
+                                    </h5>
+                                </div>
+                            </div>
+
     					</div>
     				</div>
     			</div>

@@ -9,10 +9,13 @@
 
             session_start();
             // Set active page
-            $_SESSION['page_type'] = "Public";
+            $_SESSION['page_type'] = "User";
             $_SESSION['active_page'] = "products";
             $product = $_GET['pid'];
     
+            // Check if user is authorized to access page
+            include '../../database/check_access.php';
+
             include '../../database/user_get_shoe.php';
 
             if(isset($_GET['result'])) {
@@ -72,16 +75,7 @@
                                     <h4>Price: <span> <?php echo $price; ?></span></p></h4>
                                 </div>
                             </div>
-<!--     						<div class="rating">
-    							<div class="stars">
-    								<span class="fa fa-star checked"></span>
-    								<span class="fa fa-star checked"></span>
-    								<span class="fa fa-star checked"></span>
-    								<span class="fa fa-star"></span>
-    								<span class="fa fa-star"></span>
-    							</div>
-                
-    						</div> -->
+
     						<p class="product-description"><?php echo $description; ?></p>
 
                             <div class="row" style="margin-left: 0px">
@@ -140,14 +134,6 @@
                                 </div>
                             </div>
 
-    						
-
-                            
-                                <!-- <h5 class="qty">Qty:
-                                	<span style="margin-left:5px;"><input style="width: 15%; display: inline; " type="number" class="form-control text-center" min="1" max="10" name="qty" value="1"></span>
-                                </h5> -->
-                    
-                                
                             <form action="../../database/user_add_to_cart.php" method="POST">
                                 <div class="row">
                                     <button class="add-to-cart btn btn-primary" type="submit" name="add_to_cart">add to cart</button>
