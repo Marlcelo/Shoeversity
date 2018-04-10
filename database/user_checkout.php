@@ -46,6 +46,9 @@
 						header("Location: ../views/users/products.php?result=".md5("failed")."");
 			}
 			
+		}else{
+			$_SESSION['error_msg'] = "There seems to be a problem with your transaction. Please try again!";
+						header("Location: ../views/users/products.php?result=".md5("failed")."");
 		}
 	}
 		
