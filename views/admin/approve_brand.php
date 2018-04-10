@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Shoeversity</title>
+    <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
 
     <?php
         // Include Bootstrap and main styles 
@@ -49,58 +50,62 @@
 	<!-- Include sidebar -->
     <?php include "../../templates/admin/admin_sidebar.php"; ?>
     
-        <div class="container text-center main">
-            <div class="col-md" style="min-height: 350px;">
-                <div class="col-md" style="margin-right: 40px;">
-                    <h1>Approve a Brand</h1>
-                      <table id="brands" class="table table-striped table-bordered" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>Username</th>
-                                <th>Brand Name</th>
-                                <th>Email</th>
-                                <th>Approve?</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                          <?php
-                          foreach ($brands as $brand) {
-                           echo "<tr>
-                              <form method='GET'>
-                                <td>".$brand['b_username']."</td>
-                                <td>".$brand['brand_name']."</td>
-                                <td>".$brand['b_email']."</td>
-                                <td><button type='submit' class='btn btn-success btn-md' name='approvebrand' value=".$brand['uid']." >Approve Brand</button></td>
-                              </form>  
-                            </tr>";
-                          }
+    <div class="container">
+        <div class="col-md-12" style="min-height: 350px;">
+            <!-- <div class="col-md" style="margin-right: 40px;"> -->
+                <h1 class="text-center">Approve a Brand</h1>
+                <br>
+                <table id="brands" class="table table-striped table-bordered table-hover" style="width:100%;">
+                	<thead style="background: #eee">
+                		<tr>
+                			<th>Username</th>
+                			<th>Brand Name</th>
+                			<th>Email</th>
+                			<th>Action</th>
+                		</tr>
+                	</thead>
+                	<tbody>
+                		<?php
+                		foreach ($brands as $brand) {
+                			echo "<tr>
+                			<form method='GET'>
+                			<td>".$brand['b_username']."</td>
+                			<td>".$brand['brand_name']."</td>
+                			<td>".$brand['b_email']."</td>
+                			<td class='text-center'><button type='submit' class='btn btn-success btn-md' name='approvebrand' value=".$brand['uid']." >Approve Brand</button></td>
+                			</form>  
+                			</tr>";
+                		}
 
-                          // while ( <= 10) {
-                          //   echo "string";
-                          // }
-                            ?>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th>Username</th>
-                                <th>Brand Name</th>
-                                <th>Email</th>
-                                <th>Approve?</th>
-                            </tr>
-                        </tfoot>
-                    </table>
-                             
-                </div>              
-    
-            </div>              
-        </div>
+						// while ( <= 10) {
+						//   echo "string";
+						// }
+                		?>
+                	</tbody>
+                	<!-- <tfoot>
+                		<tr>
+                			<th>Username</th>
+                			<th>Brand Name</th>
+                			<th>Email</th>
+                			<th>Approve?</th>
+                		</tr>
+                	</tfoot> -->
+                </table>
+                         
+            <!-- </div>               -->
+
+        </div>              
+    </div>
    
 
     <?php require "../../templates/admin/admin_footer.php"; ?>
 	<!-- Include Javascript files -->
-    <script src="../../js/dataTables.bootstrap.min.js"></script>
+    <!-- <script src="../../js/dataTables.bootstrap.min.js"></script>
     <script src="../../js/jquery-1.12.4.js"></script>
-    <script src="../../js/jquery.dataTables.min.js"></script>
-    <!-- <script src="../../js/smooth-scroll.js"></script> -->
+    <script src="../../js/jquery.dataTables.min.js"></script> -->
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 </body>
 </html>

@@ -9,7 +9,40 @@
 <!-- Main Page background -->
 <link rel="stylesheet" type="text/css" href="../../css/main.css">
 <link rel="stylesheet" type="text/css" href="../../css/public.css">
-<link rel="stylesheet" type="text/css" href="../../css/sidebar.css">
+<!-- <link rel="stylesheet" type="text/css" href="../../css/sidebar.css"> -->
+<style type="text/css">
+.sidenav {
+    height: 100vh;
+    position: fixed;
+    width: 207px;
+    z-index: auto;
+    top: 0;
+    left: 0;
+    background-color: #1e1e1e;
+    overflow-x: hidden;
+    padding-top: 50px;
+    font-size: 18px;
+    color: #818181;
+}
+
+.sidenav h3{
+    padding-left: 10px;
+    padding-top: 15px;
+}
+
+.main {
+    margin-left: 207px; /* Same as the width of the sidenav */
+}
+
+body {
+	margin-left: 207px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 15px;}
+}
+</style>
 
 
 <!-- Fonts -->

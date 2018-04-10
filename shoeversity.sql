@@ -582,7 +582,7 @@ INSERT INTO `brand_location` (`uid`, `brand_id`, `location`, `time_stamp`) VALUE
 
 CREATE TABLE `logs` (
   `uid` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `username` varchar(35) NOT NULL,
   `log_action` varchar(200) NOT NULL,
   `time_stamp` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -751,7 +751,7 @@ ALTER TABLE `brand_location`
 --
 ALTER TABLE `logs`
   ADD PRIMARY KEY (`uid`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `username` (`username`);
 
 --
 -- Indexes for table `purchases`
