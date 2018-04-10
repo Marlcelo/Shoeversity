@@ -52,6 +52,9 @@
                 $_SESSION['error_msg'] = "";    // reset
             }
         }
+
+        // include forgot password modal popup
+        include "modals/forgot_password.php";
     ?>
 </head>
 <body>
@@ -95,7 +98,7 @@
 
                             <div class="input-group pull-right" style="margin-bottom: 24px">
                                 <div class="">
-                                    <a href="" class="link">Forgot your password?</a>
+                                    <a class="link" onclick="showEmailPopup()" style="cursor: pointer;">Forgot your password?</a>
                                 </div>
                             </div>
 
@@ -129,6 +132,6 @@
     <!-- .END FOOTER -->
     
     <!-- Include Javascript files -->
-    <!-- <script src="../js/smooth-scroll.js"></script> -->
+    <script src="../js/forgot-password.js"></script>
 </body>
 </html>
