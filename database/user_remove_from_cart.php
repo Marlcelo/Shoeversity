@@ -6,6 +6,7 @@ if(isset($_POST['pid'])) {
 
 if(!isset($_SESSION)) {
 	session_start();
+	require 'activity_check.php';
 }
 
 // remove item from cart

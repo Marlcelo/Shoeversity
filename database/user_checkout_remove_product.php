@@ -1,6 +1,6 @@
 <?php
 	session_start();
-
+	require 'activity_check.php';
 	if(isset($_GET['id'])){
 		$shoe = $_GET['id'];		
 

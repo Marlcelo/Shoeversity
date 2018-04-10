@@ -1,4 +1,5 @@
 <?php
+	require 'activity_check.php';
 	if(isset($_POST['registerAdmin'])){
 		session_start();
 

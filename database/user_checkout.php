@@ -2,6 +2,7 @@
 
 	if (isset($_POST['btn_checkout'])) {
 		session_start();
+		require 'activity_check.php';
 		echo "Here";
 		$password = $_POST['pword'];
 		$username = $_SESSION['u_username'];
