@@ -70,7 +70,7 @@ while($row = mysqli_fetch_assoc($result)) {
                         <p class="price"> &#8369;&nbsp;'. $row['price'] .'</p>
                     </div>
                     <div class="col-md-6 col-sm-6">
-                        <a href="view_product.php?pid='. $row['uid'] .'">
+                        <a href="view_product.php?pid='. $row['uid'] . '">
                             <button class="btn btn-info pull-right">VIEW ITEM</button>
                         </a>
                    </div>
