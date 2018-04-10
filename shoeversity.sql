@@ -57,6 +57,12 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ALL_USERS` ()  BEGIN
     FROM users;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ALL_LOGS`()
+BEGIN
+  SELECT * 
+    FROM logs;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CHECK_UNAME_EMAIL_DUPLICATE` (IN `testUname` VARCHAR(50), IN `testEmail` VARCHAR(50))  BEGIN
   declare str_return varchar(10);
     
