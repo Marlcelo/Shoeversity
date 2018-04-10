@@ -13,14 +13,14 @@
 		<ul class="nav navbar-nav pull-right">
 			<li>
 
-				<form action="" class="navbar-form" role="search">
+				<form action="../../database/search_shoes_admin.php" method="POST" class="navbar-form" role="search">
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Search" name="search-product">
 						<div class="input-group-btn">
 							<button class="btn btn-primary" type="submit" style="margin-top: 0px">
 								<i class="glyphicon glyphicon-search"></i></button>
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px; margin-left:10px; border-radius:2px;">
-								<i class="glyphicon glyphicon-bell"></i></button>
+							<!-- <button class="btn btn-primary" type="submit" style="margin-top: 0px; margin-left:10px; border-radius:2px;">
+								<i class="glyphicon glyphicon-bell"></i></button> -->
 						</div>
 					</div>
 				</form>

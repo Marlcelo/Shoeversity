@@ -173,7 +173,7 @@
             $(document).on('click', '.pagination-link', function() {
                 var page = $(this).attr("id");
                 setCurrentPageID(parseInt(page));
-                load_data(page);
+                load_data(page, sql_query);
             });
 
             // Previous Button
