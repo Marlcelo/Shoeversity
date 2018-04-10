@@ -2,6 +2,7 @@
 
 if(!isset($_SESSION)) {
 	session_start();
+	require 'activity_check.php';
 }
 
 $shoe_id = $_SESSION['pid'];

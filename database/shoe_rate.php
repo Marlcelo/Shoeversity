@@ -2,8 +2,10 @@
 
 require 'config.php';
 
-if(!isset($_SESSION))
+if(!isset($_SESSION)){
 	session_start();
+	require 'activity_check.php';
+}
 
 // get values from AJAX call
 if(isset($_POST['rating']))

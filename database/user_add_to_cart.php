@@ -1,6 +1,7 @@
 <?php
 	if(isset($_POST['add_to_cart'])){
 		session_start();
+		require 'activity_check.php';
 
 		$size = sizeof($_SESSION['cart']);
 

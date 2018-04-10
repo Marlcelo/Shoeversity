@@ -1,5 +1,5 @@
 <?php
-
+require 'activity_check.php';
 $pid = $_GET['id'];
 
 require 'config.php';

@@ -1,4 +1,5 @@
 <?php
+	require 'activity_check.php';
 	require 'config.php';
 	$userId = $_GET['adId'];
 	echo $userId;

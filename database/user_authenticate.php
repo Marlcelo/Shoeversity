@@ -31,6 +31,7 @@ $message = mysqli_fetch_assoc($result);
 /* Check if user, brand, or admin already exists in database */
 if($message['strreturn'] == 'SUCCESS') {
 	header("Location: user_save_session.php?user=$username");
+	require 'activity_check.php';
 	exit();
 }
 else if($message['strreturn'] == 'FAILED') {

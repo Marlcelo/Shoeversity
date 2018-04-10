@@ -1,5 +1,5 @@
 <?php
-
+require 'activity_check.php';
 require 'config.php';
 $sql = "CALL SP_GET_BRAND_NAMES();";
 $result = mysqli_query($conn, $sql); 

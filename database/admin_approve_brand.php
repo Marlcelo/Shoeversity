@@ -1,4 +1,5 @@
 <?php
+	require 'activity_check.php';
 	require 'config.php';
 	$brandId = $_GET['bId'];
 	echo $brandId;

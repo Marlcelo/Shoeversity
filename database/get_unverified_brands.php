@@ -1,4 +1,5 @@
 <?php
+	require 'activity_check.php';
 	require 'config.php';
 
 	$query = "CALL SP_GET_ALL_BRANDSUV();";
