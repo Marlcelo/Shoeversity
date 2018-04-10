@@ -9,9 +9,11 @@
 
             session_start();
             // Set active page
-            $_SESSION['page_type'] = "Public";
+            $_SESSION['page_type'] = "Brand";
             $_SESSION['active_page'] = "products";
 
+            // Check if user is authorized to access page
+            include '../../database/check_access.php';
         ?>
 
 
