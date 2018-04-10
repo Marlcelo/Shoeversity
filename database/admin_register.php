@@ -77,7 +77,7 @@
 					echo "ERROR";
 
 	//********************************************************
-	// SEND EMAIL TO NEW BRAND
+	// SEND EMAIL TO NEW ADMIN
 	//********************************************************
 				require '../libs/PHPMailer/PHPMailerAutoload.php';
 
