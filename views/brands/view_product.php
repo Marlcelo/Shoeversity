@@ -17,18 +17,7 @@
             // Check if user is authorized to access page
             include '../../database/check_access.php';
 
-            if(isset($_GET['pid'])) {
-                $shoe_id = $_GET['pid'];
-                $_SESSION['pid'] = $shoe_id;
-                include '../../database/brand_get_shoe.php';
-
-                $shoe = array();
-                $shoe = $_SESSION['selected_shoe_details'][0];
-            }
-            else {
-                echo "<h1>Oops! Something went wrong.</h1>";
-                echo "<script>window.stop()</script>";
-            }
+            include '../../database/brand_get_shoe.php';
 
             if(isset($_GET['result'])) {
                 if($_GET['result'] == md5('success')) {
@@ -86,7 +75,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <h4>Posted by:
-                                        <span><?php echo $posted_by; ?> </span>
+                                        <span><?php echo $posted ?> </span>
                                     </h4>
                                 </div>
                                 <div class="col-md-6">
