@@ -2,15 +2,15 @@
 
 	<div class="row">
 		<div class="col-md-4">	
-			<input type="text" class="form-control" name="fname" placeholder="First Name" required>
+			<input type="text" class="form-control" name="fname" placeholder="First Name" pattern="(?=.*[a-z])(?=.*[A-Z]){1,35}" title="Must not have any special characters or numbers" maxlength="35" required>
 		</div>
 
 		<div class="col-md-4">
-			<input type="text" class="form-control" name="mname" placeholder="Middle Name" required>
+			<input type="text" class="form-control" name="mname" placeholder="Middle Name" pattern="(?=.*[a-z])(?=.*[A-Z]){1,35}" title="Must not have any special characters or numbers" maxlength="35" required>
 		</div>
 
 		<div class="col-md-4">
-			<input type="text" class="form-control" name="lname" placeholder="Last Name" required>
+			<input type="text" class="form-control" name="lname" placeholder="Last Name" pattern="(?=.*[a-z])(?=.*[A-Z]){1,35}" title="Must not have any special characters or numbers" maxlength="35" required>
 		</div>
 	</div>
 	<br>
@@ -41,7 +41,7 @@
 		<div class="col-md-6">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-				<input type="password" class="form-control" name="pword" id="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+				<input type="password" class="form-control" name="pword" id="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!,%,&,@,#,$,^,*,?,_,~,.]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
 			</div>
 			<span id="result"></span>
 		</div>
@@ -49,7 +49,7 @@
 		<div class="col-md-6">
 			<div class="input-group">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-				<input type="password" class="form-control" name="confirmpword" placeholder="Confirm Password" required>
+				<input type="password" class="form-control" name="confirmpword" placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!,%,&,@,#,$,^,*,?,_,~,.]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
 			</div>
 		</div>
 	</div>
