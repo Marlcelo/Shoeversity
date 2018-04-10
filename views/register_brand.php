@@ -32,7 +32,7 @@
 
 	<div class="input-group">
 		<span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-		<input type="text" class="form-control" name="email" placeholder="Official Email Address" required>
+		<input type="email" class="form-control" name="email" placeholder="Official Email Address" required>
 	</div><br>
 
 	<div id ="contacts">
