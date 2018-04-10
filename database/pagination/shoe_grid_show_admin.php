@@ -48,7 +48,7 @@ if($total_records > 0) {
 			$output .= "<div style='margin-bottom:30px; padding: 20px 15px; border-bottom: 3px solid #0097A7; background:#eee; position: relative;'>"; 
 			$output .= 		$_SESSION['grid_search_results'];
 			$output .= 		"<span style='font-size: 37px; margin-top: -20px; position: absolute; right: 15px; z-index: 5;'>";
-			$output .= 		"<a href='../../database/shoe_grid_clear_users.php' style='color: #999;'>";
+			$output .= 		"<a href='../../database/shoe_grid_clear_admin.php' style='color: #999;'>";
 			$output .= 			"&times;";
 			$output .= 		"</a>";
 			$output .= 		"</span>";
@@ -62,7 +62,7 @@ if($total_records > 0) {
 			// $output .= 		"<a href='../database/shoe_filter_clear.php' style='color: #999;'>";
 			
 			$output .= 		"<span style='font-size: 37px; margin-top: -20px; position: absolute; right: 15px; z-index: 5;'>";
-			$output .= 		"<a href='../../database/shoe_grid_clear_users.php' style='color: #999;'>";
+			$output .= 		"<a href='../../database/shoe_grid_clear_admin.php' style='color: #999;'>";
 			$output .= 			"&times;";
 			$output .= 		"</a>";
 			$output .= 		"</span>";
@@ -73,7 +73,7 @@ if($total_records > 0) {
 }
 else { 	// no rows returned
 	$output .= '<div class="alert alert-info alert-dismissible fade in" style="margin-top: -20px">';
-	$output .= 		'<a href="../../database/shoe_grid_clear_users.php" style="font-size: 30px; margin-top: -5px; z-index: 3;" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+	$output .= 		'<a href="../../database/shoe_grid_clear_admin.php" style="font-size: 30px; margin-top: -5px; z-index: 3;" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
 	$output .= 		'<strong>No results found!</strong>';
 	$output .= '</div>';
 }
@@ -87,6 +87,7 @@ while($row = mysqli_fetch_assoc($result)) {
 
 	$output .= '<div class="col-sm-4" style="cursor: pointer;">';
 	$output .= '<span class="thumbnail" style="min-height: 0px" onclick="location.href='."'view_product.php?pid=".$row['uid']."';".'">';
+	
 	$output .= '<img src="../'.$row['photo_url'].'" alt="..." width="100%">';
 	// $output .= '<div class="ratings">
 	//                 <span class="glyphicon glyphicon-star"></span>

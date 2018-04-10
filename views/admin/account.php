@@ -25,7 +25,7 @@
 
     ?>
 </head>
-<body>
+<body style="margin-left: 0px !important">
 	<!-- Include header -->
 	<?php include "../../templates/admin/admin_header.php"; ?>
 	

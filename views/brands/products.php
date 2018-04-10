@@ -14,6 +14,12 @@
         $_SESSION['page_type'] = "Brand";
         $_SESSION['active_page'] = "products";
 
+        //IMPORTANT! : for displaying the query results in the grid
+        if(isset($_SESSION['grid_sql']))
+            $gridSQL = $_SESSION['grid_sql'];
+        else
+            $gridSQL = "SELECT * FROM shoes";
+
         // Check if user is authorized to access page
         include '../../database/check_access.php';
 
