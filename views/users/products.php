@@ -14,6 +14,19 @@
         $_SESSION['page_type'] = "User";
         $_SESSION['active_page'] = "products";
 
+        // CSRF Token
+        if(!isset($_GET['token']) || $_GET['token'] != $_SESSION['sessionToken']) {
+            include '../modals/restricted_access.php';
+    
+            echo "<script> 
+                window.stop();
+                $('#restricted_access').modal('show');
+                $('#restricted_access').on('hidden.bs.modal', function () { //go back to prev page
+                   window.history.back();
+                })
+                </script>";
+        }
+
         //IMPORTANT! : for displaying the query results in the grid
         if(isset($_SESSION['grid_sql']))
             $gridSQL = $_SESSION['grid_sql'];

@@ -86,7 +86,7 @@ while($row = mysqli_fetch_assoc($result)) {
 	if($colCounter % 3 == 0) $output .= "<div class='row'>";
 
 	$output .= '<div class="col-sm-4" style="cursor: pointer;">';
-	$output .= '<span class="thumbnail" style="min-height: 0px" onclick="location.href='."'view_product.php?pid=".$row['uid']."';".'">';
+	$output .= '<span class="thumbnail" style="min-height: 0px" onclick="location.href='."'view_product.php?pid=".$row['uid']."&token=".$_SESSION['sessionToken']."';".'">';
 	$output .= '<img src="../'.$row['photo_url'].'" alt="..." width="100%">';
 	// $output .= '<div class="ratings">
 	//                 <span class="glyphicon glyphicon-star"></span>
@@ -102,7 +102,7 @@ while($row = mysqli_fetch_assoc($result)) {
                                 <p class="price"> &#8369;&nbsp;'. $row['price'] .'</p>
                             </div>
                             <div class="col-md-6 col-sm-6">
-                                <a href="view_product.php?pid='. $row['uid'] .'">
+                                <a href="view_product.php?pid='. $row['uid'] .'&token='.$_SESSION['sessionToken'].'">
                                     <button class="btn btn-info pull-right">VIEW ITEM</button>
                                 </a>
                            </div>

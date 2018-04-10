@@ -17,7 +17,7 @@ function callUnauthorizedAccessModal() {
 }
 
 /**
- * [callErrorModal displays the Unauthorized Access modal depending on which page the user is trying
+ * [callErrorModal displays the Restricted Access modal depending on which page the user is trying
  * to access]
  * @return [void] 
  */

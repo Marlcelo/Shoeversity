@@ -15,8 +15,7 @@
             
             <!-- Modal Body -->
             <div class="modal-body">
-                You do not have permission to access this page.
-                <br><i>(or: The page you requested was not found! (??))</i>
+                The page you requested was not found!
                 <br>
                 If you have an account, <a href="../login.php" class="link">Login here</a>.
             </div>
