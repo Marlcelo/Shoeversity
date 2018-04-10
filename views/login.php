@@ -38,6 +38,21 @@
                     </script>";
             }
 
+            if(isset($_SESSION['attempt'])) {
+                if($_SESSION['attempt'] > 5){
+                    $_SESSION['error_msg'] = "You have exceeded your login attempts! You've been locked out of Shoeversity!";
+
+                include "modals/error.php";
+
+                echo "<script> 
+                        $('#error_modal').modal('show');
+                        $('#error_modal').on('hidden.bs.modal', function () {    //reload login form
+                            window.location = 'login.php';
+                        })
+                    </script>";
+                }
+            }
+
             // Unverified Brand login attempt
             if($_GET['auth'] == "unverified") {
                 include "modals/error.php";
@@ -83,14 +98,21 @@
                             <div class="input-group" style="margin-bottom: 16px">
                                 <!-- <span class="input-group-addon"><img src="../../images/icons/ic_person_black_24dp.png" style="height: 20px"></span> -->
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                <input type='text' name='username' class='form-control' placeholder="Username" required>
+                                <input type='text' name='username' class='form-control' placeholder="Username" required <?php 
+                                if(isset($_SESSION['attempt'])){
+                                    if($_SESSION['attempt'] > 5) echo "disabled";
+                                }
+                                 
+                                ?>>
                             </div>
 
                             <!-- Password -->
                             <div class="input-group" style="margin-bottom: 16px">
                                 <!-- <span class="input-group-addon"><img src="../../images/icons/ic_lock_black_24dp.png" style="height: 20px"></span> -->
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                <input type='password' name='password' class='form-control' placeholder="Password" required>
+                                <input type='password' name='password' class='form-control' placeholder="Password" required <?php if(isset($_SESSION['attempt'])){
+                                    if($_SESSION['attempt'] > 5) echo "disabled";
+                                } ?>>
                             </div>
 
                             <div class="input-group pull-right" style="margin-bottom: 24px">
