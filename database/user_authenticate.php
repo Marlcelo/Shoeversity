@@ -5,9 +5,8 @@ session_start();
 /* Note that checking for empty field input is done on the Client side (Login Form) */
 
 
-
-
 if(isset($_SESSION['username']) && isset($_SESSION['password'])){// if a new user registers, will automatically log in
+
 	$username = $_SESSION['username'];
 	$password = $_SESSION['password'];
 	echo "Here at Session";
@@ -30,12 +29,18 @@ $message = mysqli_fetch_assoc($result);
 
 /* Check if user, brand, or admin already exists in database */
 if($message['strreturn'] == 'SUCCESS') {
+	session_destroy();
 	header("Location: user_save_session.php?user=$username");
 	require 'activity_check.php';
 	exit();
 }
 else if($message['strreturn'] == 'FAILED') {
 	// Redirect back to the login page and display the error modal
+	if(isset($_SESSION['attempt'])){
+		$_SESSION['attempt']++;
+	}else{
+		$_SESSION['attempt'] = 1;
+	}
 	header("Location: ../views/login.php?auth=error");
 	exit();
 }
