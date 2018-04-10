@@ -20,6 +20,18 @@
         // Check if user is authorized to access page
         include '../../database/check_access.php';
         require '../../database/get_unverified_brands.php';
+
+        if(isset ($_GET['approvebrand'])){
+            $_SESSION['warning_msg'] = "Are you sure you want to approve this brand?";
+            $_SESSION['target_page'] = "../../database/admin_approve_brand.php?bId=" . $_GET['approvebrand'];
+            include '../modals/warning.php';
+            echo "<script> 
+            $('#warning_modal').modal('show');
+            $('#warning_modal').on('hidden.bs.modal', function () { 
+               window.location = 'approve_brand.php';
+           })
+           </script>";
+        }
     ?>
 
     <link rel="stylesheet" type="text/css" href="../../css/dataTables.bootstrap.min.css">
@@ -54,11 +66,11 @@
                           <?php
                           foreach ($brands as $brand) {
                            echo "<tr>
-                              <form action='../../database/admin_approve_brand.php?bId=".$brand['uid']."' method='POST'>
+                              <form method='GET'>
                                 <td>".$brand['b_username']."</td>
                                 <td>".$brand['brand_name']."</td>
                                 <td>".$brand['b_email']."</td>
-                                <td><input type='submit' class='btn btn-success btn-md' name='approve' value='Approve'></td>
+                                <td><button type='submit' class='btn btn-success btn-md' name='approvebrand' value=".$brand['uid']." >Approve Brand</button></td>
                               </form>  
                             </tr>";
                           }
@@ -86,6 +98,9 @@
 
     <?php require "../../templates/admin/admin_footer.php"; ?>
 	<!-- Include Javascript files -->
+    <script src="../../js/dataTables.bootstrap.min.js"></script>
+    <script src="../../js/jquery-1.12.4.js"></script>
+    <script src="../../js/jquery.dataTables.min.js"></script>
     <!-- <script src="../../js/smooth-scroll.js"></script> -->
 </body>
 </html>

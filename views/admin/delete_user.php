@@ -20,6 +20,18 @@
         include '../../database/check_access.php';
         require '../../database/get_users.php';
 
+         if(isset ($_GET['deleteuser'])){
+            $_SESSION['warning_msg'] = "Are you sure you want to delete this user?";
+            $_SESSION['target_page'] = "../../database/admin_delete_user.php?uId=" . $_GET['deleteuser'];
+            include '../modals/warning.php';
+            
+            echo "<script> 
+            $('#warning_modal').modal('show');
+            $('#warning_modal').on('hidden.bs.modal', function () { 
+               window.location = 'delete_user.php';
+           })
+           </script>";
+        }
     ?>
 
     <link rel="stylesheet" type="text/css" href="../../css/dataTables.bootstrap.min.css">
@@ -54,12 +66,12 @@
                                       <?php
                                       foreach ($users as $user) {
                                        echo "<tr>
-                                          <form action='../../database/admin_delete_user.php?uId=".$user['uid']."' method='POST'>
+                                            <form method='GET'>
                                             <td>".$user['u_username']."</td>
                                             <td>".$user['uName']."</td>
                                             <td>".$user['u_email']."</td>
                                             <td>".$user['u_gender']."</td>
-                                            <td><input type='submit' class='btn btn-danger btn-md' name='delete' value='Delete'></td>
+                                            <td><button type='submit' class='btn btn-danger btn-md' name='deleteuser' value='".$user['uid']."'>Delete</button></td>
                                           </form>  
                                         </tr>";
                                       }

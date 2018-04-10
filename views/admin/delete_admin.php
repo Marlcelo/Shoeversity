@@ -19,6 +19,18 @@
         include '../../database/check_access.php';
         require '../../database/get_admins.php';
 
+        if(isset ($_GET['deleteadmin'])){
+            $_SESSION['warning_msg'] = "Are you sure you want to delete this admin?";
+            $_SESSION['target_page'] = "../../database/admin_delete_admin.php?adId=" . $_GET['deleteadmin'];
+            include '../modals/warning.php';
+            
+            echo "<script> 
+            $('#warning_modal').modal('show');
+            $('#warning_modal').on('hidden.bs.modal', function () { 
+               window.location = 'delete_admin.php';
+           })
+           </script>";
+        }
     ?>
 
     <link rel="stylesheet" type="text/css" href="../../css/dataTables.bootstrap.min.css">
@@ -52,12 +64,12 @@
                   <?php
                   foreach ($admins as $admin) {
                    echo "<tr>
-                      <form action='../../database/admin_delete_admin.php?adId=".$admin['uid']."' method='POST'>
+                      <form method='POST'>
                         <td>".$admin['username']."</td>
                         <td>".$admin['adName']."</td>
                         <td>".$admin['email']."</td>
                         <td>".$admin['gender']."</td>
-                        <td><input type='submit' class='btn btn-danger btn-md' name='delete' value='Delete'></td>
+                        <td><button type='submit' class='btn btn-danger btn-md' name='deleteadmin' value='".$admin['uid']."'>Delete</button></td>
                       </form>  
                     </tr>";
                   }
