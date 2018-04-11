@@ -6,7 +6,7 @@ $(document).ready(function(){
 //Jquery code here
 
 $("#btnAddContact").click(function () {
-    $("#contacts").append('<br><div class="input-group" id="contactNumbers'+counter+'"><span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span><input type="text" class="form-control" name="number'+counter+'" placeholder="Contact Number" required></div>');
+    $("#contacts").append('<br><div class="input-group" id="contactNumbers'+counter+'"><span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span><input type="text" class="form-control" name="number'+counter+'" pattern="[0-9]{3,4}[-][0-9]{3}[-][0-9]{4}" title="Format: XXXX-XXX-XXXX" placeholder="Contact Number" required></div>');
     counter++;
 });
 
