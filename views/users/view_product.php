@@ -40,6 +40,19 @@
                         </script>";
                 }
             }
+
+            if(isset($_GET['brandinfo'])){
+                include "../modals/brand_info_users.php";
+
+                echo "<script> 
+                            $('#brand_info_modal').modal('show');
+                            $('#brand_info_modal').on('hidden.bs.modal', function () {
+                                window.history.back();
+                            })
+                        </script>";
+
+            }
+
             
             // include rating modal & success modal
             include "../modals/product_rating.php";
@@ -68,7 +81,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                  <h4>Posted by:
-                                    <span> <?php echo $posted; ?> </span>
+                                    <span><a href = "view_product.php?pid=<?php echo $product; ?>&brandinfo=<?php echo $product; ?>"> <?php echo $posted; ?> </span></a>
                                 </h4>
                                 </div>
                                 <div class="col-md-6">

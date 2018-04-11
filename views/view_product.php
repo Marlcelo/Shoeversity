@@ -55,7 +55,7 @@
             }
 
             if(isset($_GET['brandinfo'])){
-                include "modals/brand_info.php";
+                include "modals/brand_info_public.php";
 
                 echo "<script> 
                             $('#brand_info_modal').modal('show');

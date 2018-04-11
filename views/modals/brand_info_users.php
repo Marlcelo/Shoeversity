@@ -1,9 +1,8 @@
 
 <?php
-    $shoeID = $_SESSION['pid'];
-
-    require '../database/config.php';
+    require '../../database/config.php';
     $sql = "CALL SP_GET_BRAND_PROFILE($posted_by_id)";
+
     $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
     while($row = mysqli_fetch_assoc($result)) {
@@ -54,7 +53,7 @@
 
                     <?php
 
-                    require '../database/config.php';
+                    require '../../database/config.php';
                         $sql = "CALL SP_GET_BRAND_CONTACTS($posted_by_id)";
                         $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
@@ -65,7 +64,7 @@
 
                         mysqli_close($conn);
 
-                        require '../database/config.php';
+                        require '../../database/config.php';
                         $sql = "CALL SP_GET_BRAND_LINKS($posted_by_id)";
                         $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));?>
                         <hr>
