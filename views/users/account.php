@@ -38,8 +38,8 @@
             include "../../database/user_get_purchases.php"; ?>
 	
     <div class="content-wrapper ">
-        <div class="container text-center">
-                <div class="col-md-4">
+        <div class="container ">
+                <div class="col-md-4 text-center">
                     <img class="img-circle" src="../IMAGES/USERS/dp.jpg" width="160px" alt="profilepic">
                     <br><br><br>
                     <label for="uname">Username: </label>
@@ -78,6 +78,9 @@
                             <th>Item</th>
                             <th>Brand</th>
                             <th>Size</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Color</th>
                             <th>Date of Purchase</th>
                         </tr>
                     </thead>
@@ -90,7 +93,9 @@
                             <td>".$shoe['name']."</td>
                             <td>".$shoe['brand_name']."</td>
                             <td>".$shoe['size']."</td>
-
+                            <td>".$shoe['category']."</td>
+                            <td>".$shoe['price']."</td>
+                            <td>".$shoe['color']."</td>
                             <td>".$date."</td> 
                         </tr>";
                       }
