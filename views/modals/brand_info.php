@@ -59,7 +59,7 @@
                         $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
                         while($row = mysqli_fetch_assoc($result)) {
-                            $contact = $row['contact'];?>
+                            $contact = $row['contact']; ?>
                             <span><h4><?php echo $contact ?></h4></span>
                     <?php    } 
 
@@ -81,9 +81,6 @@
                         mysqli_close($conn); 
                     ?>
                     
-                    
-                    
-                    <span><h4><?php echo $linktype ?> - <?php echo $link ?></h4></span>
                </div>
                 
             </div>
