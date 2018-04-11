@@ -1,4 +1,9 @@
 <?php
+	if(!isset($_SESSION)) {
+		session_start();
+	}
+	$token = $_SESSION["sessionToken"];
+	
 	include "../../database/get_notif_logs.php";
 ?>
 
@@ -26,7 +31,8 @@
 		<?php endif; ?>
 	</ul>
 	
-	<button class="notifs-btn btn btn-primary" style="margin-top: -20px; border-radius: 0px !important;">
+	<button class="notifs-btn btn btn-primary" style="margin-top: -20px; border-radius: 0px !important;"
+		onclick="window.location.href='../../views/admin/view_audit_logs.php?token=<?php echo $token?>'">
 		<strong>View All Logs</strong>
 	</button>
 </div>
