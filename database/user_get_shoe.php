@@ -17,6 +17,9 @@ $color = $row['color'];
 $photo = $row['photo_url'];
 $size  = $row['size'];
 $posted = $row['brand_name'];
+$posted_by_id = $row['posted_by'];
 
 $_SESSION['pid'] = $product;
+
+mysqli_close($conn);
 ?>
