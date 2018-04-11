@@ -7,9 +7,17 @@
 		$cpass = $_POST['confirmpword'];
 
 		if($pass == $cpass){
+			$pass = trim($pass);
+			$pass = filter_var($pass, FILTER_SANITIZE_STRING);
+
 			require 'config.php';
 			$uname = $_POST['uname'];
 			$email = $_POST['email'];
+
+			$uname = trim($uname);
+			$email = $trim($email);
+
+			$uname = filter_var($uname, FILTER_SANITIZE_STRING);
 
 			if (!(filter_var($email, FILTER_VALIDATE_EMAIL))) {
 			    echo "Email address '$email' is considered invalid.\n";
@@ -19,7 +27,7 @@
 				header("Location: $error_path");
 				exit();
 			}
-
+			$email = filter_var($email, FILTER_VALIDATE_EMAIL);
 			//Check if username matches another accounts
 			$query = "CALL SP_CHECK_UNAME_EMAIL_DUPLICATE('".$uname."','".$email."');"; 
 			echo $query;
@@ -40,6 +48,14 @@
 				$fname = $_POST['fname'];
 				$mname = $_POST['mname'];
 				$lname = $_POST['lname'];
+
+				$fname = trim($fname);
+				$mname = trim($mname);
+				$lname = trim($lname);
+
+				$fname = filter_var($fname, FILTER_SANITIZE_STRING);
+				$mname = filter_var($mname, FILTER_SANITIZE_STRING);
+				$lname = filter_var($lname, FILTER_SANITIZE_STRING);
 
 				$gender = $_POST['gender'];
 
@@ -139,8 +155,14 @@
 
 				$success_path = "../views/admin/register_admin.php?register=" . md5('success');
 				header("Location: $success_path");
-		}
+		} // unique email/username
+	}else{// pass not same as cpass
+		$error_msg .= "Your passwords do not match! Please try again.";
+		$_SESSION['error_msg'] = $error_msg;
+		$error_path = "admin_register.php?register=" . md5('failed');
+		header("Location: $error_path");
+		exit();
 	}
-}
+}//button clicked
 
 ?>
