@@ -30,7 +30,7 @@
                 echo "<script> 
                         $('#error_modal').modal('show');
                         $('#error_modal').on('hidden.bs.modal', function () { 
-                             window.location = 'dashboard.php';
+                             window.location = 'view_product.php?pid=".$_GET['pid']."';
                         })
                       </script>";
            }
@@ -42,7 +42,7 @@
                 echo "<script> 
                         $('#warning_modal').modal('show');
                         $('#warning_modal').on('hidden.bs.modal', function () { 
-                             window.location = 'dashboard.php';
+                             window.location = 'view_product.php?pid=".$_GET['pid']."';
                         })
                       </script>";
            }
@@ -84,7 +84,7 @@
                 <div class="container-fliud">
                     <div class="wrapper row">
                         <div class="preview col-md-6">
-                            <a href="index.php#products-list"><button class="btn btn-md btn-info pull-left" style="width:30%;">< Back</button></a>
+                            <a href="dashboard.php"><button class="btn btn-md btn-info pull-left" style="width:30%;">< Back</button></a>
                             <img src="<?php echo "../".$shoe[0][5]; ?>"/>
                         </div>
                         <div class="details col-md-6">
