@@ -87,102 +87,14 @@
     <?php include "../../templates/admin/admin_sidebar.php"; ?>
     
     <!-- BEGIN MAIN CONTENT -->
-    <h1 class="text-center">Shoeversity Products Grid</h1>
-    <br>
+     <div class="container main">
+        <h1 class="text-center">Shoeversity Products Grid</h1>
+    </div>
     <!-- BEGIN PRODUCTS GRID -->
     <div class="container main" style="margin-top: 30px; padding-top: 0px;padding-right: 45px;" id="products-list">
     </div>
     <!-- .END PRODUCTS GRID -->
     
-        <!-- <div class="container" style="margin-top: 8vh;">
-                <!-- BEGIN PRODUCTS GRID --
-                <div class="col-md-12">
-
-                    <div class="col-sm-4">
-                        <span class="thumbnail">
-                            <img src="" alt="...">
-                            <h4></h4>
-                            <div class="ratings">
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                            </div>
-                                    <p><label class="lead">SHOE NAME</label></p>
-                                    <p>A very nice shoe.</p>
-                                    <p><b>COLOR:</b></p>
-                                    <p><b>SIZE:</b></p>
-                            <hr class="line">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6">
-                                    <p class="price">Php. 3,500</p>
-                                </div>
-                                <div class="col-md-6 col-sm-6">
-                                    <a href="admin_view_product.php"><button class="btn btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
-                               </div>
-                                
-                            </div>
-                        </span>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <span class="thumbnail">
-                            <img src="" alt="...">
-                            <h4></h4>
-                            <div class="ratings">
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                            </div>
-                                    <p><label class="lead">SHOE NAME</label></p>
-                                    <p>A very nice shoe.</p>
-                                    <p><b>COLOR:</b></p>
-                                    <p><b>SIZE:</b></p>
-                            <hr class="line">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6">
-                                    <p class="price">Php. 3,500</p>
-                                </div>
-                                <div class="col-md-6 col-sm-6">
-                                    <a href="admin_view_product.php"><button class="btn btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
-                               </div>
-                                
-                            </div>
-                        </span>
-                    </div>
-
-                    <div class="col-sm-4">
-                        <span class="thumbnail">
-                            <img src="" alt="...">
-                            <h4></h4>
-                            <div class="ratings">
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star"></span>
-                                <span class="glyphicon glyphicon-star-empty"></span>
-                            </div>
-                                    <p><label class="lead">SHOE NAME</label></p>
-                                    <p>A very nice shoe.</p>
-                                    <p><b>COLOR:</b></p>
-                                    <p><b>SIZE:</b></p>
-                            <hr class="line">
-                            <div class="row">
-                                <div class="col-md-6 col-sm-6">
-                                    <p class="price">Php. 3,500</p>
-                                </div>
-                                <div class="col-md-6 col-sm-6">
-                                    <a href="admin_view_product.php"><button class="btn btn-md btn-info pull-right" >VIEW PRODUCT</button></a>
-                               </div>
-                                
-                            </div>
-                        </span>
-                    </div>
-                </div>
-        </div> -->
     <!-- BEGIN FOOTER -->
     <?php require "../../templates/admin/admin_footer.php"; ?>
     <!-- .END FOOTER -->
