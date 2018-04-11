@@ -71,7 +71,7 @@
                 echo "<script> 
                     $('#success_modal').modal('show');
                     $('#success_modal').on('hidden.bs.modal', function () { 
-                       window.location = 'delete_admin.php?token=$token';
+                       window.location = 'approve_brand.php?token=$token';
                    })
                    </script>";
             }
@@ -81,7 +81,7 @@
                 echo "<script> 
                     $('#error_modal').modal('show');
                     $('#error_modal').on('hidden.bs.modal', function () { 
-                       window.location = 'delete_admin.php?token=$token';
+                       window.location = 'approve_brand.php?token=$token';
                    })
                    </script>";
             }

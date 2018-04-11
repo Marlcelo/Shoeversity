@@ -72,7 +72,7 @@
     
         <div class="container text-center main">
                 <div class="col-md" style="min-height: 350px;">
-                    <h1>Create an admin account</h1> 
+                    <h1>Create an Admin Account</h1> 
                     <div class="content">
                                 
                                 <form class="form-horizontal" name="register_user" id="register" action="../../database/admin_register.php" method="POST">

@@ -30,7 +30,7 @@
                     <a href="delete_admin.php?token=<?php echo $token ?>"><i class="glyphicon glyphicon-minus"></i>&nbsp; Delete an Admin</a>
                 </li>
                 <li <?php if($highlight == 'delete_brand') echo "class='active'"; ?>>
-                    <a href="delete_brand.php"><i class="glyphicon glyphicon-minus"></i>&nbsp; Delete a Brand</a>
+                    <a href="delete_brand.php?token=<?php echo $token ?>"><i class="glyphicon glyphicon-minus"></i>&nbsp; Delete a Brand</a>
                 </li>
                 <li <?php if($highlight == 'delete_user') echo "class='active'"; ?>>
                     <a href="delete_user.php?token=<?php echo $token ?>"><i class="glyphicon glyphicon-minus"></i>&nbsp;  Delete a User</a>
