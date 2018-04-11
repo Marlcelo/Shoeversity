@@ -9,9 +9,15 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){// if a new use
 	$username = $_SESSION['username'];
 	$password = $_SESSION['password'];
 
-	if (strlen($password) < 8 || strlen($username) < 8 ||  (!preg_match("#[0-9]+#", $username) &&  !preg_match("#[a-zA-Z]+#", $username) && !preg_match("#[0-9]+#", $password) && !preg_match("#[a-zA-Z]+#", $password) && !preg_match("#[!,%,&,@,#,$,^,*,?,_,~,.]+#", $password))) {
+	if (strlen($password) < 8 || 
+		strlen($username) < 8 ||  
+		(!preg_match("#[0-9]+#", $username) ||  
+			!preg_match("#[a-zA-Z]+#", $username) || 
+			!preg_match("#[0-9]+#", $password) || 
+			!preg_match("#[a-zA-Z]+#", $password) || 
+			!preg_match("#\W+#", $password))) {
 
-        header("Location: ../views/login.php?auth=error");
+        //header("Location: ../views/login.php?auth=error");
         exit();
     }
 	echo "Here at Session";
@@ -27,8 +33,13 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){// if a new use
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 
-	if (strlen($password) < 8 || strlen($username) < 8 ||  (!preg_match("#[0-9]+#", $username) &&  !preg_match("#[a-zA-Z]+#", $username) && !preg_match("#[0-9]+#", $password) && !preg_match("#[a-zA-Z]+#", $password) && !preg_match("#[!,%,&,@,#,$,^,*,?,_,~,.]+#", $password))) {
-
+	if (strlen($password) < 8 || 
+		strlen($username) < 8 ||  
+		(!preg_match("#[0-9]+#", $username) ||  
+			!preg_match("#[a-zA-Z]+#", $username) || 
+			!preg_match("#[0-9]+#", $password) || 
+			!preg_match("#[a-zA-Z]+#", $password) || 
+			!preg_match("#\W+#", $password))) {
         header("Location: ../views/login.php?auth=error");
         exit();
     }
