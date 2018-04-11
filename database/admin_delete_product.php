@@ -1,5 +1,6 @@
 <?php
 session_start();
+$token = $_SESSION['sessionToken'];
 require 'activity_check.php';
 $pid = $_GET['id'];
 
@@ -26,13 +27,13 @@ if(!isset($_SESSION))
 	session_start();
 
 if($message == 'SUCCESS') {
-	$_SESSION['success_msg'] = "Your shoe '" . $shoe_name . "' was successfully deleted.";
-	header("Location: ../views/admin/dashboard.php?delete=success");
+	$_SESSION['success_msg'] = "The shoe '" . $shoe_name . "' was successfully deleted.";
+	header("Location: ../views/admin/dashboard.php?delete=success&token=$token");
 	exit();
 }
 else if($message == 'FAILED') {
 	$_SESSION['error_msg'] = "Uh oh! an error occurred.";
-	header("Location: ../views/admin/dashboard.php?delete=error");
+	header("Location: ../views/admin/dashboard.php?delete=error&token=$token");
 	exit();
 }
 

@@ -31,6 +31,9 @@
                 })
                 </script>";
         }
+        else {
+            $token = $_SESSION['sessionToken'];
+        }
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
@@ -49,7 +52,7 @@
                 echo "<script> 
                         $('#success_modal').modal('show');
                         $('#success_modal').on('hidden.bs.modal', function () { 
-                             window.location = 'dashboard.php';
+                             window.location = 'dashboard.php?token=".$token."';
                         })
                       </script>";
            }
@@ -59,7 +62,7 @@
                 echo "<script> 
                         $('#error_modal').modal('show');
                         $('#error_modal').on('hidden.bs.modal', function () { 
-                             window.location = 'dashboard.php';
+                             window.location = 'dashboard.php?token=".$token."';
                         })
                       </script>";
            }
@@ -71,7 +74,7 @@
                 echo "<script> 
                         $('#warning_modal').modal('show');
                         $('#warning_modal').on('hidden.bs.modal', function () { 
-                             window.location = 'dashboard.php';
+                             window.location = 'dashboard.php?token=".$token."';
                         })
                       </script>";
            }

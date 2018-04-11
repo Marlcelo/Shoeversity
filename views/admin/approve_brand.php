@@ -99,7 +99,7 @@
                 			<td>".$brand['b_username']."</td>
                 			<td>".$brand['brand_name']."</td>
                 			<td>".$brand['b_email']."</td>
-                			<td class='text-center'><button type='submit' class='btn btn-success btn-md' name='approvebrand' value=".$brand['uid']." >Approve Brand</button>   <button type='submit' class='btn btn-danger btn-md' name='deletebrand' value=".$brand['uid']." >Deny Brand</button></td>
+                			<td class='text-center'><button type='submit' class='btn btn-success btn-md' name='approvebrand' value=".$brand['uid']." >Approve Brand</button>   <button type='submit' class='btn btn-danger btn-md' name='deletebrand' value=".$brand['uid']." >Delete Brand</button></td>
                 			</form>  
                 			</tr>";
                 		}
