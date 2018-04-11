@@ -75,7 +75,7 @@
     <h1 class="text-center">Shoeversity Products Grid</h1>
     <br>
     <!-- BEGIN PRODUCTS GRID -->
-    <div class="container main" style="margin-top: 30px; padding-top: 0px" id="products-list">
+    <div class="container main" style="margin-top: 30px; padding-top: 0px;padding-right: 45px;" id="products-list">
     </div>
     <!-- .END PRODUCTS GRID -->
     
