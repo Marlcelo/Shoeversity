@@ -48,10 +48,10 @@
                                     <tr>
                                         <td>
                                             <img src="<?php echo "../".$shoe[0]; ?>" height = 80px width = 80px>
-                                            <?php echo $shoe[1]; ?>
+                                           <?php echo $shoe[1]; ?>
                                         </td> 
                                         <td class="text-center">
-                                            <strong><?php echo $shoe[2]; ?></strong>
+                                            <strong>₱<?php echo $shoe[2]; ?></strong>
                                         </td>
                                         <td class="">
                                             <form method="GET">
@@ -70,7 +70,7 @@
                                         <td>   </td>
                                         <td>   </td>
                                         <td><h5>Subtotal</h5></td>
-                                        <td class="text-right"><h5><strong><?php echo $subtotal; ?></strong></h5></td>
+                                        <td class="text-right"><h5>₱<strong><?php echo $subtotal; ?></strong></h5></td>
                                     </tr>
                                     
                                     <tr>
@@ -78,14 +78,14 @@
                                         <td>   </td>
                                         <td>   </td>
                                         <td><h5>Estimated shipping</h5></td>
-                                        <td class="text-right"><h5><strong><?php echo $total - $subtotal; ?></strong></h5></td>
+                                        <td class="text-right"><h5>₱<strong><?php echo $total - $subtotal; ?></strong></h5></td>
                                     </tr>    
                                     <tr>
                                         <td>   </td>
                                         <td>   </td> <!--Leave these blank-->
                                         <td>   </td>
                                         <td><h3>Total</h3></td>
-                                        <td class="text-right"><h3><strong><?php echo $total; ?></strong></h3></td>
+                                        <td class="text-right"><h3>₱<strong><?php echo $total; ?></strong></h3></td>
                                     </tr>                    
                                     
                                 </tbody>
