@@ -50,7 +50,7 @@
     <!-- Include sidebar -->
     <?php include "../../templates/admin/admin_sidebar.php"; ?>
     
-        <div class="container">
+        <div class="container main">
              <div class="col-md" style=" min-height: 350px; padding-right: 25px;">
                   <h1 class='text-center'>View System Audit Logs</h1>
                   <br>

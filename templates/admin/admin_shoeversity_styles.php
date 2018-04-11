@@ -35,10 +35,6 @@
     margin-left: 207px; /* Same as the width of the sidenav */
 }
 
-body {
-	margin-left: 207px;
-}
-
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 15px;}
