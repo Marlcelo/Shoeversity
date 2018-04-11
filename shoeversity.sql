@@ -258,6 +258,14 @@ BEGIN
   WHERE uid = brandID;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_BRAND_PROFILE`(brandID int)
+BEGIN
+  SELECT *
+  FROM brands, brand_contact_number, brand_link, brand_location
+  WHERE brands.uid = brandID AND brand_contact_number.brand_id = brandID 
+  AND brand_link.brand_id = brandID AND brand_location.brand_Id = brandID;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_SHOE_FROM`(intBrandID int)
 BEGIN
   SELECT * 
