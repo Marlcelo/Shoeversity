@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="../../css/main.css">
 <link rel="stylesheet" type="text/css" href="../../css/public.css">
 <!-- <link rel="stylesheet" type="text/css" href="../../css/sidebar.css"> -->
+<link rel="stylesheet" type="text/css" href="../../css/notifs.css">
 <style type="text/css">
 .sidenav {
     height: 100vh;
