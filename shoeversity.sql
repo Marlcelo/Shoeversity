@@ -95,6 +95,19 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_DELETE_ADMIN` (`adminId` INT(11)
     SELECT str_return result;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_DELETE_BRAND` (`brandId` INT(11))  BEGIN
+  declare str_return varchar(10);
+    
+    IF !EXISTS(SELECT * FROM brands WHERE uid LIKE brandId) THEN
+    SET str_return = "FAIL";
+  ELSE 
+    DELETE FROM brands WHERE uid = brandId;
+        SET str_return = "SUCCESS";
+  END IF;
+    
+    SELECT str_return result;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_DEL_SHOE`(shoeiD int)
 BEGIN
   DECLARE strreturn varchar(10);
@@ -127,6 +140,11 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_ADMIN` (`uname` VARCHAR(50),
   END IF;
     
     SELECT str_return result;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ALL_BRANDS` ()  BEGIN
+  declare strreturn varchar(10);
+  SELECT * FROM brands WHERE b_verified = 1;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ALL_BRANDSUV` ()  BEGIN
