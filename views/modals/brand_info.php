@@ -28,7 +28,7 @@
         $link  = $row['link'];-->
 
 <div class="modal fade" id="brand_info_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
-    <div class="modal-dialog modal-lg" style="width:500px;">
+    <div class="modal-dialog modal-lg" style="width:600px;">
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header" style="background: #3498DB  ; color: #fff; border-radius: 5px 5px 0 0">
@@ -88,7 +88,7 @@
             <!-- Modal Footer -->
             <div class="modal-footer" style="border-top: none">
                 <button type="button" class="btn btn-info" data-dismiss="modal">
-                    Thanks!
+                    Go back
                 </button>
             </div>
 
