@@ -64,6 +64,29 @@
            </script>";
         }
 
+        if(isset($_GET['approved'])) {
+            if($_GET['approved'] == md5('success')) {
+                include '../modals/success.php';
+            
+                echo "<script> 
+                    $('#success_modal').modal('show');
+                    $('#success_modal').on('hidden.bs.modal', function () { 
+                       window.location = 'delete_admin.php?token=$token';
+                   })
+                   </script>";
+            }
+            else if($_GET['approved'] == md5('failed')) { 
+                include '../modals/error.php';
+            
+                echo "<script> 
+                    $('#error_modal').modal('show');
+                    $('#error_modal').on('hidden.bs.modal', function () { 
+                       window.location = 'delete_admin.php?token=$token';
+                   })
+                   </script>";
+            }
+        }
+
     ?>
 
     <link rel="stylesheet" type="text/css" href="../../css/dataTables.bootstrap.min.css">
@@ -97,18 +120,17 @@
                 	<tbody>
                 		<?php
                 		foreach ($brands as $brand) {
-                            $approveLoc = "window.location.href='approve_brand.php?approvebrand=".$brand['uid']. "&token=$token";
-                            $deleteLoc = "window.location.href='approve_brand.php?deletebrand=".$brand['uid']. "&token=$token";
-                            $approveLoc = "hello";
+                            $approveLoc = "window.location.href=".'"'."approve_brand.php?approvebrand=".$brand['uid']. "&token=$token" . '"';
+                            $deleteLoc = "window.location.href=".'"'."approve_brand.php?deletebrand=".$brand['uid']. "&token=$token" . '"';
 
                 			echo "<tr>
                 			<td>".$brand['b_username']."</td>
                 			<td>".$brand['brand_name']."</td>
                 			<td>".$brand['b_email']."</td>
                 			<td class='text-center'>
-                                <button type='button' class='btn btn-success btn-md' onclick='alert("."hello".")'>Approve Brand
+                                <button type='button' class='btn btn-success btn-md' onclick='".$approveLoc."'>Approve Brand
                                 </button>   
-                                <button type='button' class='btn btn-danger btn-md' onclick='$deleteLoc'>Delete Brand
+                                <button type='button' class='btn btn-danger btn-md' onclick='".$deleteLoc."'>Delete Brand
                                 </button>
                             </td>
                 			</tr>";
