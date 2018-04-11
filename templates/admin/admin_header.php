@@ -23,9 +23,9 @@
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Search" name="search-product" required>
 						<div class="input-group-btn">
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px; border-radius: 0px 3px 3px 0px">
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px; border-radius: 0px 4px 4px 0px; height:34px">
 								<i class="glyphicon glyphicon-search"></i></button>
-							<button class="btn btn-primary" type="button" style="margin-top: 0px; margin-left:10px; border-radius:3px;" onclick="openNotifs()">
+							<button class="btn btn-primary" type="button" style="margin-top: 0px; margin-left:10px; border-radius:3px; height: 34px" onclick="openNotifs()">
 								<i class="glyphicon glyphicon-bell"></i></button>
 						</div>
 					</div>

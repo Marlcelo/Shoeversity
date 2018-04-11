@@ -34,7 +34,7 @@
 			                <div class="input-group" style="margin-left: 0px">
 			    	            <input type="text" class="form-control" placeholder="Search" name="search-product" required>
 		                        <div class="input-group-btn">
-		                            <button class="btn btn-primary" type="submit" style="margin-top: 0px">
+		                            <button class="btn btn-primary" type="submit" style="margin-top: 0px; border-radius: 0px 4px 4px 0px; height:34px">
 		                            <i class="glyphicon glyphicon-search"></i>
 		                            </button>
 		                        </div>

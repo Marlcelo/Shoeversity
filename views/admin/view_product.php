@@ -12,6 +12,24 @@
 
             $_SESSION['page_type'] = "Admin";
             $_SESSION['active_page'] = "dashboard";
+
+            // CSRF Token
+            if(!isset($_GET['token']) || 
+               !isset($_SESSION['sessionToken']) ||
+               (isset($_SESSION['sessionToken']) && $_GET['token'] != $_SESSION['sessionToken'])) {
+                include '../modals/restricted_access.php';
+        
+                echo "<script> 
+                    window.stop();
+                    $('#restricted_access').modal('show');
+                    $('#restricted_access').on('hidden.bs.modal', function () { //go back to prev page
+                       window.history.back();
+                    })
+                    </script>";
+            }
+            else {
+                $token = $_SESSION['sessionToken'];
+            }
             
              if(isset($_GET['delete'])) {
            if($_GET['delete'] == 'success') {
@@ -20,7 +38,7 @@
                 echo "<script> 
                         $('#success_modal').modal('show');
                         $('#success_modal').on('hidden.bs.modal', function () { 
-                             window.location = 'dashboard.php';
+                             window.location = 'dashboard.php?token=$token';
                         })
                       </script>";
            }
@@ -30,7 +48,7 @@
                 echo "<script> 
                         $('#error_modal').modal('show');
                         $('#error_modal').on('hidden.bs.modal', function () { 
-                             window.location = 'view_product.php?pid=".$_GET['pid']."';
+                             window.location = 'view_product.php?pid=".$_GET['pid']."&token=".$token."';
                         })
                       </script>";
            }
@@ -42,7 +60,7 @@
                 echo "<script> 
                         $('#warning_modal').modal('show');
                         $('#warning_modal').on('hidden.bs.modal', function () { 
-                             window.location = 'view_product.php?pid=".$_GET['pid']."';
+                             window.location = 'view_product.php?pid=".$_GET['pid']."&token=$token"."';
                         })
                       </script>";
            }
@@ -94,13 +112,13 @@
                 <div class="container-fliud">
                     <div class="wrapper row">
                         <div class="preview col-md-6">
-                            <a href="dashboard.php"><button class="btn btn-md btn-info pull-left" style="width:30%;">< Back</button></a>
+                            <a href="dashboard.php?token=<?php echo $token ?>"><button class="btn btn-md btn-info pull-left" style="width:30%;">< Back</button></a>
                             <img src="<?php echo "../".$shoe[0][5]; ?>"/>
                         </div>
                         <div class="details col-md-6">
                             <div class="row">
                                 <div class="col-md pull-right">
-                                    <a href="view_product.php?pid=<?php echo $product; ?>&delete=<?php echo $product; ?>">
+                                    <a href="view_product.php?pid=<?php echo $product; ?>&delete=<?php echo $product; ?>&token=<?php echo $token?>">
                                     <button class="btn btn-md btn-info pull-right" style="height: 45px; width: 70px;"><i class="glyphicon glyphicon-remove"></i></button></a>
                                 </div>
                             </div>
