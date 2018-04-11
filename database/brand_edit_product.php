@@ -40,7 +40,7 @@ $type 			= filter_var($type,FILTER_SANITIZE_STRING);
 $category 		= filter_var($category,FILTER_SANITIZE_STRING);
 $size 			= filter_var($size,FILTER_SANITIZE_NUMBER_INT);
 $color 			= filter_var($color,FILTER_SANITIZE_STRING);
-$price 			= filter_var($price,FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION,FILTER_FLAG_ALLOW_THOUSAND);
+$price 			= filter_var($price,FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_THOUSAND);
 $imgpath 		= filter_var($imgpath,FILTER_SANITIZE_STRING);
 $imgpathOld 	= filter_var($imgpathOld,FILTER_SANITIZE_STRING);
 
