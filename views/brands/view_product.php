@@ -12,6 +12,24 @@
             $_SESSION['page_type'] = "Brand";
             $_SESSION['active_page'] = "products";
 
+            // CSRF Token
+            if(!isset($_GET['token']) || 
+               !isset($_SESSION['sessionToken']) ||
+               (isset($_SESSION['sessionToken']) && $_GET['token'] != $_SESSION['sessionToken'])) {
+                include '../modals/restricted_access.php';
+        
+                echo "<script> 
+                    window.stop();
+                    $('#restricted_access').modal('show');
+                    $('#restricted_access').on('hidden.bs.modal', function () { //go back to prev page
+                       window.history.back();
+                    })
+                    </script>";
+            }
+            else {
+                $token = $_SESSION['sessionToken'];
+            }
+
             $product = $_GET['pid'];
 
             // Check if user is authorized to access page
@@ -43,42 +61,41 @@
             }
 
             // Check if edit product request was issued
-            if(isset($_GET['edit'])) {
-                //if($_GET['edit'] == md5('true')) {
-                $_SESSION['shoeID'] = $_GET['edit'];
-                include '../modals/edit_product.php';
+        if(isset($_GET['edit'])) {
+            $_SESSION['shoeID'] = $_GET['edit'];
+            include '../modals/edit_product.php';
+
+            echo "<script> 
+                    $('#edit_product_modal').modal('show');
+                    $('#edit_product_modal').on('hidden.bs.modal', function () { 
+                         window.location = 'view_product.php?pid=".$_GET['edit']."&token=".$token."';
+                    })
+                  </script>";
+        }
+
+        // Check if delete product request was issued
+        if(isset($_GET['delete'])) {
+           if($_GET['delete'] == 'success') {
+                include '../modals/success.php';
 
                 echo "<script> 
-                        $('#edit_product_modal').modal('show');
-                        $('#edit_product_modal').on('hidden.bs.modal', function () { 
-                            window.history.back();
+                        $('#success_modal').modal('show');
+                        $('#success_modal').on('hidden.bs.modal', function () { 
+                             window.location = 'view_product.php?pid=".$_GET['delete']."&token=".$token."';
                         })
                       </script>";
-                //}
-            }
+           }
+           else if($_GET['delete'] == 'error') {
+                include '../modals/error.php';
 
-            // Check if delete product request was issued
-            if(isset($_GET['delete'])) {
-               if($_GET['delete'] == 'success') {
-                    include '../modals/success.php';
-
-                    echo "<script> 
-                            $('#success_modal').modal('show');
-                            $('#success_modal').on('hidden.bs.modal', function () { 
-                                window.history.back();
-                            })
-                          </script>";
-               }
-               else if($_GET['delete'] == 'error') {
-                    include '../modals/error.php';
-
-                    echo "<script> 
-                            $('#error_modal').modal('show');
-                            $('#error_modal').on('hidden.bs.modal', function () { 
-                                window.history.back();
-                            })
-                          </script>";
-               }else{
+                echo "<script> 
+                        $('#error_modal').modal('show');
+                        $('#error_modal').on('hidden.bs.modal', function () { 
+                             window.location = 'view_product.php?pid=".$_GET['delete']."&token=".$token."';
+                        })
+                      </script>";
+           }
+           else {
                 $_SESSION['warning_msg'] = "Are you sure you want to delete this product?";
                 $_SESSION['target_page'] = "../../database/brand_delete_product.php?id=" . $_GET['delete'];
                 include '../modals/warning.php';
@@ -86,14 +103,12 @@
                 echo "<script> 
                         $('#warning_modal').modal('show');
                         $('#warning_modal').on('hidden.bs.modal', function () { 
-                            window.history.back();
+                             window.location = 'view_product.php?pid=".$_GET['delete']."&token=".$token."';
                         })
                       </script>";
-                }
            }
-
-                include "../modals/product_rating.php";
-                
+        }
+            
         ?>
     </head>
     <body>
@@ -107,16 +122,16 @@
     			<div class="container-fliud">
     				<div class="wrapper row">
     					<div class="preview col-md-6">
-                            <a href="products.php#products-list"><button class="btn btn-md btn-info pull-left" style="width:30%;">< Back</button></a>
+                            <a href="products.php?token=<?php echo $token?>"><button class="btn btn-md btn-info pull-left" style="width:30%;">< Back</button></a>
                             <img src="<?php echo "../".$photo; ?>"/>
     					</div>
     					<div class="details col-md-6">
                             <div class="row" >
                                 <div class="col-md-10 col-sm-10">
-                                <a href="view_product.php?pid=<?php echo $product; ?>&edit=<?php echo $product; ?>"><button class="btn btn-md btn-info pull-right" style="height:45px; width: 70px;"><i class="glyphicon glyphicon-edit"></i></button></a>
+                                <a href="view_product.php?edit=<?php echo $product;?>&token=<?php echo $token?>"><button class="btn btn-md btn-info pull-right" style="height:45px; width: 70px;"><i class="glyphicon glyphicon-edit"></i></button></a>
                                 </div>
                                 <div class="col-md-2 col-sm-2">
-                                <a href="view_product.php?pid=<?php echo $product; ?>&delete=<?php echo $product; ?>"><button class="btn btn-md btn-info pull-right" style="height:45px; width: 70px;"><i class="glyphicon glyphicon-remove"></i></button></a><br>
+                                <a href="view_product.php?delete=<?php echo $product;?>&token=<?php echo $token?>"><button class="btn btn-md btn-info pull-right" style="height:45px; width: 70px;"><i class="glyphicon glyphicon-remove"></i></button></a><br>
                                 </div>
                             </div>
                             <br>

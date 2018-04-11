@@ -3,6 +3,8 @@
 		session_start();
 		require 'activity_check.php';
 
+		$token = $_SESSION['sessionToken'];
+
 		$size = sizeof($_SESSION['cart']);
 
 
@@ -19,11 +21,11 @@
 		var_dump($_SESSION['cart']);
 		if($size == sizeof($_SESSION['cart'])) {
 			$_SESSION['success_msg'] = "This item has been added to your cart.";
-			header("Location: ../views/users/view_product.php?pid=".$_SESSION['pid']."&result=".md5("success")."");
+			header("Location: ../views/users/view_product.php?pid=".$_SESSION['pid']."&result=".md5("success")."&token=".$token);
 		}
 		else {
 			$_SESSION['error_msg']  = "Uh oh, something went wrong!";
-			header("Location: ../views/users/view_product.php?pid=".$_SESSION['pid']."&result=".md5("fail")."");
+			header("Location: ../views/users/view_product.php?pid=".$_SESSION['pid']."&result=".md5("fail")."&token=".$token);
 		}
 	}
 ?>

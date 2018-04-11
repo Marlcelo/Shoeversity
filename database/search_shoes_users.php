@@ -19,7 +19,7 @@ $_SESSION['grid_search_results'] = $search_msg;
 $_SESSION['grid_applied_filters'] = '';
 
 # Redirect back to display.php to display filtered results
-header("Location: ../views/users/products.php");
+header("Location: ../views/users/products.php?token=".$_SESSION['sessionToken']);
 exit();
 
 ?>

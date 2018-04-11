@@ -1,6 +1,11 @@
 <?php
 
+if(!isset($_SESSION))
+    session_start();
 include "../../database/shoe_rating_get.php";
+
+$pid = $_SESSION['pid'];
+$token = $_SESSION['sessionToken'];
 
 ?>
 
@@ -9,8 +14,7 @@ include "../../database/shoe_rating_get.php";
         <div class="modal-content">
              <!-- Modal Header -->
             <div class="modal-header" style="background: #37474F; color: #fff; border-radius: 5px 5px 0 0">
-                <button type="button" class="close" 
-                   data-dismiss="modal" style="color: #fff">
+                <button type="button" class="close" onclick="window.location.href='../users/view_product.php?pid=<?php echo $pid?>&token=<?php echo $token?>'" style="color: #fff">
                        <span aria-hidden="true">&times;</span>
                        <span class="sr-only">Close</span>
                 </button>
@@ -135,7 +139,9 @@ include "../../database/shoe_rating_get.php";
                 // open success modal
                 // $('#success_modal').modal('show');
                 alert(success_msg);
-                $('#rating_modal').modal('toggle'); 
+                // $('#rating_modal').modal('toggle'); 
+                // window.history.back();
+                window.location.href='../users/view_product.php?pid=<?php echo $pid?>&token=<?php echo $token?>'
             }
         })
     }

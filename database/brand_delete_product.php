@@ -1,4 +1,10 @@
 <?php
+
+if(!isset($_SESSION)) {
+	session_start();
+}
+$token = $_SESSION['sessionToken'];
+
 require 'activity_check.php';
 $pid = $_GET['id'];
 
@@ -21,17 +27,14 @@ mysqli_close($conn);
 
 $message = $row['strreturn'];
 
-if(!isset($_SESSION)) 
-	session_start();
-
 if($message == 'SUCCESS') {
 	$_SESSION['success_msg'] = "Your shoe '" . $shoe_name . "' was successfully deleted.";
-	header("Location: ../views/brands/products.php?delete=success");
+	header("Location: ../views/brands/products.php?delete=success&token=$token");
 	exit();
 }
 else if($message == 'FAILED') {
 	$_SESSION['error_msg'] = "Uh oh! an error occurred.";
-	header("Location: ../views/brands/products.php?delete=error");
+	header("Location: ../views/brands/products.php?delete=error&token=$token");
 	exit();
 }
 

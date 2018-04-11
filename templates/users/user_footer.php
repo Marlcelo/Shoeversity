@@ -1,3 +1,10 @@
+<?php
+	if(!isset($_SESSION))
+		session_start();
+
+	$token = $_SESSION['sessionToken'];
+?>
+
 <!DOCTYPE html>
 <style type="text/css">
 	.myFooter {
@@ -21,14 +28,14 @@
 	            <h3> Contact </h3>
 	            <ul>
 	                <li><a href="#">About us</a></li>
-	                <li>shoeversity_official@gmail.com</li>
+	                <li>shoeversityofficial@gmail.com</li>
 	            </ul>
 	        </div>
 	        <div class="col-md-4">
 	            <h3> Important Links </h3>
 	            <ul>
-	                <li> <a href="../../views/users/products.php"> Products </a> </li>
-	                <li> <a href="../../views/users/account.php"> My Account </a> </li>
+	                <li> <a href="../../views/users/products.php?token=<?php echo $token?>"> Products </a> </li>
+	                <li> <a href="../../views/users/account.php?token=<?php echo $token?>"> My Account </a> </li>
 	                <li> <a href="../../database/logout.php"> Logout </a> </li>
 	            </ul>
 	        </div>

@@ -5,6 +5,8 @@ if(!isset($_SESSION)) {
 	require 'activity_check.php';
 }
 
+$token = $_SESSION['sessionToken'];
+
 require 'config.php';
 $brandID     = $_SESSION['b_id'];		// brand ID of logged in brand
 $name        = $_POST['name'];
@@ -121,14 +123,14 @@ if($uploadOk == 1) {
 	        echo "Sorry, there was an error uploading your file.";
 	    }
 
-		$success_path = "../views/brands/products.php?addProduct=" . md5('success');
+		$success_path = "../views/brands/products.php?addProduct=" . md5('success'). "&token=".$token;
 		header("Location: $success_path");
 		exit();
 	}
 	else if($message == 'FAILED') {
 		$error_msg .= "Sorry, you've already posted the item '" . $name . "' before.";
 		$_SESSION['error_msg'] = $error_msg;
-		$error_path = "../views/brands/products.php?addProduct=" . md5('failed');
+		$error_path = "../views/brands/products.php?addProduct=" . md5('failed'). "&token=".$token;
 		header("Location: $error_path");
 		exit();
 	}
@@ -136,7 +138,7 @@ if($uploadOk == 1) {
 else {
 	$error_msg .= "Sorry, your file was not uploaded.";
 	$_SESSION['error_msg'] = $error_msg;
-	$error_path = "../views/brands/products.php?addProduct=" . md5('failed');
+	$error_path = "../views/brands/products.php?addProduct=" . md5('failed'). "&token=".$token;
 	header("Location: $error_path");
 	exit();
 }

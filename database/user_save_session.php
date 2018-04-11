@@ -14,6 +14,19 @@ mysqli_close($conn);
 // User login credentials are correct, user has access to respective pages.
 $_SESSION['access_granted'] = $userType; // ['Admin', 'Brand', 'User']
 
+
+
+/****************************************************************/
+/*						IMPORTANT!								*/
+/*		Set Unique Session Token to protect against CSRF 		*/
+/****************************************************************/
+# Example format: "2018-04-09|11:56:51|<random integer, no limit>"
+$sessionToken = date("Y-m-d") . "|" . date("h:i:s") . "|" . mt_rand();
+$sessionToken = hash("sha1", $sessionToken);
+// STORE IN SESSION FOR CHECKING UPON REDIRECT
+$_SESSION['sessionToken'] = $sessionToken;
+
+
 // Redirect user based on type
 require 'config.php';
 
@@ -35,7 +48,7 @@ if($userType == "Admin") {
 
 	mysqli_close($conn);
 
-	header("Location: ../views/admin/dashboard.php");
+	header("Location: ../views/admin/dashboard.php?token=$sessionToken");
 	exit();
 }
 else if($userType == "Brand") {
@@ -61,7 +74,7 @@ else if($userType == "Brand") {
 	mysqli_close($conn);
 
 	if($auth_user['b_verified'] == 1) {
-		header("Location: ../views/brands/products.php");
+		header("Location: ../views/brands/products.php?token=$sessionToken");
 		exit();
 	}
 	else {
@@ -87,7 +100,7 @@ else if($userType == "User") {
 
 	mysqli_close($conn);
 
-	header("Location: ../views/users/products.php");
+	header("Location: ../views/users/products.php?token=$sessionToken");
 	exit();
 }
 

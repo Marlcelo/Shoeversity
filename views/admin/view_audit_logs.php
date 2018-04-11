@@ -16,23 +16,24 @@
         $_SESSION['active_page'] = "dashboard";
         $_SESSION['admin_fxn'] = "view_logs";
 
+        // CSRF Token
+        if(!isset($_GET['token']) || 
+           !isset($_SESSION['sessionToken']) ||
+           (isset($_SESSION['sessionToken']) && $_GET['token'] != $_SESSION['sessionToken'])) {
+            include '../modals/restricted_access.php';
+    
+            echo "<script> 
+                window.stop();
+                $('#restricted_access').modal('show');
+                $('#restricted_access').on('hidden.bs.modal', function () { //go back to prev page
+                   window.history.back();
+                })
+                </script>";
+        }
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
         require '../../database/get_logs.php';
-
-        //  if(isset ($_GET['deleteuser'])){
-        //     $_SESSION['warning_msg'] = "Are you sure you want to delete this user?";
-        //     $_SESSION['target_page'] = "../../database/admin_delete_user.php?uId=" . $_GET['deleteuser'];
-        //     include '../modals/warning.php';
-            
-        //     echo "<script> 
-        //     $('#warning_modal').modal('show');
-        //     $('#warning_modal').on('hidden.bs.modal', function () { 
-        //        window.location = 'delete_user.php';
-        //    })
-        //    </script>";
-        // }
     ?>
 
     <link rel="stylesheet" type="text/css" href="../../css/dataTables.bootstrap.min.css">
