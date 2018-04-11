@@ -3,6 +3,7 @@
 if(!isset($_SESSION)) {
 	session_start();
 }
+$token = $_SESSION['sessionToken'];
 
 $page = '';
 $output = '';

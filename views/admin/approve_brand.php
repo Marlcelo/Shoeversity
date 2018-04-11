@@ -17,6 +17,20 @@
         $_SESSION['active_page'] = "dashboard";
         $_SESSION['admin_fxn'] = "approve_brand";
 
+        // CSRF Token
+        if(!isset($_GET['token']) || 
+           !isset($_SESSION['sessionToken']) ||
+           (isset($_SESSION['sessionToken']) && $_GET['token'] != $_SESSION['sessionToken'])) {
+            include '../modals/restricted_access.php';
+    
+            echo "<script> 
+                window.stop();
+                $('#restricted_access').modal('show');
+                $('#restricted_access').on('hidden.bs.modal', function () { //go back to prev page
+                   window.history.back();
+                })
+                </script>";
+        }
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';

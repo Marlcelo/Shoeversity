@@ -1,15 +1,9 @@
-<!--<!DOCTYPE html>
-<style type="text/css">
-	.myFooter {
-		border-top: 1px solid #efefef;
-		background: #f0f0f0;
-		height: 82px;
-		width: 100%;
-		margin: 0 auto;
-		margin-top: 70px;
-		padding: 25px;
+<?php
+	if(!isset($_SESSION)) {
+		session_start();
 	}
-</style>-->
+	$token = $_SESSION['sessionToken'];
+?>
 
  <!--Footer-->
  <footer class="footer" id="footer" style="padding-bottom: 0px;">
@@ -21,14 +15,14 @@
 	            <h3> Contact </h3>
 	            <ul>
 	                <li><a href="#">About us</a></li>
-	                <li>shoeversity_official@gmail.com</li>
+	                <li>shoeversityofficial@gmail.com</li>
 	            </ul>
 	        </div>
 	        <div class="col-md-4">
 	            <h3> Important Links </h3>
 	            <ul>
-	                <li> <a href="../../views/admin/dashboard.php"> Products </a> </li>
-	                <li> <a href="../../views/admin/account.php"> My Account </a> </li>
+	                <li> <a href="../../views/admin/dashboard.php?token=<?php echo $token ?>"> Dashboard </a> </li>
+	                <li> <a href="../../views/admin/account.php?token=<?php echo $token ?>"> My Account </a> </li>
 	                <li> <a href="../../database/logout.php"> Logout </a> </li>
 	            </ul>
 	        </div>
@@ -38,7 +32,7 @@
 	                <li> 
 		                <form action="../../database/search_shoes_admin.php" method="POST" class="navbar-form" role="search">
 			                <div class="input-group" style="margin-left: 0px">
-			    	            <input type="text" class="form-control" placeholder="Search" name="search-product">
+			    	            <input type="text" class="form-control" placeholder="Search" name="search-product" required>
 		                        <div class="input-group-btn">
 		                            <button class="btn btn-primary" type="submit" style="margin-top: 0px">
 		                            <i class="glyphicon glyphicon-search"></i>

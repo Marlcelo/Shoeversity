@@ -4,6 +4,7 @@ if(!isset($_SESSION)) {
 	session_start();
 	require 'activity_check.php';
 }
+$token = $_SESSION['sessionToken'];
 
 # GET INPUT FROM SEARCH BAR
 $search = $_POST['search-product'];
@@ -17,7 +18,7 @@ $_SESSION['grid_search_results'] = $search_msg;
 $_SESSION['grid_applied_filters'] = '';
 
 # Redirect back to display.php to display filtered results
-header("Location: ../views/admin/dashboard.php");
+header("Location: ../views/admin/dashboard.php?token=$token");
 exit();
 
 ?>
