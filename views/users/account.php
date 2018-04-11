@@ -52,9 +52,9 @@
 	<?php include "../../templates/users/user_header.php";
             include "../../database/user_get_purchases.php"; ?>
 	
-    <div class="content-wrapper ">
+    <div class="content-wrapper">
         <div class="container ">
-                <div class="col-md-4 text-center">
+                <div class="col-md-2 text-center">
                     <img class="img-circle" src="../IMAGES/USERS/dp.jpg" width="160px" alt="profilepic">
                     <br><br><br>
                     <label for="uname">Username: </label>
@@ -82,44 +82,43 @@
                     
                     <hr>
                 </div>
-                <div class="col-md-8">
-                    <div class="container">
-             <div class="col-md-12" style=" min-height: 350px;">
-                  <h1 class='text-center'>Purchases History</h1>
-                  <br>
-                  <table id="users" class="table table-striped table-bordered table-hover" style="width:100%;">
-                    <thead style="background: #eee">
-                        <tr>
-                            <th>Item</th>
-                            <th>Brand</th>
-                            <th>Size</th>
-                            <th>Category</th>
-                            <th>Price</th>
-                            <th>Color</th>
-                            <th>Date of Purchase</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                      foreach ($purchased as $shoe) {
-                        $timeStamp = strtotime($shoe['time_stamp']);
-                        $date = gmdate("m/d/Y", $timeStamp);
-                       echo "<tr>
-                            <td>".$shoe['name']."</td>
-                            <td>".$shoe['brand_name']."</td>
-                            <td>".$shoe['size']."</td>
-                            <td>".$shoe['category']."</td>
-                            <td>".$shoe['price']."</td>
-                            <td>".$shoe['color']."</td>
-                            <td>".$date."</td> 
-                        </tr>";
-                      }
+                <div class="col-md-10">
+                    
+                      <h1 class='text-center'>Purchases History</h1>
+                      <br>
+                      <table id="users" class="table table-striped table-bordered table-hover" style="width:100%;">
+                        <thead style="background: #eee">
+                            <tr>
+                                <th>Item</th>
+                                <th>Brand</th>
+                                <th>Size</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Color</th>
+                                <th>Date of Purchase</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <?php
+                          foreach ($purchased as $shoe) {
+                            $timeStamp = strtotime($shoe['time_stamp']);
+                            $date = gmdate("m/d/Y", $timeStamp);
+                           echo "<tr>
+                                <td>".$shoe['name']."</td>
+                                <td>".$shoe['brand_name']."</td>
+                                <td>".$shoe['size']."</td>
+                                <td>".$shoe['category']."</td>
+                                <td>".$shoe['price']."</td>
+                                <td>".$shoe['color']."</td>
+                                <td>".$date."</td> 
+                            </tr>";
+                          }
 
-                      // while ( <= 10) {
-                      //   echo "string";
-                      // }
-                        ?>
-                    </tbody>
+                          // while ( <= 10) {
+                          //   echo "string";
+                          // }
+                            ?>
+                        </tbody>
                   <!--   <tfoot>
                         <tr>
                             <th>Username</th>
@@ -131,11 +130,11 @@
                     </tfoot> -->
                 </table>
                              
+                          
             </div>              
-        </div>
-                </div>              
-        </div>
-	</div>
+       
+	   </div>
+    </div>
 
     <!-- BEGIN FOOTER -->
     <?php require "../../templates/users/user_footer.php"; ?>
