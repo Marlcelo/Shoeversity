@@ -13,7 +13,7 @@ if(isset($_POST['registerBrand'])){
 		$uname = trim($uname);
 		$email = trim($email);
 
-		if (strlen($pass) < 8 || strlen($uname) < 8 || (!preg_match("#[0-9]+#", $uname) &&  !preg_match("#[a-zA-Z]+#", $uname) && !preg_match("#[0-9]+#", $pass) && !preg_match("#[a-zA-Z]+#", $pass) && !preg_match("#[!,%,&,@,#,$,^,*,?,_,~,.]+#", $pass))) {
+		if (strlen($pass) < 8 || strlen($uname) < 8 || (!preg_match("#[0-9]+#", $uname) ||  !preg_match("#[a-zA-Z]+#", $uname) || !preg_match("#[0-9]+#", $pass) || !preg_match("#[a-zA-Z]+#", $pass) || !preg_match("#\W+#", $pass))) {
 	    	$error_msg .= "Invalid format! Try again!.";
 	    	$_SESSION['error_msg'] = $error_msg;
 			$error_path = "../views/register.php?register=" . md5('failed');
