@@ -24,14 +24,14 @@ echo "color: " . $color . "<br>";
 if(!empty($priceFrom) && $priceFrom != '') {
 	if(empty($priceTo) || $priceTo == '' || $priceTo < $priceFrom) {
 		$_SESSION['error_msg'] = "Invalid price range in filter";
-		header("Location: ../views/users/products.php?error=" . md5('filter'));
+		header("Location: ../views/users/products.php?error=" . md5('filter')."&token=" . $_SESSION['sessionToken']);
 		exit();
 	}
 }
 else if(!empty($priceTo) && $priceTo != '') {
 	if(empty($priceFrom) || $priceFrom == '') {
 		$_SESSION['error_msg'] = "Invalid price range in filter";
-		header("Location: ../views/users/products.php?error=" . md5('filter'));
+		header("Location: ../views/users/products.php?error=" . md5('filter')."&token=" . $_SESSION['sessionToken']);
 		exit();
 	}
 }
@@ -161,7 +161,7 @@ $_SESSION['grid_sql'] = $filtered_sql;
 $_SESSION['grid_applied_filters'] = $filter_msg;
 
 # Redirect back to products.php to display filtered results
-header("Location: ../views/users/products.php");
+header("Location: ../views/users/products.php?token=".$_SESSION['sessionToken']);
 exit();
 
 // echo $filtered_sql;

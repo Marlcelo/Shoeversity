@@ -81,6 +81,10 @@
         </div>
 	</div>
 
+    <!-- BEGIN FOOTER -->
+    <?php require "../../templates/users/user_footer.php"; ?>
+    <!-- .END FOOTER -->
+    
 	<!-- Include Javascript files -->
     <!-- <script src="../../js/smooth-scroll.js"></script> -->
     <script src="../../js/shopping-cart.js"></script>

@@ -72,7 +72,7 @@
     			<div class="container-fliud">
     				<div class="wrapper row">
     					<div class="preview col-md-6">
-                            <a href="index.php#products-list"><button class="btn btn-md btn-info pull-left" style="width:30%;">< Back</button></a>
+                            <a href="products.php?token=<?php echo $_SESSION['sessionToken'] ?>"><button class="btn btn-md btn-info pull-left" style="width:30%;">< Back</button></a>
                             <img src="<?php echo "../".$photo; ?>"/>
     					</div>
                         <div class="details col-md-6">

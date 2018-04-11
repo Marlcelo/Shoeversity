@@ -6,6 +6,8 @@
 		session_start();
 	}
 
+	$token = $_SESSION['sessionToken'];
+
 	if(isset($_SESSION['cart'])) {
 		$cartSize = sizeof($_SESSION['cart']);
 	}
@@ -35,7 +37,7 @@
 		<?php else: ?>
 			<div class="pre-scrollable" style="max-height: 60vh; padding-right: 0px; margin-bottom: 10px">
 				<?php foreach($_SESSION['cart'] as $itemID): ?>
-					<div class="col-md-12" style="cursor:pointer; background: #eee; padding: 7px; margin: 10px 0px"							 	onclick="window.location.href='<?php echo $productURL.$itemID; ?>'">
+					<div class="col-md-12" style="cursor:pointer; background: #eee; padding: 7px; margin: 10px 0px"							 	onclick="window.location.href='<?php echo $productURL.$itemID."&token=".$token; ?>'">
 
 						<?php include "../../database/user_cart_item.php"; ?>
 
@@ -47,7 +49,7 @@
 							<h5 class="text-info"><span>&#8369; <?php echo $shoePrice; ?></span></h5>
 						</div>
 						<div style="margin-left: 3px; position: absolute; top: -12px; right: 10px;">
-							<a class="link" style="font-size: 35px" onclick="removeProduct(<?php echo $itemNo ?>)">
+							<a class="link" style="font-size: 35px" onclick="removeProduct(<?php echo $itemNo.",'".$token."'" ?>)">
 								&times;
 							</a>
 						</div>
@@ -64,7 +66,7 @@
 				Grand Total: &nbsp; &#8369; <?php echo $totalPrice; ?>
 			</h3>
 
-			<button type="submit" class="btn btn-success pull-right" onclick="openCartModal();">
+			<button type="submit" class="btn btn-success pull-right" onclick="openCartModal(<?php echo "'".$token."'" ?>);">
 				<strong>Check out</strong>
 			</button>
 		<?php endif; ?>

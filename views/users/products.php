@@ -26,6 +26,9 @@
                 })
                 </script>";
         }
+        else {
+            $token = $_SESSION['sessionToken'];
+        }
 
         //IMPORTANT! : for displaying the query results in the grid
         if(isset($_SESSION['grid_sql']))
@@ -44,7 +47,7 @@
                 echo "<script> 
                         $('#error_modal').modal('show');
                         $('#error_modal').on('hidden.bs.modal', function () { 
-                            window.location = 'products.php';
+                            window.location = 'products.php?token=".$token."';
                         })
                     </script>";
             }
@@ -56,7 +59,7 @@
                 echo "<script> 
                         $('#success_modal').modal('show');
                         $('#success_modal').on('hidden.bs.modal', function () { 
-                            window.location = 'products.php';
+                            window.location = 'products.php?token=".$token."';
                         })
                     </script>";
             }else if($_GET['result'] == md5('failed')) {
@@ -65,7 +68,7 @@
                 echo "<script> 
                         $('#error_modal').modal('show');
                         $('#error_modal').on('hidden.bs.modal', function () { 
-                            window.location = 'products.php';
+                            window.location = 'products.php?token=".$token."';
                         })
                     </script>";
             }
