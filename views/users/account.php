@@ -15,7 +15,9 @@
         $_SESSION['active_page'] = "account";
 
         // CSRF Token
-        if(!isset($_GET['token']) || $_GET['token'] != $_SESSION['sessionToken']) {
+        if(!isset($_GET['token']) || 
+           !isset($_SESSION['sessionToken']) ||
+           (isset($_SESSION['sessionToken']) && $_GET['token'] != $_SESSION['sessionToken'])) {
             include '../modals/restricted_access.php';
     
             echo "<script> 
