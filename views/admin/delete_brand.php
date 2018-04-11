@@ -17,6 +17,23 @@
         $_SESSION['active_page'] = "dashboard";
         $_SESSION['admin_fxn'] = "delete_brand";
 
+         // CSRF Token
+        if(!isset($_GET['token']) || 
+           !isset($_SESSION['sessionToken']) ||
+           (isset($_SESSION['sessionToken']) && $_GET['token'] != $_SESSION['sessionToken'])) {
+            include '../modals/restricted_access.php';
+    
+            echo "<script> 
+                window.stop();
+                $('#restricted_access').modal('show');
+                $('#restricted_access').on('hidden.bs.modal', function () { //go back to prev page
+                   window.history.back();
+                })
+                </script>";
+        }
+        else {
+            $token = $_SESSION['sessionToken'];
+        }
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
@@ -29,9 +46,32 @@
             echo "<script> 
             $('#warning_modal').modal('show');
             $('#warning_modal').on('hidden.bs.modal', function () { 
-               window.location = 'delete_brand.php';
+               window.location = 'delete_brand.php?token=$token';
            })
            </script>";
+        }
+
+        if(isset($_GET['delete'])) {
+            if($_GET['delete'] == md5('success')) {
+                include '../modals/success.php';
+            
+                echo "<script> 
+                    $('#success_modal').modal('show');
+                    $('#success_modal').on('hidden.bs.modal', function () { 
+                       window.location = 'delete_admin.php?token=$token';
+                   })
+                   </script>";
+            }
+            else if($_GET['delete'] == md5('failed')) { 
+                include '../modals/error.php';
+            
+                echo "<script> 
+                    $('#error_modal').modal('show');
+                    $('#error_modal').on('hidden.bs.modal', function () { 
+                       window.location = 'delete_admin.php?token=$token';
+                   })
+                   </script>";
+            }
         }
     ?>
 
@@ -52,7 +92,7 @@
     
     <div class="container main">
         <div class="col-md" style="min-height: 350px; padding-right: 25px;">
-                <h1 class="text-center">Delete a Brand</h1>
+                <h1 class="text-center">Delete a Brand Account</h1>
                 <br>
                 <table id="brands" class="table table-striped table-bordered table-hover" style="width:100%;">
                 	<thead style="background: #eee">
@@ -66,13 +106,16 @@
                 	<tbody>
                 		<?php
                 		foreach ($brands as $brand) {
+                            $deleteLoc = "window.location.href=".'"'."delete_brand.php?deletebrand=".$brand['uid']. "&token=$token" . '"';
+
                 			echo "<tr>
-                			<form method='GET'>
                 			<td>".$brand['b_username']."</td>
                 			<td>".$brand['brand_name']."</td>
                 			<td>".$brand['b_email']."</td>
-                			<td class='text-center'><button type='submit' class='btn btn-success btn-md' name='deletebrand' value=".$brand['uid']." >Delete Brand</button></td>
-                			</form>  
+                			<td class='text-center'>
+                                <button type='button' class='btn btn-danger btn-md' onclick='".$deleteLoc."'>Delete
+                                </button>
+                            </td> 
                 			</tr>";
                 		}
 

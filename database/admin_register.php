@@ -3,6 +3,8 @@
 	if(isset($_POST['registerAdmin'])){
 		session_start();
 
+		$token = $_SESSION['sessionToken'];
+
 		$pass = $_POST['pword'];
 		$cpass = $_POST['confirmpword'];
 
@@ -161,13 +163,13 @@
 	//********************************************************
 				$_SESSION['success_msg'] = "A new admin account for ".$uname." has just been created!";
 
-				$success_path = "../views/admin/register_admin.php?register=" . md5('success');
+				$success_path = "../views/admin/register_admin.php?register=" .md5('success')."&token=$token";
 				header("Location: $success_path");
 		} // unique email/username
 	}else{// pass not same as cpass
 		$error_msg .= "Your passwords do not match! Please try again.";
 		$_SESSION['error_msg'] = $error_msg;
-		$error_path = "admin_register.php?register=" . md5('failed');
+		$error_path = "admin_register.php?register=" . md5('failed')."&token=$token";
 		header("Location: $error_path");
 		exit();
 	}

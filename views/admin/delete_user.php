@@ -30,6 +30,9 @@
                 })
                 </script>";
         }
+        else {
+            $token = $_SESSION['sessionToken'];
+        }
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
@@ -43,9 +46,32 @@
             echo "<script> 
             $('#warning_modal').modal('show');
             $('#warning_modal').on('hidden.bs.modal', function () { 
-               window.location = 'delete_user.php';
+               window.location = 'delete_user.php?token=$token';
            })
            </script>";
+        }
+
+        if(isset($_GET['delete'])) {
+            if($_GET['delete'] == md5('success')) {
+                include '../modals/success.php';
+            
+                echo "<script> 
+                    $('#success_modal').modal('show');
+                    $('#success_modal').on('hidden.bs.modal', function () { 
+                       window.location = 'delete_user.php?token=$token';
+                   })
+                   </script>";
+            }
+            else if($_GET['delete'] == md5('failed')) { 
+                include '../modals/error.php';
+            
+                echo "<script> 
+                    $('#error_modal').modal('show');
+                    $('#error_modal').on('hidden.bs.modal', function () { 
+                       window.location = 'delete_user.php?token=$token';
+                   })
+                   </script>";
+            }
         }
     ?>
 
@@ -81,14 +107,17 @@
                     <tbody>
                       <?php
                       foreach ($users as $user) {
+                        $deleteLoc = "window.location.href=".'"'."delete_user.php?deleteuser=".$user['uid']. "&token=$token" . '"';
+
                        echo "<tr>
-                            <form method='GET'>
                             <td>".$user['u_username']."</td>
                             <td>".$user['uName']."</td>
                             <td>".$user['u_email']."</td>
                             <td>".$user['u_gender']."</td>
-                            <td class='text-center'><button type='submit' class='btn btn-danger btn-md' name='deleteuser' value='".$user['uid']."'>Delete</button></td>
-                          </form>  
+                            <td class='text-center'>
+                              <button type='button' class='btn btn-danger btn-md' onclick='".$deleteLoc."'>Delete
+                                </button>
+                            </td>
                         </tr>";
                       }
 

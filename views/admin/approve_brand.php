@@ -31,6 +31,9 @@
                 })
                 </script>";
         }
+        else {
+            $token = $_SESSION['sessionToken'];
+        }
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
@@ -43,7 +46,7 @@
             echo "<script> 
             $('#warning_modal').modal('show');
             $('#warning_modal').on('hidden.bs.modal', function () { 
-               window.location = 'approve_brand.php';
+               window.location = 'approve_brand.php?token=".$token."';
            })
            </script>";
         }
@@ -56,9 +59,32 @@
             echo "<script> 
             $('#warning_modal').modal('show');
             $('#warning_modal').on('hidden.bs.modal', function () { 
-               window.location = 'approve_brand.php';
+               window.location = 'approve_brand.php?token=".$token."';
            })
            </script>";
+        }
+
+        if(isset($_GET['approved'])) {
+            if($_GET['approved'] == md5('success')) {
+                include '../modals/success.php';
+            
+                echo "<script> 
+                    $('#success_modal').modal('show');
+                    $('#success_modal').on('hidden.bs.modal', function () { 
+                       window.location = 'approve_brand.php?token=$token';
+                   })
+                   </script>";
+            }
+            else if($_GET['approved'] == md5('failed')) { 
+                include '../modals/error.php';
+            
+                echo "<script> 
+                    $('#error_modal').modal('show');
+                    $('#error_modal').on('hidden.bs.modal', function () { 
+                       window.location = 'approve_brand.php?token=$token';
+                   })
+                   </script>";
+            }
         }
 
     ?>
@@ -94,13 +120,19 @@
                 	<tbody>
                 		<?php
                 		foreach ($brands as $brand) {
+                            $approveLoc = "window.location.href=".'"'."approve_brand.php?approvebrand=".$brand['uid']. "&token=$token" . '"';
+                            $deleteLoc = "window.location.href=".'"'."approve_brand.php?deletebrand=".$brand['uid']. "&token=$token" . '"';
+
                 			echo "<tr>
-                			<form method='GET'>
                 			<td>".$brand['b_username']."</td>
                 			<td>".$brand['brand_name']."</td>
                 			<td>".$brand['b_email']."</td>
-                			<td class='text-center'><button type='submit' class='btn btn-success btn-md' name='approvebrand' value=".$brand['uid']." >Approve Brand</button>   <button type='submit' class='btn btn-danger btn-md' name='deletebrand' value=".$brand['uid']." >Delete Brand</button></td>
-                			</form>  
+                			<td class='text-center'>
+                                <button type='button' class='btn btn-success btn-md' onclick='".$approveLoc."'>Approve Brand
+                                </button>   
+                                <button type='button' class='btn btn-danger btn-md' onclick='".$deleteLoc."'>Delete Brand
+                                </button>
+                            </td>
                 			</tr>";
                 		}
 
