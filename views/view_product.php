@@ -54,6 +54,18 @@
                 }
             }
 
+            if(isset($_GET['brandinfo'])){
+                include "modals/brand_info.php";
+
+                echo "<script> 
+                            $('#brand_info_modal').modal('show');
+                            $('#brand_info_modal').on('hidden.bs.modal', function () {
+                                window.history.back();
+                            })
+                        </script>";
+
+            }
+
             $redirectError = md5('login');
         ?>
 
@@ -76,20 +88,10 @@
     					</div>
     					<div class="details col-md-6">
                             <h3 class="price"><?php echo $shoe[0]; ?></h3><br>
-    						<!-- <div class="rating">
-    							<div class="stars">
-    								<span class="fa fa-star-o" data-rating="1"></span>
-                                    <span class="fa fa-star-o" data-rating="2"></span>
-                                    <span class="fa fa-star-o" data-rating="3"></span>
-                                    <span class="fa fa-star-o" data-rating="4"></span>
-                                    <span class="fa fa-star-o" data-rating="5"></span>
-    							</div>
-    							<span class="review-no">41 reviews</span>
-    						</div>     -->
                             <div class="row">
                                 <div class="col-md-6">
                                     <h4>Posted by:
-                                        <span> <?php echo $shoe[6]; ?> </span>
+                                        <span><a href = "view_product.php?pid=<?php echo $product; ?>&brandinfo=<?php echo $product; ?>"> <?php echo $shoe[6]; ?> </span></a>
                                     </h4>
                                 </div>
                                 <div class="col-md-6">
