@@ -70,7 +70,7 @@
 	<!-- Include sidebar -->
     <?php include "../../templates/admin/admin_sidebar.php"; ?>
     
-        <div class="container text-center">
+        <div class="container text-center main">
                 <div class="col-md" style="min-height: 350px;">
                     <h1>Create an admin account</h1> 
                     <div class="content">
@@ -78,15 +78,15 @@
                                 <form class="form-horizontal" name="register_user" id="register" action="../../database/admin_register.php" method="POST">
                                     <div class="input-group">
                                              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                           <input type="text" class="form-control" name="uname" placeholder="Username" required>
+                                           <input type="text" class="form-control" name="uname" placeholder="Username" pattern="[A-Za-z0-9].{8,30}" title="Must be atleast 8 to 30 characters with characters and numbers ONLY" required>
                                     </div><br>
                                    <div class="input-group">
                                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                           <input type="password" class="form-control" name="pword" id="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>                    
+                                           <input type="password" class="form-control" name="pword" id="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!,%,&,@,#,$,^,*,?,_,~,.]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>                    
                                    </div><span id="result"></span><br>
                                    <div class="input-group">
                                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                                           <input type="password" class="form-control" name="confirmpword" placeholder="Confirm Password" required>
+                                           <input type="password" class="form-control" name="confirmpword" placeholder="Confirm Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!,%,&,@,#,$,^,*,?,_,~,.]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                                    </div><br>
                                    <div class="input-group">
                                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></i></span>
@@ -94,15 +94,15 @@
                                     </div><br>
                                    <div class="input-group">
                                            <span class="input-group-addon">First name</span>
-                                           <input type="text" class="form-control" name="fname" placeholder="Mary Jane" required>
+                                           <input type="text" class="form-control" name="fname" placeholder="Mary Jane"  pattern="(?=.*[a-z])(?=.*[A-Z]){1,35}" title="Must not have any special characters or numbers" maxlength="35" required>
                                     </div><br>
                                     <div class="input-group">
                                              <span class="input-group-addon">Middle name</span>
-                                             <input type="text" class="form-control" name="mname" placeholder="Terrence" required>
+                                             <input type="text" class="form-control" name="mname" placeholder="Terrence"  pattern="(?=.*[a-z])(?=.*[A-Z]){1,35}" title="Must not have any special characters or numbers" maxlength="35" required>
                                     </div><br>
                                      <div class="input-group">
                                               <span class="input-group-addon">Last name</span>
-                                              <input type="text" class="form-control" name="lname" placeholder="Doe" required>
+                                              <input type="text" class="form-control" name="lname" placeholder="Doe"  pattern="(?=.*[a-z])(?=.*[A-Z]){1,35}" title="Must not have any special characters or numbers" maxlength="35" required>
                                     </div><br>
                                     <div class="radio">
                                             <label><input type="radio" name="gender" value="m" checked>Male</label>

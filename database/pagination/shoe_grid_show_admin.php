@@ -87,9 +87,14 @@ while($row = mysqli_fetch_assoc($result)) {
 	if($colCounter % 3 == 0) $output .= "<div class='row'>";
 
 	$output .= '<div class="col-sm-4" style="cursor: pointer;">';
-	$output .= '<span class="thumbnail" style="min-height: 0px" onclick="location.href='."'view_product.php?pid=".$row['uid']."';".'">';
-	
+	$output .= '<span class="thumbnail" style="min-height: 0px;  min-height: 460px" onclick="location.href='."'../../views/admin/view_product.php?pid=".$row['uid']."';".'">';
+	$output .='<!-- DELETE PRODUCT -->
+                        <div class="col-md-12 col-sm-1">
+                            <a href="dashboard.php?delete='.$row['uid'].'"><button class="btn btn-md btn-info pull-right" ><i class="glyphicon glyphicon-remove"></i></button></a>
+                        </div> ';
 	$output .= '<img src="../'.$row['photo_url'].'" alt="..." width="100%">';
+
+	
 	// $output .= '<div class="ratings">
 	//                 <span class="glyphicon glyphicon-star"></span>
 	//                 <span class="glyphicon glyphicon-star"></span>

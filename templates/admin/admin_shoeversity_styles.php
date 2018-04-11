@@ -10,6 +10,7 @@
 <link rel="stylesheet" type="text/css" href="../../css/main.css">
 <link rel="stylesheet" type="text/css" href="../../css/public.css">
 <!-- <link rel="stylesheet" type="text/css" href="../../css/sidebar.css"> -->
+<link rel="stylesheet" type="text/css" href="../../css/notifs.css">
 <style type="text/css">
 .sidenav {
     height: 100vh;
@@ -32,10 +33,6 @@
 
 .main {
     margin-left: 207px; /* Same as the width of the sidenav */
-}
-
-body {
-	margin-left: 207px;
 }
 
 @media screen and (max-height: 450px) {

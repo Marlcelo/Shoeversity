@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Shoeversity</title>
-
+    <link type="text/css" rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
     <?php
         // Include Bootstrap and main styles 
         include "../../templates/users/user_bs_styles.php";
@@ -41,14 +41,20 @@
     ?>
     
     <link rel="stylesheet" type="text/css" href="../../css/shopping-cart-sidebar.css">
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#users').DataTable();
+      } );
+    </script>
 </head>
 <body>
 	<!-- Include header -->
-	<?php include "../../templates/users/user_header.php"; ?>
+	<?php include "../../templates/users/user_header.php";
+            include "../../database/user_get_purchases.php"; ?>
 	
     <div class="content-wrapper ">
-        <div class="container text-center">
-                <div class="col-md-4">
+        <div class="container ">
+                <div class="col-md-4 text-center">
                     <img class="img-circle" src="../IMAGES/USERS/dp.jpg" width="160px" alt="profilepic">
                     <br><br><br>
                     <label for="uname">Username: </label>
@@ -77,8 +83,56 @@
                     <hr>
                 </div>
                 <div class="col-md-8">
-                    <h2>Recent Purchases</h2><hr>
-                    
+                    <div class="container">
+             <div class="col-md-12" style=" min-height: 350px;">
+                  <h1 class='text-center'>Purchases History</h1>
+                  <br>
+                  <table id="users" class="table table-striped table-bordered table-hover" style="width:100%;">
+                    <thead style="background: #eee">
+                        <tr>
+                            <th>Item</th>
+                            <th>Brand</th>
+                            <th>Size</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Color</th>
+                            <th>Date of Purchase</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <?php
+                      foreach ($purchased as $shoe) {
+                        $timeStamp = strtotime($shoe['time_stamp']);
+                        $date = gmdate("m/d/Y", $timeStamp);
+                       echo "<tr>
+                            <td>".$shoe['name']."</td>
+                            <td>".$shoe['brand_name']."</td>
+                            <td>".$shoe['size']."</td>
+                            <td>".$shoe['category']."</td>
+                            <td>".$shoe['price']."</td>
+                            <td>".$shoe['color']."</td>
+                            <td>".$date."</td> 
+                        </tr>";
+                      }
+
+                      // while ( <= 10) {
+                      //   echo "string";
+                      // }
+                        ?>
+                    </tbody>
+                  <!--   <tfoot>
+                        <tr>
+                            <th>Username</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Gender</th>
+                            <th>Delete</th>
+                        </tr>
+                    </tfoot> -->
+                </table>
+                             
+            </div>              
+        </div>
                 </div>              
         </div>
 	</div>
@@ -90,5 +144,8 @@
 	<!-- Include Javascript files -->
     <!-- <script src="../../js/smooth-scroll.js"></script> -->
     <script src="../../js/shopping-cart.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
 </body>
 </html>

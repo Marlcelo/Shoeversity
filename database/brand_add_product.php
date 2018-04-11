@@ -17,6 +17,25 @@ $size        = $_POST['size'];
 $color       = $_POST['color'];
 $price       = $_POST['price'];
 $imgpath     = $_FILES["imgpath"]["name"];
+
+$name			= trim($name);
+$description	= trim($description);
+$type			= trim($type);
+$category		= trim($category);
+$size			= trim($size);
+$color			= trim($color);
+$price			= trim($price);
+$imgpath		= trim($imgpath);
+
+$name			= filter_var($name,FILTER_SANITIZE_STRING);
+$description	= filter_var($description,FILTER_SANITIZE_STRING);
+$type			= filter_var($type,FILTER_SANITIZE_STRING);
+$category		= filter_var($category,FILTER_SANITIZE_STRING);
+$size			= filter_var($size,FILTER_SANITIZE_NUMBER_INT);
+$color			= filter_var($color,FILTER_SANITIZE_STRING);
+$price			= filter_var($price,FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION,FILTER_FLAG_ALLOW_THOUSAND);
+$imgpath		= filter_var($imgpath,FILTER_SANITIZE_STRING);
+
 mysqli_close($conn);
 
 $error_msg = '';

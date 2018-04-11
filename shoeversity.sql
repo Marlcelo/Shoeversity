@@ -29,6 +29,13 @@ DELIMITER $$
 --
 -- Procedures
 --
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_PURCHASED` (`userId` INT)  BEGIN
+  IF EXISTS (SELECT * FROM users WHERE uid = userId)then
+    SELECT s.name,brand_name,size, category, price, color, p.time_stamp
+        FROM shoes s, brands b, purchases p
+        WHERE purchased_by = userId AND item = s.uid AND posted_by = b.uid;
+  END IF;
+END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_PURCHASE` (`purchaser` INT, `itemBought` INT)  BEGIN
   declare str_return varchar(10);
@@ -88,6 +95,19 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_DELETE_ADMIN` (`adminId` INT(11)
     SELECT str_return result;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_DELETE_BRAND` (`brandId` INT(11))  BEGIN
+  declare str_return varchar(10);
+    
+    IF !EXISTS(SELECT * FROM brands WHERE uid LIKE brandId) THEN
+    SET str_return = "FAIL";
+  ELSE 
+    DELETE FROM brands WHERE uid = brandId;
+        SET str_return = "SUCCESS";
+  END IF;
+    
+    SELECT str_return result;
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_DEL_SHOE`(shoeiD int)
 BEGIN
   DECLARE strreturn varchar(10);
@@ -120,6 +140,11 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_ADMIN` (`uname` VARCHAR(50),
   END IF;
     
     SELECT str_return result;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ALL_BRANDS` ()  BEGIN
+  declare strreturn varchar(10);
+  SELECT * FROM brands WHERE b_verified = 1;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ALL_BRANDSUV` ()  BEGIN
@@ -256,6 +281,26 @@ BEGIN
   SELECT *
   FROM brands
   WHERE uid = brandID;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_BRAND_PROFILE`(brandID int)
+BEGIN
+  SELECT *
+  FROM brands, brand_contact_number, brand_link, brand_location
+  WHERE brands.uid = brandID AND brand_location.brand_id = brandID;
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_BRAND_CONTACTS`(brandID int)
+BEGIN
+  SELECT *
+  FROM brand_contact_number
+  WHERE brand_contact_number.brand_id = brandID;
+END$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_BRAND_LINKS`(brandID int)
+BEGIN
+  SELECT *
+  FROM brand_link
+  WHERE brand_link.brand_id = brandID;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_SHOE_FROM`(intBrandID int)

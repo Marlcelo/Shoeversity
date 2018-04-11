@@ -13,6 +13,22 @@ $category 	= $_POST['category'];
 $size 		= $_POST['size'];
 $color 		= $_POST['color'];
 
+$brand 		= trim($brand);
+$priceFrom	= trim($priceFrom);
+$priceTo 	= trim($priceTo );
+$type 		= trim($type);
+$category 	= trim($category);
+$size 		= trim($size);
+$color 		= trim($color);
+
+$brand 		= filter_var($brand, FILTER_SANITIZE_STRING);
+$priceFrom 	= filter_var($priceFrom, FILTER_SANITIZE_NUMBER_FLOAT);
+$priceTo  	= filter_var($priceTo , FILTER_SANITIZE_NUMBER_FLOAT);
+$type 		= filter_var($type, FILTER_SANITIZE_STRING);
+$category 	= filter_var($category, FILTER_SANITIZE_STRING);
+$size 		= filter_var($size, FILTER_SANITIZE_NUMBER_INT);
+$color 		= filter_var($color, FILTER_SANITIZE_STRING);
+
 echo "brand: " . $brand . "<br>";
 echo "price: " . $priceFrom . " - " . $priceTo . "<br>";
 echo "type: " . $type . "<br>";

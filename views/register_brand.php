@@ -18,14 +18,14 @@
 		<div class="col-md-6">	
 			<div class="input-group">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-				<input type="password" id="password1" class="form-control" name="pword" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+				<input type="password" id="password1" class="form-control" name="pword" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!,%,&,@,#,$,^,*,?,_,~,.]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
 			</div>
 			<span id="result1"></span>
 		</div>
 		<div class="col-md-6">	
 			<div class="input-group">
 				<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-				<input type="password" class="form-control" name="confirmpword" placeholder="Confirm Password" required>
+				<input type="password" class="form-control" name="confirmpword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!,%,&,@,#,$,^,*,?,_,~,.]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Confirm Password" required>
 			</div><br>
 		</div>
 	</div>
@@ -38,7 +38,7 @@
 	<div id ="contacts">
 		<div class="input-group" id="contactNumbers1">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-			<input type="text" class="form-control" name="number1" placeholder="Contact Number" required>
+			<input type="text" class="form-control" name="number1" pattern="[0-9]{3,4}[-][0-9]{3}[-][0-9]{4}" title="Format: XXXX-XXX-XXXX" placeholder="Contact Number" required>
 		</div>
 	</div>
 	<div class="input-group">
@@ -49,7 +49,7 @@
 	<div id="locations">
 		<div class="input-group" id="location1">
 			<span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-			<input type="text" class="form-control" name="location1" placeholder="Location" required>
+			<input type="text" pattern="[A-Za-z0-9].{1,100}" class="form-control" name="location1" placeholder="Location" required>
 		</div>
 	</div>
 	<div class="input-group">

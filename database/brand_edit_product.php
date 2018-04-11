@@ -20,6 +20,30 @@ $imgpath     = $_FILES["imgpath"]["name"];
 $imgpathOld  = $_SESSION['shoeImg'];
 mysqli_close($conn);
 
+$brandID     = trim($brandID);		// brand ID of logged in brand
+$shoeID 	 = trim($shoeID);		// shoe ID of the shoe being edited
+$name        = trim($name);
+$description = trim($description);
+$type        = trim($type);
+$category    = trim($category);
+$size        = trim($size);
+$color       = trim($color);
+$price       = trim($price);
+$imgpath     = trim($imgpath);
+$imgpathOld  = trim($imgpathOld);
+
+$brandID 		= filter_var($brandID,FILTER_SANITIZE_NUMBER_INT);
+$shoeID 		= filter_var($shoeID,FILTER_SANITIZE_STRING);
+$name 			= filter_var($name,FILTER_SANITIZE_STRING);
+$description 	= filter_var($description,FILTER_SANITIZE_STRING);
+$type 			= filter_var($type,FILTER_SANITIZE_STRING);
+$category 		= filter_var($category,FILTER_SANITIZE_STRING);
+$size 			= filter_var($size,FILTER_SANITIZE_NUMBER_INT);
+$color 			= filter_var($color,FILTER_SANITIZE_STRING);
+$price 			= filter_var($price,FILTER_SANITIZE_NUMBER_FLOAT,FILTER_FLAG_ALLOW_FRACTION,FILTER_FLAG_ALLOW_THOUSAND);
+$imgpath 		= filter_var($imgpath,FILTER_SANITIZE_STRING);
+$imgpathOld 	= filter_var($imgpathOld,FILTER_SANITIZE_STRING);
+
 $error_msg = '';
 
 /********** GET BRAND NAME **********/

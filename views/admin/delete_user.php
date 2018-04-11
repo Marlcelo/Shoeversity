@@ -64,8 +64,8 @@
     <!-- Include sidebar -->
     <?php include "../../templates/admin/admin_sidebar.php"; ?>
     
-        <div class="container">
-             <div class="col-md-12" style=" min-height: 350px;">
+        <div class="container main">
+             <div class="col-md" style=" min-height: 350px; padding-right: 25px;">
                   <h1 class='text-center'>Delete a User Account</h1>
                   <br>
                   <table id="users" class="table table-striped table-bordered table-hover" style="width:100%;">

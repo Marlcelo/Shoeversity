@@ -40,6 +40,43 @@
             $gridSQL = $_SESSION['grid_sql'];
         else
             $gridSQL = "SELECT * FROM shoes";
+
+         // Check if delete product request was issued
+        if(isset($_GET['delete'])) {
+           if($_GET['delete'] == 'success') {
+                include '../modals/success.php';
+
+                echo "<script> 
+                        $('#success_modal').modal('show');
+                        $('#success_modal').on('hidden.bs.modal', function () { 
+                             window.location = 'dashboard.php';
+                        })
+                      </script>";
+           }
+           else if($_GET['delete'] == 'error') {
+                include '../modals/error.php';
+
+                echo "<script> 
+                        $('#error_modal').modal('show');
+                        $('#error_modal').on('hidden.bs.modal', function () { 
+                             window.location = 'dashboard.php';
+                        })
+                      </script>";
+           }
+           else {
+                $_SESSION['warning_msg'] = "Are you sure you want to delete this product?";
+                $_SESSION['target_page'] = "../../database/admin_delete_product.php?id=" . $_GET['delete'];
+                include '../modals/warning.php';
+
+                echo "<script> 
+                        $('#warning_modal').modal('show');
+                        $('#warning_modal').on('hidden.bs.modal', function () { 
+                             window.location = 'dashboard.php';
+                        })
+                      </script>";
+           }
+        }
+
     ?>
 </head>
 <body>
@@ -53,7 +90,7 @@
     <h1 class="text-center">Shoeversity Products Grid</h1>
     <br>
     <!-- BEGIN PRODUCTS GRID -->
-    <div class="container" style="margin-top: 30px; padding-top: 0px" id="products-list">
+    <div class="container main" style="margin-top: 30px; padding-top: 0px;padding-right: 45px;" id="products-list">
     </div>
     <!-- .END PRODUCTS GRID -->
     

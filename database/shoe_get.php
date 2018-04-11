@@ -17,7 +17,7 @@ $row = mysqli_fetch_assoc($result);
 
 
 $name = $row['name'];
-$posted_by = $row['posted_by'];
+$posted_by_id = $row['posted_by'];
 $description = $row['description'];
 $color = $row['color'];
 $size = $row['size'];
@@ -38,7 +38,6 @@ $postedBy = $row['brand_name'];
 	
 $shoeDetails = array($name, $description, $color, $size, $price, $imgpath, $postedBy,$type,$category);
 array_push($_SESSION['selected_shoe_details'], $shoeDetails);
-
 mysqli_close($conn);
 
 ?>

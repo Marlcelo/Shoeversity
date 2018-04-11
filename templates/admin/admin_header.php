@@ -5,6 +5,7 @@
 	$token = $_SESSION['sessionToken'];
 
 	$highlight = $_SESSION['active_page'];
+	include "admin_notifs.php";
 ?>
 <link rel="icon" type="image/png" href="../../images/logos/shoeversity-favicon.png">
 
@@ -22,10 +23,10 @@
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Search" name="search-product" required>
 						<div class="input-group-btn">
-							<button class="btn btn-primary" type="submit" style="margin-top: 0px">
+							<button class="btn btn-primary" type="submit" style="margin-top: 0px; border-radius: 0px 3px 3px 0px">
 								<i class="glyphicon glyphicon-search"></i></button>
-							<!-- <button class="btn btn-primary" type="submit" style="margin-top: 0px; margin-left:10px; border-radius:2px;">
-								<i class="glyphicon glyphicon-bell"></i></button> -->
+							<button class="btn btn-primary" type="button" style="margin-top: 0px; margin-left:10px; border-radius:3px;" onclick="openNotifs()">
+								<i class="glyphicon glyphicon-bell"></i></button>
 						</div>
 					</div>
 				</form>
@@ -36,3 +37,4 @@
 		</ul>
 	</div>
 </nav>
+<script src="../../js/admin-notifications.js"></script>
