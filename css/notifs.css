@@ -1,0 +1,42 @@
+.notifs {
+    /*display: none;*/
+    /*visibility: hidden;*/
+    background: #1e1e1e;
+    color: #eee;
+    height: auto;
+    width: 400px;
+    padding: 0px;
+    position: fixed;
+    z-index: 2;
+    top: -350px;
+    right: 134px;
+    /*transition: visibility 0s, opacity 0.5s linear;*/
+    transition: 0.5s;
+}
+
+.notifs-btn {
+    position: relative;
+    height: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
+.list-special .list-group-item {
+    background: #1e1e1e;
+    color: #EEE;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+}
+
+.list-special .list-group-item:first-child {
+  border-top-right-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+}
+
+.list-special .list-group-item:last-child {
+  border-bottom-right-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
