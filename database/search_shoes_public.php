@@ -6,6 +6,8 @@ if(!isset($_SESSION)) {
 
 # GET INPUT FROM SEARCH BAR
 $search = $_POST['search-product'];
+$search = trim($search);
+$search = filter_var($search,FILTER_SANITIZE_STRING);
 
 $search_msg = "<strong>Showing search results for: &nbsp; ".'"'."<span class='text-primary' style='text-decoration: underline'>$search</span>".'"'."</strong>";
 $sql = "SELECT * FROM shoes WHERE name LIKE '%" . $search . "%'";
