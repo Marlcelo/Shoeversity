@@ -51,8 +51,7 @@
     <?php include "../../templates/admin/admin_sidebar.php"; ?>
     
     <div class="container">
-        <div class="col-md-12" style="min-height: 350px;">
-            <!-- <div class="col-md" style="margin-right: 40px;"> -->
+        <div class="col-md" style="min-height: 350px; padding-right: 25px;">
                 <h1 class="text-center">Approve a Brand</h1>
                 <br>
                 <table id="brands" class="table table-striped table-bordered table-hover" style="width:100%;">
