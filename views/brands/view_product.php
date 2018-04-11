@@ -42,8 +42,58 @@
                 }
             }
 
-            include "../modals/product_rating.php";
-            
+            // Check if edit product request was issued
+            if(isset($_GET['edit'])) {
+                //if($_GET['edit'] == md5('true')) {
+                $_SESSION['shoeID'] = $_GET['edit'];
+                include '../modals/edit_product.php';
+
+                echo "<script> 
+                        $('#edit_product_modal').modal('show');
+                        $('#edit_product_modal').on('hidden.bs.modal', function () { 
+                            window.history.back();
+                        })
+                      </script>";
+                //}
+            }
+
+            // Check if delete product request was issued
+            if(isset($_GET['delete'])) {
+               if($_GET['delete'] == 'success') {
+                    include '../modals/success.php';
+
+                    echo "<script> 
+                            $('#success_modal').modal('show');
+                            $('#success_modal').on('hidden.bs.modal', function () { 
+                                window.history.back();
+                            })
+                          </script>";
+               }
+               else if($_GET['delete'] == 'error') {
+                    include '../modals/error.php';
+
+                    echo "<script> 
+                            $('#error_modal').modal('show');
+                            $('#error_modal').on('hidden.bs.modal', function () { 
+                                window.history.back();
+                            })
+                          </script>";
+               }else{
+                $_SESSION['warning_msg'] = "Are you sure you want to delete this product?";
+                $_SESSION['target_page'] = "../../database/brand_delete_product.php?id=" . $_GET['delete'];
+                include '../modals/warning.php';
+
+                echo "<script> 
+                        $('#warning_modal').modal('show');
+                        $('#warning_modal').on('hidden.bs.modal', function () { 
+                            window.history.back();
+                        })
+                      </script>";
+                }
+           }
+
+                include "../modals/product_rating.php";
+                
         ?>
     </head>
     <body>
@@ -63,10 +113,10 @@
     					<div class="details col-md-6">
                             <div class="row" >
                                 <div class="col-md-10 col-sm-10">
-                                <a href="products.php?edit=<?php echo $product; ?>"><button class="btn btn-md btn-info pull-right" style="height:45px; width: 70px;"><i class="glyphicon glyphicon-edit"></i></button></a>
+                                <a href="view_product.php?pid=<?php echo $product; ?>&edit=<?php echo $product; ?>"><button class="btn btn-md btn-info pull-right" style="height:45px; width: 70px;"><i class="glyphicon glyphicon-edit"></i></button></a>
                                 </div>
                                 <div class="col-md-2 col-sm-2">
-                                <a href="products.php?delete=<?php echo $product; ?>"><button class="btn btn-md btn-info pull-right" style="height:45px; width: 70px;"><i class="glyphicon glyphicon-remove"></i></button></a><br>
+                                <a href="view_product.php?pid=<?php echo $product; ?>&delete=<?php echo $product; ?>"><button class="btn btn-md btn-info pull-right" style="height:45px; width: 70px;"><i class="glyphicon glyphicon-remove"></i></button></a><br>
                                 </div>
                             </div>
                             <br>
