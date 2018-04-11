@@ -41,10 +41,10 @@
 			<input type="text" class="form-control" name="number1" pattern="[0-9]{3,4}[-][0-9]{3}[-][0-9]{4}" title="Format: XXXX-XXX-XXXX" placeholder="Contact Number" required>
 		</div>
 	</div>
-	<div class="input-group">
-		<button class = "btn btn-info pull-right btn-block btn-sm" id="btnAddContact" type="button">Add Contact#</button>
+	<div class="input-group" style="width: 100%; margin-top: -5px">
+		<button class = "btn btn-info pull-right btn-block btn-sm" id="btnAddContact" type="button">Add Contact #</button>
 	</div>
-	<div class="alert alert-warning">need to add multiple contact #s</div>
+	<br>
 
 	<div id="locations">
 		<div class="input-group" id="location1">
@@ -52,10 +52,10 @@
 			<input type="text" pattern="[A-Za-z0-9].{1,100}" class="form-control" name="location1" placeholder="Location" required>
 		</div>
 	</div>
-	<div class="input-group">
+	<div class="input-group" style="width: 100%; margin-top: -5px">
 		<button class = "btn btn-info pull-right btn-block btn-sm" id="btnAddLocation" type="button">Add Location</button>
 	</div>
-	<div class="alert alert-warning">need to add multiple locations</div>
+	<br>
 
 	<div class="row">
 		<div class="col-md-6">
