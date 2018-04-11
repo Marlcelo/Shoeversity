@@ -3,8 +3,10 @@
 	if (isset($_POST['btn_checkout'])) {
 		session_start();
 		require 'activity_check.php';
-		echo "Here";
+		
 		$password = $_POST['pword'];
+		$password = trim($password);
+		$password = filter_var($password,FILTER_SANITIZE_STRING);
 		$username = $_SESSION['u_username'];
 		echo $username . " ". $password;
 		require 'config.php';

@@ -43,6 +43,20 @@
                     </script>";
             }
         }
+
+
+        if(isset($_GET['register'])) {
+            if($_GET['register'] == md5('success')) {
+                include 'modals/success.php';
+
+                echo "<script> 
+                        $('#success_modal').modal('show');
+                        $('#success_modal').on('hidden.bs.modal', function () { 
+                            window.location = 'index.php';
+                        })
+                    </script>";
+            }
+        }
     ?>
     <link rel="stylesheet" type="text/css" href="../css/filter-sidebar.css">
 </head>
