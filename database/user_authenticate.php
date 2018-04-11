@@ -12,7 +12,7 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){// if a new use
 	if (strlen($password) < 8 || !preg_match("#[0-9]+#", $password) || !preg_match("#[a-zA-Z]+#", $password) || !preg_match("#[!,%,&,@,#,$,^,*,?,_,~,.]+#", $password)) {
 
         header("Location: ../views/login.php?auth=error");
-        
+        exit();
     }
 	echo "Here at Session";
 
@@ -27,6 +27,12 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){// if a new use
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 
+	if (strlen($password) < 8 || !preg_match("#[0-9]+#", $password) || !preg_match("#[a-zA-Z]+#", $password) || !preg_match("#[!,%,&,@,#,$,^,*,?,_,~,.]+#", $password)) {
+
+        header("Location: ../views/login.php?auth=error");
+        exit();
+    }
+	
 	$username = trim($username);
 	$password = trim($password);
 
