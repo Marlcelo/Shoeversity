@@ -62,7 +62,17 @@
                 echo "<script>window.stop()</script>";
             }
 
+             if(isset($_GET['brandinfo'])){
+                include "../modals/brand_info_users.php";
 
+                echo "<script> 
+                            $('#brand_info_modal').modal('show');
+                            $('#brand_info_modal').on('hidden.bs.modal', function () {
+                                window.history.back();
+                            })
+                        </script>";
+
+            }
 
             require "../../database/shoe_get.php";
             $shoe = $_SESSION['selected_shoe_details'];
@@ -94,12 +104,12 @@
                                     <button class="btn btn-md btn-info pull-right" style="height: 45px; width: 70px;"><i class="glyphicon glyphicon-remove"></i></button></a>
                                 </div>
                             </div>
-                            <br><br>
+                            <br>
                             <h3 class="price"><?php echo $shoe[0][0]; ?></h3><br>
                             <div class="row">
                                 <div class="col-md-6">
                                     <h4>Posted by:
-                                        <span> <?php echo $shoe[0][6]; ?> </span>
+                                        <span><a href = "view_product.php?pid=<?php echo $product; ?>&brandinfo=<?php echo $product; ?>"><?php echo $shoe[0][6]; ?></a></span>
                                     </h4>
                                 </div>
                                 <div class="col-md-6">
