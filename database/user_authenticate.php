@@ -11,11 +11,22 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){// if a new use
 	$password = $_SESSION['password'];
 	echo "Here at Session";
 
+	$username = trim($username);
+	$password = trim($password);
+
+	$username = filter_var($username, FILTER_SANITIZE_STRING);
+	$password = filter_var($password, FILTER_SANITIZE_STRING);
 	echo $username ." ". $password;
 }else{
 	/* Store user input from login.php */
 	$username = $_POST['username'];
 	$password = $_POST['password'];
+
+	$username = trim($username);
+	$password = trim($password);
+
+	$username = filter_var($username, FILTER_SANITIZE_STRING);
+	$password = filter_var($password, FILTER_SANITIZE_STRING);
 }
 
 /* Issue query on database */
