@@ -259,9 +259,22 @@ if($row['col'] == 'TRUE'){ //Same username/email as another account
 	$success_path = "../views/index.php?register=" . md5('success');
 	header("Location: $success_path");
 	//header("Location: ../views/index.php"); //Since brand isnt verifed yet, must be redirected BACK TO GUEST LANDING PAGE
-	}// error storing data to database
+	}else{// error storing data to database
+		$error_msg .= "Inputs have errors. Please try again.";
+		$_SESSION['error_msg'] = $error_msg;
+		$error_path = "../views/register.php?register=" . md5('failed');
+		header("Location: $error_path");
+		xit();
+	}
 }//if same user/email as other account
-}//if pass != cpass
+}else{//if pass != cpass
+		$error_msg .= "Your passwords do not match! Please try again.";
+		$_SESSION['error_msg'] = $error_msg;
+		$error_path = "../views/register.php?register=" . md5('failed');
+		header("Location: $error_path");
+		exit();
+	}
+
 
 //********************************************************
 // SEND EMAIL TO NEW BRAND
