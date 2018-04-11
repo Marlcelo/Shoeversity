@@ -125,7 +125,7 @@
 
 							<br>
 							<h2>Customer Details</h2>
-							<div style="text-align:left; border: 1px solid #121212; padding: 15px; width: 30%">
+							<div style="text-align:left; border: 1px solid #121212; padding: 15px; width: 350px;">
 								<b>Username:</b>&nbsp;'.$_SESSION["u_username"].'<br><br>
 								<b>Email Address:</b>&nbsp;'.$_SESSION["u_email"].'<br><br>
 								<b>First Name:</b>&nbsp;'.$_SESSION["u_firstname"].'<br><br>
