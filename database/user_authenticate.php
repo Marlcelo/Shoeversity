@@ -6,9 +6,13 @@ session_start();
 
 
 if(isset($_SESSION['username']) && isset($_SESSION['password'])){// if a new user registers, will automatically log in
-
 	$username = $_SESSION['username'];
 	$password = $_SESSION['password'];
+
+	if (strlen($password) < 8 && !preg_match("#[0-9]+#", $password&& !preg_match("#[a-zA-Z]+#", $password) && !preg_match("#[!,%,&,@,#,$,^,*,?,_,~,.]+#", $password)) {
+        header("Location: ../views/login.php?auth=error");
+        exit();
+    }
 	echo "Here at Session";
 
 	$username = trim($username);

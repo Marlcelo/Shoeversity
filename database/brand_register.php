@@ -7,6 +7,14 @@ if(isset($_POST['registerBrand'])){
 		require 'config.php';
 		session_start();
 
+		if (strlen($pass) < 8 && !preg_match("#[0-9]+#", $pass&& !preg_match("#[a-zA-Z]+#", $pass) && !preg_match("#[!,%,&,@,#,$,^,*,?,_,~,.]+#", $pass)) {
+	       $error_msg .= "Invalid input. Try again!";
+			$_SESSION['error_msg'] = $error_msg;
+			$error_path = "../views/register.php?register=" . md5('failed');
+			header("Location: $error_path");
+			exit();
+    }
+
 		$uname = $_POST['uname'];
 		$email = $_POST['email'];
 
