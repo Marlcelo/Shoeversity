@@ -1,4 +1,9 @@
 <?php
+	if(!isset($_SESSION)) {
+		session_start();
+	}
+	$token = $_SESSION['sessionToken'];
+
 	require 'activity_check.php';
 	require 'config.php';
 	$userId = $_GET['adId'];
@@ -11,14 +16,12 @@
 	$row = mysqli_fetch_assoc($result);
 
 	if($row['result'] == "SUCCESS"){
-		echo "<script>
-			window.alert('Admin# ".$userId." has been deleted!');
-		</script>";
-		header("Location: ../views/admin/delete_admin.php");
+		$_SESSION['success_msg'] = "Admin account successfully deleted.";
+		header("Location: ../views/admin/delete_admin.php?delete=".md5('success')."&token=$token");
+		exit();
 	}else{
-		echo "<script>
-			window.alert('Something went wrong!');
-		</script>";
-		header("Location: ../views/admin/delete_admin.php");
+		$_SESSION['error_msg'] = "Oops! Something went wrong, this Admin account was not deleted.";
+		header("Location: ../views/admin/delete_admin.php?delete=".md5('failed')."&token=$token");
+		exit();
 	}
 ?>

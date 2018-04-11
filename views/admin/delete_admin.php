@@ -30,6 +30,9 @@
                 })
                 </script>";
         }
+        else {
+            $token = $_SESSION['sessionToken'];
+        }
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
@@ -43,9 +46,32 @@
             echo "<script> 
             $('#warning_modal').modal('show');
             $('#warning_modal').on('hidden.bs.modal', function () { 
-               window.location = 'delete_admin.php';
+               window.location = 'delete_admin.php?token=$token';
            })
            </script>";
+        }
+
+        if(isset($_GET['delete'])) {
+            if($_GET['delete'] == md5('success')) {
+                include '../modals/success.php';
+            
+                echo "<script> 
+                    $('#success_modal').modal('show');
+                    $('#success_modal').on('hidden.bs.modal', function () { 
+                       window.location = 'delete_admin.php?token=$token';
+                   })
+                   </script>";
+            }
+            else if($_GET['delete'] == md5('failed')) { 
+                include '../modals/error.php';
+            
+                echo "<script> 
+                    $('#error_modal').modal('show');
+                    $('#error_modal').on('hidden.bs.modal', function () { 
+                       window.location = 'delete_admin.php?token=$token';
+                   })
+                   </script>";
+            }
         }
     ?>
 
@@ -81,13 +107,13 @@
                   <?php
                   foreach ($admins as $admin) {
                    echo "<tr>
-                      <form method='POST'>
+                      
                         <td>".$admin['username']."</td>
                         <td>".$admin['adName']."</td>
                         <td>".$admin['email']."</td>
                         <td>".$admin['gender']."</td>
-                        <td class='text-center'><button type='submit' class='btn btn-danger btn-md' name='deleteadmin' value='".$admin['uid']."'>Delete</button></td>
-                      </form>  
+                        <td class='text-center'><button type='button' class='btn btn-danger btn-md' onclick='window.location.href= ". '"delete_admin.php?deleteadmin='.$admin['uid']."&token=$token".'"' ."'>Delete</button></td>
+                     
                     </tr>";
                   }
 
