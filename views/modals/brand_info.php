@@ -27,8 +27,8 @@
     brand
     admin-->
 
-<div class="modal fade" id="brand_info_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<div class="modal fade" id="brand_info_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+    <div class="modal-dialog modal-lg" style="width:500px;">
         <div class="modal-content">
             <!-- Modal Header -->
             <div class="modal-header" style="background: #3498DB  ; color: #fff; border-radius: 5px 5px 0 0">
@@ -38,13 +38,25 @@
                        <span class="sr-only">Close</span>
                 </button>
                 <h4 class="modal-title" id="myModalLabel">
-                    <?php echo $name ?>
+                    Brand Profile
                 </h4>
             </div>
             
             <!-- Modal Body -->
-            <div class="modal-body">
-                Your product has been added to your shopping cart.
+            <div class="modal-body" style="text-align: center;">
+                <div class="col-md">
+                    <span><h4>Brand Name: <?php echo $name ?></h4></span>
+                    <span><h4>Username: <?php echo $username ?></h4></span>
+                    <span><h4>Location: <?php echo $location ?></h4></span>
+                    <hr>
+                    <span><h4>Contact:</h4></span>
+                    <span><h4><?php echo $email ?></h4></span>
+                    <span><h4><?php echo $contact ?></h4></span>
+                    <hr>
+                    <span><h4>Find out more on:</h4></span>
+                    <span><h4><?php echo $linktype ?> - <?php echo $link ?></h4></span>
+               </div>
+                
             </div>
             
             <!-- Modal Footer -->
