@@ -473,7 +473,7 @@ BEGIN
   
   DECLARE strHashedPass varchar(255);
     
-    set strHashedPass = md5(strRawPassword);
+    set strHashedPass = sha2(strRawPassword, 256);
     set strHashedPass = UPPER(strHashedPass);
 
   RETURN strHashedPass;
