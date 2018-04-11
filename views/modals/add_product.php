@@ -5,7 +5,7 @@
         	<form action="../../database/brand_add_product.php" method="POST" enctype="multipart/form-data">
 	            <!-- Modal Header -->
 	            <div class="modal-header" style="background: #37474F; color: #fff; border-radius: 5px 5px 0 0">
-	                <button type="button" class="close" 
+	                <button type="button" class="close" style="color:#eee" 
 	                   data-dismiss="modal">
 	                       <span aria-hidden="true">&times;</span>
 	                       <span class="sr-only">Close</span>

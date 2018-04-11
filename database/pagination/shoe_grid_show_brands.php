@@ -4,6 +4,7 @@ if(!isset($_SESSION)) {
 	session_start();
 }
 $brandID = $_SESSION['b_id'];
+$token = $_SESSION['sessionToken'];
 
 // $records_per_page = 6;
 $page = '';
@@ -39,14 +40,14 @@ while($row = mysqli_fetch_assoc($result)) {
 	$output .= '<span class="thumbnail" style="min-height: 440px">';
 	$output .= '<div class="row" style="float:right;">';
 	$output .= '<div class="col-md-8 col-sm-8">
-                    <a href="products.php?edit='. $row['uid'] . '">
+                    <a href="products.php?edit='. $row['uid'] . '&token='.$token .'">
                     	<button class="btn btn-md btn-info pull-right" >
                     		<i class="glyphicon glyphicon-edit"></i>
                     	</button>
                     </a>
                 </div>';
     $output .= '<div class="col-md-4 col-sm-4">
-                    <a href="products.php?delete='. $row['uid'] .'">
+                    <a href="products.php?delete='. $row['uid'] . '&token='.$token .'">
                     	<button class="btn btn-md btn-info pull-right">
                     		<i class="glyphicon glyphicon-remove"></i>
                    		</button>
@@ -64,7 +65,7 @@ while($row = mysqli_fetch_assoc($result)) {
                         <p class="price"> &#8369;&nbsp;'. $row['price'] .'</p>
                     </div>
                     <div class="col-md-6 col-sm-6">
-                        <a href="view_product.php?pid='. $row['uid'] . '">
+                        <a href="view_product.php?pid='. $row['uid'] . '&token='.$token .'">
                             <button class="btn btn-info pull-right">VIEW ITEM</button>
                         </a>
                    </div>
