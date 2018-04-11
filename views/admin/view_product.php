@@ -88,10 +88,13 @@
                             <img src="<?php echo "../".$shoe[0][5]; ?>"/>
                         </div>
                         <div class="details col-md-6">
-                            <div class="col-md-12 col-md-12 pull-right">
-                                <a href="view_product.php?pid=<?php echo $product; ?>&delete=<?php echo $product; ?>">
-                                    <button class="btn btn-md btn-info pull-right" style="height: 45px; width: 70px;"><i class="glyphicon glyphicon-remove"></i></button></a><br>
+                            <div class="row">
+                                <div class="col-md pull-right">
+                                    <a href="view_product.php?pid=<?php echo $product; ?>&delete=<?php echo $product; ?>">
+                                    <button class="btn btn-md btn-info pull-right" style="height: 45px; width: 70px;"><i class="glyphicon glyphicon-remove"></i></button></a>
+                                </div>
                             </div>
+                            <br><br>
                             <h3 class="price"><?php echo $shoe[0][0]; ?></h3><br>
                             <div class="row">
                                 <div class="col-md-6">
