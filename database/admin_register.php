@@ -10,7 +10,7 @@
 			$pass = trim($pass);
 			$pass = filter_var($pass, FILTER_SANITIZE_STRING);
 
-			if (strlen($pass) < 8 && !preg_match("#[0-9]+#", $pass&& !preg_match("#[a-zA-Z]+#", $pass) && !preg_match("#[!,%,&,@,#,$,^,*,?,_,~,.]+#", $pass)) {
+			if (strlen($pass) < 8 || !preg_match("#[0-9]+#", $pass || !preg_match("#[a-zA-Z]+#", $pass) || !preg_match("#[!,%,&,@,#,$,^,*,?,_,~,.]+#", $pass)) {
        				$error_msg .= "Invalid format! Try again!.";
 					$_SESSION['error_msg'] = $error_msg;
 					$error_path = "admin_register.php?register=" . md5('failed');
