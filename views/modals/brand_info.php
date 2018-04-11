@@ -11,11 +11,7 @@
         $name  = $row['brand_name'];
         $username  = $row['b_username'];
         $email  = $row['b_email'];
-        $contact = $row['contact'];
-        $linktype = $row['link_type'];
-        $link  = $row['link'];
         $location = $row['location'];
-
     }
 
     mysqli_close($conn);
@@ -25,7 +21,11 @@
     public  $shoe[6]
     user
     brand
-    admin-->
+    admin        
+
+    $contact = $row['contact'];
+        $linktype = $row['link_type'];
+        $link  = $row['link'];-->
 
 <div class="modal fade" id="brand_info_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
     <div class="modal-dialog modal-lg" style="width:500px;">
@@ -51,9 +51,38 @@
                     <hr>
                     <span><h4>Contact:</h4></span>
                     <span><h4><?php echo $email ?></h4></span>
-                    <span><h4><?php echo $contact ?></h4></span>
-                    <hr>
-                    <span><h4>Find out more on:</h4></span>
+
+                    <?php
+
+                    require '../database/config.php';
+                        $sql = "CALL SP_GET_BRAND_CONTACTS($posted_by_id)";
+                        $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+                        while($row = mysqli_fetch_assoc($result)) {
+                            $contact = $row['contact'];?>
+                            <span><h4><?php echo $contact ?></h4></span>
+                    <?php    } 
+
+                        mysqli_close($conn);
+
+                        require '../database/config.php';
+                        $sql = "CALL SP_GET_BRAND_LINKS($posted_by_id)";
+                        $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));?>
+                        <hr>
+                        <span><h4>Find out more on:</h4></span>
+
+                    <?php
+                        while($row = mysqli_fetch_assoc($result)) {
+                            $linktype = $row['link_type'];
+                            $link  = $row['link'];   ?>
+                            <span><h4><?php echo $linktype ?> - <?php echo $link ?></h4></span>
+                    <?php    }
+
+                        mysqli_close($conn); 
+                    ?>
+                    
+                    
+                    
                     <span><h4><?php echo $linktype ?> - <?php echo $link ?></h4></span>
                </div>
                 
