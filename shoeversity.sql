@@ -31,7 +31,7 @@ DELIMITER $$
 --
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_PURCHASED` (`userId` INT)  BEGIN
   IF EXISTS (SELECT * FROM users WHERE uid = userId)then
-    SELECT s.name,brand_name,size, p.time_stamp
+    SELECT s.name,brand_name,size, category, price, color, p.time_stamp
         FROM shoes s, brands b, purchases p
         WHERE purchased_by = userId AND item = s.uid AND posted_by = b.uid;
   END IF;
