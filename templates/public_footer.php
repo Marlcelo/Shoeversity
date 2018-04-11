@@ -21,7 +21,7 @@
               <h3> Contact </h3>
               <ul>
                   <li><a href="#">About us</a></li>
-                  <li>shoeversity_official@gmail.com</li>
+                  <li>shoeversityofficial@gmail.com</li>
               </ul>
           </div>
           <div class="col-md-4">
