@@ -25,6 +25,9 @@
                 })
                 </script>";
         }
+        else {
+            $token = $_SESSION['sessionToken'];
+        }
 
         if(isset($_GET['register'])) {
             // Call popup modal
@@ -34,7 +37,7 @@
                 echo "<script> 
                         $('#error_modal').modal('show');
                         $('#error_modal').on('hidden.bs.modal', function () { 
-                            window.location = 'register_admin.php';
+                            window.location = 'register_admin.php?token=$token';
                         })
                     </script>";
             }
@@ -45,7 +48,7 @@
                 echo "<script> 
                         $('#success_modal').modal('show');
                         $('#success_modal').on('hidden.bs.modal', function () { 
-                            window.location = 'register_admin.php';
+                            window.location = 'register_admin.php?token=$token';
                         })
                     </script>";
             }
