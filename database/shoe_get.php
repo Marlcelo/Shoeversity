@@ -38,7 +38,6 @@ $postedBy = $row['brand_name'];
 	
 $shoeDetails = array($name, $description, $color, $size, $price, $imgpath, $postedBy,$type,$category);
 array_push($_SESSION['selected_shoe_details'], $shoeDetails);
-
 mysqli_close($conn);
 
 ?>
