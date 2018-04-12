@@ -71,7 +71,7 @@
                               <td>".$log['uid']."</td>
                               <td>".$log['username']."</td>
                               <td>".$log['log_action']."</td>
-                              <td>".$log['timestamp']."</td>
+                              <td>".$log['time_stamp']."</td>
                             </tr>";
                       }
 
