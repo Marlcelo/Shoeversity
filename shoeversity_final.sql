@@ -503,6 +503,8 @@ CREATE TABLE `admins` (
 --
 -- Dumping data for table `admins`
 --
+INSERT INTO `admins` (`uid`, `username`, `password`, `email`, `gender`, `first_name`, `middle_name`, `last_name`, `time_stamp`) VALUES
+(1, 'logandylan37', '10C4981BB793E1698A83AEA43030A388', 'daniel.lachica82@gmail.com', 'm', 'Logan', 'Dylan', 'Ricanor', NOW());
 
 -- --------------------------------------------------------
 
@@ -767,7 +769,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `brands`
