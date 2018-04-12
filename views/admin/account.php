@@ -46,8 +46,8 @@
 	
     <div class="content-wrapper ">
         <div class="container text-center">
-                <div class="col-md-4">
-                    <img class="img-circle" src="../IMAGES/USERS/dp.jpg" width="160px" alt="profilepic">
+                <div class="col-md-12">
+                    <img class="img-circle" src="../../images/logos/shoeversity-logo.jpg" width="160px" alt="profilepic">
                     <br><br><br>
                     <label for="uname">Username: </label>
                     <br>
@@ -74,16 +74,7 @@
                     
                     <hr>
                 </div>
-                <div class="col-md-8">
-                    <h2>List of Admins</h2><hr><br>
-
-                    <br><br>
-                    <h2>Recent Transactions</h2><hr><br>
-
-                    <br><br>
-                    <h2>Recent Buyers</h2><hr><br>
-        
-                </div>              
+                 
         </div>
     </div>
 	

@@ -659,6 +659,9 @@ CREATE TABLE `site_users` (
 -- Dumping data for table `site_users`
 --
 
+INSERT INTO `site_users` (`id`, `type`, `username`, `password`) VALUES
+(1, 'Admin', 'logandylan37', '5C06EB3D5A05A19F49476D694CA81A36344660E9D5B98E3D6A6630F31C2422E7');
+
 -- --------------------------------------------------------
 
 --
@@ -823,7 +826,7 @@ ALTER TABLE `shoe_ratings`
 -- AUTO_INCREMENT for table `site_users`
 --
 ALTER TABLE `site_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
