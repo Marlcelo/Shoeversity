@@ -504,7 +504,7 @@ CREATE TABLE `admins` (
 -- Dumping data for table `admins`
 --
 INSERT INTO `admins` (`uid`, `username`, `password`, `email`, `gender`, `first_name`, `middle_name`, `last_name`, `time_stamp`) VALUES
-(1, 'logandylan37', '10C4981BB793E1698A83AEA43030A388', 'daniel.lachica82@gmail.com', 'm', 'Logan', 'Dylan', 'Ricanor', NOW());
+(1, 'logandylan37', '5C06EB3D5A05A19F49476D694CA81A36344660E9D5B98E3D6A6630F31C2422E7', 'daniel.lachica82@gmail.com', 'm', 'Logan', 'Dylan', 'Ricanor', NOW());
 
 -- --------------------------------------------------------
 
