@@ -54,8 +54,8 @@
 	
     <div class="content-wrapper">
         <div class="container ">
-                <div class="col-md-2 text-center">
-                    <img class="img-circle" src="../IMAGES/USERS/dp.jpg" width="160px" alt="profilepic">
+                <div class="col-md-4 text-center">
+                    <img class="img-circle" src="../../images/logos/shoeversity-logo.jpg" width="160px" alt="profilepic">
                     <br><br><br>
                     <label for="uname">Username: </label>
                     <br>
@@ -82,7 +82,7 @@
                     
                     <hr>
                 </div>
-                <div class="col-md-10">
+                <div class="col-md-8">
                     
                       <h1 class='text-center'>Purchases History</h1>
                       <br>

@@ -128,10 +128,10 @@
     					<div class="details col-md-6">
                             <div class="row" >
                                 <div class="col-md-10 col-sm-10">
-                                <a href="view_product.php?edit=<?php echo $product;?>&token=<?php echo $token?>"><button class="btn btn-md btn-info pull-right" style="height:45px; width: 70px;"><i class="glyphicon glyphicon-edit"></i></button></a>
+                                <a href="view_product.php?edit=<?php echo $product;?>&pid=<?php echo $product;?>&token=<?php echo $token?>"><button class="btn btn-md btn-info pull-right" style="height:45px; width: 70px;"><i class="glyphicon glyphicon-edit"></i></button></a>
                                 </div>
                                 <div class="col-md-2 col-sm-2">
-                                <a href="view_product.php?delete=<?php echo $product;?>&token=<?php echo $token?>"><button class="btn btn-md btn-info pull-right" style="height:45px; width: 70px;"><i class="glyphicon glyphicon-remove"></i></button></a><br>
+                                <a href="view_product.php?delete=<?php echo $product;?>&pid=<?php echo $product;?>&token=<?php echo $token?>"><button class="btn btn-md btn-info pull-right" style="height:45px; width: 70px;"><i class="glyphicon glyphicon-remove"></i></button></a><br>
                                 </div>
                             </div>
                             <br>
@@ -144,7 +144,7 @@
                                     </h4>
                                 </div>
                                 <div class="col-md-6">
-                                    <h4>Price: <span> <?php echo $price; ?></span></p></h4>
+                                    <h4>Price: &#8369;<span> <?php echo $price; ?></span></p></h4>
                                 </div>
                             </div>
 

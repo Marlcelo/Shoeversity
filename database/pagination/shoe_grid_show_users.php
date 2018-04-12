@@ -72,7 +72,7 @@ if($total_records > 0) {
 	}
 }
 else { 	// no rows returned
-	$output .= '<div class="alert alert-info alert-dismissible fade in" style="margin-top: -20px">';
+	$output .= '<div class="alert alert-info alert-dismissible fade in" style="margin-top: 0px; margin-bottom: 200px">';
 	$output .= 		'<a href="../../database/shoe_grid_clear_users.php" style="font-size: 30px; margin-top: -5px; z-index: 3;" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
 	$output .= 		'<strong>No results found!</strong>';
 	$output .= '</div>';

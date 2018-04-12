@@ -27,6 +27,9 @@
                     })
                     </script>";
             }
+            else {
+                $token = $_SESSION['sessionToken'];
+            }
     
             // Check if user is authorized to access page
             include '../../database/check_access.php';
@@ -96,11 +99,11 @@
                             <div class="row">
                                 <div class="col-md-6">
                                  <h4>Posted by:
-                                    <span><a href = "view_product.php?pid=<?php echo $product; ?>&brandinfo=<?php echo $product; ?>"> <?php echo $posted; ?> </span></a>
+                                    <span><a href = "view_product.php?pid=<?php echo $product; ?>&brandinfo=<?php echo $product; ?>&token=<?php echo $token?>"> <?php echo $posted; ?> </span></a>
                                 </h4>
                                 </div>
                                 <div class="col-md-6">
-                                    <h4>Price: <span> <?php echo $price; ?></span></p></h4>
+                                    <h4>Price:  &#8369;<span> <?php echo $price; ?></span></p></h4>
                                 </div>
                             </div>
 
