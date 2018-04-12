@@ -267,7 +267,7 @@ if($row['col'] == 'TRUE'){ //Same username/email as another account
 
 	require 'config.php';
 
-	$query = "CALL SP_ADD_LOG(".$uname.",'Newly Registered')";
+	$query = "CALL SP_ADD_LOG('".$uname."','Newly Registered')";
 	$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
 
 	mysqli_close($conn);

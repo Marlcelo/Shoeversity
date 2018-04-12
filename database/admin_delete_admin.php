@@ -20,7 +20,7 @@
 
 		require 'config.php';
 
-		$query = "CALL SP_ADD_LOG(".$_SESSION['a_username'].",'Deleted Admin ".$userId."')";
+		$query = "CALL SP_ADD_LOG('".$_SESSION['a_username']."','Deleted Admin ".$userId."')";
 		$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
 
 		mysqli_close($conn);

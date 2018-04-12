@@ -20,7 +20,7 @@
 
 		require 'config.php';
 
-		$query = "CALL SP_ADD_LOG(".$_SESSION['a_username'].",'Deleted Brand ".$brandId."')";
+		$query = "CALL SP_ADD_LOG('".$_SESSION['a_username']."','Deleted Brand ".$brandId."')";
 		$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
 
 		mysqli_close($conn);

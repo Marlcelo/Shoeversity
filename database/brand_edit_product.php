@@ -124,7 +124,7 @@ if($uploadOk == 1) {
 		$_SESSION['success_msg'] = "Your shoe '" . $name . "' was successfully updated!";
 		require 'config.php';
 
-		$query = "CALL SP_ADD_LOG(".$_SESSION['b_username'].",'Product ".$name." has been updated')";
+		$query = "CALL SP_ADD_LOG('".$_SESSION['b_username']."','Product ".$name." has been updated')";
 		$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
 
 		mysqli_close($conn);
