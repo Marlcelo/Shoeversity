@@ -28,6 +28,14 @@ mysqli_close($conn);
 $message = $row['strreturn'];
 
 if($message == 'SUCCESS') {
+
+	require 'config.php';
+
+	$query = "CALL SP_ADD_LOG(".$_SESSION['b_username'].",'Shoe with ID ".$pid." has been deleted')";
+	$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
+
+	mysqli_close($conn);
+
 	$_SESSION['success_msg'] = "Your shoe '" . $shoe_name . "' was successfully deleted.";
 	header("Location: ../views/brands/products.php?delete=success&token=$token");
 	exit();

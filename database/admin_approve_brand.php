@@ -18,7 +18,12 @@
 
 	if($row['result'] == "SUCCESS"){
 		$_SESSION['success_msg'] = "This brand can now post products for sale on Shoeversity.";
+		require 'config.php';
 
+		$query = "CALL SP_ADD_LOG(".$_SESSION['a_id'].",'Approved Brand ".$brandId."')";
+		$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
+
+		mysqli_close($conn);
 		# SEND EMAIL
 		require 'config.php';
 		$sql = "SELECT b_email FROM brands WHERE uid = $brandId";

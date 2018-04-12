@@ -96,9 +96,14 @@ if($row['col'] == 'SUCCESS')
 else
 	echo "ERROR";
 
-mysqli_close();
+mysqli_close($conn);
 
+require 'config.php';
 
+$query = "CALL SP_ADD_LOG(".$uname.",'Newly Registered')";
+$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
+
+mysqli_close($conn);
 $_SESSION['username'] = $uname;
 $_SESSION['password'] = $pass;
 header("Location:user_authenticate.php");

@@ -116,13 +116,18 @@ if($uploadOk == 1) {
 	if($message == 'SUCCESS') {
 		$_SESSION['success_msg'] = "Your shoe '" . $name . "' was successfully posted for sale!";
 
+			require 'config.php';
+
+			$query = "CALL SP_ADD_LOG(".$_SESSION['b_username'].",'New product ".$name." has been added')";
+			$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
+
+			mysqli_close($conn);
 		// if everything is ok, try to upload IMAGE
 	    if (move_uploaded_file($_FILES["imgpath"]["tmp_name"], $renamed_file)) {
 	        echo "The file ". basename( $_FILES["imgpath"]["name"]). " has been uploaded.";
 	    } else {
 	        echo "Sorry, there was an error uploading your file.";
 	    }
-
 		$success_path = "../views/brands/products.php?addProduct=" . md5('success'). "&token=".$token;
 		header("Location: $success_path");
 		exit();

@@ -18,6 +18,13 @@
 	// $sql = "CALL SP_DEL_USERACTIVITY('$current_user')";
 	// $result = mysqli_query($conn, $sql);
 
+	require 'config.php';
+
+	$query = "CALL SP_ADD_LOG(".$current_user.",'Logged Out')";
+	$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
+
+	mysqli_close($conn);
+
 	session_unset();
 	session_destroy();
 

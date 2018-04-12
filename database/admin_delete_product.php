@@ -28,6 +28,14 @@ if(!isset($_SESSION))
 
 if($message == 'SUCCESS') {
 	$_SESSION['success_msg'] = "The shoe '" . $shoe_name . "' was successfully deleted.";
+
+	require 'config.php';
+
+		$query = "CALL SP_ADD_LOG(".$_SESSION['a_username'].",'Deleted Product ".$pid."')";
+		$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
+
+		mysqli_close($conn);
+
 	header("Location: ../views/admin/dashboard.php?delete=success&token=$token");
 	exit();
 }

@@ -17,6 +17,14 @@
 
 	if($row['result'] == "SUCCESS"){
 		$_SESSION['success_msg'] = "Admin account successfully deleted.";
+
+		require 'config.php';
+
+		$query = "CALL SP_ADD_LOG(".$_SESSION['a_username'].",'Deleted Admin ".$userId."')";
+		$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
+
+		mysqli_close($conn);
+
 		header("Location: ../views/admin/delete_admin.php?delete=".md5('success')."&token=$token");
 		exit();
 	}else{

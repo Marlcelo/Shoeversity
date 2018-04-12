@@ -103,6 +103,15 @@
 				else
 					echo "ERROR";
 
+				mysqli_close($conn);
+
+				require 'config.php';
+
+				$query = "CALL SP_ADD_LOG(".$_SESSION['a_username'].",'Registered Admin')";
+				$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
+
+				mysqli_close($conn);
+
 	//********************************************************
 	// SEND EMAIL TO NEW ADMIN
 	//********************************************************
