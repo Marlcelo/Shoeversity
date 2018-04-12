@@ -29,6 +29,12 @@ $sql1 = "SELECT * FROM shoes WHERE posted_by = $brandID ORDER BY uid ASC LIMIT $
 $result = mysqli_query($conn, $sql1) or die(mysqli_error($conn));
 mysqli_close($conn);
 
+if(mysqli_num_rows($result)==0) { // no rows returned
+	$output .= '<div class="alert alert-info alert-dismissible fade in" style="margin-top: 0px; margin-bottom: 200px">';
+	$output .= 		'<strong>You haven'."'".'t posted any shoes for sale yet!</strong>';
+	$output .= '</div>';
+}
+
 # Render table with rows from query
 $colCounter = 1;
 
@@ -40,14 +46,14 @@ while($row = mysqli_fetch_assoc($result)) {
 	$output .= '<span class="thumbnail" style="min-height: 440px">';
 	$output .= '<div class="row" style="float:right;">';
 	$output .= '<div class="col-md-8 col-sm-8">
-                    <a href="products.php?edit='. $row['uid'] . '&token='.$token .'">
+                    <a href="products.php?edit='. $row['uid'] . '&pid='. $row['uid'] .'&token='.$token .'">
                     	<button class="btn btn-md btn-info pull-right" >
                     		<i class="glyphicon glyphicon-edit"></i>
                     	</button>
                     </a>
                 </div>';
     $output .= '<div class="col-md-4 col-sm-4">
-                    <a href="products.php?delete='. $row['uid'] . '&token='.$token .'">
+                    <a href="products.php?delete='. $row['uid'] . '&pid='. $row['uid'] .'&token='.$token .'">
                     	<button class="btn btn-md btn-info pull-right">
                     		<i class="glyphicon glyphicon-remove"></i>
                    		</button>

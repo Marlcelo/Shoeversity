@@ -111,7 +111,7 @@
                                     </h4>
                                 </div>
                                 <div class="col-md-6">
-                                    <h4>Price:
+                                    <h4>Price: &#8369;
                                         <span><?php echo $shoe[4]; ?> </span>
                                     </h4>
                                 </div>

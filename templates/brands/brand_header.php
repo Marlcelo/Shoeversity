@@ -16,7 +16,7 @@
 		</div>
 
 		<ul class="nav navbar-nav pull-right">
-			<li>
+			<!-- <li>
 				<form class="navbar-form" role="search">
 					<div class="input-group">
 						<input type="text" class="form-control" placeholder="Search" name="search-product" required>
@@ -26,7 +26,7 @@
 						</div>
 					</div>
 				</form>
-			</li>
+			</li> -->
 			<li <?php if($highlight == 'products') echo "class='active'"; ?>><a href="products.php?token=<?php echo $token ?>">Products</a></li>
 			<li <?php if($highlight == 'account') echo "class='active'"; ?>><a href="account.php?token=<?php echo $token ?>">My Account</a></li>
 			<li <?php if($highlight == 'logout') echo "class='active'"; ?>><a href="../../database/logout.php">Logout</a></li>

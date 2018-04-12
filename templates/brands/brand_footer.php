@@ -23,13 +23,14 @@
 	            <ul>
 	                <li> <a href="../../views/brands/products.php?token=<?php echo $token ?>"> Products </a> </li>
 	                <li> <a href="../../views/brands/account.php?token=<?php echo $token ?>"> My Account </a> </li>
-	                <li> <a href="../../database/logout.php"> Logout </a> </li>
+	                <!-- <li> <a href="../../database/logout.php"> Logout </a> </li> -->
 	            </ul>
 	        </div>
 	        <div class="col-md-4">
-	            <h3> Lost? </h3>
+	            <h3> Site </h3>
 	            <ul>
-	                <li> 
+	            	<li> <a href="../../database/logout.php"> Logout </a> </li>
+	                <!-- <li> 
 		                <form action="" class="navbar-form" role="search" style="width: 100%">
 			                <div class="input-group" style="margin-left: 0px">
 			    	            <input type="text" class="form-control" placeholder="Search" name="search-product" required>
@@ -40,8 +41,8 @@
 		                        </div>
 		                    </div>
 	                	</form>
-	            	</li>
-	         		</ul>
+	            	</li> -->
+	         	 </ul>
 	     	</div>
   		</div>
 	</div>
