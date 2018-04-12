@@ -17,7 +17,7 @@
 			$email = $_POST['email'];
 
 			$uname = trim($uname);
-			$email = $trim($email);
+			$email = trim($email);
 
 			$uname = filter_var($uname, FILTER_SANITIZE_STRING);
 
@@ -106,6 +106,8 @@
 	//********************************************************
 	// SEND EMAIL TO NEW ADMIN
 	//********************************************************
+				$_SESSION['success_msg'] = "A new admin account for ".$uname." has just been created!";
+
 				require '../libs/PHPMailer/PHPMailerAutoload.php';
 
 				$mail = new PHPMailer;
@@ -154,14 +156,15 @@
 				if(!$mail->send()) {
 				    echo 'Message could not be sent.';
 				    echo 'Mailer Error: ' . $mail->ErrorInfo;
+				    // $_SESSION['success_msg'] .= $mail->ErrorInfo;
 				} else {
 				    echo 'Message has been sent';
+				    $_SESSION['success_msg'] .= " An email has been sent for notification purposes.";
 				}
 
 	//********************************************************
 	// REDIRECT BACK TO ADMIN PAGE
 	//********************************************************
-				$_SESSION['success_msg'] = "A new admin account for ".$uname." has just been created!";
 
 				$success_path = "../views/admin/register_admin.php?register=" .md5('success')."&token=$token";
 				header("Location: $success_path");

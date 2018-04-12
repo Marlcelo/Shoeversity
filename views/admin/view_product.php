@@ -127,7 +127,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <h4>Posted by:
-                                        <span><a href = "view_product.php?pid=<?php echo $product; ?>&brandinfo=<?php echo $product; ?>"><?php echo $shoe[0][6]; ?></a></span>
+                                        <span><a href = "view_product.php?pid=<?php echo $product; ?>&brandinfo=<?php echo $product; ?>&token=<?php echo $token?>"><?php echo $shoe[0][6]; ?></a></span>
                                     </h4>
                                 </div>
                                 <div class="col-md-6">
