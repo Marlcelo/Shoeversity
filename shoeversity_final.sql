@@ -37,7 +37,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_PURCHASED` (`userId` INT)  B
   END IF;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_LOG` (`uName` INT, `actions` VARCHAR(100))  BEGIN
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_LOG` (`uName` VARCHAR(35), `actions` VARCHAR(100))  BEGIN
   INSERT INTO logs VALUES(NULL,uName,actions,NOW());
 END$$
 
@@ -592,7 +592,7 @@ CREATE TABLE `logs` (
   `uid` int(11) NOT NULL,
   `username` varchar(35) NOT NULL,
   `log_action` varchar(200) NOT NULL,
-  `time_stamp` int(11) NOT NULL
+  `time_stamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
