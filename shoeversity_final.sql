@@ -37,6 +37,10 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_PURCHASED` (`userId` INT)  B
   END IF;
 END$$
 
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_LOG` (`uName` INT, `actions` VARCHAR(100))  BEGIN
+  INSERT INTO logs VALUES(NULL,uName,actions,NOW());
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_PURCHASE` (`purchaser` INT, `itemBought` INT)  BEGIN
   declare str_return varchar(10);
     

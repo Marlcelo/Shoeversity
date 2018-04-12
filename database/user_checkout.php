@@ -48,6 +48,14 @@
 				mysqli_close($conn);
 			}
 			if($counter == sizeof($cart)){
+
+				require 'config.php';
+
+				$query = "CALL SP_ADD_LOG(".$_SESSION['u_username'].",'User Checkout')";
+				$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
+
+				mysqli_close($conn);
+
 				$_SESSION['success_msg'] = "Your order is now being processed. An email containing your receipt has been sent to ".$_SESSION['u_email'].".<br>Thank you for shopping at Shoeversity!";
 				
 				/*****************************************/

@@ -265,6 +265,13 @@ if($row['col'] == 'TRUE'){ //Same username/email as another account
 
 	mysqli_close($conn);
 
+	require 'config.php';
+
+	$query = "CALL SP_ADD_LOG(".$uname.",'Newly Registered')";
+	$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
+
+	mysqli_close($conn);
+
 	$_SESSION['success_msg'] = "Thank you for registering to Shoeversity, ".$uname.".<br> Please wait for your account to be verified before you can log in.";
 
 	$success_path = "../views/index.php?register=" . md5('success');
@@ -275,7 +282,7 @@ if($row['col'] == 'TRUE'){ //Same username/email as another account
 		$_SESSION['error_msg'] = $error_msg;
 		$error_path = "../views/register.php?register=" . md5('failed');
 		header("Location: $error_path");
-		xit();
+		exit();
 	}
 }//if same user/email as other account
 }else{//if pass != cpass

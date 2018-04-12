@@ -17,6 +17,13 @@
 
 	if($row['result'] == "SUCCESS"){
 		$_SESSION['success_msg'] = "This brand account was successfully deleted.";
+
+		require 'config.php';
+
+		$query = "CALL SP_ADD_LOG(".$_SESSION['a_username'].",'Deleted Brand ".$brandId."')";
+		$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
+
+		mysqli_close($conn);
 		header("Location: ../views/admin/delete_brand.php?delete=".md5('success')."&token=$token");
 		exit();
 	}else{
