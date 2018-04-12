@@ -23,7 +23,7 @@
 
 			require 'config.php';
 
-			$query = "CALL SP_ADD_LOG(".$_SESSION['u_username'].",'Added Item ".$_SESSION['pid']." to cart')";
+			$query = "CALL SP_ADD_LOG('".$_SESSION['u_username']."','Added Item ".$_SESSION['pid']." to cart')";
 			$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
 
 			mysqli_close($conn);

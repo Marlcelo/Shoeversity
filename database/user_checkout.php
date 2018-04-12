@@ -51,7 +51,7 @@
 
 				require 'config.php';
 
-				$query = "CALL SP_ADD_LOG(".$_SESSION['u_username'].",'User Checkout')";
+				$query = "CALL SP_ADD_LOG('".$_SESSION['u_username']."','User Checkout')";
 				$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
 
 				mysqli_close($conn);

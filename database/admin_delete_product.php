@@ -31,7 +31,7 @@ if($message == 'SUCCESS') {
 
 	require 'config.php';
 
-		$query = "CALL SP_ADD_LOG(".$_SESSION['a_username'].",'Deleted Product ".$pid."')";
+		$query = "CALL SP_ADD_LOG('".$_SESSION['a_username']."','Deleted Product ".$pid."')";
 		$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
 
 		mysqli_close($conn);

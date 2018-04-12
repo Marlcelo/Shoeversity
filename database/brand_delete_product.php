@@ -31,7 +31,7 @@ if($message == 'SUCCESS') {
 
 	require 'config.php';
 
-	$query = "CALL SP_ADD_LOG(".$_SESSION['b_username'].",'Shoe with ID ".$pid." has been deleted')";
+	$query = "CALL SP_ADD_LOG('".$_SESSION['b_username']."','Shoe with ID ".$pid." has been deleted')";
 	$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
 
 	mysqli_close($conn);

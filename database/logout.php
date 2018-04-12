@@ -20,7 +20,7 @@
 
 	require 'config.php';
 
-	$query = "CALL SP_ADD_LOG(".$current_user.",'Logged Out')";
+	$query = "CALL SP_ADD_LOG('".$current_user."','Logged Out')";
 	$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
 
 	mysqli_close($conn);

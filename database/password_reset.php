@@ -32,7 +32,7 @@ if($pass == $cpass) {
 		$_SESSION['success_msg'] = "Your password was successfully updated!";
 		require 'config.php';
 
-		$query = "CALL SP_ADD_LOG(".$uname.",'Password Reset')";
+		$query = "CALL SP_ADD_LOG('".$uname."','Password Reset')";
 		$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
 
 		mysqli_close($conn);

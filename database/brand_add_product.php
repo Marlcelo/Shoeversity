@@ -118,7 +118,7 @@ if($uploadOk == 1) {
 
 			require 'config.php';
 
-			$query = "CALL SP_ADD_LOG(".$_SESSION['b_username'].",'New product ".$name." has been added')";
+			$query = "CALL SP_ADD_LOG('".$_SESSION['b_username']."','New product ".$name." has been added')";
 			$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
 
 			mysqli_close($conn);
