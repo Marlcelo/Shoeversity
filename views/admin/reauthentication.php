@@ -33,16 +33,8 @@
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
-        require '../../database/get_logs.php';
     ?>
 
-    <link rel="stylesheet" type="text/css" href="../../css/dataTables.bootstrap.min.css">
-
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $('#users').DataTable();
-      } );
-    </script>
 </head>
 <body>
 	<!-- Include header -->
@@ -52,32 +44,20 @@
     <?php include "../../templates/admin/admin_sidebar.php"; ?>
     
         <div class="container main">
-             <div class="col-md" style=" min-height: 350px; padding-right: 25px;">
-                  <h1 class='text-center'>View System Audit Logs</h1>
-                  <br>
-                  <table id="users" class="table table-striped table-bordered table-hover" style="width:100%;">
-                    <thead style="background: #eee">
-                        <tr>
-                            <th>Log ID</th>
-                            <th>Committed by</th>
-                            <th>Action</th>
-                            <th>Timestamp</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                      foreach ($logs as $log) {
-                       echo "<tr>
-                              <td>".$log['uid']."</td>
-                              <td>".$log['username']."</td>
-                              <td>".$log['log_action']."</td>
-                              <td>".$log['time_stamp']."</td>
-                            </tr>";
-                      }
+             <div class="col-md" style=" width:700px; min-height: 350px; padding-left: 400px; padding-top: 100px">
+                  
+                  <br><br><br>
+                  Before viewing the logs, please enter your password:
 
-                        ?>
-                    </tbody>
-                </table>
+                  <form class="form-horizontal" method="POST" action="../../database/admin_authentication.php">
+                    <!-- Password -->
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                      <input type="password" id="password" class="form-control" name="pword" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                    </div>
+
+                    <button type="submit" name="btn_authenticate" class="btn btn-success" >View Logs</button>
+                  </form>
                              
             </div>              
         </div>

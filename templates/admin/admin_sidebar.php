@@ -19,7 +19,7 @@
                     <a href="approve_brand.php?token=<?php echo $token ?>"><i class="glyphicon glyphicon-ok"></i>&nbsp;  Approve a Brand</a>
                 </li>
                 <li <?php if($highlight == 'view_logs') echo "class='active'"; ?>>
-                    <a href="view_audit_logs.php?token=<?php echo $token ?>"><i class="glyphicon glyphicon-folder-open"></i>&nbsp;  View Audit Logs</a>
+                    <a href="reauthentication.php?token=<?php echo $token ?>"><i class="glyphicon glyphicon-folder-open"></i>&nbsp;  View Audit Logs</a>
                 </li>
 
             <h3>Users</h3>

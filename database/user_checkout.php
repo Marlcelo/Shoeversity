@@ -8,7 +8,7 @@
 		$password = trim($password);
 		$password = filter_var($password,FILTER_SANITIZE_STRING);
 
-		if (strlen($pass) < 8 || !preg_match("#[0-9]+#", $pass || !preg_match("#[a-zA-Z]+#", $pass) || !preg_match("#[!,%,&,@,#,$,^,*,?,_,~,.]+#", $pass)) {
+		if (strlen($pass) < 8 || !preg_match("#[0-9]+#", $pass) || !preg_match("#[a-zA-Z]+#", $pass) || !preg_match("#[!,%,&,@,#,$,^,*,?,_,~,.]+#", $pass)) {
 	       $error_msg .= "Invalid input. Try again!";
 			$_SESSION['error_msg'] = $error_msg;
 			header("Location: ../views/users/products.php?result=".md5("failed")."&token=".$_SESSION['sessionToken']);
