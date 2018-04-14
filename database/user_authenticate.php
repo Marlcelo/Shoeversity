@@ -40,6 +40,14 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){// if a new use
 			!preg_match("#[0-9]+#", $password) || 
 			!preg_match("#[a-zA-Z]+#", $password) || 
 			!preg_match("#\W+#", $password))) {
+
+		require 'config.php';
+
+		$query = "CALL SP_ADD_LOG('".$username."','Failed Login Attempt')";
+		$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
+
+		mysqli_close($conn);
+
         header("Location: ../views/login.php?auth=error");
         exit();
     }
@@ -63,6 +71,12 @@ $message = mysqli_fetch_assoc($result);
 /* Check if user, brand, or admin already exists in database */
 if($message['strreturn'] == 'SUCCESS') {
 	session_destroy();
+	require 'config.php';
+
+		$query = "CALL SP_ADD_LOG('".$username."','Successfully Logged In')";
+		$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
+
+		mysqli_close($conn);
 	header("Location: user_save_session.php?user=$username");
 	require 'activity_check.php';
 	exit();
@@ -74,6 +88,14 @@ else if($message['strreturn'] == 'FAILED') {
 	}else{
 		$_SESSION['attempt'] = 1;
 	}
+
+	require 'config.php';
+
+	$query = "CALL SP_ADD_LOG('".$username."','Failed Login Attempt')";
+	$result = mysqli_query($conn,$query) or die(mysqli_error($conn));
+
+	mysqli_close($conn);
+
 	header("Location: ../views/login.php?auth=error");
 	exit();
 }
