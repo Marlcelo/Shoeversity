@@ -81,7 +81,7 @@
                                 <form class="form-horizontal" name="register_user" id="register" action="../../database/admin_register.php" method="POST">
                                     <div class="input-group">
                                              <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                                           <input type="text" class="form-control" name="uname" placeholder="Username" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter and at least 8 or more characters" required>
+                                           <input type="text" class="form-control" name="uname" placeholder="Username" pattern="[A-Za-z0-9].{8,}" title="Must be atleast 8 characters or more" required>
                                     </div><br>
                                    <div class="input-group">
                                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>

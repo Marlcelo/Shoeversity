@@ -11,13 +11,22 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){// if a new use
 
 	if (strlen($password) < 8 || 
 		strlen($username) < 8 ||  
-		(!preg_match("#[0-9]+#", $username) ||  
-			!preg_match("#[a-zA-Z]+#", $username) || 
+		(  	!preg_match("#[a-zA-Z0-9]+#", $username) || 
 			!preg_match("#[0-9]+#", $password) || 
 			!preg_match("#[a-zA-Z]+#", $password) || 
 			!preg_match("#\W+#", $password))) {
+		if(isset($_SESSION['attempt'])){
+			$_SESSION['attempt']++;
+		}else{
+			$_SESSION['attempt'] = 1;
+		}
 
-        //header("Location: ../views/login.php?auth=error");
+
+		if($_SESSION['attempt'] >= 5){
+			$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+		}
+
+        header("Location: ../views/login.php?auth=error");
         exit();
     }
 	echo "Here at Session";
@@ -28,18 +37,28 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){// if a new use
 	$username = filter_var($username, FILTER_SANITIZE_STRING);
 	$password = filter_var($password, FILTER_SANITIZE_STRING);
 	echo $username ." ". $password;
-}else{
+}else{ //from login page
 	/* Store user input from login.php */
 	$username = $_POST['username'];
 	$password = $_POST['password'];
 
 	if (strlen($password) < 8 || 
 		strlen($username) < 8 ||  
-		(!preg_match("#[0-9]+#", $username) ||  
-			!preg_match("#[a-zA-Z]+#", $username) || 
+		(	!preg_match("#[a-zA-Z0-9]+#", $username) || 
 			!preg_match("#[0-9]+#", $password) || 
 			!preg_match("#[a-zA-Z]+#", $password) || 
 			!preg_match("#\W+#", $password))) {
+
+		if(isset($_SESSION['attempt'])){
+		$_SESSION['attempt']++;
+		}else{
+			$_SESSION['attempt'] = 1;
+		}
+
+
+		if($_SESSION['attempt'] >= 5){
+			$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
+		}
 
 		require 'config.php';
 
@@ -58,7 +77,7 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){// if a new use
 	$username = filter_var($username, FILTER_SANITIZE_STRING);
 	$password = filter_var($password, FILTER_SANITIZE_STRING);
 }
-
+$username = strtolower($username); //converts string to lowerase
 /* Issue query on database */
 $sql = "CALL SP_GET_AUTHUSER('$username', 
 							  FN_GET_HASHEDPASSWORD('$password'));";	/* Check hashed password */
@@ -83,12 +102,7 @@ if($message['strreturn'] == 'SUCCESS') {
 }
 else if($message['strreturn'] == 'FAILED') {
 	// Redirect back to the login page and display the error modal
-	if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
-        // last request was more than 30 minutes ago
-        session_unset();     // unset $_SESSION variable for the run-time 
-        session_destroy();   // destroy session data in storage
-    }
-    
+	
 	if(isset($_SESSION['attempt'])){
 		$_SESSION['attempt']++;
 	}else{
@@ -96,7 +110,7 @@ else if($message['strreturn'] == 'FAILED') {
 	}
 
 
-	if($_SESSION['attempt'] == 5){
+	if($_SESSION['attempt'] >= 5){
 		$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 	}
 
@@ -107,6 +121,7 @@ else if($message['strreturn'] == 'FAILED') {
 
 	mysqli_close($conn);
 
+	echo $_SESSION['attempt'];
 	header("Location: ../views/login.php?auth=error");
 	exit();
 }
