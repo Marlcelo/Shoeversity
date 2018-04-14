@@ -189,7 +189,7 @@
                                 <!-- <span class="input-group-addon"><img src="../../images/icons/ic_person_black_24dp.png" style="height: 20px"></span> -->
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                                 <input type='text' name='username' class='form-control' placeholder="Username" required <?php 
-                                if(isset($_SESSION['LAST_ACTIVITY'])) {
+                                if(isset($_SESSION['LAST_ACTIVITY'])  && isset($_SESSION['attempt']) && $_SESSION['attempt'] >= 5) {
                                      echo "disabled";
                                 }                                 
                                 ?>>
@@ -201,7 +201,7 @@
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                 <input type='password' name='password' class='form-control' placeholder="Password" required 
                                 <?php 
-                                if(isset($_SESSION['LAST_ACTIVITY'])){
+                                if(isset($_SESSION['LAST_ACTIVITY']) && isset($_SESSION['attempt'])  && $_SESSION['attempt'] >= 5){
                                     echo "disabled";
                                 } 
                                 ?>>
@@ -215,7 +215,7 @@
 
                             <!-- Submit Button -->
                             <button type="submit" class="btn btn-primary" name="btn_login" style="padding: 7px; width: 100%" <?php 
-                                if(isset($_SESSION['LAST_ACTIVITY'])){
+                                if(isset($_SESSION['LAST_ACTIVITY']) && isset($_SESSION['attempt'])  && $_SESSION['attempt'] >= 5){
                                     echo "disabled";
                                 } 
                                 ?>>
