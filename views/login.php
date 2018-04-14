@@ -154,7 +154,7 @@
                 $_SESSION['success_msg'] = "";    // reset
             }
         }
-
+        require "../database/user_lockout_checker.php";
         // include forgot password modal popup
         include "modals/forgot_password.php";
     ?>
@@ -189,7 +189,7 @@
                                 <!-- <span class="input-group-addon"><img src="../../images/icons/ic_person_black_24dp.png" style="height: 20px"></span> -->
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                                 <input type='text' name='username' class='form-control' placeholder="Username" required <?php 
-                                if(isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] < 1800)){
+                                if(isset($_SESSION['LAST_ACTIVITY'])) {
                                      echo "disabled";
                                 }                                 
                                 ?>>
@@ -201,7 +201,7 @@
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                 <input type='password' name='password' class='form-control' placeholder="Password" required 
                                 <?php 
-                                if(isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] < 1800)){
+                                if(isset($_SESSION['LAST_ACTIVITY'])){
                                     echo "disabled";
                                 } 
                                 ?>>
@@ -214,7 +214,11 @@
                             </div>
 
                             <!-- Submit Button -->
-                            <button type="submit" class="btn btn-primary" style="padding: 7px; width: 100%">
+                            <button type="submit" class="btn btn-primary" name="btn_login" style="padding: 7px; width: 100%" <?php 
+                                if(isset($_SESSION['LAST_ACTIVITY'])){
+                                    echo "disabled";
+                                } 
+                                ?>>
                                 <img src="../images/icons/login.png" alt="" style="width: 24px;">
                                 <strong>Login</strong>
                             </button>
