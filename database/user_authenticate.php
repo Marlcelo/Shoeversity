@@ -83,10 +83,21 @@ if($message['strreturn'] == 'SUCCESS') {
 }
 else if($message['strreturn'] == 'FAILED') {
 	// Redirect back to the login page and display the error modal
+	if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1800)) {
+        // last request was more than 30 minutes ago
+        session_unset();     // unset $_SESSION variable for the run-time 
+        session_destroy();   // destroy session data in storage
+    }
+    
 	if(isset($_SESSION['attempt'])){
 		$_SESSION['attempt']++;
 	}else{
 		$_SESSION['attempt'] = 1;
+	}
+
+
+	if($_SESSION['attempt'] == 5){
+		$_SESSION['LAST_ACTIVITY'] = time(); // update last activity time stamp
 	}
 
 	require 'config.php';
