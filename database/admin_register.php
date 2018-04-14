@@ -14,6 +14,7 @@
 
 			require 'config.php';
 			$uname = $_POST['uname'];
+			$uname = strtolower($uname); //converts username to lowercase
 			$email = $_POST['email'];
 
 			$uname = trim($uname);

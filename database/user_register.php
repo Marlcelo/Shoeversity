@@ -13,7 +13,8 @@ if(isset($_POST['registerUser'])){
 
 		$uname = $_POST['uname'];
 		$email = $_POST['email'];
-
+		$uname = strtolower($uname); //converts username to lowercase
+		
 		$uname = trim($uname);
 		$email = trim($email);			
 		if (strlen($pass) < 8 || strlen($uname) < 8 || (!preg_match("#[0-9]+#", $uname) &&  !preg_match("#[a-zA-Z]+#", $uname) && !preg_match("#[0-9]+#", $pass) && !preg_match("#[a-zA-Z]+#", $pass) && !preg_match("#\W+#", $pass))) {

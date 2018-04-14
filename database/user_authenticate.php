@@ -58,7 +58,7 @@ if(isset($_SESSION['username']) && isset($_SESSION['password'])){// if a new use
 	$username = filter_var($username, FILTER_SANITIZE_STRING);
 	$password = filter_var($password, FILTER_SANITIZE_STRING);
 }
-
+$username = strtolower($username); //converts string to lowerase
 /* Issue query on database */
 $sql = "CALL SP_GET_AUTHUSER('$username', 
 							  FN_GET_HASHEDPASSWORD('$password'));";	/* Check hashed password */
