@@ -25,7 +25,7 @@
 			if (strlen($pass) < 8 || strlen($uname) < 8 || (!preg_match("#[0-9]+#", $pass) || !preg_match("#[a-zA-Z]+#", $pass) || !!preg_match("#\W+#", $pass))) {
 	    	$error_msg .= "Invalid format! Try again!.";
 	    	$_SESSION['error_msg'] = $error_msg;
-			$error_path = "admin_register.php?register=" . md5('failed');
+			$error_path = "../views/admin/register_admin.php?register=" . md5('failed');
 			header("Location: $error_path");
 	        exit();
 	    }
