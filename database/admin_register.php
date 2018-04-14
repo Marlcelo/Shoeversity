@@ -22,7 +22,7 @@
 
 			$uname = filter_var($uname, FILTER_SANITIZE_STRING);
 
-			if (strlen($pass) < 8 || strlen($uname) < 8 || (!preg_match("#[0-9]+#", $pass) || !preg_match("#[a-zA-Z]+#", $pass) || !!preg_match("#\W+#", $pass))) {
+			if (strlen($pass) < 8 || strlen($uname) < 8 || (!preg_match("#[0-9]+#", $pass) || !preg_match("#[a-zA-Z]+#", $pass) || !preg_match("#\W+#", $pass))) {
 	    	$error_msg .= "Invalid format! Try again!.";
 	    	$_SESSION['error_msg'] = $error_msg;
 			$error_path = "../views/admin/register_admin.php?register=" . md5('failed');
@@ -182,7 +182,7 @@
 	}else{// pass not same as cpass
 		$error_msg .= "Your passwords do not match! Please try again.";
 		$_SESSION['error_msg'] = $error_msg;
-		$error_path = "admin_register.php?register=" . md5('failed')."&token=$token";
+		$error_path = "../views/admin/register_admin.php?register=" . md5('failed')."&token=$token";
 		header("Location: $error_path");
 		exit();
 	}
