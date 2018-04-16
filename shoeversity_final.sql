@@ -342,7 +342,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_ADD_SHOE`(brandID int, shoeName 
 BEGIN
   DECLARE str_return varchar(10); 
   
-  IF EXISTS(SELECT * FROM shoes WHERE posted_by = brandID AND name = shoeName AND type = shoeType AND category = shoeCategory) THEN
+  IF EXISTS(SELECT * FROM shoes WHERE posted_by = brandID AND name = shoeName AND type = shoeType AND category = shoeCategory AND size = shoeSize AND color = shoeColor) THEN
     SET str_return = 'FAILED';  
     
   ELSE
