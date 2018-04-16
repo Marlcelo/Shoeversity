@@ -24,6 +24,8 @@
                    window.history.back();
                 })
                 </script>";
+
+            include '../../database/log_restricted.php';
         }
         else {
             $token = $_SESSION['sessionToken'];

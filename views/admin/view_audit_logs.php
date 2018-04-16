@@ -29,6 +29,8 @@
                    window.history.back();
                 })
                 </script>";
+
+            include '../../database/log_restricted.php';
         }
 
         // Check if user is authorized to access page

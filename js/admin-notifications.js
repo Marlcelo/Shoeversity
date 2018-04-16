@@ -4,6 +4,6 @@ function openNotifs() {
 }
 
 function closeNotifs() {
-	document.getElementById("admin-notifs-panel").style.top = "-350px";
+	document.getElementById("admin-notifs-panel").style.top = "-550px";
 	// document.getElementById("admin-notifs-panel").style.display = "none";
 }
