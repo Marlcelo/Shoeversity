@@ -64,6 +64,9 @@
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
+        
+        // Require reauthentication for viewing logs
+        $_SESSION['authLog'] = 0;
     ?>
     <link rel="stylesheet" type="text/css" href="../../css/passwordchecker.css">
     <script src="../../js/passwordcheck.js"></script><!-- Include Your jQUery file here-->

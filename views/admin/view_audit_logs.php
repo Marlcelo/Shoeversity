@@ -32,10 +32,27 @@
 
             include '../../database/log_restricted.php';
         }
+        else {
+          $token = $_SESSION['sessionToken'];
+        }
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
         require '../../database/get_logs.php';
+
+        // Require admin re-authentication
+        if(isset($_SESSION['authLog']) && $_SESSION['authLog'] == 0) {
+          include '../modals/reauthenticate.php';
+          echo "<script> 
+                  $('#reauth_modal').modal({
+                       backdrop: 'static',
+                       keyboard: false
+                  });
+                  $('#reauth_modal').on('hidden.bs.modal', function () { //go back to prev page
+                     window.location='dashboard.php?token=".$token."';
+                  })
+            </script>";
+        }
     ?>
 
     <link rel="stylesheet" type="text/css" href="../../css/dataTables.bootstrap.min.css">

@@ -40,6 +40,8 @@
         $admin_lname = $_SESSION['a_lastname'];     
         $admin_mname = $_SESSION['a_middlename'];   
 
+        // Require reauthentication for viewing logs
+        $_SESSION['authLog'] = 0;
     ?>
 </head>
 <body style="margin-left: 0px !important">

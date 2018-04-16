@@ -96,6 +96,10 @@
 
             require "../../database/shoe_get.php";
             $shoe = $_SESSION['selected_shoe_details'];
+
+            
+        // Require reauthentication for viewing logs
+        $_SESSION['authLog'] = 0;
         ?>
 
 
