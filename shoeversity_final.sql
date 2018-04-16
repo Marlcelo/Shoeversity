@@ -71,7 +71,7 @@ END$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_GET_ALL_LOGS`()
 BEGIN
   SELECT * 
-    FROM logs;
+    FROM logs ORDER BY time_stamp DESC;
 END$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SP_CHECK_UNAME_EMAIL_DUPLICATE` (IN `testUname` VARCHAR(50), IN `testEmail` VARCHAR(50))  BEGIN
