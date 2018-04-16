@@ -42,7 +42,9 @@
 
     <script type="text/javascript">
       $(document).ready(function() {
-        $('#users').DataTable();
+        $('#users').DataTable({
+            "order":[[1, "desc"]]
+        });
       } );
     </script>
 </head>

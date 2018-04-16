@@ -86,7 +86,7 @@
                 </div>
                 <div class="col-md-8">
                     
-                      <h1 class='text-center'>Purchases History</h1>
+                      <h1 class='text-center'>Purchase History</h1>
                       <br>
                       <table id="users" class="table table-striped table-bordered table-hover" style="width:100%;">
                         <thead style="background: #eee">
