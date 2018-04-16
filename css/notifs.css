@@ -7,7 +7,7 @@
     width: 400px;
     padding: 0px;
     position: fixed;
-    z-index: 2;
+    z-index: 999;
     top: -550px;
     right: 134px;
     /*transition: visibility 0s, opacity 0.5s linear;*/
