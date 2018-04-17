@@ -53,6 +53,10 @@
                   })
             </script>";
         }
+        else {
+          // Require reauthentication for viewing logs
+          //$_SESSION['authLog'] = 0;
+        }
     ?>
 
     <link rel="stylesheet" type="text/css" href="../../css/dataTables.bootstrap.min.css">
@@ -60,7 +64,7 @@
     <script type="text/javascript">
       $(document).ready(function() {
         $('#users').DataTable({
-            "order":[[1, "desc"]]
+            "order":[[0, "desc"]]
         });
       } );
     </script>
@@ -95,23 +99,16 @@
                               <td>".$log['time_stamp']."</td>
                             </tr>";
                       }
-
-                      // while ( <= 10) {
-                      //   echo "string";
-                      // }
                         ?>
                     </tbody>
-                  <!--   <tfoot>
-                        <tr>
-                            <th>Username</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Gender</th>
-                            <th>Delete</th>
-                        </tr>
-                    </tfoot> -->
                 </table>
-                             
+                
+                <br>
+                <form action="../../database/logs_download.php" method="post">
+                  <button class="btn btn-success pull-right" type="submit">
+                      <span class="glyphicon glyphicon-download-alt"></span> &nbsp; <strong>Download Logs</strong>
+                  </button>   
+                </form>
             </div>              
         </div>
 
@@ -121,10 +118,6 @@
     <!-- .END FOOTER -->
 	
 	<!-- Include Javascript files -->
-    <!-- <script src="../../js/dataTables.bootstrap.min.js"></script>
-    <script src="../../js/jquery-1.12.4.js"></script>
-    <script src="../../js/jquery.dataTables.min.js"></script> -->
-
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
