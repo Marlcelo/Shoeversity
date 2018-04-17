@@ -43,12 +43,25 @@
             
             <!-- Modal Body -->
             <div class="modal-body" style="text-align: center;">
+                <div class="pre-scrollable">
                 <div class="col-md">
-                    <span><h4>Brand Name: <?php echo $name ?></h4></span>
-                    <span><h4>Username: <?php echo $username ?></h4></span>
-                    <span><h4>Location: <?php echo $location ?></h4></span>
+                    <span class="text-info"><h4>Brand Name: <span style="color:#000 !important"><?php echo $name ?></span></h4></span>
+                    <span class="text-info"><h4>Username: <span style="color:#000 !important"><?php echo $username ?></span></h4></span>
                     <hr>
-                    <span><h4>Contact:</h4></span>
+                    <span class="text-info"><h4 class="text-info">Location(s):</h4></span>
+                    <?php
+                        require '../database/config.php';
+                        $sql = "SELECT * FROM brand_location WHERE brand_id = $posted_by_id";
+                        $result = mysqli_query($conn, $sql);
+
+                        while($row = mysqli_fetch_assoc($result)) {
+                            $loc = $row['location']; ?>
+                            <span><h4><?php echo $loc ?></h4></span>
+                    <?php    } 
+                        mysqli_close($conn);
+                    ?>
+                    <hr>
+                    <span class="text-info"><h4>Contact:</h4></span>
                     <span><h4><?php echo $email ?></h4></span>
 
                     <?php
@@ -68,18 +81,19 @@
                         $sql = "CALL SP_GET_BRAND_LINKS($posted_by_id)";
                         $result = mysqli_query($conn, $sql) or die(mysqli_error($conn));?>
                         <hr>
-                        <span><h4>Find out more on:</h4></span>
+                        <span class="text-info"><h4>Find out more on:</h4></span>
 
                     <?php
                         while($row = mysqli_fetch_assoc($result)) {
                             $linktype = $row['link_type'];
                             $link  = $row['link'];   ?>
-                            <span><h4><?php echo $linktype ?> - <?php echo $link ?></h4></span>
+                            <span><h4><?php echo $linktype ?> - <a href="<?php echo $link ?>" target="_blank"><?php echo $link ?></a></h4></span>
                     <?php    }
 
                         mysqli_close($conn); 
                     ?>
                     
+               </div>
                </div>
                 
             </div>
