@@ -1,6 +1,8 @@
 <?php
 	session_start();
 	require 'activity_check.php';
+	$token = $_SESSION['sessionToken'];
+
 	if(isset($_GET['id'])){
 		$shoe = $_GET['id'];		
 
@@ -11,7 +13,7 @@
 				$newCart = array_values($_SESSION['cart']);
 				$_SESSION['cart'] = $newCart;
 
-				header("location:../views/users/products.php");
+				header("location:../views/users/products.php?token=$token");
 
 
 	}

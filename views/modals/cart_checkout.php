@@ -1,5 +1,6 @@
 <?php
     require '../../database/user_get_cart_items.php';
+    $token = $_SESSION['sessionToken'];
 
     if(isset ($_GET['removeShoe'])){
         $_SESSION['warning_msg'] = "Are you sure you want to delete this product?";
@@ -9,7 +10,7 @@
         echo "<script> 
         $('#warning_modal').modal('show');
         $('#warning_modal').on('hidden.bs.modal', function () { 
-           window.location = 'products.php';
+           window.location = 'products.php?token=$token';
        })
        </script>";
                   }
@@ -30,9 +31,9 @@
                 </h4>
             </div>
 
-            <div class="modal-body">
+            <div class="modal-body" style="clear: both">
                 
-                        <!-- <div class="col-md-12"> -->
+                        <div class="pre-scrollable" >
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
@@ -47,52 +48,74 @@
                                      ?>
                                     <tr>
                                         <td>
-                                            <img src="<?php echo "../".$shoe[0]; ?>" height = 80px width = 80px>
-                                           <?php echo $shoe[1]; ?>
+                                            <img src="<?php echo "../".$shoe[0]; ?>" height = 80px width = 110px>
+                                            &nbsp;
+                                            <h3 style="display: inline; margin-left: 15px"><?php echo $shoe[1]; ?></h3>
                                         </td> 
                                         <td class="text-center">
-                                            <strong>₱<?php echo $shoe[2]; ?></strong>
+                                            <h3>₱ <?php echo $shoe[2]; ?></h3>
                                         </td>
-                                        <td class="">
+                                        <!-- <td class="">
                                             <form method="GET">
-                                                <!-- action="../../database/user_checkout_remove_product.php" -->
-                                                <button type="submit" class="btn btn-danger btn-sm" name="removeShoe" value="<?php echo $shoe[3] ?>">
+                                             action="../../database/user_checkout_remove_product.php"
+                                                <button type="submit" class="btn btn-danger btn-sm" name="removeShoe" value="<?php //echo $shoe[3] ?>" onclick="removeShoeFromCart(<?php //echo $shoe[3].','.$token ?>)">
                                                 <span class="glyphicon glyphicon-remove"></span> Remove
                                             </button>
-                                            </form>
+                                             </form>
                                             
-                                        </td>
+                                        </td> -->
                                     </tr>
                                     <!-- End of Product in cart-->
-                                    <?php } ?>
-                                    <tr>
-                                        <td>   </td>
-                                        <td>   </td>
-                                        <td>   </td>
-                                        <td><h5>Subtotal</h5></td>
-                                        <td class="text-right"><h5>₱<strong><?php echo $subtotal; ?></strong></h5></td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>   </td>
-                                        <td>   </td>
-                                        <td>   </td>
-                                        <td><h5>Estimated shipping</h5></td>
-                                        <td class="text-right"><h5>₱<strong><?php echo $total - $subtotal; ?></strong></h5></td>
-                                    </tr>    
-                                    <tr>
-                                        <td>   </td>
-                                        <td>   </td> <!--Leave these blank-->
-                                        <td>   </td>
-                                        <td><h3>Total</h3></td>
-                                        <td class="text-right"><h3>₱<strong><?php echo $total; ?></strong></h3></td>
-                                    </tr>                    
+                                    <?php } ?>              
                                     
                                 </tbody>
                             </table>
-                        <!-- </div> -->
+                        </div>
+                        <br/>
+                        <form class="" method="POST" action="../../database/user_checkout.php"> 
+
+                        <div class="row pull-right" style="width: 100% !important;">
+                            <div class="col-md-4">
+                                <p>Confirm password to finalize your purchase</p> 
+                                <div class="input-group">
+
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                    <input type="password" id="password1" class="form-control" name="pword" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-6">
+                                
+                                <table style="margin-left: 150px !important">
+                                    <tr>
+                                       <!--  <td>   </td>
+                                        <td>   </td>
+                                        <td>   </td> -->
+                                        <td style="margin-right: 70px"><h5>Subtotal</h5></td>
+                                        <td class="text-right"><h5>₱ <strong><?php echo $subtotal; ?></strong></h5></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <!-- <td>   </td>
+                                        <td>   </td>
+                                        <td>   </td> -->
+                                        <td style="margin-right: 70px"><h5>Estimated Shipping</h5></td>
+                                        <td class="text-right"><h5>₱ <strong><?php echo $total - $subtotal; ?></strong></h5></td>
+                                    </tr>    
+                                    <tr>
+                                        <!-- <td>   </td>
+                                        <td>   </td> 
+                                        <td>   </td> -->
+
+                                        <td style="margin-right: 70px"><h3>Total</h3></td>
+                                        <td class="text-right"><h3>₱ <strong><?php echo $total; ?></strong></h3></td>
+                                    </tr>     
+                                </table>
+                            </div>
+                        </div>
                     </div>
-               
+                    <br/><br/><br/><br/><br/><br/>
 
             <!-- Modal Footer -->
             <div class="modal-footer" style="border-top: none">
@@ -101,15 +124,15 @@
                 </button>
                 &nbsp;
                 <!-- <a href=""> -->
-                <form class="form-horizontal" method="POST" action="../../database/user_checkout.php">
-                    <div class="col-md-4">
+                <!-- <form class="" method="POST" action="../../database/user_checkout.php"> -->
+                    <!-- <div class="col-md-4">
                         <p>Confirm password to finalize your purchase</p> 
                         <div class="input-group">
 
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                             <input type="password" id="password1" class="form-control" name="pword" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
                         </div>
-                    </div>
+                    </div> -->
                     <button type="submit" name="btn_checkout" class="btn btn-success" >
                         <strong>Check out</strong> <span class="glyphicon glyphicon-play"></span>
                     </button>
@@ -121,3 +144,12 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    function removeShoeFromCart(id, token) {
+        alert(token);
+        $.ajax({
+            url:"../users/products.php?removeShoe="+id+"&token="+token
+        });
+    }
+</script>
