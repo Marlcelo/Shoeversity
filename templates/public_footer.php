@@ -27,7 +27,7 @@
           <div class="col-md-4">
               <h3> Important Links </h3>
               <ul>
-                  <li> <a href="../views/index.php"> Product </a> </li>
+                  <li> <a href="../views/index.php"> Products </a> </li>
                   <li> <a href="../views/login.php"> Login </a> </li>
                   <li> <a href="../views/register.php"> Register </a> </li>
               </ul>
