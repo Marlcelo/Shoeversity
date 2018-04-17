@@ -82,6 +82,8 @@
            }
         }
 
+        // Require reauthentication for viewing logs
+        $_SESSION['authLog'] = 0;
     ?>
 </head>
 <body>

@@ -48,6 +48,7 @@ if($userType == "Admin") {
 
 	mysqli_close($conn);
 
+	$_SESSION['authLog'] = 0;
 	header("Location: ../views/admin/dashboard.php?token=$sessionToken");
 	exit();
 }

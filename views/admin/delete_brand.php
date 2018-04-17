@@ -75,6 +75,8 @@
                    </script>";
             }
         }
+        // Require reauthentication for viewing logs
+        $_SESSION['authLog'] = 0;
     ?>
 
     <link rel="stylesheet" type="text/css" href="../../css/dataTables.bootstrap.min.css">

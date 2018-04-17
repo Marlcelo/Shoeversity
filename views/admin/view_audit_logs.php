@@ -32,17 +32,40 @@
 
             include '../../database/log_restricted.php';
         }
+        else {
+          $token = $_SESSION['sessionToken'];
+        }
 
         // Check if user is authorized to access page
         include '../../database/check_access.php';
         require '../../database/get_logs.php';
+
+        // Require admin re-authentication
+        if(isset($_SESSION['authLog']) && $_SESSION['authLog'] == 0) {
+          include '../modals/reauthenticate.php';
+          echo "<script> 
+                  $('#reauth_modal').modal({
+                       backdrop: 'static',
+                       keyboard: false
+                  });
+                  $('#reauth_modal').on('hidden.bs.modal', function () { //go back to prev page
+                     window.location='dashboard.php?token=".$token."';
+                  })
+            </script>";
+        }
+        else {
+          // Require reauthentication for viewing logs
+          //$_SESSION['authLog'] = 0;
+        }
     ?>
 
     <link rel="stylesheet" type="text/css" href="../../css/dataTables.bootstrap.min.css">
 
     <script type="text/javascript">
       $(document).ready(function() {
-        $('#users').DataTable();
+        $('#users').DataTable({
+            "order":[[0, "desc"]]
+        });
       } );
     </script>
 </head>
@@ -76,23 +99,16 @@
                               <td>".$log['time_stamp']."</td>
                             </tr>";
                       }
-
-                      // while ( <= 10) {
-                      //   echo "string";
-                      // }
                         ?>
                     </tbody>
-                  <!--   <tfoot>
-                        <tr>
-                            <th>Username</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Gender</th>
-                            <th>Delete</th>
-                        </tr>
-                    </tfoot> -->
                 </table>
-                             
+                
+                <br>
+                <form action="../../database/logs_download.php" method="post">
+                  <button class="btn btn-success pull-right" type="submit">
+                      <span class="glyphicon glyphicon-download-alt"></span> &nbsp; <strong>Download Logs</strong>
+                  </button>   
+                </form>
             </div>              
         </div>
 
@@ -102,10 +118,6 @@
     <!-- .END FOOTER -->
 	
 	<!-- Include Javascript files -->
-    <!-- <script src="../../js/dataTables.bootstrap.min.js"></script>
-    <script src="../../js/jquery-1.12.4.js"></script>
-    <script src="../../js/jquery.dataTables.min.js"></script> -->
-
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js"></script>
