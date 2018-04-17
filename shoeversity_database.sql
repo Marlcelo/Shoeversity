@@ -781,8 +781,9 @@ INSERT INTO `logs` (`uid`, `username`, `log_action`, `time_stamp`) VALUES
 (101, 'adidasofficialph', 'New product Adidas Yeezy Boost V2 has been added', '2018-04-17 12:35:29'),
 (102, 'adidasofficialph', 'New product Adidas NMD R1 STLT has been added', '2018-04-17 12:36:46'),
 (103, 'adidasofficialph', 'New product Adidas Superstar has been added', '2018-04-17 12:37:50'),
-(104, 'adidasofficialph', 'Logged Out', '2018-04-17 12:38:02');
-
+(104, 'adidasofficialph', 'Logged Out', '2018-04-17 12:38:02'),
+(105, 'marlricanor20', 'Newly Registered', '2018-04-17 13:34:23'),
+(106, 'marlricanor20', 'Successfully Logged In', '2018-04-17 13:34:28');
 -- --------------------------------------------------------
 
 --
@@ -912,7 +913,8 @@ INSERT INTO `site_users` (`id`, `type`, `username`, `password`) VALUES
 (6, 'Brand', 'vansofficialph', '3685BF34FFCF2776799DFC38769330F9928508672A0AEB60AF15BD49F901C22D'),
 (7, 'Brand', 'guccishoes', 'BBC620549F120D673EC9CD516EB9352CA381B36403F582068925A46B46F34153'),
 (8, 'Brand', 'converseph', '442769274DF734F72902ADC4659AB90B7F1D09B9252914AB4E05D9158A013E23'),
-(9, 'Brand', 'filaphilippines', '50139FE31EC4047210FB7731FE2E9DC63AA208DA3547F6C1FF2D78E20E547028');
+(9, 'Brand', 'filaphilippines', '50139FE31EC4047210FB7731FE2E9DC63AA208DA3547F6C1FF2D78E20E547028'),
+(10, 'User', 'marlricanor20', 'DDCC4230D42008B23CC9DA3435B2B91C511A73F5C978AB42872F88F57D8679CC');
 
 -- --------------------------------------------------------
 
@@ -935,6 +937,9 @@ CREATE TABLE `users` (
 --
 -- Dumping data for table `users`
 --
+
+INSERT INTO `users` (`uid`, `u_username`, `u_password`, `u_email`, `u_gender`, `first_name`, `middle_name`, `last_name`, `time_stamp`) VALUES
+(1, 'marlricanor20', 'DDCC4230D42008B23CC9DA3435B2B91C511A73F5C978AB42872F88F57D8679CC', 'marl_ricanor@dlsu.edu.ph', 'm', 'Marl', 'Christian', 'Ricanor', '2018-04-17 13:34:23');
 
 
 --
@@ -1054,7 +1059,7 @@ ALTER TABLE `brand_location`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- AUTO_INCREMENT for table `purchases`
@@ -1078,13 +1083,13 @@ ALTER TABLE `shoe_ratings`
 -- AUTO_INCREMENT for table `site_users`
 --
 ALTER TABLE `site_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `uid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
