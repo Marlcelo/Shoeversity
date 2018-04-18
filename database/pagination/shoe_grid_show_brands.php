@@ -43,7 +43,7 @@ while($row = mysqli_fetch_assoc($result)) {
 	if($colCounter % 3 == 0) $output .= "<div class='row'>";
 
 	$output .= '<div class="col-sm-4">';
-	$output .= '<span class="thumbnail" style="min-height: 440px">';
+	$output .= '<span class="thumbnail" style="min-height: 470px">';
 	$output .= '<div class="row" style="float:right;">';
 	$output .= '<div class="col-md-8 col-sm-8">
                     <a href="products.php?edit='. $row['uid'] . '&pid='. $row['uid'] .'&token='.$token .'">
